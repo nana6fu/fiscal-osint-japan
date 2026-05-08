@@ -1000,7 +1000,7 @@ footer{font-size:10px;color:#30363d;padding:5px 24px;border-top:1px solid #0d111
     <select class="year-sel" id="yearSel">
       <option value="2006">2006年度（平成18年度）</option>
       <option value="2024">2024年度（令和6年度）</option>
-      <option value="2023">2023年度（令和5年度）※厚労省のみ</option>
+      <option value="2023">2023年度（令和5年度）</option>
       <option value="2005" disabled>2005年度（整備中）</option>
     </select>
     <div class="badge badge-red">⚠ OB再就職・随意契約 要確認</div>
@@ -2149,7 +2149,8 @@ document.getElementById("yearSel").addEventListener("change", function(){
     MINISTRIES_ACTIVE = MINISTRIES_2023;
     document.getElementById("headerSrc").textContent = "公的資金の流れを、公開情報から検証する ｜ 特別会計・公共調達・政治資金・情報公開請求";
     document.querySelector(".sum-item:nth-child(1) .sum-val").innerHTML = '436<span style="font-size:13px">兆円</span>';
-    document.querySelector(".sum-item:nth-child(1) .sum-sub").textContent = "※2023年度は厚労省のみ表示";
+    document.querySelector(".sum-item:nth-child(1) .sum-sub").textContent = "※2023年度は厚労省・デジタル庁のみ表示";
+    document.querySelector(".sum-item:nth-child(3) .sum-sub") && (document.querySelector(".sum-item:nth-child(3) .sum-sub").textContent = "特別会計数（参考：2024年度）");
     document.querySelector(".sum-item:nth-child(1) .sum-label").textContent = "特別会計 歳出総額";
     document.querySelector(".sum-item:nth-child(3) .sum-label").textContent = "特別会計数（参考：2024年度）";
   } else if(this.value === "2024"){
