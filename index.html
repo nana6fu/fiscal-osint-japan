@@ -2061,7 +2061,7 @@ async function analyzeAI(){
   var yearLabel = yr==="2024" ? "2024年度（令和6年度）" : yr==="2023" ? "2023年度（令和5年度）" : yr+"年度";
   var prompt = "以下は"+yearLabel+"の"+curMinistry.name+"の調達データです。この省庁・この年度のデータのみを使って分析してください。他の省庁・他の年度のデータは使わないでください。数字を具体的に使い、受注企業集中・随意契約・OB再就職問題の観点で350字以内で現状と課題を解説してください。推測や断定は避けること。\n【分析対象】省庁:"+curMinistry.name+" / 年度:"+yearLabel+"\n会計:"+curAccount.name+"\n支出:"+fmtAmount(curAccount.amount_oku)+"\n契約方式:"+curAccount.contract+"\n状況:"+curAccount.note+(chiseiSummary?"\n■落札データ:"+chiseiSummary:"")+(topCorps?"\n■主要受注企業:"+topCorps:"")+"\n■省庁概要:"+curMinistry.note;
   try{
-    var res=await fetch("http://133.18.167.199:8000/analyze",{
+    var res=await fetch("https://133-18-167-199.nip.io/analyze",{
       method:"POST",
       headers:{"Content-Type":"application/json"},
       body:JSON.stringify({
@@ -2557,7 +2557,7 @@ async function runMlitRegionAiAnalysis(i){
     "注記：" + (x.note || "");
 
   try{
-    var res = await fetch("http://133.18.167.199:8000/analyze",{
+    var res = await fetch("https://133-18-167-199.nip.io/analyze",{
       method:"POST",
       headers:{"Content-Type":"application/json"},
       body:JSON.stringify({
@@ -2946,7 +2946,7 @@ async function runFiscalCaseAnalysis(source, i){
     "注記：" + (x.note || "");
 
   try{
-    var res = await fetch("http://133.18.167.199:8000/analyze",{
+    var res = await fetch("https://133-18-167-199.nip.io/analyze",{
       method:"POST",
       headers:{"Content-Type":"application/json"},
       body:JSON.stringify({
