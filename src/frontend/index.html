@@ -1840,14 +1840,10 @@ function renderAccounts(m){
     var totalOku = tk+tg;
     var amountStr = totalOku >= 10000 ? "約"+(Math.round(totalOku/1000)/10).toFixed(1)+"兆円" : "約"+Math.round(totalOku)+"億円";
     var st = encodeURIComponent(
-      m.name + " " + amountStr + "の調達実態
-" +
-      "一次資料から公共調達データを分析
-" +
-      "最大受注：" + tc.name + " " + tc.amount_oku + "億円
-" +
-      "TOP10企業で計" + t10 + "億円受注
-" +
+      m.name + " " + amountStr + "の調達実態\n" +
+      "一次資料から公共調達データを分析\n" +
+      "最大受注：" + tc.name + " " + tc.amount_oku + "億円\n" +
+      "TOP10企業で計" + t10 + "億円受注\n" +
       "#特別会計 #公共調達 #FiscalOSINT"
     );
     html += "<div style='text-align:center;margin:16px 0'>" +
