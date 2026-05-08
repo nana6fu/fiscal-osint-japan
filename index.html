@@ -1792,7 +1792,11 @@ function renderAccounts(m){
       confirmed.forEach(function(f){
         html+='<div class="primary-fact">'+f.text+'</div>';
       });
-      html+='<div class="primary-src">出典：'+srcLink(confirmed[0].src)+'</div>';
+      // 省庁ごとに適切な出典を表示（最初の📄マークのsrcを使用）
+      var primarySrc = confirmed.find(function(f){ return f.src && SOURCES[f.src]; });
+      if(primarySrc){
+        html+='<div class="primary-src">出典：'+srcLink(primarySrc.src)+'</div>';
+      }
       html+='</div>';
     }
     if(unconfirmed.length>0){
