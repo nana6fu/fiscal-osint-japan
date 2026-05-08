@@ -2088,6 +2088,10 @@ async function analyzeAI(){
     result.classList.add("show");
     btn.disabled=false;
     btn.textContent="再分析";
+    // iPhoneでも分析結果にスクロール
+    setTimeout(function(){
+      result.scrollIntoView({behavior:"smooth", block:"start"});
+    }, 100);
   }catch(e){
     loading.classList.remove("show");
     console.error("Groq-Llama fetch error:", e);
