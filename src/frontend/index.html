@@ -1834,7 +1834,7 @@ function renderAccounts(m){
     if(m.chisei_data) m.chisei_data.forEach(function(d){tk+=d.kouji_oku;tg+=d.gyomu_oku;});
     var t10 = m.houjin.slice(0,10).reduce(function(s,h){return s+h.amount_oku;},0);
     var st = encodeURIComponent(
-      "道路整備特別会計" + Math.round((tk+tg)/100)/10 + "兆円の実態\n" +
+      "道路整備特別会計 約" + (Math.round((tk+tg)/1000)/10).toFixed(1) + "兆円の実態\n" +
       "全国8地整局の公開入札データを分析\n" +
       "最大受注：" + tc.name + " " + tc.amount_oku + "億円\n" +
       "TOP10企業で計" + t10 + "億円受注\n" +
