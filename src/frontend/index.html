@@ -1937,6 +1937,10 @@ function selectAccount(idx){
   var panel=document.getElementById("dpanel");
   var inner=document.getElementById("dpanelInner");
   panel.classList.add("open");
+  // iPhoneでパネルにスクロール
+  setTimeout(function(){
+    panel.scrollIntoView({behavior:"smooth", block:"start"});
+  }, 150);
 
   inner.innerHTML=
     '<button class="dp-close" onclick="closeDetail()">✕</button>'+
@@ -3361,6 +3365,10 @@ function selectModAccount(idx){
   if(!panel || !inner) return;
 
   panel.classList.add("open");
+  // iPhoneでパネルにスクロール
+  setTimeout(function(){
+    panel.scrollIntoView({behavior:"smooth", block:"start"});
+  }, 150);
 
   inner.innerHTML =
     '<button class="dp-close" onclick="closeDetail()">✕</button>' +
