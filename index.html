@@ -1939,8 +1939,12 @@ function selectAccount(idx){
   panel.classList.add("open");
   // iPhoneでパネルにスクロール
   setTimeout(function(){
-    panel.scrollIntoView({behavior:"smooth", block:"start"});
-  }, 150);
+    var isMobile = window.innerWidth <= 768;
+    if(isMobile){
+      panel.scrollIntoView({behavior:"smooth", block:"start"});
+      window.scrollBy({top: 200, behavior:"smooth"});
+    }
+  }, 200);
 
   inner.innerHTML=
     '<button class="dp-close" onclick="closeDetail()">✕</button>'+
@@ -3367,8 +3371,12 @@ function selectModAccount(idx){
   panel.classList.add("open");
   // iPhoneでパネルにスクロール
   setTimeout(function(){
-    panel.scrollIntoView({behavior:"smooth", block:"start"});
-  }, 150);
+    var isMobile = window.innerWidth <= 768;
+    if(isMobile){
+      panel.scrollIntoView({behavior:"smooth", block:"start"});
+      window.scrollBy({top: 200, behavior:"smooth"});
+    }
+  }, 200);
 
   inner.innerHTML =
     '<button class="dp-close" onclick="closeDetail()">✕</button>' +
