@@ -1,0 +1,56 @@
+Fiscal OSINT Japan / 防衛省UI 最終レイアウト調整ログ
+
+日時：
+2026-05-06
+
+対象：
+src/frontend/index.html
+
+実施内容：
+- 防衛省UIの下部構成を国交省UIの順番に合わせた。
+- 防衛省の表示順を以下に整理：
+  1. 一次資料確認済みデータ
+  2. 全国地方防衛局 入札データ集計
+  3. Score・重点確認の見方
+  4. 防衛省 令和6年度 地方防衛局 要確認契約マップ
+  5. TOP30
+  6. 会社・共同企業体別 要確認ランキング
+  7. 主要落札企業一覧
+  8. Xシェア
+  9. 資金フロー仮説・照合マップ
+  10. 省庁概要
+  11. 金額カード
+
+- renderModPrimaryFacts() を追加。
+- renderModBureauTable() を追加。
+- renderModSKantoSidebarPanel() 内で、要確認契約マップの前に
+  renderModPrimaryFacts()
+  renderModBureauTable()
+  renderCommonScoreNotice()
+  を表示するよう修正。
+- renderModLowerPanelLikeMlit() 側に誤って入っていた上記3パーツは除去。
+- 防衛省TOP30のインライン展開仕様は変更していない。
+- 国交省UIを基準とし、防衛省独自UIは作らない方針を維持。
+
+判断：
+- 国交省に比べ、防衛省の一次資料確認済みデータは情報量が少ないが、
+  現時点で防衛省側は公開入札結果の横断集計が中心のため、
+  無理な水増しはせず、このまま一次資料ベースの濃度を優先する。
+
+確認項目：
+- 防衛省を開いた時、一次資料確認済みデータが要確認契約マップより上に表示される。
+- 全国地方防衛局 入札データ集計が一次資料確認済みデータの直下に表示される。
+- Score・重点確認の見方が入札データ集計の下に表示される。
+- その後に要確認契約マップ、TOP30、会社ランキングが続く。
+- 主要落札企業一覧、資金フロー、省庁概要、金額カードは下部に維持。
+
+=== grep check ===
+1615:    html += renderCommonScoreNotice();
+1637:    html+='<div class="primary-box-title">主要落札企業 一覧（令和6年度・関東東北近畿北陸九州中国四国中部地整局）</div>';
+3225:function renderModPrimaryFacts(){
+3239:function renderModBureauTable(){
+3296:  html += '<div class="primary-box-title">主要落札企業 一覧（令和6年度・全国地方防衛局 公開発注実績）</div>';
+3433:  html += renderModPrimaryFacts();
+3434:  html += renderModBureauTable();
+3435:  html += renderCommonScoreNotice();
+3438:  html += '<div class="primary-box-title">防衛省 令和6年度 地方防衛局 要確認契約マップ</div>';
