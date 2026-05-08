@@ -1061,6 +1061,7 @@ var SOURCES = {
   mhlw_nenkin_r5: {label:"📄 厚労省年金特別会計 随意契約公表（令和5年度）", url:"https://www.mhlw.go.jp/sinsei/chotatu/zuii/23honsyo.html"},
   kanshi_2023: {label:"再就職等監視委員会 調査結果（個別PDFあり）", url:"https://www5.cao.go.jp/kanshi/index.html"},
   daj_zuii_r6: {label:"📄 デジタル庁 公共調達適正化情報公表（令和6年度）", url:"https://www.digital.go.jp/procurement/proper-public-procurement/2024"},
+  daj_zuii_r5: {label:"📄 デジタル庁 公共調達適正化情報公表（令和5年度）", url:"https://www.digital.go.jp/procurement/proper-public-procurement/2023"},
   mof_zuii_r6: {label:"📄 財務省本省 随意契約情報公表（令和6年度）", url:"https://www.mof.go.jp/application-contact/procurement/approach/tekiseika/index.htm"},
   nta_chotatsu: {label:"📄 国税庁 調達情報", url:"https://www.nta.go.jp/information/procurement/page_00010.html"},
   daj_meisho: {label:"📄 デジタル庁 アクセンチュア指名停止処分（令和7年9月26日）", url:"https://www.digital.go.jp/assets/contents/node/basic_page/field_ref_resources/e49938bc-341e-49f4-91b9-49edc92fec4e/37f6f783/20250926_procurement-suspension-and-debarment.document.01.pdf"},
@@ -1479,6 +1480,32 @@ var MINISTRIES_2023 = [
        note:"確認済み合計28億円。富士通が適用徴収システム保守・工程管理等を受注。競争入札が主体。",
        contract:"競争入札（主体）",
        src_key:"mhlw_nenkin_r5",src_url:"https://www.mhlw.go.jp/sinsei/chotatu/zuii/23honsyo.html"},
+    ]
+  },
+  {
+    id:"daj", name:"デジタル庁", alert:true, tag:"マイナンバー・ガバメントクラウド・行政DX",
+    note:"令和5年度のデジタル庁随意契約は11ヶ月集計で337.5億円（2月分はデジタル庁サーバー側のURL変更により取得不能・欠損）。令和6年度の949億円と比べると約3分の1規模。令和6年度にアクセンチュアが16.6億→280億に急増した背景として、マイナポータル関連の大型随意契約（情報提供等記録開示システム：216億円）が令和6年度に集中したことが挙げられる。NTTデータも33.8億→160億に急増。令和5年度はNTTグループ（NTTコミュニケーションズ43.1億・NTTデータ33.8億）が最大勢力。",
+    primary_facts:[
+      {text:"📄 <strong>令和5年度 随意契約合計：337.5億円（11ヶ月集計・2月分欠損）</strong>。2月分はデジタル庁による公表URLの変更により取得不能。出典：デジタル庁 公共調達適正化情報公表（令和5年度）月次Excel11ヶ月集計", src:"daj_zuii_r5"},
+      {text:"📄 <strong>上位受注企業（令和5年度・随意契約）</strong>：①NTTグループ計43.1億（NTTコミュニケーションズ24.7億＋NTTデータ18.4億の表記揺れ含む）②行政情報システム研究所32.8億③東京センチュリー26.5億（リース）④NTTデータ（別表記）21.3億⑤ミラボ19.6億⑥アクセンチュア16.6億⑦富士通13.0億", src:"daj_zuii_r5"},
+      {text:"📄 <strong>令和5年度→令和6年度の急増構造</strong>：アクセンチュア16.6億→280億（17倍）、NTTデータ33.8億→160億（5倍）。マイナポータル関連の大型随意契約が令和6年度に集中したことが主因。令和5年度は比較的分散していた受注構造が令和6年度に特定企業へ集中した。", src:"daj_zuii_r5"},
+      {text:"🏛 <strong>【構造的問題】行政情報システム研究所（JIPDEC関連）への随意契約32.8億円</strong>：一般社団法人行政情報システム研究所は総務省・経産省所管の公益法人。競争入札なしの随意契約で毎年大型受注。天下り先法人への随意契約構造として注目すべき案件。", src:"daj_zuii_r5"},
+    ],
+    houjin:[
+      {name:"NTTコミュニケーションズ株式会社", region:"デジタル庁", gyomu:"通信回線・クラウド基盤サービス", amount_oku:24.7, tensyakuri:"🤖未確認"},
+      {name:"一般社団法人行政情報システム研究所", region:"デジタル庁", gyomu:"情報システム調査・研究・随意契約", amount_oku:32.8, tensyakuri:"🤖未確認（総務省・経産省所管法人）"},
+      {name:"東京センチュリー株式会社", region:"デジタル庁", gyomu:"機器リース", amount_oku:26.5, tensyakuri:"🤖未確認"},
+      {name:"株式会社エヌ・ティ・ティ・データ", region:"デジタル庁", gyomu:"システム開発・保守", amount_oku:33.8, tensyakuri:"🤖未確認"},
+      {name:"株式会社ミラボ", region:"デジタル庁", gyomu:"マイナンバー関連システム", amount_oku:19.6, tensyakuri:"🤖未確認"},
+      {name:"アクセンチュア株式会社", region:"デジタル庁", gyomu:"システム開発・工程管理", amount_oku:16.6, tensyakuri:"🤖未確認（令和6年度に280億に急増・指名停止）"},
+      {name:"富士通株式会社", region:"デジタル庁", gyomu:"システム開発・保守", amount_oku:13.0, tensyakuri:"🤖未確認"},
+    ],
+    houjin_note:"📄令和5年度・デジタル庁 随意契約月次Excel11ヶ月集計（2月分欠損）。出典：デジタル庁 公共調達適正化情報公表",
+    accounts:[
+      {name:"デジタル庁（物品・役務）",amount_oku:338,alert:true,
+       note:"📄確認済み（令和5年度・随意契約11ヶ月分Excel集計）：随意契約合計337.5億円。2月分はURL変更により取得不能・欠損。NTTグループ計43.1億・行政情報システム研究所32.8億・東京センチュリー26.5億・NTTデータ21.3億・ミラボ19.6億・アクセンチュア16.6億。令和6年度（949億）の約3分の1規模。",
+       contract:"随意契約（公募・企画競争含む）",
+       src_key:"daj_zuii_r5",src_url:"https://www.digital.go.jp/procurement/proper-public-procurement/2023"},
     ]
   },
 ];
