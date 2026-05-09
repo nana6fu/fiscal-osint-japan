@@ -1784,7 +1784,7 @@ function renderMinistries(){
     el.appendChild(div);
   });
   var yr = document.getElementById("yearSel").value;
-  if(yr !== "2023" && typeof appendModMinistryItem === "function") appendModMinistryItem();
+  if(typeof appendModMinistryItem === "function") appendModMinistryItem();
 }
 
 function selectMinistry(m){
