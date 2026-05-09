@@ -2993,7 +2993,7 @@ async function runFiscalCaseAnalysis(source, i){
     x = (MLIT_NATIONAL_TOP30 || [])[i];
     targetId = "mlit-analysis-" + i;
   }else if(source === "mod"){
-    x = (getModScopeData(MOD_CURRENT_SCOPE).top30 || [])[i];
+    x = (getModScopeData(MOD_CURRENT_SCOPE, (document.getElementById("yearSel")||{}).value).top30 || [])[i];
     targetId = "mod-analysis-" + i;
   }
 
@@ -3216,7 +3216,7 @@ function escModSidebar(v){
 
 var MOD_CURRENT_SCOPE = window.MOD_CURRENT_SCOPE || "s_kanto";
 
-function getModScopeData(scope){
+function getModScopeData(scope, year){
   if(scope === "n_kanto"){
     return {
       key:"n_kanto",
@@ -3303,6 +3303,17 @@ function getModScopeData(scope){
       company: (typeof MOD_HOKKAIDO_COMPANY !== "undefined" ? MOD_HOKKAIDO_COMPANY : []),
       summary: (typeof MOD_HOKKAIDO_SUMMARY !== "undefined" ? MOD_HOKKAIDO_SUMMARY : []),
       all: (typeof MOD_HOKKAIDO_ALL_CASES !== "undefined" ? MOD_HOKKAIDO_ALL_CASES : [])
+    };
+  }
+  if(year === "2023"){
+    return {
+      key:"s_kanto",
+      name:"南関東",
+      bureau:"南関東防衛局",
+      top30: (typeof MOD_S_KANTO_R5_TOP30 !== "undefined" ? MOD_S_KANTO_R5_TOP30 : []),
+      company: (typeof MOD_S_KANTO_R5_COMPANY !== "undefined" ? MOD_S_KANTO_R5_COMPANY : []),
+      summary: (typeof MOD_S_KANTO_R5_SUMMARY !== "undefined" ? MOD_S_KANTO_R5_SUMMARY : []),
+      all: (typeof MOD_S_KANTO_R5_ALL_CASES !== "undefined" ? MOD_S_KANTO_R5_ALL_CASES : [])
     };
   }
   return {
@@ -3672,7 +3683,7 @@ function renderModLowerPanelLikeMlit(){
 }
 
 function renderModSKantoSidebarPanel(){
-  var scopeData = getModScopeData(MOD_CURRENT_SCOPE);
+  var scopeData = getModScopeData(MOD_CURRENT_SCOPE, (document.getElementById("yearSel")||{}).value);
   var currentTotals = getModTotals(scopeData.summary);
   var sTotals = getModTotals((typeof MOD_S_KANTO_SUMMARY !== "undefined" ? MOD_S_KANTO_SUMMARY : []));
   var nTotals = getModTotals((typeof MOD_N_KANTO_SUMMARY !== "undefined" ? MOD_N_KANTO_SUMMARY : []));
@@ -3842,7 +3853,7 @@ function clearModActiveCards(){
 }
 
 function showModCaseDetail(i){
-  var x = (getModScopeData(MOD_CURRENT_SCOPE).top30 || [])[i];
+  var x = (getModScopeData(MOD_CURRENT_SCOPE, (document.getElementById("yearSel")||{}).value).top30 || [])[i];
   if(!x) return;
 
   var existing = document.getElementById("mod-case-detail-" + i);
@@ -3936,7 +3947,7 @@ function buildModFoiaText(x){
 }
 
 function showModFoiaTemplate(i){
-  var x = (getModScopeData(MOD_CURRENT_SCOPE).top30 || [])[i];
+  var x = (getModScopeData(MOD_CURRENT_SCOPE, (document.getElementById("yearSel")||{}).value).top30 || [])[i];
   var box = document.getElementById("mod-foia-template-" + i);
   if(!x || !box) return;
 
@@ -3963,7 +3974,7 @@ function normalizeModName(s){
 }
 
 function showModCompanyCases(i){
-  var c = (getModScopeData(MOD_CURRENT_SCOPE).company || [])[i];
+  var c = (getModScopeData(MOD_CURRENT_SCOPE, (document.getElementById("yearSel")||{}).value).company || [])[i];
   if(!c) return;
 
   var existing = document.getElementById("mod-company-inline-" + i);
@@ -3987,7 +3998,7 @@ function showModCompanyCases(i){
 
   var cname = normalizeModName(c.company);
 
-  var scopeData = getModScopeData(MOD_CURRENT_SCOPE);
+  var scopeData = getModScopeData(MOD_CURRENT_SCOPE, (document.getElementById("yearSel")||{}).value);
   var sourceCases = (scopeData.all && scopeData.all.length) ? scopeData.all : (scopeData.top30 || []);
 
   var cases = sourceCases.filter(function(x){
