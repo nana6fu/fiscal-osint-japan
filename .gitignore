@@ -1,0 +1,3 @@
+backup/
+src/frontend/index_backup*.html
+.env
