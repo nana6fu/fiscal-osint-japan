@@ -1894,7 +1894,7 @@ function renderAccounts(m){
       html+='</tr>';
     });
     html+='</table>';
-    if(isMhlw){html+='<div class="primary-src">出典：厚生労働省 随意契約・競争入札情報公表PDF（令和5年度）　📋確認済み主要契約のみ・速報値</div>';}else if(!m.houjin_note || m.houjin_note.indexOf('令和6年度')<0){html+='<div class="primary-src">出典：'+srcLink("yomiuri_2006")+'　※金額は道路整備特別会計からの支出（'+srcLink("shitsumon_169_141")+'）</div>';}else{html+='<div class="primary-src">出典：各地方整備局 令和6年度入札結果データ（公開情報より集計）　🤖AI集計（参考値）</div>';}
+    if(isMhlw){html+='<div class="primary-src">出典：厚生労働省 随意契約・競争入札情報公表PDF（令和5年度）　📋確認済み主要契約のみ・速報値</div>';}else if(m.id==="mlit" && (!m.houjin_note || m.houjin_note.indexOf('令和6年度')<0)){html+='<div class="primary-src">出典：'+srcLink("yomiuri_2006")+'　※金額は道路整備特別会計からの支出（'+srcLink("shitsumon_169_141")+'）</div>';}else{html+='<div class="primary-src">出典：各地方整備局 令和6年度入札結果データ（公開情報より集計）　🤖AI集計（参考値）</div>';}
     html+='</div>';
   }
 
