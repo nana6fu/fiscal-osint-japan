@@ -1,3 +1,7 @@
 backup/
 src/frontend/index_backup*.html
 .env
+開示請求/
+output/
+youshiki.doc
+*.docx
