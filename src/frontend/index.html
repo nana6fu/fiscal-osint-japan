@@ -3704,7 +3704,8 @@ function renderModSKantoSidebarPanel(){
 
   html += '<div class="ministry-header">';
   html += '<div class="ministry-title alert">防衛省</div>';
-  html += '<div class="ministry-subtitle">2024年度 '+scopeData.bureau+' | 工事・業務発注実績</div>';
+  var modYear = (document.getElementById('yearSel')||{}).value||'2024';
+  html += '<div class="ministry-subtitle">'+modYear+'年度 '+scopeData.bureau+' | 工事・業務発注実績</div>';
   html += '<div class="alert-badge">⚠ 要確認契約</div>';
   html += '</div>';
 
