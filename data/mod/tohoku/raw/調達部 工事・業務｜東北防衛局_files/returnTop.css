@@ -1,0 +1,71 @@
+	#return-page-top {
+		display: block;
+		width: 50px;
+		height: 50px;
+		background-color: steelblue;
+		border-radius: 50%;
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		position: fixed;
+		right: 40px;
+		bottom: 40px;
+		opacity: 0;
+		visibility: hidden;
+		transition: opacity 0.5s, visibility 0.5s;
+		z-index: 99;
+	}
+
+	#return-page-top.is-visible {
+		opacity: 0.75;
+		visibility: visible;
+	}
+
+	#return-page-top::before {
+		content: "";
+		width: 12px;
+		height: 12px;
+		margin-bottom: -6px;
+		border-top: solid 3px #fff;
+		border-right: solid 3px #fff;
+		transform: rotate(-45deg);
+	}
+
+
+	@media (hover: hover) {
+
+		#return-page-top a:hover {
+			text-decoration: none;
+			opacity: 0.5;
+		}
+		
+	｝
+
+	@media (hover: none) {
+
+		#return-page-top a:active {
+			text-decoration: none;
+			opacity: 0.5;
+		}
+		
+	｝
+
+
+	#return-page-top::before {
+		content: "";
+		width: 12px;
+		height: 12px;
+		margin-bottom: -6px;
+		border-top: solid 3px #fff;
+		border-right: solid 3px #fff;
+		transform: rotate(-45deg);
+	}
+
+	@media (max-width: 520px) {
+
+		#return-page-top {
+			right: 20px;
+			bottom: 20px;
+		}
+	
+	}

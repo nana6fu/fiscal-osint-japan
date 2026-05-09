@@ -1,0 +1,152 @@
+/* Table Filter */
+
+	.Table_addFilter {
+		width: 100%;
+	}
+
+/*	.tableFilter {
+	    display: flex;
+	    flex-direction: row-reverse;
+		margin: 2px 0 10px 0;
+	}
+*/
+	.tableFilter {
+	    display: flex;
+	    flex-direction:initial;
+		width: 320px;
+		width: 400px;
+		margin: 5px 0 5px auto;
+	}
+
+	@media (max-width: 520px) {
+		.tableFilter {
+			width: 100%;
+			margin: 5px auto 5px auto;
+		}
+	}
+
+	.tableFilter .tableFilter_txt1 {
+		width: calc(100% - 47px - 28px);
+	    border: 1px solid #000;
+	    border-radius: 3px 0 0 3px;
+	/*    outline: none;	*/
+	    font-size: 0.95rem;
+	    padding: 2px 0 2px 0.5em;
+	
+	}
+
+	.tableFilter .tableFilter_btn1 {
+		width: 20px;
+	    background-color: #000;
+	    border: 1px solid #000;
+	    border-radius: 0 3px 3px 0;
+	    padding: 0 5px;
+	/*    outline: none;	*/
+	    transition: 0.04s;
+	
+	}
+
+	@media (hover: hover) {
+
+		.tableFilter .tableFilter_btn1:hover {
+			background-color: blue;
+			border-left: 1px solid red;	
+		}
+	
+		.tableFilter .tableFilter_btn1:active {
+			background-color: white;
+		}
+
+		.tableFilter .tableFilter_btn2:hover {
+			color: white;
+			background-color: blue;		
+		}
+	
+		.tableFilter .tableFilter_btn2:active {
+			background-color: white;
+		
+		}
+	
+	}
+
+	@media (hover: none) {
+
+	/*
+		.tableFilter .tableFilter_btn1:active {
+			background-color: blue;
+			border-left: 1px solid red;	
+		}
+
+		.tableFilter .tableFilter_btn2:active {
+			color: white;
+			background-color: blue;
+		
+		}
+	*/
+
+	}
+
+
+	.tableFilter .tableFilter_btn2 {
+		width: 42px;
+	    background-color:#fff;
+	    border: 1px solid #000;
+	    border-radius: 3px;
+	    margin:0 0 0 5px;
+	    padding: 0;	
+	    font-size: 0.825rem;
+	/*    outline: none;	*/
+	    transition: 0.04s;	
+	}
+
+/*	.tableFilterSelect {
+	    display: flex;
+	    flex-direction: row-reverse;
+		margin:  2px;
+	    gap: 5px;
+	    font-size: 0.95em;
+
+	}
+*/
+	.tableFilterSelect {
+		display: flex;
+		width: 320px;
+		width:400px;
+		margin:  2px 0 10px auto;
+		font-size: 0.95em;
+	}
+
+
+	.tableFilterSelect .FilterSelectRadio {
+		display: block;
+	    margin:0 2px;
+	    font-size:0.75em;
+		font-size:0.875em;
+	}
+	
+	.tableFilterSelect .Radio {
+	    margin:0 2px;
+	/*    outline:none;	*/
+	}
+
+	@media (max-width: 520px) {
+		.tableFilterSelect {
+			display:block;
+			width: 100%;
+			margin: 2px auto 10px auto;
+		}
+
+		.tableFilterSelect .FilterSelectRadio {
+			display: inline-block;
+		}
+
+		.tableFilterSelect > label:nth-child(1) {
+			display:block;
+		}
+
+	
+
+	}
+
+
+	

@@ -1,0 +1,837 @@
+/* R6.04.03 start */
+
+
+@media (min-width: 961px) {
+    .topicpath--contract-result,
+    .topicpath--contract-result-info,
+    .topicpath--contract-annocement-koji,
+    .topicpath--contract-annocement-gyomu,
+    .topicpath--contract-annocement-kounyu,
+    .topicpath--contract-annocement-opencounter {
+      padding: 0 40px;
+      max-width: 1300px;
+      margin: auto;
+      margin-bottom: 64px
+    }
+  }
+  
+  @media (min-width: 961px) {
+    .topicpath--contract-order.
+    .topicpath--contract-commit,
+    .topicpath--contract-annocement-opencounter {
+      max-width: 1100px;
+    }
+  }
+  
+  @media (min-width: 521px) and (max-width: 960px) {
+    .topicpath--contract-commit,
+    .topicpath--contract-result,
+    .topicpath--contract-result-info,
+    .topicpath--contract-annocement-koji,
+    .topicpath--contract-annocement-gyomu,
+    .topicpath--contract-annocement-kounyu,
+    .topicpath--contract-annocement-opencounter {
+      margin: 0 40px;
+      margin-bottom: 40px
+    }
+  }
+  
+  @media (max-width: 520px) {
+    .topicpath--contract-commit,
+    .topicpath--contract-result,
+    .topicpath--contract-result-info,
+    .topicpath--contract-annocement-koji,
+    .topicpath--contract-annocement-gyomu,
+    .topicpath--contract-annocement-kounyu,
+    .topicpath--contract-annocement-opencounter {
+      margin: 0 16px;
+      margin-bottom: 24px
+    }
+  }
+  
+  @media (min-width: 951px) {
+    #contents .inner_width--contract-result,
+    #contents .inner_width--contract-result-info,
+    #contents .inner_width--contract-annocement-koji,
+    #contents .inner_width--contract-annocement-gyomu,
+    #contents .inner_width--contract-annocement-kounyu,
+    #contents .inner_width--contract-annocement-opencounter {
+      padding: 0 40px;
+      max-width: 1300px;
+      margin: auto
+    }
+  }
+  
+  @media (min-width: 951px) {
+    #contents .inner_width--contract-order,
+    #contents .inner_width--contract-commit,
+    #contents .inner_width--contract-annocement-opencounter {
+      max-width: 1100px;
+    }
+  }
+  
+  @media (min-width: 951px) {
+    #contents .inner_width--contract-nominationStop {
+      max-width: 900px;
+    }
+  }
+  
+  
+  @media (min-width: 521px) and (max-width: 960px) {
+    #contents .inner_width--contract-commit,
+    #contents .inner_width--contract-result,
+    #contents .inner_width--contract-result-info,
+    #contents .inner_width--contract-annocement-koji,
+    #contents .inner_width--contract-annocement-gyomu,
+    #contents .inner_width--contract-annocement-kounyu,
+    #contents .inner_width--contract-annocement-opencounter {
+      margin: 0 40px
+    }
+  }
+  
+  @media (max-width: 520px) {
+    #contents .inner_width--contract-commit,
+    #contents .inner_width--contract-result,
+    #contents .inner_width--contract-result-info,
+    #contents .inner_width--contract-annocement-koji,
+    #contents .inner_width--contract-annocement-gyomu,
+    #contents .inner_width--contract-annocement-kounyu,
+    #contents .inner_width--contract-annocement-opencounter {
+      margin: 0 16px
+    }
+  }
+  
+  @media (min-width: 521px) {
+      .inner_width--contract-order-container {
+          display: flex;
+          flex-wrap: wrap;
+          justify-content: flex-start;
+          align-items: flex-start;
+      }
+  
+      .inner_width--contract-order-container-item {
+          width: 48%;
+          margin: 0 1%;
+      }
+  
+      .inner_width--contract-order-container-item ul {
+          max-height: 160px;
+          overflow-x: hidden;
+          overflow-y: auto;		
+      }
+  
+      .inner_width--contract-order-container-item ul::-webkit-scrollbar {
+          width: 8px;
+          background: #eee;
+          border-radius: 4px;
+      }
+  
+      .inner_width--contract-order-container-item ul::-webkit-scrollbar-thumb {
+          background: steelblue;
+          border-radius: 4px;
+      }
+  }
+  
+  
+  @media (min-width: 521px) {
+      .inner_width--contract-order-nonflex {
+          max-height: 160px;
+          overflow-x: hidden;
+          overflow-y: auto;         
+      }
+  
+      .inner_width--contract-order-nonflex::-webkit-scrollbar {
+          width: 8px;
+          background: #eee;
+          border-radius: 4px;
+      }
+  
+      .inner_width--contract-order-nonflex::-webkit-scrollbar-thumb {
+          background: steelblue;
+          border-radius: 4px;
+      }
+  
+  }
+  
+  
+  
+  @media (max-width: 520px) {
+      .inner_width--contract-order-container {
+          display: block;
+      }
+  
+      .inner_width--contract-order-container-item {
+          width: 100%;
+      }
+  
+  /*
+      .inner_width--contract-order-container-item ul {
+          max-height: 160px;
+          overflow-x: hidden;
+          overflow-y: auto;
+      }
+  
+      .inner_width--contract-order-container-item ul::-webkit-scrollbar {
+          width: 8px;
+          background: #eee;
+          border-radius: 4px;
+      }
+  
+      .inner_width--contract-order-container-item ul::-webkit-scrollbar-thumb {
+          background: steelblue;
+          border-radius: 4px;
+      }
+  
+      .inner_width--contract-order-nonflex::-webkit-scrollbar {
+          width: 8px;
+          background: #eee;
+          border-radius: 4px;
+      }
+  
+      .inner_width--contract-order-nonflex::-webkit-scrollbar-thumb {
+          background: steelblue;
+          border-radius: 4px;
+      }
+  */
+  
+  }
+  
+  
+  
+  #contents .inner_width--contract-order h3.title_xs_chara,
+  #contents .inner_width--contract-menu h3.title_xs_chara,
+  #contents .inner_width--contract-commit h3.title_xs_chara,
+  #contents .inner_width--contract-nominationStop h3.title_xs_chara,
+  #contents .inner_width--contract-invest h3.title_xs_chara,
+  #contents .inner_width--contract-result h3.title_xs_chara,
+  #contents .inner_width--contract-result-info h3.title_xs_chara,
+  #contents .inner_width--contract-annocement-koji h3.title_xs_chara,
+  #contents .inner_width--contract-annocement-gyomu h3.title_xs_chara,
+  #contents .inner_width--contract-annocement-kounyu h3.title_xs_chara,
+  #contents .inner_width--contract-annocement-opencounter h3.title_xs_chara {
+      border-left: .5em solid steelblue;
+      border-bottom: 2px solid steelblue;
+      box-shadow: 0 2px 0 #4682b43f;
+      background: #fff; 
+      letter-spacing: .2em;
+      font-weight: 600;
+  }
+  
+  #contents .inner_width--contract-menu h3.title_xs_chara {
+      letter-spacing: .3em;
+  }
+  
+  
+  #contents .inner_width--contract-commit p,
+  #contents .inner_width--contract-nominationStop p,
+  #contents .inner_width--contract-invest p,
+  #contents .inner_width--contract-result p,
+  #contents .inner_width--contract-result-info p,
+  #contents .inner_width--contract-annocement-koji p,
+  #contents .inner_width--contract-annocement-gyomu p,
+  #contents .inner_width--contract-annocement-kounyu p,
+  #contents .inner_width--contract-annocement-opencounter p {
+      margin-bottom:2rem;
+      padding-left:1rem;
+      font-size:.825em;
+      letter-spacing: .03rem;
+  }
+  
+  #contents .inner_width--contract-order h4,
+  #contents .inner_width--contract-commit h4,
+  #contents .inner_width--contract-nominationStop h4,
+  #contents .inner_width--contract-invest h4,
+  #contents .inner_width--contract-result h4,
+  #contents .inner_width--contract-result-info h4,
+  #contents .inner_width--contract-annocement-koji h4,
+  #contents .inner_width--contract-annocement-gyomu h4,
+  #contents .inner_width--contract-annocement-kounyu h4,
+  #contents .inner_width--contract-annocement-opencounter h4 {
+      padding-left:1rem;
+      font-size:.875em;
+  }
+  
+  #contents .inner_width--contract-annocement-gyomu .reset-list p,
+  #contents .inner_width--contract-annocement-koji .reset-list p {
+      margin:0;
+      padding:0;
+      font-size:1em;
+  }
+  
+  #contents .inner_width--contract-annocement-gyomu .reset-list ul,
+  #contents .inner_width--contract-annocement-koji .reset-list ul {
+      list-style:none;
+  }
+  
+  #contents .inner_width--contract-annocement-gyomu .reset-list ul li,
+  #contents .inner_width--contract-annocement-koji .reset-list ul li {
+      text-indent:-.5rem;
+      padding-left:1em;
+  }
+  
+  #contents .txt_s {
+    font-size: 0.625rem;
+    line-height: 1.7;
+    letter-spacing: 0.04em;
+    font-weight: 400
+  }
+  
+  #contents .col_two--contract {
+      margin: 1em 1em 0 1em;
+  }
+  
+  .section--margin-bottom-40 {
+      margin-bottom: 40px;
+  }
+  
+  .section--margin-bottom {
+      margin-bottom: 0;
+  }
+  
+  
+  
+  
+  
+  .inner_width .tbl_basic--contract-commit,
+  .inner_width .tbl_basic--contract-nominationStop,
+  .inner_width .tbl_basic--contract-invest,
+  .inner_width .tbl_basic--contract-result,
+  .inner_width .tbl_basic--contract-result-info,
+  .inner_width .tbl_basic--contract-annocement-koji,
+  .inner_width .tbl_basic--contract-annocement-gyomu,
+  .inner_width .tbl_basic--contract-annocement-kounyu,
+  .inner_width .tbl_basic--contract-annocement-opencounter {
+      margin-bottom: 30px;
+  }
+  
+  .inner_width--contract-commit a:link,
+  .inner_width--contract-nominationStop a:link,
+  .inner_width--contract-invest a:link,
+  .inner_width--contract-result a:link,
+  .inner_width--contract-result-info a:link,
+  .inner_width--contract-annocement-koji a:link,
+  .inner_width--contract-annocement-gyomu a:link,
+  .inner_width--contract-annocement-kounyu a:link,
+  .inner_width--contract-annocement-opencounter a:link {
+      color: blue;
+      text-decoration: underline;
+  }
+  
+  .inner_width--contract-commit a:visited,
+  .inner_width--contract-nominationStop a:visited,
+  .inner_width--contract-invest a:visited,
+  .inner_width--contract-result a:visited,
+  .inner_width--contract-result-info a:visited,
+  .inner_width--contract-annocement-koji a:visited,
+  .inner_width--contract-annocement-gyomu a:visited,
+  .inner_width--contract-annocement-kounyu a:visited,
+  .inner_width--contract-annocement-opencounter a:visited {
+        color: purple;
+      text-decoration: underline;
+  }
+  
+  
+  .tbl_basic--contract-commit thead tr th,
+  .tbl_basic--contract-commit tbody tr td,
+  .tbl_basic--contract-annocement-opencounter thead tr th,
+  .tbl_basic--contract-annocement-opencounter tbody tr td,
+  .tbl_basic--contract-nominationStop thead tr th,
+  .tbl_basic--contract-nominationStop tbody tr td,
+  .tbl_basic--contract-invest thead tr th,
+  .tbl_basic--contract-invest tbody tr td,
+  .tbl_basic--contract-result thead tr th,
+  .tbl_basic--contract-result tbody tr td,
+  .tbl_basic--contract-result-info thead tr th,
+  .tbl_basic--contract-result-info tbody tr td {
+      text-align: center;
+      padding: .4rem;
+      letter-spacing: .05em;
+      font-size:.725em;
+  }
+  
+  .tbl_basic--contract-result-info thead tr th,
+  .tbl_basic--contract-result-info tbody tr td {
+      padding: .2rem;
+  }
+  
+  
+  .tbl_basic--contract-commit thead tr th,
+  .tbl_basic--contract-nominationStop thead tr th {
+      height: 2rem;
+  }
+  .tbl_basic--contract-commit tbody tr td,
+  .tbl_basic--contract-nominationStop tbody tr td,
+  .tbl_basic--contract-invest tbody tr td,
+  .tbl_basic--contract-result tbody tr td {
+      height: 3rem;
+  }
+  .tbl_basic--contract-result-info thead tr th,
+  .tbl_basic--contract-result-info tbody tr th {
+      height: 3rem;
+  }
+  
+  .tbl_basic--contract-result-info thead tr th,
+  .tbl_basic--contract-result-info tbody tr th {
+      height: 3rem;
+  }
+  
+  .tbl_basic--contract-annocement-koji thead tr th,
+  .tbl_basic--contract-annocement-koji tbody tr td,
+  .tbl_basic--contract-annocement-gyomu thead tr th,
+  .tbl_basic--contract-annocement-gyomu tbody tr td,
+  .tbl_basic--contract-annocement-kounyu thead tr th,
+  .tbl_basic--contract-annocement-kounyu thead tr th,
+  .tbl_basic--contract-annocement-kounyu tbody tr td {
+      height: 4rem;
+  }
+  
+  
+  .tbl_basic--contract-annocement-koji thead tr th,
+  .tbl_basic--contract-annocement-koji tbody tr td,
+  .tbl_basic--contract-annocement-gyomu thead tr th,
+  .tbl_basic--contract-annocement-gyomu tbody tr td,
+  .tbl_basic--contract-annocement-kounyu thead tr th,
+  .tbl_basic--contract-annocement-kounyu thead tr th,
+  .tbl_basic--contract-annocement-kounyu tbody tr td {
+      text-align: center;
+      padding: .2rem;
+      letter-spacing: .05em;
+      font-size:.725em;
+  }
+  
+  .tbl_basic--contract-result-info thead tr th,
+  .tbl_basic--contract-result-info tbody tr th {
+      font-weight: 600;
+      font-size:.775em;
+  }
+  
+  
+  .tbl_basic--contract-commit thead tr th,
+  .tbl_basic--contract-nominationStop thead tr th,
+  .tbl_basic--contract-invest thead tr th,
+  .tbl_basic--contract-result thead tr th,
+  .tbl_basic--contract-annocement-koji thead tr th,
+  .tbl_basic--contract-annocement-gyomu thead tr th,
+  .tbl_basic--contract-annocement-kounyu thead tr th,
+  .tbl_basic--contract-annocement-opencounter thead tr th {
+      font-weight: bold;
+      font-size:.775em;
+  }
+  
+  
+  .tbl_basic--contract-commit tbody tr td {
+      text-align:left;
+      padding-left: 1rem;
+  }
+  .tbl_basic--contract-nominationStop tbody tr td:nth-child(3) {
+      text-align:left;
+      padding-left: 1rem;
+  }
+  .tbl_basic--contract-annocement-opencounter tbody tr td:nth-child(2) {
+      text-align: left;
+  }
+  .tbl_basic--contract-invest tbody tr td:nth-child(2),
+  .tbl_basic--contract-invest tbody tr td:nth-child(3),
+  .tbl_basic--contract-invest tbody tr td:nth-child(4) {
+      text-align: left;
+  }
+  .tbl_basic--contract-result tbody tr td:nth-child(2),
+  .tbl_basic--contract-result tbody tr td:nth-child(3) {
+      text-align: left;
+  }
+  .tbl_basic--contract-result tbody tr td:nth-child(5),
+  .tbl_basic--contract-result tbody tr td:nth-child(6) {
+      text-align: right;
+  }
+  .tbl_basic--contract-annocement-koji tbody tr td:nth-child(2),
+  .tbl_basic--contract-annocement-koji tbody tr td:nth-child(6),
+  .tbl_basic--contract-annocement-koji tbody tr td:nth-child(7),
+  .tbl_basic--contract-annocement-koji tbody tr td:nth-child(8) {
+      text-align: left;
+  }
+  .tbl_basic--contract-annocement-gyomu tbody tr td:nth-child(2),
+  .tbl_basic--contract-annocement-gyomu tbody tr td:nth-child(6),
+  .tbl_basic--contract-annocement-gyomu tbody tr td:nth-child(7) {
+      text-align: left;
+  }
+  .tbl_basic--contract-annocement-kounyu tbody tr td:nth-child(2),
+  .tbl_basic--contract-annocement-kounyu tbody tr td:nth-child(6),
+  .tbl_basic--contract-annocement-kounyu tbody tr td:nth-child(7) {
+      text-align: left;
+  }
+  
+  .tbl_basic--contract-annocement-koji tbody tr td,
+  .tbl_basic--contract-annocement-gyomu tbody tr td,
+  .tbl_basic--contract-annocement-kounyu tbody tr td {
+      vertical-align: top;
+  }
+  
+  .tbl_basic--contract-annocement-opencounter tbody tr td,
+  .tbl_basic--contract-annocement-kounyu tbody tr td {
+      vertical-align: middle;
+  }
+  
+  
+  .tbl_basic--contract-commit thead tr th:nth-child(1) {
+      width:17%;
+  }
+  .tbl_basic--contract-commit thead tr th:nth-child(2) {
+      width:37%;
+  }
+  .tbl_basic--contract-commit thead tr th:nth-child(4) {
+      width:35%;
+  }
+  .tbl_basic--contract-commit thead tr th:nth-child(4) {
+      width:21%;
+  }
+  
+  .tbl_basic--contract-nominationStop thead tr th:nth-child(1) {
+      width:7%;
+  }
+  .tbl_basic--contract-nominationStop thead tr th:nth-child(2) {
+      width:20%;
+  }
+  .tbl_basic--contract-nominationStop thead tr th:nth-child(4) {
+      width:20%;
+  }
+  
+  .tbl_basic--contract-annocement-opencounter thead tr th:nth-child(1) {
+      width:5%;
+  }
+  .tbl_basic--contract-annocement-opencounter thead tr th:nth-child(2) {
+      width:40%;
+  }
+  .tbl_basic--contract-annocement-opencounter thead tr th:nth-child(6) {
+      width:10%;
+  }
+  
+  .tbl_basic--contract-invest thead tr th:nth-child(1) {
+      width:5%;
+  }
+  .tbl_basic--contract-invest thead tr th:nth-child(2) {
+      width:15%;
+  }
+  .tbl_basic--contract-invest thead tr th:nth-child(3) {
+      width:42%;
+  }
+  .tbl_basic--contract-invest thead tr th:nth-child(4) {
+      width:26%;
+  }
+  .tbl_basic--contract-invest thead tr th:nth-child(5) {
+      width:12%;
+  }
+  
+  .tbl_basic--contract-result thead tr th:nth-child(1) {
+      width:4%;
+  }
+  .tbl_basic--contract-result thead tr th:nth-child(2) {
+      width:21%;
+  }
+  .tbl_basic--contract-result thead tr th:nth-child(3) {
+      width:15%;
+  }
+  .tbl_basic--contract-result thead tr th:nth-child(4) {
+      width:11%;
+  }
+  .tbl_basic--contract-result thead tr th:nth-child(5) {
+      width:10%;
+  }
+  .tbl_basic--contract-result thead tr th:nth-child(6) {
+      width:10%;
+  }
+  .tbl_basic--contract-result thead tr th:nth-child(7) {
+      width:5%;
+  }
+  .tbl_basic--contract-result thead tr th:nth-child(8) {
+      width:7%;
+  }
+  .tbl_basic--contract-result thead tr th:nth-child(9) {
+      width:7%;
+  }
+  .tbl_basic--contract-result thead tr th:nth-child(10) {
+      width:10%;
+  }
+  
+  
+  .tbl_basic--contract-result-info tbody tr td {
+      width:7%;
+  }
+  
+  
+  .tbl_basic--contract-annocement-koji thead tr th:nth-child(1) {
+      width:4%;
+  }
+  .tbl_basic--contract-annocement-koji thead tr th:nth-child(2) {
+      width:22%;
+  }
+  .tbl_basic--contract-annocement-koji thead tr th:nth-child(3) {
+      width:7%;
+  }
+  .tbl_basic--contract-annocement-koji thead tr th:nth-child(4) {
+      width:7%;
+  }
+  .tbl_basic--contract-annocement-koji thead tr th:nth-child(5) {
+      width:7%;
+  }
+  .tbl_basic--contract-annocement-koji thead tr th:nth-child(6) {
+      width:15%;
+  }
+  .tbl_basic--contract-annocement-koji thead tr th:nth-child(7) {
+      width:25%;
+  }
+  .tbl_basic--contract-annocement-koji thead tr th:nth-child(8) {
+      width:13%;
+  }
+  
+  .tbl_basic--contract-annocement-gyomu thead tr th:nth-child(1) {
+      width:4%;
+  }
+  .tbl_basic--contract-annocement-gyomu thead tr th:nth-child(2) {
+      width:22%;
+  }
+  .tbl_basic--contract-annocement-gyomu thead tr th:nth-child(3) {
+      width:7%;
+  }
+  .tbl_basic--contract-annocement-gyomu thead tr th:nth-child(4) {
+      width:7%;
+  }
+  .tbl_basic--contract-annocement-gyomu thead tr th:nth-child(5) {
+      width:7%;
+  }
+  .tbl_basic--contract-annocement-gyomu thead tr th:nth-child(6) {
+      width:18%;
+  }
+  .tbl_basic--contract-annocement-gyomu thead tr th:nth-child(7) {
+      width:35%;
+  }
+  
+  .tbl_basic--contract-annocement-kounyu thead tr th:nth-child(1) {
+      width:4%;
+  }
+  .tbl_basic--contract-annocement-kounyu thead tr th:nth-child(2) {
+      width:22%;
+  }
+  .tbl_basic--contract-annocement-kounyu thead tr th:nth-child(3) {
+      width:10%;
+  }
+  .tbl_basic--contract-annocement-kounyu thead tr th:nth-child(4) {
+      width:10%;
+  }
+  .tbl_basic--contract-annocement-kounyu thead tr th:nth-child(5) {
+      width:10%;
+  }
+  .tbl_basic--contract-annocement-kounyu thead tr th:nth-child(6) {
+      width:18%;
+  }
+  .tbl_basic--contract-annocement-kounyu thead tr th:nth-child(7) {
+      width:26%;
+  }
+  
+  @media print {
+    * {
+        white-space: wrap;
+    }
+
+    body {
+        width: 1380px;
+        zoom:0.65;
+    }
+  }
+/*  
+  @media print {
+    body {
+      width: 1300px;
+      zoom: 0.68;
+      -webkit-print-color-adjust: exact;
+    }
+  }
+  
+  
+  @media print and (-ms-high-contrast: none) {
+    @page {
+      size: A4;
+      margin: 12.7mm 9.7mm
+    }
+    body {
+      zoom: 1.8;
+      width: 1400px;
+      transform: scale(0.5);
+      transform-origin: 0 0
+    }
+  }
+*/
+  
+  .scroll_table--min_height {
+      min-height: 130px;
+  }
+  
+  
+  .unline {
+      text-decoration: underline solid;
+  }
+  
+  
+  .table_noData {
+  /*	margin-top: 20px;	*/
+      margin-bottom:20px;
+      text-align: center;
+      letter-spacing: .07em;
+  }
+  
+  
+  /* R6.04.03 end */
+  
+  
+  .new_mark {
+      position: relative;
+      display: inline-block;
+      width: 1.7rem;
+      height: auto;
+      margin: 0 .25em;
+      aspect-ratio: 179 / 130;
+      vertical-align: middle;
+      content: url(./new_mark.png);
+      object-fit: contain;
+  }
+  
+  /*
+  .new_mark {
+      position: relative;
+      display: inline-block;
+      width: 2em;
+      height: auto;
+      aspect-ratio: 179 / 130;
+      vertical-align: middle;
+  }
+  
+  .new_mark::after {
+       position: absolute;
+       display: inline-block;
+       content: "";
+       width: 100%;
+       height: 100%;
+      background-image: url(./new_mark.png);
+      background-size: contain;
+      background-repeat: no-repeat;
+  }
+  
+  
+  .new_mark2 {
+        position: relative;
+      display: inline-block;
+      width: 2.5rem;
+      height: 1.7rem;
+  }
+  
+  .new_mark2::before {
+       position: absolute;
+       content: "\f574";
+       font-family: "Font Awesome 6 Free";
+       font-weight: 400;
+      font-size:x-large;
+       color: #ff0000;
+       right: .05rem;
+  }
+  */
+  
+/* Table Filter */
+  
+.tableFilter {
+    display: flex;
+    flex-direction: row-reverse;
+    margin-bottom: 10px;
+
+}
+
+.tableFilter #tableFilter_txt1 {
+    border: 1px solid #000;
+    border-radius: 3px 0 0 3px;
+    outline: none;
+    font-size: 0.95rem;
+    max-width: 250px;
+    padding: 2px 0 2px 1em;
+
+}
+
+.tableFilter #tableFilter_btn1 {
+    background-color: #000;
+    border: 1px solid #000;
+    border-radius: 0 3px 3px 0;
+    padding: 0 5px;
+    outline: none;
+    transition: 0.3s;
+
+}
+
+.tableFilter #tableFilter_btn1:hover {
+    background-color: red;
+    border-left: 1px solid steelblue;	
+}
+
+.tableFilter #tableFilter_btn1:active {
+    background-color: #000;
+}
+
+
+.tableFilter #tableFilter_btn2 {
+    background-color:#fff;
+    border: 1px solid #000;
+    border-radius: 3px;
+    margin:0 0 0 10px;
+    padding: 0 5px;
+    font-size: 0.95rem;
+    outline: none;
+    transition: 0.3s;
+
+}
+
+.tableFilter #tableFilter_btn2:hover {
+    box-shadow: 1px 2px #353535;
+    color: white;
+    background-color: black;
+}
+
+.tableFilter #tableFilter_btn2:active {
+    box-shadow: 0 0;
+    transform: translate(1px,2px);	
+}
+
+/* R7.07.23 ******************************************/
+
+#contract,
+#contract_opencar {
+    box-sizing: border-box;
+}    
+
+#contract .scroll_table {
+    overflow-x: auto;
+}
+
+table.tbl_basic {
+    white-space: wrap;
+}
+
+.tbl_basic.tbl_basic--contract-annocement-gyomu,
+.tbl_basic.tbl_basic--contract-annocement-koji,
+.tbl_basic.tbl_basic--contract-annocement-kounyu,
+.tbl_basic.tbl_basic--contract-result,
+.tbl_basic.tbl_basic--contract-result-info {
+    width: 1300px;
+}
+
+.tbl_basic.tbl_basic--contract-annocement-opencounter,
+.tbl_basic.tbl_basic--contract-commit {
+    width: 1100px;
+}
+
+.tbl_basic.tbl_basic--contract-nominationStop {
+    width: 900px;
+}
+
+.tbl_basic.tbl_basic--contract-invest {
+    width: 1051px;px;
+}
+
+
+  /*# sourceMappingURL=contract.css.map  */
+

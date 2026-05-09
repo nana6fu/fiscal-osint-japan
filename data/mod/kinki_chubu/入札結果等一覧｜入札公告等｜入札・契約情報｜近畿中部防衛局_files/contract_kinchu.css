@@ -1,0 +1,32 @@
+@charset "UTF-8";
+/* ===================================================================
+CSS information
+
+file name  : contract_kinchu.css
+style info : contract_近畿中部防衛局用カスタム
+=================================================================== */
+
+/* 業務名を左寄せ */
+.con-contract_construction_result .inner_width .constructionwork tbody tr td:nth-child(1) {
+  text-align: left;
+}
+
+/* 金額を右寄せ */
+.con-contract_construction_result .inner_width .constructionwork tbody tr td:nth-child(4),
+.con-contract_construction_result .inner_width .constructionwork tbody tr td:nth-child(5) {
+  text-align: right;
+}
+
+.koukoku_list .page-top a span {
+  margin: 8px 0;
+  display: block;
+  font-size: 0.875rem;
+  text-align: center;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+:target {
+  scroll-margin-top: 150px;
+}

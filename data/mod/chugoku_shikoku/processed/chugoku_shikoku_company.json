@@ -1,0 +1,202 @@
+[
+  {
+    "company": "（株）奥村組　広島支店",
+    "cases": 2,
+    "total_amount_oku": 42.0,
+    "max_score": 13,
+    "high_cases": 1,
+    "methods": "一般競争入札 / 随意契約",
+    "sample_project": "美保（5）格納庫等新設建築追加工事",
+    "avg_rate_pct": 96.41
+  },
+  {
+    "company": "（株）鴻池組　山陰支店",
+    "cases": 1,
+    "total_amount_oku": 2.93,
+    "max_score": 12,
+    "high_cases": 1,
+    "methods": "随意契約",
+    "sample_project": "出雲（5）隊庁舎新設建築追加工事",
+    "avg_rate_pct": 99.9
+  },
+  {
+    "company": "美保（６）施設最適化総合設計に係る技術協力業務対象工事　奥村組・美保テクノス・井木組・大松建設最適化事業建設共同企業体",
+    "cases": 1,
+    "total_amount_oku": 0.29,
+    "max_score": 12,
+    "high_cases": 1,
+    "methods": "随意契約",
+    "sample_project": "美保（６）施設最適化総合設計に係る技術協力業務",
+    "avg_rate_pct": 100.0
+  },
+  {
+    "company": "大企建設株式会社",
+    "cases": 1,
+    "total_amount_oku": 2.16,
+    "max_score": 11,
+    "high_cases": 1,
+    "methods": "随意契約",
+    "sample_project": "美保（5）消防車庫等新設建築追加工事",
+    "avg_rate_pct": 99.99
+  },
+  {
+    "company": "美保外（６）施設最適化総合設計　中林建築設計事務所・白兎設計事務所・復建調査設計・アジア航測・婦木建築設備事務所共同体",
+    "cases": 1,
+    "total_amount_oku": 14.56,
+    "max_score": 10,
+    "high_cases": 1,
+    "methods": "公募型プロポーザル",
+    "sample_project": "美保外（６）施設最適化総合設計",
+    "avg_rate_pct": 99.95
+  },
+  {
+    "company": "（株）テクノ菱和　広島営業所",
+    "cases": 2,
+    "total_amount_oku": 14.3,
+    "max_score": 8,
+    "high_cases": 1,
+    "methods": "一般競争入札",
+    "sample_project": "海田市（6）庁舎新設等機械工事",
+    "avg_rate_pct": 99.5
+  },
+  {
+    "company": "（株）大嶋商会",
+    "cases": 1,
+    "total_amount_oku": 7.67,
+    "max_score": 8,
+    "high_cases": 1,
+    "methods": "一般競争入札",
+    "sample_project": "見島（6）隊庁舎改修等機械その他工事",
+    "avg_rate_pct": 99.49
+  },
+  {
+    "company": "（株）総合設備コンサルタント　広島事務所",
+    "cases": 15,
+    "total_amount_oku": 4.99,
+    "max_score": 8,
+    "high_cases": 1,
+    "methods": "一般競争入札",
+    "sample_project": "美保（６）設備工事監理業務",
+    "avg_rate_pct": 97.27
+  },
+  {
+    "company": "（株）村田相互設計",
+    "cases": 4,
+    "total_amount_oku": 1.77,
+    "max_score": 8,
+    "high_cases": 1,
+    "methods": "一般競争入札",
+    "sample_project": "1術校（６）庁舎耐震改修建築設計",
+    "avg_rate_pct": 86.3
+  },
+  {
+    "company": "（有）斉木電気設備",
+    "cases": 1,
+    "total_amount_oku": 1.65,
+    "max_score": 8,
+    "high_cases": 1,
+    "methods": "一般競争入札",
+    "sample_project": "美保通信所（6）電源施設等改修電気その他工事",
+    "avg_rate_pct": 99.27
+  },
+  {
+    "company": "（株）島谷建設",
+    "cases": 1,
+    "total_amount_oku": 1.65,
+    "max_score": 8,
+    "high_cases": 1,
+    "methods": "一般競争入札",
+    "sample_project": "徳島（6補）宿舎改修建築その他工事",
+    "avg_rate_pct": 99.17
+  },
+  {
+    "company": "（株）産研設計　広島事務所",
+    "cases": 4,
+    "total_amount_oku": 1.32,
+    "max_score": 8,
+    "high_cases": 1,
+    "methods": "一般競争入札",
+    "sample_project": "海田市（６）庁舎新設設備設計",
+    "avg_rate_pct": 99.08
+  },
+  {
+    "company": "（株）新興建設",
+    "cases": 2,
+    "total_amount_oku": 0.96,
+    "max_score": 8,
+    "high_cases": 1,
+    "methods": "一般競争入札",
+    "sample_project": "出雲（6）隊庁舎新設土木工事",
+    "avg_rate_pct": 95.14
+  },
+  {
+    "company": "株式会社産研設計　広島事務所",
+    "cases": 1,
+    "total_amount_oku": 0.25,
+    "max_score": 8,
+    "high_cases": 1,
+    "methods": "一般競争入札",
+    "sample_project": "米子外（６）宿舎改修設備設計",
+    "avg_rate_pct": 99.47
+  },
+  {
+    "company": "（株）吹上技研コンサルタント",
+    "cases": 1,
+    "total_amount_oku": 0.11,
+    "max_score": 8,
+    "high_cases": 1,
+    "methods": "一般競争入札",
+    "sample_project": "小月（６）宿舎改修等土木設計",
+    "avg_rate_pct": 99.8
+  },
+  {
+    "company": "（株）中電工",
+    "cases": 5,
+    "total_amount_oku": 17.42,
+    "max_score": 7,
+    "high_cases": 0,
+    "methods": "一般競争入札",
+    "sample_project": "美保（6）消防車庫新設電気その他工事",
+    "avg_rate_pct": 98.42
+  },
+  {
+    "company": "日本工営（株）　広島支店",
+    "cases": 7,
+    "total_amount_oku": 5.07,
+    "max_score": 7,
+    "high_cases": 0,
+    "methods": "一般競争入札",
+    "sample_project": "１術校（６）護岸復旧整備等土木調査設計",
+    "avg_rate_pct": 91.33
+  },
+  {
+    "company": "山陰建設（株）",
+    "cases": 2,
+    "total_amount_oku": 4.7,
+    "max_score": 7,
+    "high_cases": 0,
+    "methods": "一般競争入札",
+    "sample_project": "美保（6）消防車庫等新設土木工事",
+    "avg_rate_pct": 97.72
+  },
+  {
+    "company": "（株）オンチョウ",
+    "cases": 1,
+    "total_amount_oku": 4.16,
+    "max_score": 7,
+    "high_cases": 0,
+    "methods": "一般競争入札",
+    "sample_project": "高尾山（6）局舎等改修機械工事",
+    "avg_rate_pct": 99.55
+  },
+  {
+    "company": "エクシオグループ（株）　中国支店",
+    "cases": 1,
+    "total_amount_oku": 3.35,
+    "max_score": 7,
+    "high_cases": 0,
+    "methods": "一般競争入札",
+    "sample_project": "広（6）野積場等整備電気その他工事",
+    "avg_rate_pct": 99.21
+  }
+]

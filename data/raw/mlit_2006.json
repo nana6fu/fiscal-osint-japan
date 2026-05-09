@@ -1,0 +1,22 @@
+{
+  "source": "衆議院質問主意書 第169回国会 第141号（2008年3月5日）",
+  "url": "https://www.shugiin.go.jp/internet/itdb_shitsumon.nsf/html/shitsumon/a169141.htm",
+  "year": 2006,
+  "ministry": "国土交通省",
+  "tokubetsu_kaikei": "道路整備特別会計",
+  "total_shukkin": 188800000000,
+  "amakudari_total": 1200,
+  "jomu_yakuin": 220,
+  "houjin": [
+    {"name": "日本高速道路保有・債務返済機構", "type": "独立行政法人", "shukkin": 104426140000, "amakudari": null},
+    {"name": "都市再生機構", "type": "独立行政法人", "shukkin": 13640170000, "amakudari": null},
+    {"name": "財団法人道路保全技術センター", "type": "公益法人", "shukkin": 8177820000, "amakudari": null},
+    {"name": "社団法人中部建設協会", "type": "公益法人", "shukkin": 7327590000, "amakudari": null},
+    {"name": "関東建設弘済会", "type": "公益法人", "shukkin": 6877490000, "amakudari": null},
+    {"name": "九州建設弘済会", "type": "公益法人", "shukkin": 5516340000, "amakudari": null},
+    {"name": "東北建設協会", "type": "公益法人", "shukkin": 5061080000, "amakudari": null},
+    {"name": "中国建設弘済会", "type": "公益法人", "shukkin": 4899610000, "amakudari": null},
+    {"name": "近畿建設協会", "type": "公益法人", "shukkin": 3130400000, "amakudari": null},
+    {"name": "四国建設弘済会", "type": "公益法人", "shukkin": 2978610000, "amakudari": null}
+  ]
+}

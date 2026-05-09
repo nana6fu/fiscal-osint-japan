@@ -1,0 +1,328 @@
+@charset "UTF-8";
+/* ===================================================================
+CSS information
+
+file name  : about.css
+author     : Abilive
+style info : 九州防衛局について
+=================================================================== */
+/* ===================================================================
+CSS information
+
+file name  : _settings.scss
+author     : zerotwo
+style info : 汎用設定
+=================================================================== */
+.col_underline > li {
+  box-sizing: border-box;
+  padding-right: 2em;
+}
+.col_underline > li.noarrow {
+  padding-right: 0;
+}
+.col_underline > li.noarrow:after {
+  content: none;
+}
+.col_underline > li.noarrow a {
+  display: inline;
+}
+
+.scroll-hint-icon-wrap .scroll-hint-icon {
+  top: 2em;
+}
+
+/*
+.p-about .inner_width p img {
+  width: 100%;
+}
+*/
+
+.p-about_information .inner_width {
+  /*
+  .executivesstaff {
+  	display: flex;
+  	flex-wrap: nowrap;
+  	justify-content: space-between;
+  	.image {
+  		width: 20%;
+  	}
+  	.text {
+  		width: 75%;
+  	}
+  }
+        */
+  /*
+  .member_name {
+  	text-align: center;
+  }
+  */
+}
+.p-about_information .inner_width .center {
+  text-align: center;
+}
+.p-about_information .inner_width .number_ol li {
+  margin-bottom: 0.5em;
+  margin-left: 2em;
+  list-style: decimal;
+}
+.p-about_information .inner_width .plus {
+  display: inline-block;
+  background: #000;
+  color: #FFF;
+  width: 1em;
+  height: 1em;
+  line-height: 1em;
+  text-align: center;
+  pointer-events: none;
+  font-size: 14px;
+}
+.p-about_information .inner_width .organizationchart {
+  position: relative;
+  width: 75%;
+  margin: 0 auto;
+}
+@media (max-width: 520px) {
+  .p-about_information .inner_width .organizationchart {
+    width: 100%;
+  }
+}
+.p-about_information .inner_width .organizationchart .plus {
+  position: absolute;
+  transition: 0.3s;
+}
+@media (max-width: 520px) {
+  .p-about_information .inner_width .organizationchart .plus {
+    font-size: 10px;
+  }
+}
+.p-about_information .inner_width .organizationchart__detail {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 100;
+  text-align: center;
+  background: rgba(0, 0, 0, 0.7);
+  width: 100%;
+  height: 100%;
+}
+.p-about_information .inner_width .organizationchart__detail:before, .p-about_information .inner_width .organizationchart__detail:after {
+  content: "";
+  width: 2em;
+  height: 2px;
+  background: #FFF;
+  position: absolute;
+  right: 1em;
+  top: 2em;
+}
+.p-about_information .inner_width .organizationchart__detail:before {
+  transform: rotate(-45deg);
+}
+.p-about_information .inner_width .organizationchart__detail:after {
+  transform: rotate(45deg);
+}
+.p-about_information .inner_width .organizationchart__detail .chart {
+  display: none;
+  width: 50%;
+  display: inline-block;
+  pointer-events: none;
+  color: #FFF;
+  text-align: left;
+  margin: 0 auto;
+}
+.p-about_information .inner_width .organizationchart__detail.active {
+  display: flex;
+  align-items: center;
+}
+@media (min-width: 521px) and (max-width: 960px) {
+  .p-about_information .inner_width .col_three .col {
+    width: calc((100% - 64px) / 3) !important;
+    margin-right: 32px !important;
+  }
+  .p-about_information .inner_width .col_three .col:nth-child(3n) {
+    margin-right: 0 !important;
+  }
+  .p-about_information .inner_width .col_three .col:nth-last-child(-n+4) {
+    margin-bottom: 24px !important;
+  }
+}
+@media (max-width: 520px) {
+  .p-about_information .inner_width .col_three .col {
+    margin-right: 0 !important;
+    width: 100% !important;
+  }
+  .p-about_information .inner_width .col_three .col:nth-last-child(-n+2) {
+    margin-bottom: 16px !important;
+  }
+}
+.p-about_information .inner_width .col_three .col dl.executivesstaff {
+  display: flex;
+  flex-wrap: nowrap;
+  justify-content: space-between;
+  align-items: baseline;
+  border-bottom: 1px solid rgba(100, 100, 100, 0.3);
+}
+.p-about_information .inner_width .col_three .col dl.executivesstaff dd {
+  text-align: right;
+}
+.p-about_information .inner_width .col_three .col dl.executivesstaff dd ruby rb {
+  margin-right: 0.5em;
+}
+@media (min-width: 521px) {
+  .p-about_information .inner_width .col_three .col dl.executivesstaff dd ruby rb {
+    font-size: 1.5rem;
+  }
+}
+@media (max-width: 520px) {
+  .p-about_information .inner_width .col_three .col dl.executivesstaff dd ruby rb {
+    font-size: 1.25rem;
+  }
+}
+.p-about_information .inner_width .col_three .col dl.executivesstaff dd ruby rt {
+  margin-right: 0.5em;
+}
+
+.con_about {
+  /*
+  table {
+      border-collapse:  collapse;
+      width:  100%;
+      table-layout: fixed;
+      @include mq(sp) {
+          display: block;
+      }
+      td{
+          border: solid 1px;
+          &:first-child{
+              width: 20%;
+              text-align: center;
+          }
+          &:nth-child(2){
+              line-height: 2em;
+              padding: 1em;
+          }
+          @include mq(sp) {
+              display: block;
+              &:first-child{
+                  width: auto;
+              }
+          }
+      }
+  }
+  */
+}
+.con_about table th {
+  text-align: center;
+  width: 20%;
+}
+
+.p-about_building .box_detail {
+  display: flex;
+  justify-content: space-between;
+  margin: 0 auto;
+  position: relative;
+}
+@media (max-width: 520px) {
+  .p-about_building .box_detail {
+    display: block;
+  }
+}
+.p-about_building .box_detail li {
+  width: 42.5%;
+  display: flex;
+  flex-direction: column;
+}
+@media (max-width: 520px) {
+  .p-about_building .box_detail li {
+    width: auto;
+  }
+}
+.p-about_building .box_detail li img {
+  width: 300px;
+  margin-top: auto;
+}
+@media (max-width: 520px) {
+  .p-about_building .box_detail li img {
+    width: 100%;
+  }
+}
+.p-about_building .box_detail li p {
+  /*
+  .box_id{
+      border: solid 1px #e8f1fe;
+      padding: .5em;
+      display: block;
+      margin: .5em 0;
+  }
+  */
+}
+.p-about_building .box_detail li p:nth-child(2) {
+  padding-left: 1em;
+}
+@media (max-width: 520px) {
+  .p-about_building .box_detail li p:nth-child(2) {
+    padding-left: 0;
+  }
+}
+.p-about_building .box_id {
+  background: rgba(200, 200, 200, 0.3);
+  padding: 16px;
+  display: block;
+}
+.p-about_building .box_gate {
+  display: flex;
+  justify-content: space-between;
+}
+@media (max-width: 520px) {
+  .p-about_building .box_gate {
+    display: block;
+  }
+}
+.p-about_building .box_gate p {
+  width: 60%;
+}
+@media (max-width: 520px) {
+  .p-about_building .box_gate p {
+    width: auto;
+  }
+}
+@media (min-width: 521px) and (max-width: 960px) {
+  .p-about_building .box_gate p {
+    padding-right: 1em;
+  }
+}
+.p-about_building .box_gate img {
+  width: 300px;
+  -o-object-fit: contain;
+     object-fit: contain;
+}
+@media (max-width: 520px) {
+  .p-about_building .box_gate img {
+    width: 100%;
+  }
+}
+.p-about_building .txt_indent {
+  padding-left: 1em;
+  text-indent: -1em;
+}
+.p-about_building .dli-chevron-right {
+  display: inline-block;
+  vertical-align: middle;
+  color: #333;
+  line-height: 1;
+  width: 2.5em;
+  height: 2.5em;
+  border: 0.1em solid currentColor;
+  border-left: 0;
+  border-bottom: 0;
+  box-sizing: border-box;
+  transform: translateX(-25%) rotate(45deg);
+  position: absolute;
+  left: 46%;
+  top: 40%;
+}
+@media (max-width: 520px) {
+  .p-about_building .dli-chevron-right {
+    display: none;
+  }
+}/*# sourceMappingURL=about.css.map */

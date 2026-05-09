@@ -1,0 +1,202 @@
+[
+  {
+    "company": "(株)中原建設",
+    "cases": 5,
+    "total_amount_oku": 32.06,
+    "max_score": 14,
+    "high_cases": 1,
+    "methods": "一般競争入札 / 随意契約",
+    "sample_project": "目達原(6)庁舎新設建築工事",
+    "avg_rate_pct": 97.43
+  },
+  {
+    "company": "ダイダン(株)",
+    "cases": 2,
+    "total_amount_oku": 12.52,
+    "max_score": 14,
+    "high_cases": 2,
+    "methods": "一般競争入札 / 随意契約",
+    "sample_project": "築城(5)庁舎新設機械追加工事",
+    "avg_rate_pct": 99.72
+  },
+  {
+    "company": "梓設計・大建設計・手島建築設計事務所・産研設計・日本工営 JV",
+    "cases": 1,
+    "total_amount_oku": 24.92,
+    "max_score": 13,
+    "high_cases": 1,
+    "methods": "公募型プロポーザル方式",
+    "sample_project": "築城(6)施設最適化総合設計",
+    "avg_rate_pct": 99.96
+  },
+  {
+    "company": "(株)弘電社",
+    "cases": 1,
+    "total_amount_oku": 1.47,
+    "max_score": 13,
+    "high_cases": 1,
+    "methods": "随意契約",
+    "sample_project": "築城(5)庁舎新設電気その他追加工事",
+    "avg_rate_pct": 99.95
+  },
+  {
+    "company": "大林組・若築建設・大本組・九鉄工業・松山建設・瀬口組　特定JV",
+    "cases": 1,
+    "total_amount_oku": 0.48,
+    "max_score": 11,
+    "high_cases": 1,
+    "methods": "公募型プロポーザル方式",
+    "sample_project": "築城(6)施設最適化総合設計に係る技術協力業務",
+    "avg_rate_pct": 100.0
+  },
+  {
+    "company": "東洋建設(株)",
+    "cases": 1,
+    "total_amount_oku": 17.6,
+    "max_score": 10,
+    "high_cases": 1,
+    "methods": "一般競争入札",
+    "sample_project": "築城(6)整備ショップ新設等建築その他工事",
+    "avg_rate_pct": 99.85
+  },
+  {
+    "company": "若築建設(株)",
+    "cases": 1,
+    "total_amount_oku": 17.38,
+    "max_score": 10,
+    "high_cases": 1,
+    "methods": "一般競争入札",
+    "sample_project": "築城(6)簡易駐機施設新設建築工事",
+    "avg_rate_pct": 99.58
+  },
+  {
+    "company": "大橋エアシステム(株)",
+    "cases": 1,
+    "total_amount_oku": 11.28,
+    "max_score": 10,
+    "high_cases": 1,
+    "methods": "一般競争入札",
+    "sample_project": "飯塚(6)庁舎新設機械工事",
+    "avg_rate_pct": 99.43
+  },
+  {
+    "company": "(株)IHIジェットサービス",
+    "cases": 1,
+    "total_amount_oku": 16.5,
+    "max_score": 9,
+    "high_cases": 1,
+    "methods": "一般競争入札",
+    "sample_project": "竹松(6)洗機場新設機械工事",
+    "avg_rate_pct": 99.63
+  },
+  {
+    "company": "栄城設備工業(株)",
+    "cases": 2,
+    "total_amount_oku": 13.75,
+    "max_score": 9,
+    "high_cases": 1,
+    "methods": "一般競争入札",
+    "sample_project": "前川原外(6)隊舎空調設備改修等機械工事",
+    "avg_rate_pct": 99.11
+  },
+  {
+    "company": "(株)佐電工",
+    "cases": 2,
+    "total_amount_oku": 10.78,
+    "max_score": 9,
+    "high_cases": 1,
+    "methods": "一般競争入札",
+    "sample_project": "目達原(6)庁舎新設等電気その他工事",
+    "avg_rate_pct": 98.12
+  },
+  {
+    "company": "(株)千代田工業所",
+    "cases": 1,
+    "total_amount_oku": 7.13,
+    "max_score": 9,
+    "high_cases": 1,
+    "methods": "一般競争入札",
+    "sample_project": "脊振山外(6)隊庁舎空調設備整備機械その他工事",
+    "avg_rate_pct": 99.61
+  },
+  {
+    "company": "(株)九電工",
+    "cases": 1,
+    "total_amount_oku": 6.42,
+    "max_score": 9,
+    "high_cases": 1,
+    "methods": "一般競争入札",
+    "sample_project": "飯塚(6)庁舎新設等電気その他工事",
+    "avg_rate_pct": 99.74
+  },
+  {
+    "company": "新生テクノス(株)",
+    "cases": 1,
+    "total_amount_oku": 6.0,
+    "max_score": 9,
+    "high_cases": 1,
+    "methods": "一般競争入札",
+    "sample_project": "小郡外(6)庁舎新設等電気その他工事",
+    "avg_rate_pct": 99.42
+  },
+  {
+    "company": "JR九州電気システム(株)",
+    "cases": 1,
+    "total_amount_oku": 3.69,
+    "max_score": 9,
+    "high_cases": 1,
+    "methods": "一般競争入札",
+    "sample_project": "築城外(6)訓練施設新設等電気その他工事",
+    "avg_rate_pct": 99.2
+  },
+  {
+    "company": "(株)総合設備コンサルタント",
+    "cases": 7,
+    "total_amount_oku": 3.65,
+    "max_score": 9,
+    "high_cases": 2,
+    "methods": "一般競争入札",
+    "sample_project": "小郡外(6)庁舎新設等設備設計",
+    "avg_rate_pct": 95.43
+  },
+  {
+    "company": "中野建設・上滝建設 特定JV",
+    "cases": 2,
+    "total_amount_oku": 19.91,
+    "max_score": 8,
+    "high_cases": 1,
+    "methods": "一般競争入札",
+    "sample_project": "佐賀(6)体育館新設建築工事",
+    "avg_rate_pct": 98.69
+  },
+  {
+    "company": "(株)堀内組",
+    "cases": 2,
+    "total_amount_oku": 8.85,
+    "max_score": 8,
+    "high_cases": 1,
+    "methods": "一般競争入札",
+    "sample_project": "竹松(6)構内道路新設等土木工事",
+    "avg_rate_pct": 96.35
+  },
+  {
+    "company": "(株)産研設計",
+    "cases": 23,
+    "total_amount_oku": 8.13,
+    "max_score": 8,
+    "high_cases": 14,
+    "methods": "一般競争入札",
+    "sample_project": "春日(6)隊舎新設等設備設計",
+    "avg_rate_pct": 99.03
+  },
+  {
+    "company": "日本工営(株)",
+    "cases": 13,
+    "total_amount_oku": 7.7,
+    "max_score": 8,
+    "high_cases": 1,
+    "methods": "一般競争入札",
+    "sample_project": "佐世保(6)崎辺函渠等土木設計",
+    "avg_rate_pct": 90.71
+  }
+]

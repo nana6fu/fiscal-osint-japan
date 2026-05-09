@@ -1,0 +1,202 @@
+[
+  {
+    "cases": 1,
+    "total_amount_oku": 18.81,
+    "max_score": 14,
+    "high_cases": 1,
+    "methods": "公募型プロポーザル方式",
+    "sample_project": "朝霞（６）施設最適化総合設計(その1)",
+    "company": "朝霞（６）施設最適化総合設計（その１）久米設計・翔設計・ムラシマ事務所・雙設備研究所・オオバ共同体",
+    "avg_rate_pct": 99.63
+  },
+  {
+    "cases": 4,
+    "total_amount_oku": 23.99,
+    "max_score": 12,
+    "high_cases": 4,
+    "methods": "一般競争入札 / 随意契約",
+    "sample_project": "市ヶ谷（６）通路等整備建築その他工事",
+    "company": "前田建設工業株式会社",
+    "avg_rate_pct": 99.48
+  },
+  {
+    "cases": 1,
+    "total_amount_oku": 3.71,
+    "max_score": 12,
+    "high_cases": 1,
+    "methods": "随意契約",
+    "sample_project": "市ヶ谷（６）庁舎改修建築その他工事",
+    "company": "清水建設株式会社",
+    "avg_rate_pct": 99.81
+  },
+  {
+    "cases": 1,
+    "total_amount_oku": 12.32,
+    "max_score": 9,
+    "high_cases": 1,
+    "methods": "一般競争入札",
+    "sample_project": "入間（６）特高受変電施設新設電気工事",
+    "company": "東芝インフラシステムズ株式会社",
+    "avg_rate_pct": 99.56
+  },
+  {
+    "cases": 1,
+    "total_amount_oku": 7.87,
+    "max_score": 9,
+    "high_cases": 1,
+    "methods": "一般競争入札",
+    "sample_project": "北宇都宮（６）格納庫等新設電気工事",
+    "company": "末廣屋電機株式会社",
+    "avg_rate_pct": 99.24
+  },
+  {
+    "cases": 1,
+    "total_amount_oku": 7.75,
+    "max_score": 9,
+    "high_cases": 1,
+    "methods": "一般競争入札",
+    "sample_project": "三宿（６）庁舎新設電気工事",
+    "company": "浅海電気株式会社",
+    "avg_rate_pct": 99.42
+  },
+  {
+    "cases": 1,
+    "total_amount_oku": 6.33,
+    "max_score": 9,
+    "high_cases": 1,
+    "methods": "一般競争入札",
+    "sample_project": "防医大（６）構内情報通信網整備等通信工事",
+    "company": "株式会社ユアテック",
+    "avg_rate_pct": 99.45
+  },
+  {
+    "cases": 4,
+    "total_amount_oku": 3.06,
+    "max_score": 9,
+    "high_cases": 2,
+    "methods": "一般競争入札 / 企画競争",
+    "sample_project": "峯岡山外（６）ﾕｰﾃｨﾘﾃｨ整備設備設計",
+    "company": "株式会社ムラシマ事務所",
+    "avg_rate_pct": 97.55
+  },
+  {
+    "cases": 1,
+    "total_amount_oku": 2.73,
+    "max_score": 9,
+    "high_cases": 1,
+    "methods": "一般競争入札",
+    "sample_project": "立川（６）隊舎空調設備改修機械工事",
+    "company": "池田煖房工業株式会社",
+    "avg_rate_pct": 99.92
+  },
+  {
+    "cases": 1,
+    "total_amount_oku": 2.46,
+    "max_score": 9,
+    "high_cases": 1,
+    "methods": "一般競争入札",
+    "sample_project": "三宿（６補）教育隊舎棟新設等建築その他設計",
+    "company": "株式会社翔設計",
+    "avg_rate_pct": 99.53
+  },
+  {
+    "cases": 1,
+    "total_amount_oku": 1.67,
+    "max_score": 9,
+    "high_cases": 1,
+    "methods": "一般競争入札",
+    "sample_project": "新潟（６）宿舎改修電気工事",
+    "company": "株式会社応用電業社",
+    "avg_rate_pct": 99.22
+  },
+  {
+    "cases": 1,
+    "total_amount_oku": 1.4,
+    "max_score": 9,
+    "high_cases": 1,
+    "methods": "一般競争入札",
+    "sample_project": "宇都宮（６）隊舎改修建築工事",
+    "company": "株式会社小林工業",
+    "avg_rate_pct": 99.82
+  },
+  {
+    "cases": 3,
+    "total_amount_oku": 57.99,
+    "max_score": 8,
+    "high_cases": 1,
+    "methods": "一般競争入札",
+    "sample_project": "三宿（６）庁舎新設等建築その他工事",
+    "company": "青木あすなろ建設株式会社",
+    "avg_rate_pct": 96.52
+  },
+  {
+    "cases": 1,
+    "total_amount_oku": 7.54,
+    "max_score": 8,
+    "high_cases": 1,
+    "methods": "一般競争入札",
+    "sample_project": "古河（６）庁舎等新設機械工事",
+    "company": "大成設備株式会社",
+    "avg_rate_pct": 99.67
+  },
+  {
+    "cases": 2,
+    "total_amount_oku": 7.03,
+    "max_score": 8,
+    "high_cases": 1,
+    "methods": "一般競争入札",
+    "sample_project": "練馬（６）庁舎等空調設備改修機械その他工事",
+    "company": "株式会社前田設備",
+    "avg_rate_pct": 96.3
+  },
+  {
+    "cases": 1,
+    "total_amount_oku": 3.56,
+    "max_score": 8,
+    "high_cases": 1,
+    "methods": "一般競争入札",
+    "sample_project": "峯岡山（６）構内管路等土木その他工事",
+    "company": "株式会社佐々木建設工業",
+    "avg_rate_pct": 99.83
+  },
+  {
+    "cases": 2,
+    "total_amount_oku": 1.71,
+    "max_score": 8,
+    "high_cases": 1,
+    "methods": "一般競争入札",
+    "sample_project": "三宿（６）建築工事監理業務",
+    "company": "株式会社窓建コンサルタント",
+    "avg_rate_pct": 92.34
+  },
+  {
+    "cases": 2,
+    "total_amount_oku": 1.57,
+    "max_score": 8,
+    "high_cases": 1,
+    "methods": "一般競争入札",
+    "sample_project": "百里外（６）土木工事監理業務",
+    "company": "株式会社三紀",
+    "avg_rate_pct": 90.4
+  },
+  {
+    "cases": 4,
+    "total_amount_oku": 1.35,
+    "max_score": 8,
+    "high_cases": 2,
+    "methods": "一般競争入札",
+    "sample_project": "三宿（６）設備工事監理業務",
+    "company": "株式会社ＮＡＣ設計",
+    "avg_rate_pct": 94.66
+  },
+  {
+    "cases": 1,
+    "total_amount_oku": 35.75,
+    "max_score": 7,
+    "high_cases": 0,
+    "methods": "一般競争入札",
+    "sample_project": "硫黄島（６）隊舎新設等建築その他工事",
+    "company": "鹿島建設株式会社",
+    "avg_rate_pct": 99.65
+  }
+]

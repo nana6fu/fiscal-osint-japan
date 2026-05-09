@@ -1,0 +1,202 @@
+[
+  {
+    "company": "千歳外（６）施設最適化総合設計 石本・道設計・中原・日総建・北電総合・富士共同体",
+    "cases": 1,
+    "total_amount_oku": 37.8,
+    "max_score": 12,
+    "high_cases": 1,
+    "methods": "公募型ﾌﾟﾛﾎﾟｰｻﾞﾙ方式",
+    "sample_project": "千歳外（６）施設最適化総合設計",
+    "avg_rate_pct": 99.91
+  },
+  {
+    "company": "札幌（６）施設最適化総合設計 パシフィックコンサルタンツ・オオバ・長大・ドーコン・土屋建築研究所共同体",
+    "cases": 1,
+    "total_amount_oku": 14.67,
+    "max_score": 11,
+    "high_cases": 1,
+    "methods": "公募型ﾌﾟﾛﾎﾟｰｻﾞﾙ方式",
+    "sample_project": "札幌（６）施設最適化総合設計",
+    "avg_rate_pct": 99.73
+  },
+  {
+    "company": "札幌（６）施設最適化総合設計に係る技術協力業務対象工事 岩田地崎・岩倉・新太平洋・板谷建設共同企業体",
+    "cases": 1,
+    "total_amount_oku": 0.3,
+    "max_score": 10,
+    "high_cases": 1,
+    "methods": "公募型ﾌﾟﾛﾎﾟｰｻﾞﾙ方式",
+    "sample_project": "札幌（６）施設最適化総合設計に係る技術協力業務",
+    "avg_rate_pct": 99.9
+  },
+  {
+    "company": "千歳（６）施設最適化総合設計に係る技術協力業務対象工事 五洋建設・岩田地崎建設・宮坂建設工業建設共同企業体",
+    "cases": 1,
+    "total_amount_oku": 0.73,
+    "max_score": 9,
+    "high_cases": 1,
+    "methods": "公募型ﾌﾟﾛﾎﾟｰｻﾞﾙ方式",
+    "sample_project": "千歳（６）施設最適化総合設計に係る技術協力業務",
+    "avg_rate_pct": 99.85
+  },
+  {
+    "company": "北海道防衛局（６補）地質調査 大地・アース共同体",
+    "cases": 1,
+    "total_amount_oku": 1.04,
+    "max_score": 8,
+    "high_cases": 1,
+    "methods": "一般競争入札（総合評価方式）",
+    "sample_project": "静内（６補）地質調査",
+    "avg_rate_pct": 99.74
+  },
+  {
+    "company": "日本工営株式会社",
+    "cases": 2,
+    "total_amount_oku": 1.3,
+    "max_score": 7,
+    "high_cases": 0,
+    "methods": "一般競争入札（総合評価方式）",
+    "sample_project": "稚内外（６）法面整備基本検討",
+    "avg_rate_pct": 96.13
+  },
+  {
+    "company": "株式会社総合設備コンサルタント",
+    "cases": 5,
+    "total_amount_oku": 1.15,
+    "max_score": 7,
+    "high_cases": 0,
+    "methods": "一般競争入札（総合評価方式）",
+    "sample_project": "東千歳（６）庁舎新設等設備設計",
+    "avg_rate_pct": 96.04
+  },
+  {
+    "company": "北海道防衛局（６補）地質調査 道土質・ロック共同体",
+    "cases": 1,
+    "total_amount_oku": 0.6,
+    "max_score": 7,
+    "high_cases": 0,
+    "methods": "一般競争入札（総合評価方式）",
+    "sample_project": "稚内外（６補）地質調査",
+    "avg_rate_pct": 99.37
+  },
+  {
+    "company": "千歳外（６）訓練施設新設等地質調査 調研・道ソイル・ロック共同体",
+    "cases": 1,
+    "total_amount_oku": 0.31,
+    "max_score": 7,
+    "high_cases": 0,
+    "methods": "一般競争入札",
+    "sample_project": "千歳外（６）訓練施設新設等地質調査",
+    "avg_rate_pct": 98.26
+  },
+  {
+    "company": "株式会社建築設計工房ロゴス",
+    "cases": 2,
+    "total_amount_oku": 0.13,
+    "max_score": 7,
+    "high_cases": 0,
+    "methods": "一般競争入札（総合評価方式）",
+    "sample_project": "南恵庭（６）宿舎改修等建築設計",
+    "avg_rate_pct": 95.69
+  },
+  {
+    "company": "株式会社岩見田・設計",
+    "cases": 4,
+    "total_amount_oku": 4.69,
+    "max_score": 6,
+    "high_cases": 0,
+    "methods": "一般競争入札（総合評価方式）",
+    "sample_project": "東千歳（６）庁舎新設等建築設計",
+    "avg_rate_pct": 93.1
+  },
+  {
+    "company": "株式会社エイト設計",
+    "cases": 15,
+    "total_amount_oku": 3.52,
+    "max_score": 6,
+    "high_cases": 0,
+    "methods": "一般競争入札（総合評価方式） / 一般競争入札（総合評価落札方式）",
+    "sample_project": "東千歳（６）整備場新設等設備設計",
+    "avg_rate_pct": 95.79
+  },
+  {
+    "company": "株式会社建築工房",
+    "cases": 4,
+    "total_amount_oku": 2.68,
+    "max_score": 6,
+    "high_cases": 0,
+    "methods": "一般競争入札（総合評価方式）",
+    "sample_project": "島松外（６）庁舎新設等建築設計",
+    "avg_rate_pct": 93.94
+  },
+  {
+    "company": "株式会社北日本技術コンサル",
+    "cases": 7,
+    "total_amount_oku": 1.77,
+    "max_score": 6,
+    "high_cases": 0,
+    "methods": "一般競争入札（総合評価方式） / 一般競争入札（総合評価落札方式）",
+    "sample_project": "東千歳（６）構内線路整備等設備設計",
+    "avg_rate_pct": 96.95
+  },
+  {
+    "company": "株式会社田中建築設備事務所",
+    "cases": 6,
+    "total_amount_oku": 0.92,
+    "max_score": 6,
+    "high_cases": 0,
+    "methods": "一般競争入札（総合評価方式）",
+    "sample_project": "丘珠（６）倉庫新設等設備設計",
+    "avg_rate_pct": 96.07
+  },
+  {
+    "company": "株式会社安井測量設計事務所",
+    "cases": 6,
+    "total_amount_oku": 0.67,
+    "max_score": 6,
+    "high_cases": 0,
+    "methods": "一般競争入札 / 一般競争入札（総合評価方式） / 一般競争入札（総合評価落札方式）",
+    "sample_project": "襟裳外（６）局舎新設等測量調査",
+    "avg_rate_pct": 87.07
+  },
+  {
+    "company": "マン・テック株式会社",
+    "cases": 4,
+    "total_amount_oku": 0.5,
+    "max_score": 6,
+    "high_cases": 0,
+    "methods": "一般競争入札（総合評価方式）",
+    "sample_project": "稚内（６）車庫新設等建築設計",
+    "avg_rate_pct": 95.19
+  },
+  {
+    "company": "株式会社創明建築設計事務所",
+    "cases": 2,
+    "total_amount_oku": 0.46,
+    "max_score": 6,
+    "high_cases": 0,
+    "methods": "一般競争入札（総合評価方式）",
+    "sample_project": "旭川外（６）建築工事監理業務",
+    "avg_rate_pct": 99.59
+  },
+  {
+    "company": "アラヤ総合設計株式会社",
+    "cases": 3,
+    "total_amount_oku": 0.46,
+    "max_score": 6,
+    "high_cases": 0,
+    "methods": "一般競争入札（総合評価落札方式）",
+    "sample_project": "帯広（６）倉庫新設等土木工事監理業務",
+    "avg_rate_pct": 95.6
+  },
+  {
+    "company": "株式会社北海道建築総合研究所",
+    "cases": 3,
+    "total_amount_oku": 0.35,
+    "max_score": 6,
+    "high_cases": 0,
+    "methods": "一般競争入札（総合評価方式）",
+    "sample_project": "苗穂（６）宿舎改修建築設計",
+    "avg_rate_pct": 98.21
+  }
+]

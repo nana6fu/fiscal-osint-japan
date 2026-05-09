@@ -1,0 +1,202 @@
+[
+  {
+    "company": "仲程土建（株）",
+    "cases": 3,
+    "total_amount_oku": 12.19,
+    "max_score": 11,
+    "high_cases": 1,
+    "methods": "一般競争入札 / 随意契約",
+    "sample_project": "北部（６）倉庫新設建築その他工事",
+    "avg_rate_pct": 97.86
+  },
+  {
+    "company": "トリイ（６）隊舎新設建築その他追加工事 淺沼組・大興建設 建設共同企業体",
+    "cases": 1,
+    "total_amount_oku": 5.73,
+    "max_score": 11,
+    "high_cases": 1,
+    "methods": "随意契約",
+    "sample_project": "トリイ（６）隊舎新設建築その他追加工事",
+    "avg_rate_pct": 99.21
+  },
+  {
+    "company": "普天間（６）隊舎改修機械追加工事　大成設備工業・ヤマウチ設備　建設共同企業体",
+    "cases": 1,
+    "total_amount_oku": 2.92,
+    "max_score": 11,
+    "high_cases": 1,
+    "methods": "随意契約",
+    "sample_project": "普天間（６）隊舎改修機械追加工事",
+    "avg_rate_pct": 99.69
+  },
+  {
+    "company": "（株）那覇電工",
+    "cases": 1,
+    "total_amount_oku": 1.51,
+    "max_score": 11,
+    "high_cases": 1,
+    "methods": "随意契約",
+    "sample_project": "普天間（６）隊舎改修電気その他追加工事",
+    "avg_rate_pct": 99.72
+  },
+  {
+    "company": "大日本土木（株）九州支店",
+    "cases": 1,
+    "total_amount_oku": 1.03,
+    "max_score": 11,
+    "high_cases": 1,
+    "methods": "随意契約",
+    "sample_project": "与那国（６）道路復旧工事",
+    "avg_rate_pct": 99.91
+  },
+  {
+    "company": "瑞慶覧（Ｒ６補）倉庫新設建築追加工事　戸田建設・國場組・太名嘉組　建設共同企業体",
+    "cases": 1,
+    "total_amount_oku": 279.95,
+    "max_score": 10,
+    "high_cases": 1,
+    "methods": "随意契約",
+    "sample_project": "瑞慶覧（Ｒ６補）倉庫新設建築追加工事",
+    "avg_rate_pct": 99.92
+  },
+  {
+    "company": "空自那覇（６）施設最適化総合設計　松田平田設計・大有設計・西日本技術開発・東条設計・協和設計・プランディ―・復建エンジニヤリング・アジア技研・大富建設コンサルタント・協和建設コンサルタント共同体",
+    "cases": 1,
+    "total_amount_oku": 36.96,
+    "max_score": 10,
+    "high_cases": 1,
+    "methods": "公募型プロポーザル",
+    "sample_project": "空自那覇(６)施設最適化総合設計",
+    "avg_rate_pct": 99.93
+  },
+  {
+    "company": "（株）沖縄特電",
+    "cases": 3,
+    "total_amount_oku": 28.48,
+    "max_score": 10,
+    "high_cases": 1,
+    "methods": "一般競争入札",
+    "sample_project": "シュワブ（Ｒ６）消防署新設電気その他工事",
+    "avg_rate_pct": 99.28
+  },
+  {
+    "company": "大勝建設（株）九州支店",
+    "cases": 1,
+    "total_amount_oku": 15.27,
+    "max_score": 10,
+    "high_cases": 1,
+    "methods": "一般競争入札",
+    "sample_project": "陸自那覇（６）宿舎等新設建築その他工事",
+    "avg_rate_pct": 99.98
+  },
+  {
+    "company": "瑞慶覧（Ｒ６）倉庫新設電気その他工事　東光電気工事・きらり電設・照屋電気工事　建設共同企業体",
+    "cases": 1,
+    "total_amount_oku": 44.55,
+    "max_score": 9,
+    "high_cases": 1,
+    "methods": "一般競争入札",
+    "sample_project": "瑞慶覧（Ｒ６）倉庫新設電気その他工事",
+    "avg_rate_pct": 99.83
+  },
+  {
+    "company": "（株）沖電工",
+    "cases": 2,
+    "total_amount_oku": 38.01,
+    "max_score": 9,
+    "high_cases": 1,
+    "methods": "一般競争入札",
+    "sample_project": "陸自那覇（６）隊庁舎新設電気その他工事",
+    "avg_rate_pct": 98.67
+  },
+  {
+    "company": "シュワブ（Ｒ６）総括事業監理業務（その２）　パシフィックコンサルタンツ・オオバ・松田平田設計・パシコン技術管理共同体",
+    "cases": 1,
+    "total_amount_oku": 24.78,
+    "max_score": 9,
+    "high_cases": 1,
+    "methods": "公募型プロポーザル",
+    "sample_project": "シュワブ（Ｒ６）総括事業監理業務（その２）",
+    "avg_rate_pct": 99.87
+  },
+  {
+    "company": "瑞慶覧（Ｒ６）保安施設新設建築その他工事　前田建設工業・東光電気工事　建設共同企業体",
+    "cases": 1,
+    "total_amount_oku": 17.82,
+    "max_score": 9,
+    "high_cases": 1,
+    "methods": "一般競争入札",
+    "sample_project": "瑞慶覧（Ｒ６）保安施設新設建築その他工事  ※07.03.14 差替え",
+    "avg_rate_pct": 99.78
+  },
+  {
+    "company": "久米島(６)局舎等新設建築その他工事　前田建設工業・屋部土建・久米建設　建設共同企業体",
+    "cases": 1,
+    "total_amount_oku": 14.96,
+    "max_score": 9,
+    "high_cases": 1,
+    "methods": "一般競争入札",
+    "sample_project": "久米島(６)局舎等新設建築その他工事",
+    "avg_rate_pct": 99.85
+  },
+  {
+    "company": "いであ（株）沖縄支社",
+    "cases": 5,
+    "total_amount_oku": 14.79,
+    "max_score": 9,
+    "high_cases": 1,
+    "methods": "一般競争入札 / 公募型プロポーザル",
+    "sample_project": "空自那覇（６）土質調査",
+    "avg_rate_pct": 88.05
+  },
+  {
+    "company": "いであ（株） 沖縄支社",
+    "cases": 1,
+    "total_amount_oku": 14.46,
+    "max_score": 9,
+    "high_cases": 1,
+    "methods": "公募型プロポーザル",
+    "sample_project": "シュワブ（Ｒ６）水域生物等調査",
+    "avg_rate_pct": 99.89
+  },
+  {
+    "company": "（株）九電工",
+    "cases": 1,
+    "total_amount_oku": 12.65,
+    "max_score": 9,
+    "high_cases": 1,
+    "methods": "一般競争入札",
+    "sample_project": "シュワブ（Ｒ６）厚生施設等新設電気工事",
+    "avg_rate_pct": 99.73
+  },
+  {
+    "company": "瑞慶覧（Ｒ６補）統括事業監理業務　中電技術コンサルタント・日本工営共同体",
+    "cases": 1,
+    "total_amount_oku": 10.37,
+    "max_score": 9,
+    "high_cases": 1,
+    "methods": "公募型プロポーザル方式",
+    "sample_project": "瑞慶覧（Ｒ６補）統括事業監理業務",
+    "avg_rate_pct": 99.94
+  },
+  {
+    "company": "第一工業（株）",
+    "cases": 3,
+    "total_amount_oku": 10.16,
+    "max_score": 8,
+    "high_cases": 1,
+    "methods": "一般競争入札",
+    "sample_project": "陸自宮古島外（６）宿舎新設等電気その他工事",
+    "avg_rate_pct": 98.92
+  },
+  {
+    "company": "西部電気工業（株）",
+    "cases": 1,
+    "total_amount_oku": 8.26,
+    "max_score": 8,
+    "high_cases": 1,
+    "methods": "一般競争入札",
+    "sample_project": "シュワブ（Ｒ６）厚生施設等新設通信工事",
+    "avg_rate_pct": 99.69
+  }
+]

@@ -1,0 +1,22 @@
+[
+  {
+    "bureau": "北関東防衛局",
+    "cases": 61,
+    "total_amount_oku": 389.2,
+    "high_cases": 16,
+    "mid_cases": 11,
+    "max_score": 12,
+    "kind": "工事",
+    "avg_rate_pct": 93.7
+  },
+  {
+    "bureau": "北関東防衛局",
+    "cases": 65,
+    "total_amount_oku": 49.89,
+    "high_cases": 8,
+    "mid_cases": 15,
+    "max_score": 14,
+    "kind": "業務",
+    "avg_rate_pct": 91.98
+  }
+]

@@ -1,0 +1,369 @@
+@charset "UTF-8";
+/* ===================================================================
+CSS information
+
+file name  : contract.css
+author     : Abilive
+style info : 入札・契約情報
+=================================================================== */
+/* ===================================================================
+CSS information
+
+file name  : _settings.scss
+author     : zerotwo
+style info : 汎用設定
+=================================================================== */
+.newscontentbox {
+  max-height: 15em;
+  overflow-y: scroll;
+}
+
+.col_underline > li {
+  box-sizing: border-box;
+  padding-right: 2em;
+}
+.col_underline > li.noarrow {
+  padding-right: 0;
+}
+.col_underline > li.noarrow:after {
+  content: none;
+}
+.col_underline > li.noarrow a {
+  display: inline;
+}
+
+.tbl_basic tbody tr:nth-child(2n) {
+  background: rgba(232, 241, 254, 0.3);
+}
+.tbl_basic tbody tr strong.red {
+  color: #d41a1a;
+}
+
+.scroll-hint-icon-wrap .scroll-hint-icon {
+  top: 2em;
+}
+
+.con-contract .number_ol > li {
+  margin-bottom: 0.5em;
+  margin-left: 2em;
+  list-style: decimal;
+}
+.con-contract .inner_width p img {
+  width: 100%;
+}
+.con-contract .inner_width ul:not(.col_two) {
+  margin: 2em 0 0 1em;
+}
+@media (max-width: 520px) {
+  .con-contract .inner_width ul:not(.col_two) {
+    margin: 0;
+  }
+}
+.con-contract .inner_width .cautionbox {
+  border: 1px solid black;
+  padding: 32px 2em;
+}
+.con-contract .inner_width .cautionbox.nonbottom {
+  padding-bottom: 0;
+}
+.con-contract .inner_width .box_contact_block:not(:last-child) {
+  padding-bottom: 16px;
+  border-bottom: 1px solid #727274;
+  margin-bottom: 16px;
+}
+.con-contract .inner_width .box_contact ul {
+  margin: 0;
+}
+
+.con-contract_construction table.lowbidprice th:nth-child(1) {
+  width: 75%;
+}
+.con-contract_construction table.lowbidprice th:nth-child(3) {
+  width: 25%;
+}
+.con-contract_construction table.nominationsuspension thead th {
+  width: 20%;
+}
+.con-contract_construction table.nominationsuspension thead th:nth-child(1) {
+  width: 5%;
+}
+.con-contract_construction table.nominationsuspension thead th:nth-child(3) {
+  width: 35%;
+}
+.con-contract_construction table tr .leftline {
+  border-left: 1px solid #727274;
+}
+.con-contract_construction_koji .inner_width strong.red {
+  color: #d41a1a;
+}
+.con-contract_construction_koji .inner_width .tbl_basic {
+  border-top: 3px solid #0017c1;
+  border-bottom: 3px solid #0017c1;
+  margin-bottom: 32px;
+}
+.con-contract_construction_koji .inner_width .tbl_basic thead th {
+  white-space: nowrap;
+  padding: 16px;
+  font-size: 0.875rem;
+  letter-spacing: 0.04em;
+}
+.con-contract_construction_koji .inner_width .tbl_basic tbody tr {
+  /*
+  &:last-child {
+  	td {
+  		border-bottom: 3px solid #0017c1;
+  	}
+  }
+  */
+}
+.con-contract_construction_koji .inner_width .tbl_basic tbody tr th {
+  padding: 16px;
+  white-space: nowrap;
+  text-align: center;
+  font-size: 0.875rem;
+  letter-spacing: 0.04em;
+  background: rgb(232, 241, 254);
+  width: 15%;
+}
+.con-contract_construction_koji .inner_width .tbl_basic tbody tr td {
+  padding: 16px;
+  font-size: 0.875rem;
+  letter-spacing: 0.04em;
+}
+.con-contract_construction_koji .inner_width .tbl_basic tbody tr:first-child td {
+  background: rgba(232, 241, 254, 0.3);
+  border-bottom-color: #0017c1;
+}
+.con-contract_construction_koji .inner_width .tbl_basic tbody tr:nth-child(2n) td {
+  background: #FFF;
+}
+.con-contract_construction_koji .centerbox {
+  text-align: center;
+}
+.con-contract_construction_gyomu .inner_width strong.red {
+  color: #d41a1a;
+}
+.con-contract_construction_gyomu .inner_width .tbl_basic {
+  border-top: 3px solid #0017c1;
+  border-bottom: 3px solid #0017c1;
+  margin-bottom: 32px;
+}
+.con-contract_construction_gyomu .inner_width .tbl_basic thead th {
+  white-space: nowrap;
+  padding: 16px;
+  font-size: 0.875rem;
+  letter-spacing: 0.04em;
+}
+.con-contract_construction_gyomu .inner_width .tbl_basic tbody tr {
+  /*
+  &:last-child {
+  	td {
+  		border-bottom: 3px solid #0017c1;
+  	}
+  }
+  */
+}
+.con-contract_construction_gyomu .inner_width .tbl_basic tbody tr th {
+  padding: 16px;
+  white-space: nowrap;
+  text-align: center;
+  font-size: 0.875rem;
+  letter-spacing: 0.04em;
+  background: rgb(232, 241, 254);
+  width: 15%;
+}
+.con-contract_construction_gyomu .inner_width .tbl_basic tbody tr td {
+  padding: 16px;
+  font-size: 0.875rem;
+  letter-spacing: 0.04em;
+}
+.con-contract_construction_gyomu .inner_width .tbl_basic tbody tr:first-child td {
+  background: rgba(232, 241, 254, 0.3);
+  border-bottom-color: #0017c1;
+}
+.con-contract_construction_gyomu .inner_width .tbl_basic tbody tr:nth-child(2n) td {
+  background: #FFF;
+}
+.con-contract_construction_gyomu .centerbox {
+  text-align: center;
+}
+.con-contract_construction_result .centerbox {
+  text-align: center;
+}
+.con-contract_construction_result .inner_width .tbl_basic thead th {
+  white-space: nowrap;
+}
+.con-contract_construction_result .inner_width .tbl_basic tbody tr {
+  /*
+  &:nth-child(2n) {
+  	background: rgba(232, 241, 254, .3);
+  }
+  strong.red {
+  	color: #d41a1a;
+  }
+  */
+}
+.con-contract_construction_result .inner_width .tbl_basic tbody tr td:nth-child(4) {
+  white-space: nowrap;
+}
+.con-contract_construction_result .inner_width .constructionwork thead th {
+  padding: 8px;
+  white-space: nowrap;
+  text-align: center;
+}
+.con-contract_construction_result .inner_width .constructionwork tbody tr th:nth-child(1) {
+  padding: 8px;
+  font-size: 0.875rem;
+  letter-spacing: 0.04em;
+}
+.con-contract_construction_result .inner_width .constructionwork tbody tr td {
+  padding: 8px;
+  font-size: 0.875rem;
+  letter-spacing: 0.04em;
+}
+.con-contract_construction_result .inner_width .constructionwork tbody tr td:nth-child(1), .con-contract_construction_result .inner_width .constructionwork tbody tr td:nth-child(8), .con-contract_construction_result .inner_width .constructionwork tbody tr td:nth-child(9) {
+  text-align: center;
+}
+.con-contract_construction_result .inner_width .constructionwork tbody tr td:nth-child(4) {
+  word-break: break-all;
+}
+
+.con-contract_procurement .inner_width thead th {
+  white-space: nowrap;
+  text-align: center;
+  width: 15%;
+}
+.con-contract_procurement .inner_width thead th:first-child {
+  width: 70%;
+}
+.con-contract_procurement .inner_width tbody tr {
+  /*
+  &:nth-child(2n) {
+  	background: rgba(232, 241, 254, .3);
+  }
+  */
+}
+
+.con-contract_opencar .inner_width {
+  /*
+  table{
+  	width: 100%;
+  	border: 1px solid #333;
+  	tr{
+  		th{
+  			font-weight: normal;
+  			text-align: center;
+  			border-right: 1px solid #333;
+  			border-bottom: 1px solid #333;
+  			@include mq(sp) {
+  				display: block;
+  			}
+  		}
+  		td{
+  			text-align: center;
+  			border-right: 1px solid #333;
+  			border-bottom: 1px solid #333;
+  			@include mq(sp) {
+  				display: block;
+  			}
+  		}
+  	}
+  }
+  */
+}
+
+.con-contract_suspension .inner_width tbody tr {
+  /*
+  &:nth-child(2n) {
+  	background: rgba(232, 241, 254, .3);
+  }
+  */
+}
+
+.con-contract_order .inner_width .tbl_basic tbody tr {
+  /*
+  &:nth-child(2n) {
+  	background: rgba(232, 241, 254, .3);
+  }
+  strong.red {
+  	color: #d41a1a;
+  }
+  */
+}
+
+.con-contract_committee .inner_width .tbl_basic tbody tr {
+  /*
+  &:nth-child(2n) {
+  	background: rgba(232, 241, 254, .3);
+  }
+  */
+}
+.con-contract_committee .inner_width .tbl_basic tbody tr td:first-child {
+  width: 25%;
+}
+
+.con-contract_information .centerbox {
+  text-align: center;
+}
+.con-contract_information .inner_width .tbl_basic tbody tr {
+  /*
+  &:nth-child(2n) {
+  	background: rgba(232, 241, 254, .3);
+  }
+  strong.red {
+  	color: #d41a1a;
+  }
+  */
+}
+.con-contract_information .inner_width .tbl_basic tbody tr td:last-child {
+  width: 40%;
+}
+.con-contract_information .inner_width .constructionwork thead th {
+  padding: 8px;
+  white-space: nowrap;
+  text-align: center;
+}
+.con-contract_information .inner_width .constructionwork tbody tr th:nth-child(1) {
+  padding: 8px;
+  font-size: 0.875rem;
+  letter-spacing: 0.04em;
+}
+.con-contract_information .inner_width .constructionwork tbody tr td {
+  padding: 8px;
+  font-size: 0.875rem;
+  letter-spacing: 0.04em;
+}
+.con-contract_information .inner_width .constructionwork tbody tr td:nth-child(1), .con-contract_information .inner_width .constructionwork tbody tr td:nth-child(8), .con-contract_information .inner_width .constructionwork tbody tr td:nth-child(9) {
+  text-align: center;
+}
+.con-contract_information .inner_width .constructionwork tbody tr td:nth-child(4) {
+  word-break: break-all;
+}
+
+/*
+//contract_contract
+.p-contract_contract {
+	.number_ol {
+		> li {
+			margin-bottom: 0.5em;
+			margin-left: 2em;
+			list-style: decimal;
+		}
+	}
+	.txt_blue {
+		color: $c_Blue;
+	}
+	.inner_width {
+		ul.col_two {
+			margin: 0;
+		}
+		.cautionbox {
+			border: 1px solid black;
+			padding: 32px 2em;
+			&.nonbottom {
+				padding-bottom: 0;
+			}
+		}
+	}
+}
+*//*# sourceMappingURL=contract.css.map */

@@ -1,0 +1,22 @@
+[
+  {
+    "bureau": "近畿中部防衛局",
+    "cases": 72,
+    "total_amount_oku": 385.81,
+    "high_cases": 9,
+    "mid_cases": 18,
+    "max_score": 12,
+    "kind": "工事",
+    "avg_rate_pct": 92.07
+  },
+  {
+    "bureau": "近畿中部防衛局",
+    "cases": 106,
+    "total_amount_oku": 133.14,
+    "high_cases": 17,
+    "mid_cases": 18,
+    "max_score": 15,
+    "kind": "業務",
+    "avg_rate_pct": 84.72
+  }
+]

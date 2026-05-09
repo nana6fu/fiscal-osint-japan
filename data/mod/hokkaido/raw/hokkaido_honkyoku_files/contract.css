@@ -1,0 +1,69 @@
+.inner_width p img {
+    width: 100%
+  }
+  
+  @media only screen and (max-width: 520px) {
+    .inner_width ul {
+      margin: 0
+    }
+  }
+
+  .newscontentbox {
+    max-height: 15em;
+    overflow-y: scroll;
+    border-bottom: 1px solid #727274;
+  }
+
+
+  .con-koukoku .inner_width .tbl_basic tbody tr td {
+    padding: 12px;
+    font-size: .875rem;
+    letter-spacing: .04em;
+    background: #fff;
+  }
+
+
+  .con-koukoku .inner_width .tbl_basic tbody tr th {
+    padding: 12px;
+    white-space: nowrap;
+    text-align: center;
+    font-size: .875rem;
+    letter-spacing: .04em;
+    background: #e8f1fe;
+    width: 15%;
+  }
+
+
+  .con-koukoku .inner_width .tbl_basic thead tr th {
+    padding: 12px;
+    white-space: nowrap;
+    text-align: center;
+    font-size: .875rem;
+    letter-spacing: .04em;
+    background: #e8f1fe;
+  }
+
+
+  .con-koukoku .newscontentbox{
+    margin-bottom: 32px;
+    /*max-height: 20em;*/
+  }
+ 
+  .con-kekka .inner_width .tbl_basic tbody tr td {
+    padding: 12px;
+    font-size: .875rem;
+    letter-spacing: .04em;
+    background: #fff;
+  }
+
+  .con-kekka .inner_width .constructionwork thead th {
+    padding: 8px;
+    white-space: nowrap;
+    text-align: center;
+  }
+
+  .con-keiyakujyoho .inner_width .scroll_table  td {
+    width: 22%;
+    padding: 15px 10px;
+    font-size: .875rem;
+  }

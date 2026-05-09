@@ -1,0 +1,202 @@
+[
+  {
+    "company": "健軍（６）施設最適化総合設計に係る技術協力業務対象工事　大成建設・三津野建設・吉永産業・新規建設・秀拓・前田産業　最適化事業建設共同企業体",
+    "cases": 2,
+    "total_amount_oku": 11.84,
+    "max_score": 14,
+    "high_cases": 2,
+    "methods": "公募型プロポーザル方式 / 随意契約",
+    "sample_project": "健軍（６）施設最適化整備工事（技術協力業務対象工事）",
+    "avg_rate_pct": 99.79
+  },
+  {
+    "company": "（株）東海テック",
+    "cases": 1,
+    "total_amount_oku": 4.71,
+    "max_score": 12,
+    "high_cases": 1,
+    "methods": "随意契約",
+    "sample_project": "新田原（５）庁舎新設等機械追加工事",
+    "avg_rate_pct": 99.98
+  },
+  {
+    "company": "新田原（３）庁舎新設建築工事　村本建設・豊明建設　建設共同企業体",
+    "cases": 1,
+    "total_amount_oku": 3.72,
+    "max_score": 12,
+    "high_cases": 1,
+    "methods": "随意契約",
+    "sample_project": "新田原（３）庁舎新設建築追加工事（その２）",
+    "avg_rate_pct": 99.85
+  },
+  {
+    "company": "新生テクノス（株）　九州支店",
+    "cases": 1,
+    "total_amount_oku": 3.71,
+    "max_score": 12,
+    "high_cases": 1,
+    "methods": "随意契約",
+    "sample_project": "新田原外（５）庁舎新設等電気その他追加工事",
+    "avg_rate_pct": 99.69
+  },
+  {
+    "company": "鹿児島（５）桟橋新設等土木その他工事　東亜建設工業・丸福建設　建設共同企業体",
+    "cases": 1,
+    "total_amount_oku": 7.47,
+    "max_score": 11,
+    "high_cases": 1,
+    "methods": "随意契約",
+    "sample_project": "鹿児島（５）桟橋新設等土木その他追加工事",
+    "avg_rate_pct": 99.85
+  },
+  {
+    "company": "新田原外（５）格納庫新設等建築その他工事　大林組・吉原建設・志多組　建設共同企業体",
+    "cases": 1,
+    "total_amount_oku": 32.23,
+    "max_score": 10,
+    "high_cases": 1,
+    "methods": "随意契約",
+    "sample_project": "新田原外（５）格納庫新設等建築その他追加工事",
+    "avg_rate_pct": 99.69
+  },
+  {
+    "company": "鉄建建設(株)",
+    "cases": 1,
+    "total_amount_oku": 22.11,
+    "max_score": 10,
+    "high_cases": 1,
+    "methods": "一般競争入札",
+    "sample_project": "北熊本（６）庁舎新設等建築工事",
+    "avg_rate_pct": 99.69
+  },
+  {
+    "company": "若築建設(株)　九州支店",
+    "cases": 1,
+    "total_amount_oku": 12.98,
+    "max_score": 9,
+    "high_cases": 1,
+    "methods": "一般競争入札",
+    "sample_project": "新田原（６）仮設建物設置工事",
+    "avg_rate_pct": 99.26
+  },
+  {
+    "company": "新田原（６）食厨新設建築工事　豊明建設・山佐産業　建設共同企業体",
+    "cases": 1,
+    "total_amount_oku": 11.3,
+    "max_score": 9,
+    "high_cases": 1,
+    "methods": "一般競争入札",
+    "sample_project": "新田原（６）食厨新設建築工事",
+    "avg_rate_pct": 99.79
+  },
+  {
+    "company": "日本工営（株）　福岡支店",
+    "cases": 3,
+    "total_amount_oku": 4.11,
+    "max_score": 8,
+    "high_cases": 1,
+    "methods": "一般競争入札 / 公募型プロポーザル方式",
+    "sample_project": "国分（６）火薬庫等新設基本検討",
+    "avg_rate_pct": 96.68
+  },
+  {
+    "company": "（株）産研設計",
+    "cases": 3,
+    "total_amount_oku": 2.4,
+    "max_score": 8,
+    "high_cases": 1,
+    "methods": "一般競争入札",
+    "sample_project": "新田原（６）庁舎等新設設備設計",
+    "avg_rate_pct": 94.76
+  },
+  {
+    "company": "広誠設備工業(株)",
+    "cases": 1,
+    "total_amount_oku": 1.87,
+    "max_score": 8,
+    "high_cases": 1,
+    "methods": "一般競争入札",
+    "sample_project": "健軍（６）宿舎改修機械工事",
+    "avg_rate_pct": 99.04
+  },
+  {
+    "company": "（株）西田電工",
+    "cases": 1,
+    "total_amount_oku": 1.19,
+    "max_score": 8,
+    "high_cases": 1,
+    "methods": "一般競争入札",
+    "sample_project": "健軍（６）宿舎改修等電気その他工事",
+    "avg_rate_pct": 99.09
+  },
+  {
+    "company": "(株)産研設計",
+    "cases": 3,
+    "total_amount_oku": 1.09,
+    "max_score": 8,
+    "high_cases": 1,
+    "methods": "一般競争入札",
+    "sample_project": "鹿屋外（６）設備工事監理業務",
+    "avg_rate_pct": 97.44
+  },
+  {
+    "company": "(株)オープランニング",
+    "cases": 5,
+    "total_amount_oku": 0.7,
+    "max_score": 8,
+    "high_cases": 1,
+    "methods": "一般競争入札",
+    "sample_project": "健軍（６）宿舎改修等設備工事監理業務",
+    "avg_rate_pct": 98.29
+  },
+  {
+    "company": "九錦設備工業(株)",
+    "cases": 1,
+    "total_amount_oku": 0.53,
+    "max_score": 8,
+    "high_cases": 1,
+    "methods": "一般競争入札",
+    "sample_project": "種子島（６補）宿舎（中種子地区）空調設備工事",
+    "avg_rate_pct": 99.77
+  },
+  {
+    "company": "鹿屋（６）施設最適化総合設計に係る技術協力業務対象工事　フジタ・植村・豊明・山佐　最適化事業建設共同企業体",
+    "cases": 1,
+    "total_amount_oku": 0.51,
+    "max_score": 8,
+    "high_cases": 1,
+    "methods": "公募型プロポーザル方式",
+    "sample_project": "鹿屋（６）施設最適化総合設計に係る技術協力業務",
+    "avg_rate_pct": 100.0
+  },
+  {
+    "company": "新田原（６）施設最適化総合設計に係る技術協力業務対象工事　前田建設工業・坂下組・志多組・増田工務店　最適化事業建設共同企業体",
+    "cases": 1,
+    "total_amount_oku": 0.4,
+    "max_score": 8,
+    "high_cases": 1,
+    "methods": "公募型プロポーザル方式",
+    "sample_project": "新田原（６）施設最適化総合設計に係る技術協力業務",
+    "avg_rate_pct": 100.0
+  },
+  {
+    "company": "（株）復建エンジニヤリング　福岡支社",
+    "cases": 1,
+    "total_amount_oku": 0.25,
+    "max_score": 8,
+    "high_cases": 1,
+    "methods": "公募型プロポーザル",
+    "sample_project": "えびの（６）火薬庫新設基本検討",
+    "avg_rate_pct": 99.69
+  },
+  {
+    "company": "新田原（６）施設最適化総合設計　西日本技術開発・松田平田設計・大有設計・東条設計・マック・プランディー・復建エンジニヤリング・西部技術コンサルタント共同体",
+    "cases": 1,
+    "total_amount_oku": 20.7,
+    "max_score": 7,
+    "high_cases": 0,
+    "methods": "公募型プロポーザル",
+    "sample_project": "新田原（６）施設最適化総合設計",
+    "avg_rate_pct": 99.47
+  }
+]

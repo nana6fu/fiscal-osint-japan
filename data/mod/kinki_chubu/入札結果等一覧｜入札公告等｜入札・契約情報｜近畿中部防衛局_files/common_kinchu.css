@@ -1,0 +1,122 @@
+@charset "UTF-8";
+/* ===================================================================
+CSS information
+
+file name  : common_kinchu.css
+style info : Common_近畿中部防衛局用カスタム
+=================================================================== */
+
+.g_center {
+  display: grid;
+  place-items: center;
+}
+
+#header:before {
+  background-image: none;
+  background-color: #4362f5;
+}
+
+/* ----- サブメニュー ----- */
+#header .header_inner_bottom .nav_pc ul {
+  display: flex;
+  justify-content: space-between;
+}
+#header .header_inner_bottom .nav_pc ul li {
+  width: 16.6666666667%;
+  border-right: 1px solid #727274;
+  text-align: center;
+
+  position: relative;
+}
+#header .header_inner_bottom .nav_pc ul li:first-child {
+  border-left: 1px solid #727274;
+}
+#header .header_inner_bottom .nav_pc ul li a:hover {
+  background: #0017c1;
+  color: #fff;
+}
+#header .header_inner_bottom .nav_pc .sub-menu {
+  display: block;
+  background: #ffffffc0;
+  text-align: center;
+  position: absolute;
+  opacity: 0;
+  visibility: hidden;
+  transition: 0.5s;
+  max-height: 70vh;
+  width: 100%;
+  overflow-y: auto;
+  z-index: 5;
+}
+#header .header_inner_bottom .nav_pc .sub-menu li {
+  width: 100%;
+  border: none;
+  border-bottom: 1px solid #727274;
+}
+#header .header_inner_bottom .nav_pc .sub-menu li:first-child {
+  border: none;
+  border-bottom: 1px solid #727274;
+}
+#header .header_inner_bottom .nav_pc ul.sub-menu li a {
+  display: block;
+  padding: 8px;
+  text-decoration: none;
+  font-size: 1rem;
+  font-weight: 700;
+  transition: all 0.3s ease-out;
+  box-sizing: border-box;
+  height: 100%;
+}
+#header .header_inner_bottom .nav_pc ul li.is-current .sub-menu li a {
+  background: #ffffffc0;
+  color: #1a1a1c;
+}
+#header .header_inner_bottom .nav_pc ul li.is-current .sub-menu li a:hover {
+  background: #0017c1;
+  color: #fff;
+}
+#header .header_inner_bottom .nav_pc .has-children:hover ul,
+#header .header_inner_bottom .nav_pc .has-children ul.focused {
+  opacity: 1;
+  visibility: visible;
+}
+#header .header_inner_bottom .nav_pc .sub-menu .ic_target {
+  display: none;
+}
+/* ----- サブメニュー ----- */
+
+/* ----- ファーストビュータイトル ----- */
+#contents .title_m:after {
+  background-image: none;
+}
+#contents .title_s:before {
+  background-image: none;
+  background-color: #0017c1;
+}
+#contents .title_xs_chara:after {
+  background-image: none;
+}
+#contents .title_m:before {
+  background-image: none;
+}
+#contents .title_s:before {
+  background-image: none;
+  background-color: #0017c1;
+}
+#contents .title_xs_chara {
+  padding: 10px 0 10px 16px;
+}
+#contents .title_xs_chara:after {
+  background-image: none;
+}
+
+@media (max-width: 520px) {
+  #contents .con-contract .inner_width ul:not(.col_two) {
+    margin-top: 1em;
+  }
+}
+
+#footer:before {
+  background-image: none;
+  background-color: #4362f5;
+}

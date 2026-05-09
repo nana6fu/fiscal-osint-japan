@@ -6,3 +6,9 @@
 2026-05-08 11:12 | backup OK | デジタル庁リンクURL確認・問題なし
 2026-05-08 12:49 | backup OK | Groq API接続完了・AI分析動作確認済み
 2026-05-08 13:47 | backup OK | GitHub Pages公開・Groq HTTPS対応・iPhone自動スクロール・X(@FiscalOSINT_JP)アカウント作成完了
+2026-05-08 14:01 | backup OK | iPhone固定パネルUI実装・GitHub Pages・Groq HTTPS稼働中
+2026-05-08 19:12 | backup OK | Xシェアボタン全省庁金額バグ修正・iPhone固定パネルUI
+2026-05-08 19:18 | backup OK | SyntaxError全修正完了・MOD_S_KANTO_COMPANY重複削除・Xシェアボタン修正
+2026-05-08 21:36 | backup OK | デジタル庁R5追加・337.5億・アクセンチュア16.6→280億急増構造
+2026-05-08 21:41 | backup OK | 2023年度プルダウン・歳出表示修正
+2026-05-09 08:47 | backup OK | 出典表示バグ修正・confirmed[0].src問題解消
