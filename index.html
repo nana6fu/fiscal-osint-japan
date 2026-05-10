@@ -3876,6 +3876,10 @@ function setModScope(scope){
   }
   MOD_CURRENT_SCOPE = scope;
   window.MOD_CURRENT_SCOPE = scope;
+  setTimeout(function(){
+    var top30 = document.querySelector(".mlit-national-grid");
+    if(top30) top30.scrollIntoView({behavior:"smooth", block:"start"});
+  }, 200);
 
   var area = document.getElementById("accountArea");
   if(area){
