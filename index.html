@@ -3724,7 +3724,8 @@ function renderModLowerPanelLikeMlit(){
 function renderModSKantoSidebarPanel(){
   var scopeData = getModScopeData(MOD_CURRENT_SCOPE, (document.getElementById("yearSel")||{}).value);
   var currentTotals = getModTotals(scopeData.summary);
-  var sTotals = getModTotals((typeof MOD_S_KANTO_SUMMARY !== "undefined" ? MOD_S_KANTO_SUMMARY : []));
+  var modYr2 = (document.getElementById("yearSel")||{}).value||"2024";
+  var sTotals = getModTotals(modYr2==="2023" ? (typeof MOD_S_KANTO_R5_SUMMARY !== "undefined" ? MOD_S_KANTO_R5_SUMMARY : []) : (typeof MOD_S_KANTO_SUMMARY !== "undefined" ? MOD_S_KANTO_SUMMARY : []));
   var nTotals = getModTotals((typeof MOD_N_KANTO_SUMMARY !== "undefined" ? MOD_N_KANTO_SUMMARY : []));
   var kinkiTotals = getModTotals((typeof MOD_KINKI_CHUBU_SUMMARY !== "undefined" ? MOD_KINKI_CHUBU_SUMMARY : []));
   var kyushuTotals = getModTotals((typeof MOD_KYUSHU_SUMMARY !== "undefined" ? MOD_KYUSHU_SUMMARY : []));
