@@ -3855,6 +3855,9 @@ function renderModSKantoSidebarPanel(){
 
   html += '<div>';
   html += '<div style="font-size:13px;color:#ffb86b;font-weight:800;margin:6px 0 8px">'+scopeData.bureau+' 要確認契約 TOP30</div>';
+  if((scopeData.top30||[]).length === 0){
+    html += '<div style="color:#8fa3bf;font-size:12px;padding:20px;text-align:center;border:1px solid #1a3a5c;border-radius:8px;">📋 2023年度の詳細データは未収集です。<br>PDFからの個別案件データは順次追加予定。</div>';
+  }
 
   (scopeData.top30 || []).slice(0,30).forEach(function(x,i){
     var color = String(x.level).indexOf("高") >= 0 ? "#ff6b6b" : "#ffd166";
