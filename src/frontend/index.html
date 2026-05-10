@@ -3818,7 +3818,8 @@ function renderModSKantoSidebarPanel(){
   html += '</div>';
 
   html += renderModPrimaryFacts();
-  html += renderModBureauTable();
+  var _yr = (document.getElementById("yearSel")||{}).value||"2024";
+  if(_yr !== "2023") html += renderModBureauTable();
   html += renderCommonScoreNotice();
 
   html += '<div class="primary-box" style="margin-top:18px;border-color:#8a2d2d;background:linear-gradient(135deg,rgba(80,20,20,.28),rgba(12,15,25,.95))">';
