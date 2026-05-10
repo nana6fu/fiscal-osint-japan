@@ -3311,15 +3311,26 @@ function getModScopeData(scope, year){
       all: (typeof MOD_HOKKAIDO_ALL_CASES !== "undefined" ? MOD_HOKKAIDO_ALL_CASES : [])
     };
   }
-  if(year === "2023"){
+  if(scope === "s_kanto"){
+    if(year === "2023"){
+      return {
+        key:"s_kanto",
+        name:"南関東",
+        bureau:"南関東防衛局",
+        top30: (typeof MOD_S_KANTO_R5_TOP30 !== "undefined" ? MOD_S_KANTO_R5_TOP30 : []),
+        company: (typeof MOD_S_KANTO_R5_COMPANY !== "undefined" ? MOD_S_KANTO_R5_COMPANY : []),
+        summary: (typeof MOD_S_KANTO_R5_SUMMARY !== "undefined" ? MOD_S_KANTO_R5_SUMMARY : []),
+        all: (typeof MOD_S_KANTO_R5_ALL_CASES !== "undefined" ? MOD_S_KANTO_R5_ALL_CASES : [])
+      };
+    }
     return {
       key:"s_kanto",
       name:"南関東",
       bureau:"南関東防衛局",
-      top30: (typeof MOD_S_KANTO_R5_TOP30 !== "undefined" ? MOD_S_KANTO_R5_TOP30 : []),
-      company: (typeof MOD_S_KANTO_R5_COMPANY !== "undefined" ? MOD_S_KANTO_R5_COMPANY : []),
-      summary: (typeof MOD_S_KANTO_R5_SUMMARY !== "undefined" ? MOD_S_KANTO_R5_SUMMARY : []),
-      all: (typeof MOD_S_KANTO_R5_ALL_CASES !== "undefined" ? MOD_S_KANTO_R5_ALL_CASES : [])
+      top30: (typeof MOD_S_KANTO_TOP30 !== "undefined" ? MOD_S_KANTO_TOP30 : []),
+      company: (typeof MOD_S_KANTO_COMPANY !== "undefined" ? MOD_S_KANTO_COMPANY : []),
+      summary: (typeof MOD_S_KANTO_SUMMARY !== "undefined" ? MOD_S_KANTO_SUMMARY : []),
+      all: (typeof MOD_S_KANTO_ALL_CASES !== "undefined" ? MOD_S_KANTO_ALL_CASES : [])
     };
   }
   return {
