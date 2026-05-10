@@ -2505,7 +2505,9 @@ function toggleMlitCaseInlineDetail(i){
     '<div id="foia-template-'+i+'"></div>';
 
   card.insertAdjacentElement("afterend", detail);
-  detail.scrollIntoView({behavior:"smooth", block:"nearest"});
+  setTimeout(function(){
+    detail.scrollIntoView({behavior:"smooth", block:"start"});
+  }, 100);
 }
 
 
