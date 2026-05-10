@@ -3618,44 +3618,6 @@ function renderModPrimaryFacts(){
 
 function renderModBureauTable(){
   var modYr = (document.getElementById("yearSel")||{}).value||"2024";
-  if(modYr === "2023"){
-    var skanto_r5  = (typeof MOD_S_KANTO_R5_SUMMARY !== "undefined" ? MOD_S_KANTO_R5_SUMMARY : []);
-    var nkanto_r5  = (typeof MOD_N_KANTO_R5_SUMMARY !== "undefined" ? MOD_N_KANTO_R5_SUMMARY : []);
-    var kinki_r5   = (typeof MOD_KINKI_CHUBU_R5_SUMMARY !== "undefined" ? MOD_KINKI_CHUBU_R5_SUMMARY : []);
-    var okinawa_r5 = (typeof MOD_OKINAWA_R5_SUMMARY !== "undefined" ? MOD_OKINAWA_R5_SUMMARY : []);
-    var hkd_r5     = (typeof MOD_HOKKAIDO_R5_SUMMARY !== "undefined" ? MOD_HOKKAIDO_R5_SUMMARY : []);
-    function getT(s){ return {cases:s.reduce(function(a,r){return a+(r.cases||0);},0), amount:s.reduce(function(a,r){return a+(r.total_amount_oku||0);},0), high:s.reduce(function(a,r){return a+(r.high_cases||0);},0), mid:s.reduce(function(a,r){return a+(r.mid_cases||0);},0)}; }
-    var r5rows = [
-      {name:"南関東",  data:skanto_r5,  url:"https://www.mod.go.jp/rdb/s-kanto/contract/construction/result/r05nyusatu-kouji/"},
-      {name:"北関東",  data:nkanto_r5,  url:"https://www.mod.go.jp/rdb/n-kanto/nyusatsu-keiyaku/kensetu/"},
-      {name:"近畿中部",data:kinki_r5,   url:"https://www.mod.go.jp/rdb/kinchu/contract/construction/about/result/"},
-      {name:"沖縄",    data:okinawa_r5, url:"https://www.mod.go.jp/rdb/okinawa/contract/construction/result/"},
-      {name:"北海道",  data:hkd_r5,     url:"https://www.mod.go.jp/rdb/hokkaido/keiyaku/"}
-    ].filter(function(r){ return r.data.length > 0; });
-    var r5_total_cases  = r5rows.reduce(function(a,r){return a+getT(r.data).cases;},0);
-    var r5_total_amount = r5rows.reduce(function(a,r){return a+getT(r.data).amount;},0);
-    var r5_max = Math.max.apply(null, r5rows.map(function(r){return getT(r.data).amount;}));
-    var html = '<div class="chisei-box">';
-    html += '<div class="chisei-title">全国地方防衛局 入札データ集計（2023年度・公開データより）</div>';
-    html += '<div class="chisei-note" style="color:#aaa;font-size:0.85em;padding:6px 0;">※集計済み：南関東・北関東・近畿中部・沖縄・北海道。他局はデータ非公開または未収集。</div>';
-    html += '<table class="chisei-table">';
-    html += '<tr><th>地方防衛局</th><th>契約額</th><th>抽出件数</th><th>重点確認 高</th><th>重点確認 中</th><th>出典</th></tr>';
-    r5rows.forEach(function(r){
-      var t = getT(r.data);
-      var bar = r5_max > 0 ? Math.round(t.amount/r5_max*70) : 0;
-      html += '<tr>';
-      html += '<td>'+r.name+'</td>';
-      html += '<td>'+t.amount.toFixed(2)+'億円 <span style="display:inline-block;width:'+bar+'px;height:8px;background:#e05;vertical-align:middle;margin-left:4px;"></span></td>';
-      html += '<td>'+t.cases+'件</td>';
-      html += '<td style="color:#e05;">'+(t.high||0)+'件</td>';
-      html += '<td style="color:#fa0;">'+(t.mid||0)+'件</td>';
-      html += '<td><a href="'+r.url+'" target="_blank">→</a></td>';
-      html += '</tr>';
-    });
-    html += '<tr><td><strong>合計</strong></td><td><strong>'+r5_total_amount.toFixed(2)+'億円</strong></td><td><strong>'+r5_total_cases+'件</strong></td><td colspan="3"></td></tr>';
-    html += '</table></div>';
-    return html;
-  }
   var rows = [
     {name:"沖縄", count:335, high:78, mid:75, amount:2814.22},
     {name:"南関東", count:223, high:22, mid:91, amount:1266.63},
