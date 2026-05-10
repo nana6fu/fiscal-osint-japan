@@ -3536,6 +3536,7 @@ function renderModBureauTable(){
   var modYr = (document.getElementById("yearSel")||{}).value||"2024";
   if(modYr === "2023"){
     var rows = [
+    {name:"沖縄", count:335, high:78, mid:75, amount:2814.22},
       {name:"南関東", count:184, high:1, mid:29, amount:831.37}
     ];
     var totalAmount = rows.reduce(function(s,r){ return s + Number(r.amount || 0); }, 0);
@@ -3562,6 +3563,7 @@ function renderModBureauTable(){
     return html;
   }
   var rows = [
+    {name:"沖縄", count:335, high:78, mid:75, amount:2814.22},
     {name:"南関東", count:223, high:22, mid:91, amount:1266.63},
     {name:"北関東", count:126, high:24, mid:26, amount:439.09},
     {name:"近畿中部", count:178, high:26, mid:36, amount:518.95},
