@@ -2556,7 +2556,9 @@ function escapeMlitHtml(v){
 }
 
 function toggleMlitCaseInlineDetail(i){
-  var x = MLIT_NATIONAL_TOP30[i];
+  var _yr_m = (document.getElementById("yearSel")||{}).value||"2024";
+  var _t30_m = _yr_m==="2023" ? (typeof MLIT_R5_NATIONAL_TOP30!=="undefined"?MLIT_R5_NATIONAL_TOP30:[]) : MLIT_NATIONAL_TOP30;
+  var x = _t30_m[i];
   if(!x) return;
 
   var existing = document.getElementById("mlit-inline-detail-" + i);
@@ -3093,7 +3095,9 @@ async function runFiscalCaseAnalysis(source, i){
   var targetId = "";
 
   if(source === "mlit"){
-    x = (MLIT_NATIONAL_TOP30 || [])[i];
+    var _yr_ai = (document.getElementById("yearSel")||{}).value||"2024";
+    var _t30_ai = _yr_ai==="2023" ? (typeof MLIT_R5_NATIONAL_TOP30!=="undefined"?MLIT_R5_NATIONAL_TOP30:[]) : MLIT_NATIONAL_TOP30;
+    x = (_t30_ai || [])[i];
     targetId = "mlit-analysis-" + i;
   }else if(source === "mod"){
     x = (getModScopeData(MOD_CURRENT_SCOPE, (document.getElementById("yearSel")||{}).value).top30 || [])[i];
@@ -3184,7 +3188,9 @@ function escapeFiscalAnalysisHtml(v){
 
 
 function showFoiaTemplateFromTop30(i){
-  var x = MLIT_NATIONAL_TOP30[i];
+  var _yr_f = (document.getElementById("yearSel")||{}).value||"2024";
+  var _t30_f = _yr_f==="2023" ? (typeof MLIT_R5_NATIONAL_TOP30!=="undefined"?MLIT_R5_NATIONAL_TOP30:[]) : MLIT_NATIONAL_TOP30;
+  var x = _t30_f[i];
   if(!x) return;
 
   var holder = document.getElementById("foia-template-" + i);
