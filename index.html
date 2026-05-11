@@ -1939,8 +1939,8 @@ function renderAccounts(m){
     }
   }
 
-  // 全国地整局 入札データテーブル（2023年度厚労省は除外）
-  if(!(currentYear === 2023 && m.name === "厚生労働省")){
+  // 全国地整局 入札データテーブル（2023年度厚労省・国交省は除外）
+  if(!(currentYear === 2023 && m.name === "厚生労働省") && !(currentYear === 2023 && m.name === "国土交通省")){
     html+=renderChiseiTable(m);
   }
 
@@ -2529,7 +2529,7 @@ function renderMlitNationalRedflagPanel(){
     html += '<div style="font-size:11px;color:#ddd">'+c.amount_oku.toLocaleString()+'億円</div>';
     html += '</div>';
     html += '<div style="font-size:12px;color:#fff;font-weight:700">'+c.company+'</div>';
-    html += '<div style="font-size:10px;color:#aaa;line-height:1.5">高 '+c.high_cases+'件 / 中 '+c.mid_cases+'件 / 合計 '+c.cases+'件</div>';
+    html += '<div style="font-size:10px;color:#aaa;line-height:1.5">高 '+(c.high_cases||0)+'件 / 合計 '+c.cases+'件</div>';
     html += '<div style="font-size:10px;color:#8fa3bf">'+c.regions+'</div>';
     html += '<div style="font-size:10px;color:#64748b;margin-top:4px">例：'+c.sample_project+'</div>';
     html += '</div>';
@@ -2628,7 +2628,7 @@ var MLIT_REGION_CURRENT_ROWS = [];
 function showMlitRegionCases(region){
   var _yr2 = (document.getElementById("yearSel")||{}).value||"2024";
   var _rc2 = _yr2==="2023" ? (typeof MLIT_R5_REGION_CASES!=="undefined"?MLIT_R5_REGION_CASES:{}) : MLIT_REGION_CASES;
-  var rows = _rc2[region] || [];
+  var rows = (_rc2[region] || []).slice(0,20);
   MLIT_REGION_CURRENT_ROWS = rows;
 
   var el = document.getElementById("mlit-region-cases");
