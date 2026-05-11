@@ -4001,7 +4001,7 @@ function appendModMinistryItem(){
   div.innerHTML =
     '<div class="min-name">⚠ 防衛省</div>' +
     '<div class="min-count">全国地方防衛局</div>' +
-    '<div class="min-total">6,831.62億円</div>' +
+    '<div class="min-total">'+(((document.getElementById('yearSel')||{}).value||'2024')==='2023'?'5,955.24':'6,831.62')+'億円</div>' +
     '<div class="min-tag">要確認</div>';
 
   div.onclick = function(){ selectModMinistry(); };
