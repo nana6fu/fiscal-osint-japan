@@ -1912,7 +1912,7 @@ function renderAccounts(m){
   html+='</div>';
 
   // 一次資料ファクト
-  if(m.primary_facts && m.primary_facts.length>0){
+  if(m.primary_facts && m.primary_facts.length>0 && !(currentYear===2023 && m.name==="国土交通省")){
     var confirmed = m.primary_facts.filter(function(f){ return f.src !== 'yomiuri_2006'; });
     var unconfirmed = m.primary_facts.filter(function(f){ return f.src === 'yomiuri_2006'; });
     if(confirmed.length>0){
