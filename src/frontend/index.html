@@ -1970,7 +1970,7 @@ function renderAccounts(m){
   }
 
   // 8法人テーブル（国交省のみ）
-  if(m.houjin && m.houjin.length>0){
+  if(m.houjin && m.houjin.length>0 && !(currentYear===2023 && m.name==="国土交通省")){
     html+='<div class="primary-box" style="margin-bottom:14px">';
     html+='<div class="primary-box-title">主要落札企業 一覧（令和6年度・関東東北近畿北陸九州中国四国中部地整局）</div>';
     var isMhlw = (m.id==="mhlw");
@@ -2078,8 +2078,10 @@ function renderAccounts(m){
   }
 
   // 省庁概要
+  if(!(currentYear===2023 && m.name==="国土交通省")){
   html+='<div class="overview-box"><div class="overview-title">// 省庁概要</div>';
   html+='<div style="font-size:12px;color:var(--text);line-height:1.8">'+m.note+'</div></div>';
+  }
 
   // 特別会計カード
   html+='<div class="accounts-grid">';
