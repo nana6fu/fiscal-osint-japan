@@ -2084,6 +2084,7 @@ function renderAccounts(m){
   }
 
   // 特別会計カード
+  if(!(currentYear===2023 && m.name==="国土交通省")){
   html+='<div class="accounts-grid">';
   m.accounts.forEach(function(acc,i){
     var barW=maxOku>0?Math.round(acc.amount_oku/maxOku*100):0;
@@ -2096,6 +2097,7 @@ function renderAccounts(m){
     html+='<div class="acc-src"><a href="'+acc.src_url+'" target="_blank">'+SOURCES[acc.src_key].label+'</a></div>';
     html+='</div>';
   });
+  }
   html+='</div>';
   area.innerHTML=html;
 }
