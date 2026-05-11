@@ -5,3 +5,5 @@ src/frontend/index_backup*.html
 output/
 youshiki.doc
 *.docx
+data/
+data/防衛省/
