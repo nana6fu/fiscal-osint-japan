@@ -1947,6 +1947,11 @@ function renderAccounts(m){
   if(m.name === "国土交通省"){
     html += renderCommonScoreNotice();
   }
+  // 2023年度国交省：一次資料・省庁概要は容量リセット後に修正予定
+  // 現在はR5マップのみ表示（2024年度データが混在するため一時非表示）
+  if(currentYear === 2023 && m.name === "国土交通省"){
+    html += '<div style="font-size:11px;color:#888;padding:8px 12px;border:1px solid #333;border-radius:6px;margin:8px 0">※令和5年度の一次資料・省庁概要は準備中です。下記R5入札データマップをご参照ください。</div>';
+  }
 
   if (m.name === "国土交通省" && typeof renderMlitNationalRedflagPanel === "function") {
     html += renderMlitNationalRedflagPanel();
@@ -1988,7 +1993,7 @@ function renderAccounts(m){
 
   // Xシェア
   var yrS = document.getElementById("yearSel").value;
-  if(m.houjin && m.houjin.length>0 && yrS==="2024"){
+  if(m.houjin && m.houjin.length>0 && yrS==="2024" && !(yrS==="2023" && m.name==="国土交通省")){
     var tc = m.houjin[0];
     var tk=0,tg=0;
     if(m.chisei_data) m.chisei_data.forEach(function(d){tk+=d.kouji_oku;tg+=d.gyomu_oku;});
@@ -2016,7 +2021,7 @@ function renderAccounts(m){
 
   // 政治資金フロー図（2024年度・公開情報のみ）
   var yr3 = document.getElementById("yearSel").value;
-  if(yr3 === "2024" && m.chisei_data){
+  if(yr3 === "2024" && m.chisei_data && !(yr3==="2023" && m.name==="国土交通省")){
     html += '<div class="primary-box" style="margin-bottom:14px">';
     html += '<div class="primary-box-title">資金フロー仮説・照合マップ：道路整備予算→受注企業→政治資金団体</div>';
     html += '<div style="overflow-x:auto;padding:16px 8px">';
