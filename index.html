@@ -3629,7 +3629,7 @@ function renderModPrimaryFacts(){
     var r5_max = Math.max.apply(null, r5rows.map(function(r){return getT(r.data).amount;}));
     var html = '<div class="chisei-box">';
     html += '<div class="chisei-title">全国地方防衛局 入札データ集計（2023年度・公開データより）</div>';
-    html += '<div class="chisei-note" style="color:#aaa;font-size:0.85em;padding:6px 0;">※集計済み：南関東・北関東・近畿中部・沖縄・北海道。他局はデータ非公開または未収集。</div>';
+    html += '<div class="chisei-note" style="color:#aaa;font-size:0.85em;padding:6px 0;">※集計済み：南関東・北関東・近畿中部・沖縄・北海道・中国四国・東北。九州・熊本はR5データ非公開（防衛省サイトより削除済み）。</div>';
     html += '<table class="chisei-table">';
     html += '<tr><th>地方防衛局</th><th>契約額</th><th>抽出件数</th><th>重点確認 高</th><th>重点確認 中</th><th>出典</th></tr>';
     r5rows.forEach(function(r){
@@ -3843,8 +3843,8 @@ function renderModSKantoSidebarPanel(){
   var tohokuTotals2 = getModTotals(modYr2==="2023" ? (typeof MOD_TOHOKU_R5_SUMMARY !== "undefined" ? MOD_TOHOKU_R5_SUMMARY : []) : (typeof MOD_TOHOKU_SUMMARY !== "undefined" ? MOD_TOHOKU_SUMMARY : []));
   var nTotals = getModTotals((typeof MOD_N_KANTO_SUMMARY !== "undefined" ? MOD_N_KANTO_SUMMARY : []));
   var kinkiTotals = getModTotals((typeof MOD_KINKI_CHUBU_SUMMARY !== "undefined" ? MOD_KINKI_CHUBU_SUMMARY : []));
-  var kyushuTotals = getModTotals((typeof MOD_KYUSHU_SUMMARY !== "undefined" ? MOD_KYUSHU_SUMMARY : []));
-  var kumamotoTotals = getModTotals((typeof MOD_KUMAMOTO_SUMMARY !== "undefined" ? MOD_KUMAMOTO_SUMMARY : []));
+  var kyushuTotals = getModTotals(modYr2==="2023" ? [] : (typeof MOD_KYUSHU_SUMMARY !== "undefined" ? MOD_KYUSHU_SUMMARY : []));
+  var kumamotoTotals = getModTotals(modYr2==="2023" ? [] : (typeof MOD_KUMAMOTO_SUMMARY !== "undefined" ? MOD_KUMAMOTO_SUMMARY : []));
   var okinawaTotals = getModTotals((typeof MOD_OKINAWA_SUMMARY !== "undefined" ? MOD_OKINAWA_SUMMARY : []));
   var chushiTotals = getModTotals((typeof MOD_CHUGOKU_SHIKOKU_SUMMARY !== "undefined" ? MOD_CHUGOKU_SHIKOKU_SUMMARY : []));
   var tohokuTotals = getModTotals((typeof MOD_TOHOKU_SUMMARY !== "undefined" ? MOD_TOHOKU_SUMMARY : []));
