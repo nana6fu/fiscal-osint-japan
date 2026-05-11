@@ -1865,11 +1865,11 @@ function renderAccounts(m){
     html+=renderChiseiTable(m);
   }
 
-  if(currentYear === 2024 && m.name === "国土交通省"){
+  if(m.name === "国土交通省"){
     html += renderCommonScoreNotice();
   }
 
-  if (currentYear === 2024 && m.name === "国土交通省" && typeof renderMlitNationalRedflagPanel === "function") {
+  if (m.name === "国土交通省" && typeof renderMlitNationalRedflagPanel === "function") {
     html += renderMlitNationalRedflagPanel();
   }
 
