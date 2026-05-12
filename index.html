@@ -1069,6 +1069,7 @@ var SOURCES = {
   ktr_nyusatsu: {label:"関東地方整備局 業者別受注割合（令和6年度）", url:"https://www.ktr.mlit.go.jp/nyuusatu/index00000028.html"},
   mhlw_nenkin_r5: {label:"📄 厚労省年金特別会計 随意契約公表（令和5年度）", url:"https://www.mhlw.go.jp/sinsei/chotatu/zuii/23honsyo.html"},
   kanshi_2023: {label:"再就職等監視委員会 調査結果（個別PDFあり）", url:"https://www5.cao.go.jp/kanshi/index.html"},
+  jinji_kouhyo: {label:"内閣人事局 国家公務員再就職情報公表（届出・承認情報）", url:"https://www.cas.go.jp/jp/gaiyou/jimu/jinjikyoku/jinji_j.html"},
   daj_zuii_r6: {label:"📄 デジタル庁 公共調達適正化情報公表（令和6年度）", url:"https://www.digital.go.jp/procurement/proper-public-procurement/2024"},
   daj_zuii_r5: {label:"📄 デジタル庁 公共調達適正化情報公表（令和5年度）", url:"https://www.digital.go.jp/procurement/proper-public-procurement/2023"},
   mof_zuii_r6: {label:"📄 財務省本省 随意契約情報公表（令和6年度）", url:"https://www.mof.go.jp/application-contact/procurement/approach/tekiseika/index.htm"},
@@ -1566,6 +1567,7 @@ var MINISTRIES_2023 = [
       {text:"発注者支援業務297件・計<strong>299.7億円</strong>を競争入札で発注。平均落札率<strong>85.0%</strong>（2006年の97.3%から12ポイント改善）", src:"ktr_nyusatsu"},
       {text:"上位受注企業：関東建設マネジメント（株）54件・54.9億円（シェア18%）が最大。複数企業が競争", src:"ktr_nyusatsu"},
       {text:"工事本体3,665件・<strong>8,899億円</strong>（関東地整局）。平均落札率<strong>94.4%</strong>。業務系85.0%より改善が遅い。TOP：若築建設154億・加藤建設121億・菱木土建117億", src:"ktr_nyusatsu"},
+      {text:"📋 <strong>国家公務員再就職情報は内閣人事局が公表</strong>。情報公開請求不要。省庁OBの再就職先・役職を検索可能。", src:"jinji_kouhyo"},
       {text:"2013年：再就職等監視委員会が国交省前事務次官による<strong>再就職あっせんを国家公務員法違反と認定した事案</strong>　<a href=\"https://www5.cao.go.jp/kanshi/pdf/houdou/250326/tyosakekka.pdf\" target=\"_blank\">調査結果PDF</a>", src:"kanshi_2023"},
       {text:"2023年：元事務次官が民間企業人事に介入。独立検証委員会が<strong>「国交省現職の意向を感じさせる発言」</strong>を認定　<a href=\"https://www5.cao.go.jp/kanshi/pdf/houdou/051220/tyosakekka.pdf\" target=\"_blank\">調査結果PDF</a>", src:"kanshi_2023"},
       {text:"<strong>OB再就職構造の変化（2006年→現在）：</strong>建設弘済会（国交省OBの再就職先として言及されてきた法人）は2006年の会計検査院指摘後、2012年までに発注者支援業務から撤退・民間企業へ業務譲渡。現在は競争入札だが、関東建設マネジメント（株）1社が発注者支援業務54.9億円・シェア18%を受注。形は変わったが特定企業への集中は継続。", src:"kanshi_2023"},
@@ -1647,6 +1649,7 @@ var MINISTRIES_2024 = [
       {text:"発注者支援業務297件・計<strong>299.7億円</strong>を競争入札で発注。平均落札率<strong>85.0%</strong>（2006年の97.3%から12ポイント改善）", src:"ktr_nyusatsu"},
       {text:"上位受注企業：関東建設マネジメント（株）54件・54.9億円（シェア18%）が最大。複数企業が競争", src:"ktr_nyusatsu"},
       {text:"工事本体3,665件・<strong>8,899億円</strong>（関東地整局）。平均落札率<strong>94.4%</strong>。業務系85.0%より改善が遅い。TOP：若築建設154億・加藤建設121億・菱木土建117億", src:"ktr_nyusatsu"},
+      {text:"📋 <strong>国家公務員再就職情報は内閣人事局が公表</strong>。情報公開請求不要。省庁OBの再就職先・役職を検索可能。", src:"jinji_kouhyo"},
       {text:"2013年：再就職等監視委員会が国交省前事務次官による<strong>再就職あっせんを国家公務員法違反と認定した事案</strong>　<a href=\"https://www5.cao.go.jp/kanshi/pdf/houdou/250326/tyosakekka.pdf\" target=\"_blank\">調査結果PDF</a>", src:"kanshi_2023"},
       {text:"2023年：元事務次官が民間企業人事に介入。独立検証委員会が<strong>「国交省現職の意向を感じさせる発言」</strong>を認定　<a href=\"https://www5.cao.go.jp/kanshi/pdf/houdou/051220/tyosakekka.pdf\" target=\"_blank\">調査結果PDF</a>", src:"kanshi_2023"},
       {text:"<strong>OB再就職構造の変化（2006年→現在）：</strong>建設弘済会（国交省OBの再就職先として言及されてきた法人）は2006年の会計検査院指摘後、2012年までに発注者支援業務から撤退・民間企業へ業務譲渡。現在は競争入札だが、関東建設マネジメント（株）1社が発注者支援業務54.9億円・シェア18%を受注。形は変わったが特定企業への集中は継続。", src:"kanshi_2023"},
@@ -4332,4 +4335,5 @@ const MOD_S_KANTO_ALL_CASES = [{"level": "🔴 要確認度 高", "score": 12, "
 </script>
 
 </body>
-</html>
+</html      {text:"📋 <strong>防衛省OBの再就職情報は内閣人事局が公表</strong>。情報公開請求不要。省庁OBの再就職先・役職を検索可能。", src:"jinji_kouhyo"},
+      >
