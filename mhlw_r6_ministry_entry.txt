@@ -1,0 +1,1 @@
+{ name: '厚生労働省', accounts: 4, total: '2,304億円', warning: '要注意', tag: 'mhlw' }

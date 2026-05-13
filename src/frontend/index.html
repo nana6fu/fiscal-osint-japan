@@ -1777,6 +1777,31 @@ var MINISTRIES_2023 = [
 
 var MINISTRIES_2024 = [
   {
+    id:"mhlw_2024", name:"厚生労働省", alert:true, tag:"労働保険・年金特会・本省R6",
+    note:"令和6年度の確認済み調達総額は4勘定合算で約2,304億円（R5比 -1,140億円）。うち随意契約は約1,202億円（52.2%）。年金特別会計はNTTデータが記録管理・基礎年金番号管理システム等で278億円、日立製作所が電子計算組織装置144億円をいずれも「競争不存在」の随意契約で受注し独占構造が継続。雇用勘定ではハローワークシステム関連を富士通が266億円受注し、その97.6%が随意契約。労災勘定では労働基準行政システム関連をNTTデータが1者応札・落札率99%の競争入札で186億円超を受注し事実上の独占。徴収勘定では富士通＋東京センチュリーが労働保険適用徴収システム更改を128億円（1者応札・落札率98.5%）で受注。アクセンチュアは雇用勘定で助成金電子申請サブシステム76億円を新規獲得しR5(50億)から60%増。競争入札437件のうち358件（81.9%）が1者応札という形骸化が継続。",
+    primary_facts:[
+      {text:"4勘定合計：<strong>2,304億円</strong>（R5比 -1,140億円）／随意契約比率<strong>52.2%</strong>・1,202億円", src:"mhlw_r6_pdf"},
+      {text:"競争入札437件中<strong>358件（81.9%）が1者応札</strong>・金額ベース63.9%が実質単独応札（形骸化）", src:"mhlw_r6_pdf"},
+      {text:"主要IT3社合計：<strong>1,015億円</strong>（全体の44%）NTTデータ588億＋富士通266億＋日立161億", src:"mhlw_r6_pdf"},
+      {text:"NTTデータ随意比率<strong>59.5%</strong>（記録管理278億は随意・労基行政システムは競争1者応札のロックイン）", src:"mhlw_r6_pdf"},
+      {text:"富士通随意比率<strong>97.6%</strong>（ハローワークシステム独占：センター72億・拠点85億・改修63億等いずれも「競争不存在」随意）", src:"mhlw_r6_pdf"},
+      {text:"日立製作所随意比率<strong>99.8%</strong>（年金システム独占：電子計算組織装置144億・各種改修10件以上）", src:"mhlw_r6_pdf"},
+      {text:"アクセンチュア：R5(50億)→<strong>R6(81億)・60%増</strong>。ハローワーク助成金電子申請サブシステム76億を1者応札・落札率90.2%で新規獲得", src:"mhlw_r6_pdf"},
+      {text:"勘定別：雇用928億・年金906億・労災293億・徴収178億。徴収はR5(28億)から<strong>178億に急増</strong>（労働保険徴収システム更改128億計上）", src:"mhlw_r6_pdf"},
+      {text:"📄 情報公開請求準備中：随意契約理由書・1者応札正当化理由書・「競争不存在」根拠資料", src:"mhlw_r6_pdf"},
+    ],
+    houjin:[
+      {name:"株式会社NTTデータ",region:"4勘定横断",amount_oku:588,gyomu:"年金記録管理278億・労基行政システム保守90億・労災レセプト48億・運用38億等（随意59.5%）"},
+      {name:"日本電気＋NECキャピタル",region:"年金（業務）勘定",amount_oku:351,gyomu:"年金経過管理・電子決裁更改：仮想化基盤211億＋データベース141億（2者応札・80%水準）"},
+      {name:"富士通株式会社",region:"4勘定横断（主に雇用）",amount_oku:266,gyomu:"ハローワーク拠点設備85億・センター設備72億・改修63億・トナー32億等（随意97.6%）"},
+      {name:"富士通＋東京センチュリー",region:"徴収・年金勘定",amount_oku:162,gyomu:"労働保険適用徴収システム更改128億（1者応札・98.5%）＋年金フェーズ2基盤34億"},
+      {name:"株式会社日立製作所",region:"年金（業務）勘定",amount_oku:161,gyomu:"電子計算組織装置賃貸借144億・職歴審査再構築5億・各種改修14件（随意99.8%）"},
+      {name:"アクセンチュア株式会社",region:"雇用保険勘定",amount_oku:81,gyomu:"助成金電子申請サブシステム運用76億（1者応札・落札率90.2%）＋年金システム関連5億"},
+      {name:"パソナ株式会社",region:"雇用保険勘定",amount_oku:41,gyomu:"キャリア形成・リスキリング推進事業3,685億のうち37億・育児介護休業推進・特区雇用相談"},
+      {name:"沖電気工業株式会社",region:"雇用保険勘定",amount_oku:32,gyomu:"ハローワーク消耗品（トナーカートリッジ類）1者応札・落札率90.8%"},
+    ],
+  },
+  {
     id:"mlit", name:"国土交通省", alert:true, tag:"道路・治水・港湾・空港",
     note:"2024年度は競争入札が原則。直轄事業（道路・治水・砂防・ダム・営繕等）総計約2.3兆円の入札データが全て公開。工事の内訳は治水・砂防が約6割、道路が約3割。発注者支援業務297件・計299.7億円の平均落札率85.0%（2006年の97.3%から12ポイント改善）。ただしOB再就職・受注集中をめぐる論点は現在も残る：①2013年に前事務次官による再就職あっせんが再就職等監視委員会で国家公務員法違反と認定された事案がある。②2023年には現役職員による民間企業人事への関与について独立検証委員会が報告している。③国交省所管の公益法人等へのOB就職については、個別事例ごとの確認が必要。",
     primary_facts:[
@@ -2110,6 +2135,18 @@ function renderAccounts(m){
 
   if (selectedYear.indexOf("2024") >= 0 && m.name === "国土交通省") {
     // html += renderKinkiRedflagCases(); // disabled: national panel is primary
+  }
+
+
+  if(currentYear === 2024 && m.name === "厚生労働省"){
+    html += '<div class="primary-box" style="margin-top:24px;">';
+    html += '<div class="primary-box-title">// 4特別会計勘定別 R6実額</div>';
+    html += '<div style="display:grid;grid-template-columns:repeat(2,1fr);gap:12px;margin-top:8px;">';
+    html += '<div style="border-top:3px solid #ef4444;background:#1a1a1a;padding:12px;border-radius:4px;"><div style="display:flex;justify-content:space-between;align-items:start;"><div style="color:#d1d5db;font-size:14px;">雇用保険特別会計（雇用勘定）</div><span style="color:#f87171;font-size:11px;border:1px solid rgba(239,68,68,0.4);padding:2px 6px;border-radius:3px;">⚠ 要調査</span></div><div style="font-size:28px;color:#f87171;font-weight:bold;margin-top:6px;">928億円</div><div style="font-size:11px;color:#6b7280;margin-top:4px;">📄 厚労省雇用勘定 競争＋随意公表（令和6年度）</div></div>';
+    html += '<div style="border-top:3px solid #ef4444;background:#1a1a1a;padding:12px;border-radius:4px;"><div style="display:flex;justify-content:space-between;align-items:start;"><div style="color:#d1d5db;font-size:14px;">年金特別会計（業務勘定）</div><span style="color:#f87171;font-size:11px;border:1px solid rgba(239,68,68,0.4);padding:2px 6px;border-radius:3px;">⚠ 要調査</span></div><div style="font-size:28px;color:#f87171;font-weight:bold;margin-top:6px;">906億円</div><div style="font-size:11px;color:#6b7280;margin-top:4px;">📄 厚労省年金特別会計 競争＋随意公表（令和6年度）</div></div>';
+    html += '<div style="border-top:3px solid #ef4444;background:#1a1a1a;padding:12px;border-radius:4px;"><div style="display:flex;justify-content:space-between;align-items:start;"><div style="color:#d1d5db;font-size:14px;">労働保険特別会計（労災勘定）</div><span style="color:#f87171;font-size:11px;border:1px solid rgba(239,68,68,0.4);padding:2px 6px;border-radius:3px;">⚠ 要調査</span></div><div style="font-size:28px;color:#f87171;font-weight:bold;margin-top:6px;">293億円</div><div style="font-size:11px;color:#6b7280;margin-top:4px;">📄 厚労省労災勘定 競争＋随意公表（令和6年度）</div></div>';
+    html += '<div style="border-top:3px solid #ef4444;background:#1a1a1a;padding:12px;border-radius:4px;"><div style="display:flex;justify-content:space-between;align-items:start;"><div style="color:#d1d5db;font-size:14px;">労働保険特別会計（徴収勘定）</div><span style="color:#f87171;font-size:11px;border:1px solid rgba(239,68,68,0.4);padding:2px 6px;border-radius:3px;">⚠ 要調査</span></div><div style="font-size:28px;color:#f87171;font-weight:bold;margin-top:6px;">178億円</div><div style="font-size:11px;color:#6b7280;margin-top:4px;">📄 厚労省徴収勘定 競争＋随意公表（令和6年度）</div></div>';
+    html += '</div></div>';
   }
 
   // 8法人テーブル（国交省のみ）
