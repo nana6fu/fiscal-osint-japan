@@ -4336,7 +4336,7 @@ const MOD_S_KANTO_ALL_CASES = [{"level": "🔴 要確認度 高", "score": 12, "
 
 
 <!-- ===== 再就職データセクション（自動生成・独立ブロック） ===== -->
-<script src="data/reemployment_r5.js"></script>
+<script src="data/reemployment_data.js"></script>
 <style>
 .reemp-card{background:#161b22;border:1px solid #30363d;border-radius:6px;margin-bottom:10px;overflow:hidden;transition:border-color .15s}
 .reemp-card:hover{border-color:#58a6ff}
@@ -4350,11 +4350,16 @@ const MOD_S_KANTO_ALL_CASES = [{"level": "🔴 要確認度 高", "score": 12, "
 .reemp-tab-btn{background:transparent;border:1px solid #30363d;color:#c9d1d9;padding:8px 14px;border-radius:6px;font-size:13px;cursor:pointer;font-family:inherit;transition:all .15s}
 .reemp-tab-btn:hover:not(.active){background:#161b22}
 .reemp-tab-btn.active{background:#1f6feb;border-color:#1f6feb;color:#fff}
+.reemp-year-sel{background:#161b22;border:1px solid #30363d;color:#f0f6fc;padding:8px 14px;border-radius:6px;font-size:15px;font-weight:600;font-family:inherit;cursor:pointer}
+.reemp-year-sel:focus{outline:none;border-color:#58a6ff}
 </style>
 <section id="reempSection" style="max-width:1400px;margin:40px auto 0;padding:0 20px;color:#c9d1d9;font-family:-apple-system,BlinkMacSystemFont,'Hiragino Sans','Noto Sans JP',sans-serif">
   <div style="border-top:2px solid #30363d;padding-top:40px">
     <div style="font-size:11px;color:#6e7681;letter-spacing:2px;margin-bottom:8px">// REEMPLOYMENT DATA</div>
-    <h2 style="font-size:28px;color:#f0f6fc;margin:0 0 8px;font-weight:600">国家公務員 再就職データ</h2>
+    <div style="display:flex;align-items:center;gap:16px;flex-wrap:wrap;margin-bottom:8px">
+      <h2 style="font-size:28px;color:#f0f6fc;margin:0;font-weight:600">国家公務員 再就職データ</h2>
+      <select id="reempYearSel" class="reemp-year-sel"></select>
+    </div>
     <div style="color:#8b949e;font-size:14px;margin-bottom:24px" id="reempPeriod"></div>
     <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:12px;margin-bottom:32px" id="reempStats"></div>
     <div style="background:#0d1117;border-left:3px solid #58a6ff;padding:12px 16px;font-size:13px;color:#8b949e;margin-bottom:24px;line-height:1.7" id="reempNote"></div>
@@ -4366,49 +4371,76 @@ const MOD_S_KANTO_ALL_CASES = [{"level": "🔴 要確認度 高", "score": 12, "
 </section>
 <script>
 (function(){
-  if(typeof REEMPLOYMENT_R5==="undefined"){ console.warn("REEMPLOYMENT_R5 not loaded"); return; }
-  var D=REEMPLOYMENT_R5, M=D.meta;
+  if(typeof REEMPLOYMENT_DATA==="undefined"){ console.warn("REEMPLOYMENT_DATA not loaded"); return; }
+  var DATA=REEMPLOYMENT_DATA;
   function num(n){ return n.toLocaleString("ja-JP"); }
   function esc(s){ return String(s||"").replace(/[&<>"']/g,function(c){return {"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c]}); }
 
-  document.getElementById("reempPeriod").textContent = "対象期間：" + M.period;
-
-  var stats=[
-    {label:"届出件数", val:num(M.total_filings)+"件", color:"#c9d1d9"},
-    {label:"対象人数", val:num(M.unique_persons)+"人", color:"#c9d1d9"},
-    {label:"複数（2社+）", val:num(M.multi_2plus)+"人", sub:(M.multi_2plus/M.unique_persons*100).toFixed(1)+"%", color:"#d29922"},
-    {label:"3社以上", val:num(M.multi_3plus)+"人", sub:(M.multi_3plus/M.unique_persons*100).toFixed(1)+"%", color:"#f85149"},
-    {label:"4社以上", val:num(M.multi_4plus)+"人", color:"#f85149"},
-    {label:"5社以上", val:num(M.multi_5plus)+"人", color:"#f85149"}
-  ];
-  document.getElementById("reempStats").innerHTML = stats.map(function(s){
-    return '<div style="background:#161b22;border:1px solid #30363d;border-radius:6px;padding:14px"><div style="font-size:11px;color:#6e7681;letter-spacing:1px;margin-bottom:6px">'+s.label+'</div><div style="font-size:22px;font-weight:600;color:'+s.color+'">'+s.val+'</div>'+(s.sub?'<div style="font-size:11px;color:#6e7681;margin-top:4px">'+s.sub+'</div>':'')+'</div>';
-  }).join("");
-
-  document.getElementById("reempNote").innerHTML =
-    '📋 本データは <a href="'+M.source_url+'" target="_blank" rel="noopener" style="color:#58a6ff">'+M.source_label+'</a> から抽出。情報公開請求不要で公表されている事実情報です。<br>※ '+M.note;
-
-  var ministries=Object.keys(D.ministries);
-  var tabs=document.getElementById("reempTabs");
-  ministries.forEach(function(m){
-    var b=document.createElement("button");
-    b.textContent = m + "（" + D.ministries[m].length + "人）";
-    b.dataset.ministry = m;
-    b.className = "reemp-tab-btn";
-    b.onclick = function(){ selectMinistry(m); };
-    tabs.appendChild(b);
+  // 年度セレクタ初期化
+  var yearSel = document.getElementById("reempYearSel");
+  DATA.years.forEach(function(y){
+    var opt = document.createElement("option");
+    opt.value = y.key;
+    opt.textContent = y.label;
+    yearSel.appendChild(opt);
   });
+  yearSel.value = DATA.default;
+  yearSel.onchange = function(){ renderYear(yearSel.value); };
 
-  function selectMinistry(m){
+  // 注記（年度共通）
+  document.getElementById("reempNote").innerHTML =
+    '📋 本データは <a href="'+DATA.source_url+'" target="_blank" rel="noopener" style="color:#58a6ff">'+DATA.source_label+'</a> から抽出。情報公開請求不要で公表されている事実情報です。<br>※ '+DATA.note;
+
+  function renderYear(yearKey){
+    var yearData = DATA.data[yearKey];
+    var M = yearData.meta;
+    document.getElementById("reempPeriod").textContent = "対象期間：" + M.period;
+
+    var stats=[
+      {label:"届出件数", val:num(M.total_filings)+"件", color:"#c9d1d9"},
+      {label:"対象人数", val:num(M.unique_persons)+"人", color:"#c9d1d9"},
+      {label:"複数（2社+）", val:num(M.multi_2plus)+"人", sub:(M.multi_2plus/M.unique_persons*100).toFixed(1)+"%", color:"#d29922"},
+      {label:"3社以上", val:num(M.multi_3plus)+"人", sub:(M.multi_3plus/M.unique_persons*100).toFixed(1)+"%", color:"#f85149"},
+      {label:"4社以上", val:num(M.multi_4plus)+"人", color:"#f85149"},
+      {label:"5社以上", val:num(M.multi_5plus)+"人", color:"#f85149"}
+    ];
+    document.getElementById("reempStats").innerHTML = stats.map(function(s){
+      return '<div style="background:#161b22;border:1px solid #30363d;border-radius:6px;padding:14px"><div style="font-size:11px;color:#6e7681;letter-spacing:1px;margin-bottom:6px">'+s.label+'</div><div style="font-size:22px;font-weight:600;color:'+s.color+'">'+s.val+'</div>'+(s.sub?'<div style="font-size:11px;color:#6e7681;margin-top:4px">'+s.sub+'</div>':'')+'</div>';
+    }).join("");
+
+    var ministries = Object.keys(yearData.ministries);
+    var tabs = document.getElementById("reempTabs");
+    tabs.innerHTML = "";
+    ministries.forEach(function(m){
+      var b = document.createElement("button");
+      b.textContent = m + "（" + yearData.ministries[m].length + "人）";
+      b.dataset.ministry = m;
+      b.className = "reemp-tab-btn";
+      b.onclick = function(){ selectMinistry(yearKey, m); };
+      tabs.appendChild(b);
+    });
+
+    var topMinistry = ministries.reduce(function(a,b){ return yearData.ministries[a].length >= yearData.ministries[b].length ? a : b; });
+    selectMinistry(yearKey, topMinistry);
+
+    document.getElementById("reempSource").innerHTML =
+      '<strong style="color:#c9d1d9">出典：</strong>'+
+      '<a href="'+DATA.source_url+'" target="_blank" rel="noopener" style="color:#58a6ff">'+DATA.source_label+'</a> '+
+      '<span style="color:#6e7681">／ 内閣官房内閣人事局</span>'+
+      '<div style="margin-top:8px;font-size:11px;color:#6e7681">対象：3社以上の再就職届出があった人物のみ（'+M.multi_3plus+'人）／ 2社のみの再就職者（'+(M.multi_2plus-M.multi_3plus)+'人）と単独再就職者は本一覧には含まれません。</div>';
+  }
+
+  function selectMinistry(yearKey, m){
+    var tabs = document.getElementById("reempTabs");
     Array.prototype.forEach.call(tabs.children, function(b){
       if(b.dataset.ministry===m){ b.classList.add("active"); }
       else { b.classList.remove("active"); }
     });
-    renderPersons(m);
+    renderPersons(yearKey, m);
   }
 
-  function renderPersons(m){
-    var persons = D.ministries[m] || [];
+  function renderPersons(yearKey, m){
+    var persons = DATA.data[yearKey].ministries[m] || [];
     var c = document.getElementById("reempPersons");
     c.innerHTML = persons.map(function(p){
       var destCount = p.destinations.length;
@@ -4423,8 +4455,7 @@ const MOD_S_KANTO_ALL_CASES = [{"level": "🔴 要確認度 高", "score": 12, "
       h.onclick = function(){
         var card = h.parentElement;
         var body = card.querySelector(".reemp-body");
-        var isOpen = card.classList.contains("is-open");
-        if(isOpen){
+        if(card.classList.contains("is-open")){
           body.style.maxHeight = "0";
           card.classList.remove("is-open");
         } else {
@@ -4435,14 +4466,7 @@ const MOD_S_KANTO_ALL_CASES = [{"level": "🔴 要確認度 高", "score": 12, "
     });
   }
 
-  var topMinistry = ministries.reduce(function(a,b){ return D.ministries[a].length >= D.ministries[b].length ? a : b; });
-  selectMinistry(topMinistry);
-
-  document.getElementById("reempSource").innerHTML =
-    '<strong style="color:#c9d1d9">出典：</strong>'+
-    '<a href="'+M.source_url+'" target="_blank" rel="noopener" style="color:#58a6ff">'+M.source_label+'</a> '+
-    '<span style="color:#6e7681">／ 内閣官房内閣人事局</span>'+
-    '<div style="margin-top:8px;font-size:11px;color:#6e7681">対象：3社以上の再就職届出があった人物のみ（'+M.multi_3plus+'人）／ 2社のみの再就職者（'+(M.multi_2plus-M.multi_3plus)+'人）と単独再就職者は本一覧には含まれません。</div>';
+  renderYear(DATA.default);
 })();
 </script>
 <!-- ===== 再就職データセクション ここまで ===== -->
