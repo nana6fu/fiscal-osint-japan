@@ -2318,13 +2318,14 @@ function renderAccounts(m){
 
   // R5特別会計カード（暫定：参考値）
   if(currentYear === 2023 && m.name === "国土交通省"){
-    html += '<div style="font-size:11px;color:#888;margin:12px 0 8px">※下記は参考値。令和5年度の社会資本整備事業特別会計予算実額は財務省R5予算書から後日取得予定。</div>';
+    html += '<div style="font-size:11px;color:#888;margin:12px 0 8px">※道路関係予算：R5実額（事業費ベース、出典PDFリンクから確認可）。治水・港湾・空港は参考R6数値、R5実額は別途取得予定。</div>';
     html += '<div class="accounts-grid">';
     html += '<div class="acc-card alert">';
     html += '<div class="acc-flag">⚠ 要調査</div>';
-    html += '<div class="acc-name">社会資本整備事業（道路整備）</div>';
-    html += '<div><span class="acc-amount big">2.1兆円</span><span style="font-size:9px;color:var(--text-dim);margin-left:4px">参考: R6</span></div>';
+    html += '<div class="acc-name">道路関係予算（直轄＋補助）</div>';
+    html += '<div><span class="acc-amount big">2.3兆円</span><span style="font-size:9px;color:var(--text-dim);margin-left:4px">R5実額</span></div>';
     html += '<div class="acc-bar-wrap"><div class="acc-bar" style="width:100%;background:var(--red)"></div></div>';
+    html += '<div class="acc-src"><a href="https://www.mlit.go.jp/report/press/content/001598656.pdf" target="_blank">国交省 R5道路関係予算配分概要PDF</a></div>';
     html += '</div>';
     html += '<div class="acc-card">';
     html += '<div class="acc-name">社会資本整備事業（治水）</div>';
