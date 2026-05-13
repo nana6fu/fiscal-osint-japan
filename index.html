@@ -2691,11 +2691,21 @@ document.getElementById("yearSel").addEventListener("change", function(){
   if(this.value === "2023"){
     MINISTRIES_ACTIVE = MINISTRIES_2023;
     document.getElementById("headerSrc").textContent = "公的資金の流れを、公開情報から検証する ｜ 特別会計・公共調達・政治資金・情報公開請求";
-    document.querySelector(".sum-item:nth-child(1) .sum-val").innerHTML = '436<span style="font-size:13px">兆円</span>';
-    document.querySelector(".sum-item:nth-child(1) .sum-sub").textContent = "※金額は参考：2024年度。2023年度は厚労省・総務省・財務省・デジタル庁のみ集計済み";
-    document.querySelector(".sum-item:nth-child(3) .sum-sub") && (document.querySelector(".sum-item:nth-child(3) .sum-sub").textContent = "特別会計数（参考：2024年度）");
-    document.querySelector(".sum-item:nth-child(1) .sum-label").textContent = "特別会計 歳出総額";
-    document.querySelector(".sum-item:nth-child(3) .sum-label").textContent = "特別会計数（参考：2024年度）";
+    document.querySelector(".sum-item:nth-child(1) .sum-val").innerHTML = '441.9<span style="font-size:13px">兆円</span>';
+    document.querySelector(".sum-item:nth-child(1) .sum-sub").textContent = "R5実額（前年度比-25.4兆円）";
+    document.querySelector(".sum-item:nth-child(2) .sum-val").innerHTML = '197.3<span style="font-size:13px">兆円</span>';
+    document.querySelector(".sum-item:nth-child(2) .sum-sub").textContent = "R5実額（重複除く、前年度比-21.2兆円）";
+    document.querySelector(".sum-item:nth-child(3) .sum-val").innerHTML = '14<span style="font-size:13px">会計</span>';
+    document.querySelector(".sum-item:nth-child(3) .sum-sub").textContent = "R5/R6共通（統廃合なし）";
+    document.querySelector(".sum-item:nth-child(4) .sum-val").innerHTML = '1,297<span style="font-size:13px">兆円</span>';
+    document.querySelector(".sum-item:nth-child(4) .sum-sub").textContent = "※年度末値は別途検証中（参考: R6年度末）";
+    document.querySelector(".sum-item:nth-child(1) .sum-label").textContent = "特別会計 歳出総額（令和5年度）";
+    document.querySelector(".sum-item:nth-child(3) .sum-label").textContent = "特別会計数（令和5年度）";
+    var srcLink = document.querySelector(".sum-item:nth-child(1) .sum-src a");
+    if(srcLink){
+      srcLink.textContent = "財務省 R5特別会計予算概要PDF →";
+      srcLink.href = "https://www.mof.go.jp/policy/budget/budger_workflow/budget/fy2023/seifuan2023/25.pdf";
+    }
   } else if(this.value === "2024"){
     MINISTRIES_ACTIVE = MINISTRIES_2024;
     document.getElementById("headerSrc").textContent = "公的資金の流れを、公開情報から検証する ｜ 特別会計・公共調達・政治資金・情報公開請求";
