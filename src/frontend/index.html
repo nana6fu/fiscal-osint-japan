@@ -2084,10 +2084,86 @@ function renderAccounts(m){
   if(m.name === "国土交通省"){
     html += renderCommonScoreNotice();
   }
-  // 2023年度国交省：一次資料・省庁概要は容量リセット後に修正予定
-  // 現在はR5マップのみ表示（2024年度データが混在するため一時非表示）
+  // 2023年度国交省：R5データから一次資料・主要落札企業表・資金フロー・省庁概要を生成
   if(currentYear === 2023 && m.name === "国土交通省"){
-    html += '<div style="font-size:11px;color:#888;padding:8px 12px;border:1px solid #333;border-radius:6px;margin:8px 0">※令和5年度の一次資料・省庁概要は準備中です。下記R5入札データマップをご参照ください。</div>';
+    // R5一次資料ブロック
+    html += '<div class="primary-box">';
+    html += '<div class="primary-box-title">令和5年度 一次資料確認済みデータ</div>';
+    html += '<div class="primary-fact">国土交通省 主要6地方整備局の公開入札データを集計。合計4,028件・3,529.87億円（北海道859.7億・東北425.22億・北陸1,698.39億・中部71.88億・近畿102.55億・九州372.13億）</div>';
+    html += '<div class="primary-fact">高要確認案件（落札率99%以上、予定価格との差100万円以内、随意契約、JV構成、大型案件等）：81件抽出。うち北陸地方整備局77件と突出。</div>';
+    html += '<div class="primary-fact">📋 国家公務員再就職情報は内閣人事局が公表。情報公開請求不要。省庁OBの再就職先・役職を検索可能。</div>';
+    html += '<div class="primary-fact">※関東・中国・四国地方整備局は公開データの形式が異なるため、本集計には含まれていません。</div>';
+    html += '<div class="primary-src">出典：各地方整備局 令和5年度入札結果データ（公開情報より集計）　🤖AI集計（参考値）</div>';
+    html += '</div>';
+
+    // R5主要落札企業表
+    if(typeof MLIT_R5_COMPANY_RANKING !== "undefined" && MLIT_R5_COMPANY_RANKING.length > 0){
+      html += '<div class="primary-box" style="margin-bottom:14px">';
+      html += '<div class="primary-box-title">主要落札企業 一覧（令和5年度・北海道東北北陸中部近畿九州地整局）</div>';
+      html += '<table class="houjin-table">';
+      html += '<tr><th>企業名</th><th>件数</th><th>サンプル案件</th><th>令和5年度落札金額</th><th>OB再就職・役員情報</th></tr>';
+      MLIT_R5_COMPANY_RANKING.forEach(function(c){
+        html += '<tr>';
+        html += '<td>' + (c.company || '-') + '</td>';
+        html += '<td class="region">' + (c.cases || 0) + '件</td>';
+        html += '<td class="region" style="font-size:11px">' + (c.sample_project || '-') + '</td>';
+        html += '<td class="amount">' + (c.amount_oku ? c.amount_oku.toLocaleString() + '億円' : '-') + '</td>';
+        html += '<td style="font-size:11px;color:#888">🤖未確認</td>';
+        html += '</tr>';
+      });
+      html += '</table>';
+      html += '<div class="primary-src">出典：各地方整備局 令和5年度入札結果データ（公開情報より集計）　🤖AI集計（参考値）</div>';
+      html += '</div>';
+    }
+
+    // R5資金フローマップ
+    html += '<div class="primary-box" style="margin-bottom:14px">';
+    html += '<div class="primary-box-title">資金フロー仮説・照合マップ：道路整備予算→受注企業→政治資金団体（令和5年度）</div>';
+    html += '<div style="overflow-x:auto;padding:16px 8px">';
+    html += '<div style="display:flex;align-items:center;gap:8px;flex-wrap:wrap;font-size:11px;min-width:600px">';
+    html += '<div style="background:#1a0505;border:1px solid #cc3333;border-radius:6px;padding:10px 14px;text-align:center">';
+    html += '<div style="color:#cc3333;font-size:9px;margin-bottom:4px">国土交通省</div>';
+    html += '<div style="color:#ff6666;font-weight:700;font-size:13px">公開入札データ</div>';
+    html += '<div style="color:#ff9999;font-size:10px">約3,530億円（6地整局集計・令和5年度）</div>';
+    html += '</div>';
+    html += '<div style="color:#666;font-size:16px">→<br><span style="font-size:9px;color:#555">入札・発注</span></div>';
+    html += '<div style="background:#0a150a;border:1px solid #336633;border-radius:6px;padding:10px 14px;text-align:center">';
+    html += '<div style="color:#4a8a4a;font-size:9px;margin-bottom:4px">主要受注企業（公開入札結果）</div>';
+    html += '<div style="color:#7dcc7d;font-weight:700;font-size:12px">大型JV・スーパーゼネコン</div>';
+    html += '<div style="color:#aaa;font-size:9px;margin-top:4px">清水・大林JV他（北陸ダム工事等）</div>';
+    html += '<div style="color:#7dcc7d;font-size:10px">最大JV 218.21億円受注</div>';
+    html += '</div>';
+    html += '<div style="color:#666;font-size:16px">→<br><span style="font-size:9px;color:#555">要照合<br>（収支報告書）</span></div>';
+    html += '<div style="background:#0a0a1a;border:1px solid #3366cc;border-radius:6px;padding:10px 14px;text-align:center">';
+    html += '<div style="color:#4a6aaa;font-size:9px;margin-bottom:4px">自民党政治資金団体（総務省公開）</div>';
+    html += '<div style="color:#7da8dd;font-weight:700;font-size:12px">国民政治協会</div>';
+    html += '<div style="color:#aaa;font-size:9px;margin-top:4px">建設業界から年間数億円規模</div>';
+    html += '<div style="color:#7da8dd;font-size:10px">受入総額 約24億円/年（2023年）</div>';
+    html += '</div>';
+    html += '<div style="color:#666;font-size:16px">→<br><span style="font-size:9px;color:#555">70〜80%<br>を寄付</span></div>';
+    html += '<div style="background:#1a1000;border:1px solid #cc8800;border-radius:6px;padding:10px 14px;text-align:center">';
+    html += '<div style="color:#aa6600;font-size:9px;margin-bottom:4px">与党（政治資金収支報告書）</div>';
+    html += '<div style="color:#ffbb44;font-weight:700;font-size:13px">自由民主党</div>';
+    html += '<div style="color:#aaa;font-size:9px;margin-top:4px">国政協経由で年間約18〜20億円</div>';
+    html += '<div style="color:#ffbb44;font-size:10px">政策過程との関係は要確認</div>';
+    html += '</div>';
+    html += '</div></div>';
+    html += '<div class="primary-src" style="margin-top:8px">';
+    html += '出典：<a href="https://www.soumu.go.jp/senkyo/seiji_s/seijishikin/" target="_blank">総務省 政治資金収支報告書</a>　';
+    html += '<a href="https://tansajp.org/investigativejournal/10820/" target="_blank">Tansa「自民支えた企業の半世紀」</a>　';
+    html += '🤖 個別企業から政党への直接的な対応関係は未確認。';
+    html += '</div>';
+    html += '</div>';
+
+    // R5省庁概要
+    html += '<div class="overview-box">';
+    html += '<div class="overview-title">// 省庁概要（令和5年度）</div>';
+    html += '<div style="font-size:12px;color:var(--text);line-height:1.8">';
+    html += '令和5年度の公開入札データから6地方整備局（北海道・東北・北陸・中部・近畿・九州）の合計4,028件・3,529.87億円を集計。';
+    html += '<strong style="color:var(--yellow)">北陸地方整備局が件数1,677件・金額1,698.39億円と突出して大きく、要確認案件（落札率99%以上・予定価格近接・随意契約等）も77件と最多。</strong>';
+    html += '北海道地整局は1,169件・859.7億円、九州504件・372.13億円が続く。';
+    html += '関東・中国・四国地整局は公開データの形式・URL構造が他局と異なり、本集計には含まれていない。';
+    html += '</div></div>';
   }
 
   if (m.name === "国土交通省" && typeof renderMlitNationalRedflagPanel === "function") {
