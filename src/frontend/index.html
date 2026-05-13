@@ -1047,6 +1047,140 @@ footer{font-size:10px;color:#30363d;padding:5px 24px;border-top:1px solid #0d111
   </div>
 </div>
 
+<!-- ===== 再就職データセクション（自動生成・独立ブロック） ===== -->
+<script src="data/reemployment_data.js"></script>
+<style>
+.reemp-card{background:#161b22;border:1px solid #30363d;border-radius:6px;margin-bottom:10px;overflow:hidden;transition:border-color .15s}
+.reemp-card:hover{border-color:#58a6ff}
+.reemp-card.is-open{border-color:#58a6ff}
+.reemp-header{cursor:pointer;padding:14px 16px;display:flex;justify-content:space-between;align-items:center;gap:12px;flex-wrap:wrap;user-select:none}
+.reemp-header:hover{background:#1c2128}
+.reemp-arrow{display:inline-block;transition:transform .25s;color:#8b949e;font-size:11px;margin-right:8px}
+.reemp-card.is-open .reemp-arrow{transform:rotate(90deg)}
+.reemp-body{max-height:0;overflow:hidden;transition:max-height .35s ease-out}
+.reemp-body-inner{padding:0 16px 16px}
+.reemp-tab-btn{background:transparent;border:1px solid #30363d;color:#c9d1d9;padding:8px 14px;border-radius:6px;font-size:13px;cursor:pointer;font-family:inherit;transition:all .15s}
+.reemp-tab-btn:hover:not(.active){background:#161b22}
+.reemp-tab-btn.active{background:#1f6feb;border-color:#1f6feb;color:#fff}
+.reemp-year-sel{background:#161b22;border:1px solid #30363d;color:#f0f6fc;padding:8px 14px;border-radius:6px;font-size:15px;font-weight:600;font-family:inherit;cursor:pointer}
+.reemp-year-sel:focus{outline:none;border-color:#58a6ff}
+</style>
+<section id="reempSection" style="max-width:1400px;margin:40px auto 0;padding:0 20px;color:#c9d1d9;font-family:-apple-system,BlinkMacSystemFont,'Hiragino Sans','Noto Sans JP',sans-serif">
+  <div style="border-top:2px solid #30363d;padding-top:40px">
+    <div style="font-size:11px;color:#6e7681;letter-spacing:2px;margin-bottom:8px">// REEMPLOYMENT DATA</div>
+    <h2 style="font-size:28px;color:#f0f6fc;margin:0 0 12px;font-weight:600">国家公務員 再就職データ</h2>
+    <div style="margin:0 0 8px;display:flex;align-items:center;gap:8px;flex-wrap:wrap"><span style="font-size:13px;color:#8b949e">年度：</span><select id="reempYearSel" class="reemp-year-sel" style="min-width:180px"></select></div>
+    <div style="color:#8b949e;font-size:14px;margin-bottom:24px" id="reempPeriod"></div>
+    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:12px;margin-bottom:32px" id="reempStats"></div>
+    <div style="background:#0d1117;border-left:3px solid #58a6ff;padding:12px 16px;font-size:13px;color:#8b949e;margin-bottom:24px;line-height:1.7" id="reempNote"></div>
+    <div style="display:flex;flex-wrap:wrap;gap:6px;margin-bottom:20px;border-bottom:1px solid #30363d;padding-bottom:12px" id="reempTabs"></div>
+    <div style="font-size:12px;color:#6e7681;margin-bottom:12px">▶ 各カードをクリックすると再就職先の詳細が表示されます</div>
+    <div id="reempPersons"></div>
+    <div style="margin-top:32px;padding:16px;background:#0d1117;border:1px solid #30363d;border-radius:6px;font-size:13px;color:#8b949e" id="reempSource"></div>
+  </div>
+</section>
+<script>
+(function(){
+  if(typeof REEMPLOYMENT_DATA==="undefined"){ console.warn("REEMPLOYMENT_DATA not loaded"); return; }
+  var DATA=REEMPLOYMENT_DATA;
+  function num(n){ return n.toLocaleString("ja-JP"); }
+  function esc(s){ return String(s||"").replace(/[&<>"']/g,function(c){return {"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c]}); }
+
+  // 年度セレクタ初期化
+  var yearSel = document.getElementById("reempYearSel");
+  DATA.years.forEach(function(y){
+    var opt = document.createElement("option");
+    opt.value = y.key;
+    opt.textContent = y.label;
+    yearSel.appendChild(opt);
+  });
+  yearSel.value = DATA.default;
+  yearSel.onchange = function(){ renderYear(yearSel.value); };
+
+  // 注記（年度共通）
+  document.getElementById("reempNote").innerHTML =
+    '📋 本データは <a href="'+DATA.source_url+'" target="_blank" rel="noopener" style="color:#58a6ff">'+DATA.source_label+'</a> から抽出。情報公開請求不要で公表されている事実情報です。<br>※ '+DATA.note;
+
+  function renderYear(yearKey){
+    var yearData = DATA.data[yearKey];
+    var M = yearData.meta;
+    document.getElementById("reempPeriod").textContent = "対象期間：" + M.period;
+
+    var stats=[
+      {label:"届出件数", val:num(M.total_filings)+"件", color:"#c9d1d9"},
+      {label:"対象人数", val:num(M.unique_persons)+"人", color:"#c9d1d9"},
+      {label:"複数（2社+）", val:num(M.multi_2plus)+"人", sub:(M.multi_2plus/M.unique_persons*100).toFixed(1)+"%", color:"#d29922"},
+      {label:"3社以上", val:num(M.multi_3plus)+"人", sub:(M.multi_3plus/M.unique_persons*100).toFixed(1)+"%", color:"#f85149"},
+      {label:"4社以上", val:num(M.multi_4plus)+"人", color:"#f85149"},
+      {label:"5社以上", val:num(M.multi_5plus)+"人", color:"#f85149"}
+    ];
+    document.getElementById("reempStats").innerHTML = stats.map(function(s){
+      return '<div style="background:#161b22;border:1px solid #30363d;border-radius:6px;padding:14px"><div style="font-size:11px;color:#6e7681;letter-spacing:1px;margin-bottom:6px">'+s.label+'</div><div style="font-size:22px;font-weight:600;color:'+s.color+'">'+s.val+'</div>'+(s.sub?'<div style="font-size:11px;color:#6e7681;margin-top:4px">'+s.sub+'</div>':'')+'</div>';
+    }).join("");
+
+    var ministries = Object.keys(yearData.ministries);
+    var tabs = document.getElementById("reempTabs");
+    tabs.innerHTML = "";
+    ministries.forEach(function(m){
+      var b = document.createElement("button");
+      b.textContent = m + "（" + yearData.ministries[m].length + "人）";
+      b.dataset.ministry = m;
+      b.className = "reemp-tab-btn";
+      b.onclick = function(){ selectMinistry(yearKey, m); };
+      tabs.appendChild(b);
+    });
+
+    var topMinistry = ministries.reduce(function(a,b){ return yearData.ministries[a].length >= yearData.ministries[b].length ? a : b; });
+    selectMinistry(yearKey, topMinistry);
+
+    document.getElementById("reempSource").innerHTML =
+      '<strong style="color:#c9d1d9">出典：</strong>'+
+      '<a href="'+DATA.source_url+'" target="_blank" rel="noopener" style="color:#58a6ff">'+DATA.source_label+'</a> '+
+      '<span style="color:#6e7681">／ 内閣官房内閣人事局</span>'+
+      '<div style="margin-top:8px;font-size:11px;color:#6e7681">対象：3社以上の再就職届出があった人物のみ（'+M.multi_3plus+'人）／ 2社のみの再就職者（'+(M.multi_2plus-M.multi_3plus)+'人）と単独再就職者は本一覧には含まれません。</div>';
+  }
+
+  function selectMinistry(yearKey, m){
+    var tabs = document.getElementById("reempTabs");
+    Array.prototype.forEach.call(tabs.children, function(b){
+      if(b.dataset.ministry===m){ b.classList.add("active"); }
+      else { b.classList.remove("active"); }
+    });
+    renderPersons(yearKey, m);
+  }
+
+  function renderPersons(yearKey, m){
+    var persons = DATA.data[yearKey].ministries[m] || [];
+    var c = document.getElementById("reempPersons");
+    c.innerHTML = persons.map(function(p){
+      var destCount = p.destinations.length;
+      var alertColor = destCount>=5 ? "#f85149" : (destCount>=4 ? "#d29922" : "#58a6ff");
+      var destHtml = p.destinations.map(function(d){
+        return '<div style="display:flex;gap:10px;padding:10px 0;border-top:1px dashed #30363d;font-size:13px;line-height:1.5"><span style="color:#6e7681;flex-shrink:0">→</span><div style="flex:1"><div style="color:#c9d1d9">'+esc(d.name)+'<span style="color:#8b949e"> / '+esc(d.title)+'</span></div><div style="color:#6e7681;font-size:11px;margin-top:2px">'+esc(d.business)+'</div></div></div>';
+      }).join("");
+      return '<div class="reemp-card" style="border-left:3px solid '+alertColor+'"><div class="reemp-header"><div style="flex:1;min-width:0;display:flex;align-items:center;gap:6px"><span class="reemp-arrow">▶</span><div style="flex:1;min-width:0"><div style="font-size:16px;font-weight:600;color:#f0f6fc">'+esc(p.name)+'<span style="font-size:12px;color:#8b949e;margin-left:8px;font-weight:400">'+esc(p.age)+'歳</span></div><div style="font-size:12px;color:#8b949e;margin-top:3px">元 '+esc(p.post)+'</div></div></div><div style="background:'+alertColor+';color:#fff;padding:4px 10px;border-radius:4px;font-size:12px;font-weight:600;white-space:nowrap;flex-shrink:0">再就職 '+destCount+'社</div></div><div class="reemp-body"><div class="reemp-body-inner">'+destHtml+'</div></div></div>';
+    }).join("");
+
+    Array.prototype.forEach.call(c.querySelectorAll(".reemp-header"), function(h){
+      h.onclick = function(){
+        var card = h.parentElement;
+        var body = card.querySelector(".reemp-body");
+        if(card.classList.contains("is-open")){
+          body.style.maxHeight = "0";
+          card.classList.remove("is-open");
+        } else {
+          body.style.maxHeight = body.scrollHeight + "px";
+          card.classList.add("is-open");
+        }
+      };
+    });
+  }
+
+  renderYear(DATA.default);
+})();
+</script>
+<!-- ===== 再就職データセクション ここまで ===== -->
+
 <footer>
 ※ 本データは会計検査院・財務省・衆議院の公開情報のみに基づきます。AI分析は参考情報です。
 <div style="margin-top:8px;line-height:1.8;color:#30363d">
@@ -4335,141 +4469,7 @@ const MOD_S_KANTO_ALL_CASES = [{"level": "🔴 要確認度 高", "score": 12, "
 </script>
 
 
-<!-- ===== 再就職データセクション（自動生成・独立ブロック） ===== -->
-<script src="data/reemployment_data.js"></script>
-<style>
-.reemp-card{background:#161b22;border:1px solid #30363d;border-radius:6px;margin-bottom:10px;overflow:hidden;transition:border-color .15s}
-.reemp-card:hover{border-color:#58a6ff}
-.reemp-card.is-open{border-color:#58a6ff}
-.reemp-header{cursor:pointer;padding:14px 16px;display:flex;justify-content:space-between;align-items:center;gap:12px;flex-wrap:wrap;user-select:none}
-.reemp-header:hover{background:#1c2128}
-.reemp-arrow{display:inline-block;transition:transform .25s;color:#8b949e;font-size:11px;margin-right:8px}
-.reemp-card.is-open .reemp-arrow{transform:rotate(90deg)}
-.reemp-body{max-height:0;overflow:hidden;transition:max-height .35s ease-out}
-.reemp-body-inner{padding:0 16px 16px}
-.reemp-tab-btn{background:transparent;border:1px solid #30363d;color:#c9d1d9;padding:8px 14px;border-radius:6px;font-size:13px;cursor:pointer;font-family:inherit;transition:all .15s}
-.reemp-tab-btn:hover:not(.active){background:#161b22}
-.reemp-tab-btn.active{background:#1f6feb;border-color:#1f6feb;color:#fff}
-.reemp-year-sel{background:#161b22;border:1px solid #30363d;color:#f0f6fc;padding:8px 14px;border-radius:6px;font-size:15px;font-weight:600;font-family:inherit;cursor:pointer}
-.reemp-year-sel:focus{outline:none;border-color:#58a6ff}
-</style>
-<section id="reempSection" style="max-width:1400px;margin:40px auto 0;padding:0 20px;color:#c9d1d9;font-family:-apple-system,BlinkMacSystemFont,'Hiragino Sans','Noto Sans JP',sans-serif">
-  <div style="border-top:2px solid #30363d;padding-top:40px">
-    <div style="font-size:11px;color:#6e7681;letter-spacing:2px;margin-bottom:8px">// REEMPLOYMENT DATA</div>
-    <div style="display:flex;align-items:center;gap:16px;flex-wrap:wrap;margin-bottom:8px">
-      <h2 style="font-size:28px;color:#f0f6fc;margin:0;font-weight:600">国家公務員 再就職データ</h2>
-      <select id="reempYearSel" class="reemp-year-sel"></select>
-    </div>
-    <div style="color:#8b949e;font-size:14px;margin-bottom:24px" id="reempPeriod"></div>
-    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:12px;margin-bottom:32px" id="reempStats"></div>
-    <div style="background:#0d1117;border-left:3px solid #58a6ff;padding:12px 16px;font-size:13px;color:#8b949e;margin-bottom:24px;line-height:1.7" id="reempNote"></div>
-    <div style="display:flex;flex-wrap:wrap;gap:6px;margin-bottom:20px;border-bottom:1px solid #30363d;padding-bottom:12px" id="reempTabs"></div>
-    <div style="font-size:12px;color:#6e7681;margin-bottom:12px">▶ 各カードをクリックすると再就職先の詳細が表示されます</div>
-    <div id="reempPersons"></div>
-    <div style="margin-top:32px;padding:16px;background:#0d1117;border:1px solid #30363d;border-radius:6px;font-size:13px;color:#8b949e" id="reempSource"></div>
-  </div>
-</section>
-<script>
-(function(){
-  if(typeof REEMPLOYMENT_DATA==="undefined"){ console.warn("REEMPLOYMENT_DATA not loaded"); return; }
-  var DATA=REEMPLOYMENT_DATA;
-  function num(n){ return n.toLocaleString("ja-JP"); }
-  function esc(s){ return String(s||"").replace(/[&<>"']/g,function(c){return {"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c]}); }
 
-  // 年度セレクタ初期化
-  var yearSel = document.getElementById("reempYearSel");
-  DATA.years.forEach(function(y){
-    var opt = document.createElement("option");
-    opt.value = y.key;
-    opt.textContent = y.label;
-    yearSel.appendChild(opt);
-  });
-  yearSel.value = DATA.default;
-  yearSel.onchange = function(){ renderYear(yearSel.value); };
-
-  // 注記（年度共通）
-  document.getElementById("reempNote").innerHTML =
-    '📋 本データは <a href="'+DATA.source_url+'" target="_blank" rel="noopener" style="color:#58a6ff">'+DATA.source_label+'</a> から抽出。情報公開請求不要で公表されている事実情報です。<br>※ '+DATA.note;
-
-  function renderYear(yearKey){
-    var yearData = DATA.data[yearKey];
-    var M = yearData.meta;
-    document.getElementById("reempPeriod").textContent = "対象期間：" + M.period;
-
-    var stats=[
-      {label:"届出件数", val:num(M.total_filings)+"件", color:"#c9d1d9"},
-      {label:"対象人数", val:num(M.unique_persons)+"人", color:"#c9d1d9"},
-      {label:"複数（2社+）", val:num(M.multi_2plus)+"人", sub:(M.multi_2plus/M.unique_persons*100).toFixed(1)+"%", color:"#d29922"},
-      {label:"3社以上", val:num(M.multi_3plus)+"人", sub:(M.multi_3plus/M.unique_persons*100).toFixed(1)+"%", color:"#f85149"},
-      {label:"4社以上", val:num(M.multi_4plus)+"人", color:"#f85149"},
-      {label:"5社以上", val:num(M.multi_5plus)+"人", color:"#f85149"}
-    ];
-    document.getElementById("reempStats").innerHTML = stats.map(function(s){
-      return '<div style="background:#161b22;border:1px solid #30363d;border-radius:6px;padding:14px"><div style="font-size:11px;color:#6e7681;letter-spacing:1px;margin-bottom:6px">'+s.label+'</div><div style="font-size:22px;font-weight:600;color:'+s.color+'">'+s.val+'</div>'+(s.sub?'<div style="font-size:11px;color:#6e7681;margin-top:4px">'+s.sub+'</div>':'')+'</div>';
-    }).join("");
-
-    var ministries = Object.keys(yearData.ministries);
-    var tabs = document.getElementById("reempTabs");
-    tabs.innerHTML = "";
-    ministries.forEach(function(m){
-      var b = document.createElement("button");
-      b.textContent = m + "（" + yearData.ministries[m].length + "人）";
-      b.dataset.ministry = m;
-      b.className = "reemp-tab-btn";
-      b.onclick = function(){ selectMinistry(yearKey, m); };
-      tabs.appendChild(b);
-    });
-
-    var topMinistry = ministries.reduce(function(a,b){ return yearData.ministries[a].length >= yearData.ministries[b].length ? a : b; });
-    selectMinistry(yearKey, topMinistry);
-
-    document.getElementById("reempSource").innerHTML =
-      '<strong style="color:#c9d1d9">出典：</strong>'+
-      '<a href="'+DATA.source_url+'" target="_blank" rel="noopener" style="color:#58a6ff">'+DATA.source_label+'</a> '+
-      '<span style="color:#6e7681">／ 内閣官房内閣人事局</span>'+
-      '<div style="margin-top:8px;font-size:11px;color:#6e7681">対象：3社以上の再就職届出があった人物のみ（'+M.multi_3plus+'人）／ 2社のみの再就職者（'+(M.multi_2plus-M.multi_3plus)+'人）と単独再就職者は本一覧には含まれません。</div>';
-  }
-
-  function selectMinistry(yearKey, m){
-    var tabs = document.getElementById("reempTabs");
-    Array.prototype.forEach.call(tabs.children, function(b){
-      if(b.dataset.ministry===m){ b.classList.add("active"); }
-      else { b.classList.remove("active"); }
-    });
-    renderPersons(yearKey, m);
-  }
-
-  function renderPersons(yearKey, m){
-    var persons = DATA.data[yearKey].ministries[m] || [];
-    var c = document.getElementById("reempPersons");
-    c.innerHTML = persons.map(function(p){
-      var destCount = p.destinations.length;
-      var alertColor = destCount>=5 ? "#f85149" : (destCount>=4 ? "#d29922" : "#58a6ff");
-      var destHtml = p.destinations.map(function(d){
-        return '<div style="display:flex;gap:10px;padding:10px 0;border-top:1px dashed #30363d;font-size:13px;line-height:1.5"><span style="color:#6e7681;flex-shrink:0">→</span><div style="flex:1"><div style="color:#c9d1d9">'+esc(d.name)+'<span style="color:#8b949e"> / '+esc(d.title)+'</span></div><div style="color:#6e7681;font-size:11px;margin-top:2px">'+esc(d.business)+'</div></div></div>';
-      }).join("");
-      return '<div class="reemp-card" style="border-left:3px solid '+alertColor+'"><div class="reemp-header"><div style="flex:1;min-width:0;display:flex;align-items:center;gap:6px"><span class="reemp-arrow">▶</span><div style="flex:1;min-width:0"><div style="font-size:16px;font-weight:600;color:#f0f6fc">'+esc(p.name)+'<span style="font-size:12px;color:#8b949e;margin-left:8px;font-weight:400">'+esc(p.age)+'歳</span></div><div style="font-size:12px;color:#8b949e;margin-top:3px">元 '+esc(p.post)+'</div></div></div><div style="background:'+alertColor+';color:#fff;padding:4px 10px;border-radius:4px;font-size:12px;font-weight:600;white-space:nowrap;flex-shrink:0">再就職 '+destCount+'社</div></div><div class="reemp-body"><div class="reemp-body-inner">'+destHtml+'</div></div></div>';
-    }).join("");
-
-    Array.prototype.forEach.call(c.querySelectorAll(".reemp-header"), function(h){
-      h.onclick = function(){
-        var card = h.parentElement;
-        var body = card.querySelector(".reemp-body");
-        if(card.classList.contains("is-open")){
-          body.style.maxHeight = "0";
-          card.classList.remove("is-open");
-        } else {
-          body.style.maxHeight = body.scrollHeight + "px";
-          card.classList.add("is-open");
-        }
-      };
-    });
-  }
-
-  renderYear(DATA.default);
-})();
-</script>
-<!-- ===== 再就職データセクション ここまで ===== -->
 
 </body>
 </html>
