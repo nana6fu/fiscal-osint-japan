@@ -2081,7 +2081,7 @@ function renderAccounts(m){
     html+=renderChiseiTable(m);
   }
 
-  if(m.name === "国土交通省"){
+  if(m.name === "国土交通省" && currentYear !== 2023){
     html += renderCommonScoreNotice();
   }
   // 2023年度国交省：R5一次資料のみ（他のブロックは対応位置に分散配置）
