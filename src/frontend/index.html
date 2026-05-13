@@ -2343,6 +2343,30 @@ function renderAccounts(m){
   area.innerHTML=html;
 }
 
+// === AI出力サニタイザ：断定的表現を中立化（Llama暴走時の保険）===
+function sanitizeAIOutput(text){
+  if(!text) return text;
+  var t = String(text);
+  t = t.replace(/【判定】[：:]*\s*(不正の可能性が高い|不正の疑い|不正の可能性[（(]?あり[）)]?|違法の可能性|違法行為|疑義あり|疑義が認められる)/g, "【判定】要追加調査");
+  t = t.replace(/【判定】[：:]*\s*(疑義|可能性あり|疑い|不適切|不正)/g, "【判定】要確認");
+  t = t.replace(/不正の可能性[（(]?あり[）)]?/g, "公開情報のみでは判断不可");
+  t = t.replace(/不正の可能性が高い/g, "要追加調査を要する");
+  t = t.replace(/不正の疑い/g, "要追加調査の論点");
+  t = t.replace(/不正/g, "要追加確認");
+  t = t.replace(/違法性/g, "事実関係の確認が必要な点");
+  t = t.replace(/違法/g, "要追加確認");
+  t = t.replace(/疑義/g, "要確認の論点");
+  t = t.replace(/癒着/g, "関係性の事実確認");
+  t = t.replace(/贈収賄/g, "金銭の事実確認");
+  t = t.replace(/収賄/g, "金銭の事実確認");
+  t = t.replace(/贈賄/g, "金銭の事実確認");
+  t = t.replace(/裏金/g, "資金の事実確認");
+  t = t.replace(/談合の疑い/g, "競争性の事実確認");
+  t = t.replace(/談合/g, "競争性の事実確認");
+  t = t.replace(/不適切/g, "要確認");
+  return t;
+}
+
 function selectAccount(idx){
   if(!curMinistry) return;
   var acc=curMinistry.accounts[idx];
@@ -2489,7 +2513,7 @@ async function analyzeAI(){
       method:"POST",
       headers:{"Content-Type":"application/json"},
       body:JSON.stringify({
-        prompt:"思考過程は出力しないでください。日本語だけで、必ず以下の順番で出力してください。\n\n【判定】\n【理由】\n【確認資料】\n【開示請求で確認すべき質問】\n\n不正断定は禁止。抽象論は禁止。必ず具体的な数値（落札率・金額・受注企業名・回数）を明記して分析してください。400字以内・箇条書き。架空の企業名（A社など）や推測数値は絶対に使用しない。出力項目は【判定】【理由】【確認資料】【開示請求で確認すべき質問】の4項目のみ。必ず箇条書きで簡潔に出力する。最後に文字数表記は絶対に付けない。入力データに存在しない会社名・金額・回数を例示しない。\n\n"+prompt
+        prompt:"思考過程は出力しないでください。日本語だけで、必ず以下の順番で出力してください。\n\n【判定】\n【理由】\n【確認資料】\n【開示請求で確認すべき質問】\n\n不正断定は絶対禁止。判定は「要確認 / 要追加調査 / 公開情報のみでは判断不可」の3択のみ。禁止語彙：「不正」「違法」「疑義」「可能性あり」「癒着」「収賄」「贈収賄」「贈賄」「裏金」「談合」「不適切」等は絶対に使わない。判定欄は3択以外の文言禁止。抽象論は禁止。必ず具体的な数値（落札率・金額・受注企業名・回数）を明記して分析してください。400字以内・箇条書き。架空の企業名（A社など）や推測数値は絶対に使用しない。出力項目は【判定】【理由】【確認資料】【開示請求で確認すべき質問】の4項目のみ。必ず箇条書きで簡潔に出力する。最後に文字数表記は絶対に付けない。入力データに存在しない会社名・金額・回数を例示しない。\n\n"+prompt
       })
     });
 
@@ -2499,7 +2523,7 @@ async function analyzeAI(){
     console.log("Groq-Llama response:", data);
 
     if(data.result){
-      result.textContent=data.result;
+      result.textContent=sanitizeAIOutput(data.result);
       disc.textContent="▸ 公開一次資料をもとにしたAI補助分析";
     }else if(data.error){
       result.textContent="Ollamaエラー："+data.error;
@@ -2989,7 +3013,7 @@ async function runMlitRegionAiAnalysis(i){
   target.scrollIntoView({behavior:"smooth", block:"center"});
 
   var prompt =
-    "あなたは公共調達の調査補助AIです。不正を断定せず、公開情報から追加確認すべき論点を整理してください。\n" +
+    "あなたは公共調達の調査補助AIです。不正・違法・疑義の断定は絶対に禁止。公開情報から追加確認すべき論点を整理してください。判定は「要確認 / 要追加調査 / 公開情報のみでは判断不可」の3択のみ。禁止語彙：「不正」「違法」「疑義」「可能性あり」「癒着」「収賄」「贈収賄」「贈賄」「裏金」「談合」「不適切」等は絶対に使わない。判定欄は3択以外の文言禁止。\n" +
     "出力は【判定】【理由】【確認資料】【開示請求で確認すべき質問】の4項目だけ。\n" +
     "架空の企業名・金額・回数は使わない。\n\n" +
     "案件名：" + (x.project || "") + "\n" +
@@ -3012,7 +3036,7 @@ async function runMlitRegionAiAnalysis(i){
     });
 
     var data = await res.json();
-    var answer = data && data.result ? String(data.result).trim() : "";
+    var answer = data && data.result ? sanitizeAIOutput(String(data.result).trim()) : "";
 
     var loading = document.getElementById(loadingId);
     var result = document.getElementById(resultId);
@@ -3377,7 +3401,7 @@ async function runFiscalCaseAnalysis(source, i){
   var disc = document.getElementById(discId);
 
   var prompt =
-    "あなたは公共調達の調査補助AIです。不正を断定せず、公開情報から追加確認すべき論点を整理してください。\n" +
+    "あなたは公共調達の調査補助AIです。不正・違法・疑義の断定は絶対に禁止。公開情報から追加確認すべき論点を整理してください。判定は「要確認 / 要追加調査 / 公開情報のみでは判断不可」の3択のみ。禁止語彙：「不正」「違法」「疑義」「可能性あり」「癒着」「収賄」「贈収賄」「贈賄」「裏金」「談合」「不適切」等は絶対に使わない。判定欄は3択以外の文言禁止。\n" +
     "必ず以下の4項目だけで出力してください。\n" +
     "【判定】\n【理由】\n【確認資料】\n【開示請求で確認すべき質問】\n\n" +
     "禁止事項：架空の企業名・架空の金額・架空の回数は使わない。入力にない事実を作らない。注意欄・免責欄は作らない。\n\n" +
@@ -3403,7 +3427,7 @@ async function runFiscalCaseAnalysis(source, i){
     });
 
     var data = await res.json();
-    var answer = data && data.result ? String(data.result).trim() : "";
+    var answer = data && data.result ? sanitizeAIOutput(String(data.result).trim()) : "";
 
     if(loading) loading.classList.remove("show");
 
