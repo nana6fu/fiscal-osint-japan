@@ -7,3 +7,7 @@ youshiki.doc
 *.docx
 data/
 data/防衛省/
+
+# 静的データは公開する
+!src/frontend/data/
+!src/frontend/data/**
