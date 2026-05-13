@@ -2318,32 +2318,32 @@ function renderAccounts(m){
 
   // R5特別会計カード（暫定：参考値）
   if(currentYear === 2023 && m.name === "国土交通省"){
-    html += '<div style="font-size:11px;color:#888;margin:12px 0 8px">※全てR5（令和5年度）実額。 道路・治水：事業費ベース、 港湾：国費ベース、 空港：自動車安全特別会計 空港整備勘定（歳入＝歳出規模）。 ベースが分野により異なるため単純合算は不可。 各リンクから出典PDFを確認可。</div>';
+    html += '<div style="font-size:11px;color:#888;margin:12px 0 8px">※全てR5（令和5年度）実額。 道路・治水：事業費ベース、 港湾：国費ベース、 空港：自動車安全特別会計 空港整備勘定（歳入＝歳出規模）。 ベースが分野により異なるため単純合算は不可。 各リンクから出典PDFを確認可。 各カードをクリックするとAI分析パネルが開きます。</div>';
     html += '<div class="accounts-grid">';
-    html += '<div class="acc-card alert">';
+    html += '<div class="acc-card alert" id="r5-acc-0" onclick="selectR5Account(0)" style="cursor:pointer">';
     html += '<div class="acc-flag">⚠ 要調査</div>';
     html += '<div class="acc-name">道路関係予算（直轄＋補助）</div>';
     html += '<div><span class="acc-amount big">2.3兆円</span><span style="font-size:9px;color:var(--text-dim);margin-left:4px">R5実額（事業費）</span></div>';
     html += '<div class="acc-bar-wrap"><div class="acc-bar" style="width:100%;background:var(--red)"></div></div>';
-    html += '<div class="acc-src"><a href="https://www.mlit.go.jp/report/press/content/001598656.pdf" target="_blank">国交省 R5道路関係予算配分概要PDF</a></div>';
+    html += '<div class="acc-src"><a href="https://www.mlit.go.jp/report/press/content/001598656.pdf" target="_blank" onclick="event.stopPropagation()">国交省 R5道路関係予算配分概要PDF</a></div>';
     html += '</div>';
-    html += '<div class="acc-card">';
+    html += '<div class="acc-card" id="r5-acc-1" onclick="selectR5Account(1)" style="cursor:pointer">';
     html += '<div class="acc-name">治水関係予算（水管理・国土保全局）</div>';
     html += '<div><span class="acc-amount">9,843億円</span><span style="font-size:9px;color:var(--text-dim);margin-left:4px">R5実額（事業費）</span></div>';
     html += '<div class="acc-bar-wrap"><div class="acc-bar" style="width:43%;background:var(--green)"></div></div>';
-    html += '<div class="acc-src"><a href="https://www.mlit.go.jp/river/basic_info/yosan/gaiyou/yosan/r05/yosangaiyou_r503.pdf" target="_blank">国交省 R5水管理・国土保全局関係予算配分概要PDF</a></div>';
+    html += '<div class="acc-src"><a href="https://www.mlit.go.jp/river/basic_info/yosan/gaiyou/yosan/r05/yosangaiyou_r503.pdf" target="_blank" onclick="event.stopPropagation()">国交省 R5水管理・国土保全局関係予算配分概要PDF</a></div>';
     html += '</div>';
-    html += '<div class="acc-card">';
+    html += '<div class="acc-card" id="r5-acc-2" onclick="selectR5Account(2)" style="cursor:pointer">';
     html += '<div class="acc-name">港湾局関係予算</div>';
     html += '<div><span class="acc-amount">2,638億円</span><span style="font-size:9px;color:var(--text-dim);margin-left:4px">R5実額（国費）</span></div>';
     html += '<div class="acc-bar-wrap"><div class="acc-bar" style="width:11%;background:var(--green)"></div></div>';
-    html += '<div class="acc-src"><a href="https://www.mlit.go.jp/page/content/001580240.pdf" target="_blank">国交省 R5港湾局関係予算決定概要PDF</a></div>';
+    html += '<div class="acc-src"><a href="https://www.mlit.go.jp/page/content/001580240.pdf" target="_blank" onclick="event.stopPropagation()">国交省 R5港湾局関係予算決定概要PDF</a></div>';
     html += '</div>';
-    html += '<div class="acc-card">';
+    html += '<div class="acc-card" id="r5-acc-3" onclick="selectR5Account(3)" style="cursor:pointer">';
     html += '<div class="acc-name">空港整備勘定（自動車安全特別会計）</div>';
     html += '<div><span class="acc-amount">3,942億円</span><span style="font-size:9px;color:var(--text-dim);margin-left:4px">R5実額（特会）</span></div>';
     html += '<div class="acc-bar-wrap"><div class="acc-bar" style="width:17%;background:var(--green)"></div></div>';
-    html += '<div class="acc-src"><a href="https://www.mlit.go.jp/page/content/001580226.pdf" target="_blank">国交省 R5航空局関係予算決定概要PDF</a></div>';
+    html += '<div class="acc-src"><a href="https://www.mlit.go.jp/page/content/001580226.pdf" target="_blank" onclick="event.stopPropagation()">国交省 R5航空局関係予算決定概要PDF</a></div>';
     html += '</div>';
     html += '</div>';
   }
@@ -2373,6 +2373,134 @@ function sanitizeAIOutput(text){
   t = t.replace(/談合/g, "競争性の事実確認");
   t = t.replace(/不適切/g, "要確認");
   return t;
+}
+
+var MLIT_R5_ACCOUNTS = [
+  {
+    name: "道路関係予算（直轄＋補助）",
+    amount_oku: 23000,
+    amount_note: "R5実額（事業費）",
+    alert: true,
+    contract: "競争入札＋随意契約（混合）",
+    note: "6地方整備局合計4,028件・3,529.87億円。 北陸地方整備局が件数1,677件・金額1,698.39億円と突出。 要確認案件（落札率99%以上・予定価格近接・随意契約等）77件と最多。",
+    src_url: "https://www.mlit.go.jp/report/press/content/001598656.pdf",
+    src_label: "国交省 R5道路関係予算配分概要PDF"
+  },
+  {
+    name: "治水関係予算（水管理・国土保全局）",
+    amount_oku: 9843,
+    amount_note: "R5実額（事業費）",
+    alert: false,
+    contract: "競争入札＋補助＋直轄",
+    note: "令和5年度配分事業費9,843億円。 流域治水の本格的実践として、治水事業等関係（河川・ダム・砂防・海岸）6,520億円と下水道事業3,324億円に配分。",
+    src_url: "https://www.mlit.go.jp/river/basic_info/yosan/gaiyou/yosan/r05/yosangaiyou_r503.pdf",
+    src_label: "国交省 R5水管理・国土保全局関係予算配分概要PDF"
+  },
+  {
+    name: "港湾局関係予算",
+    amount_oku: 2638,
+    amount_note: "R5実額（国費）",
+    alert: false,
+    contract: "競争入札＋補助",
+    note: "港湾整備事業 2,444億円・港湾海岸事業 152億円・災害復旧 14億円・非公共 28億円。 国際コンテナ戦略港湾の機能強化・港湾DX/GX推進が主要施策。",
+    src_url: "https://www.mlit.go.jp/page/content/001580240.pdf",
+    src_label: "国交省 R5港湾局関係予算決定概要PDF"
+  },
+  {
+    name: "空港整備勘定（自動車安全特別会計）",
+    amount_oku: 3942,
+    amount_note: "R5実額（特会）",
+    alert: false,
+    contract: "競争入札＋無利子貸付＋運営権設定",
+    note: "自動車安全特別会計 空港整備勘定の歳入＝歳出規模3,942億円。 羽田543億・成田36億・関空48億・中部9億・一般空港等919億・維持運営費1,473億・航空路整備274億・空港会社等無利子貸付273億。",
+    src_url: "https://www.mlit.go.jp/page/content/001580226.pdf",
+    src_label: "国交省 R5航空局関係予算決定概要PDF"
+  }
+];
+
+function selectR5Account(idx){
+  var acc = MLIT_R5_ACCOUNTS[idx];
+  curAccount = acc;
+  document.querySelectorAll(".acc-card").forEach(function(c){c.classList.remove("selected")});
+  var el = document.getElementById("r5-acc-"+idx);
+  if(el) el.classList.add("selected");
+  var panel = document.getElementById("dpanel");
+  var inner = document.getElementById("dpanelInner");
+  panel.classList.add("open");
+  setTimeout(function(){
+    var isMobile = window.innerWidth <= 768;
+    if(isMobile){
+      panel.scrollIntoView({behavior:"smooth", block:"start"});
+      window.scrollBy({top: 200, behavior:"smooth"});
+    }
+  }, 200);
+  inner.innerHTML =
+    '<button class="dp-close" onclick="closeDetail()">✕</button>'+
+    '<div class="dp-name">'+acc.name+'</div>'+
+    '<div class="dp-ministry">国土交通省（令和5年度）</div>'+
+    '<div class="dp-amount">'+fmtAmount(acc.amount_oku)+'</div>'+
+    '<div class="dp-amount-label">2023年度（令和5年度）'+acc.amount_note+'</div>'+
+    '<div class="dp-primary">'+
+    '<div class="dp-primary-title">一次資料（確認済みデータ）</div>'+
+    '<div class="dp-row"><span>所管省庁</span>国土交通省</div>'+
+    '<div class="dp-row"><span>契約方式</span>'+acc.contract+'</div>'+
+    '<div class="dp-row" style="align-items:flex-start"><span>概要</span><span style="color:var(--text);text-align:right;max-width:200px;font-size:11px;line-height:1.5">'+acc.note+'</span></div>'+
+    '<div class="dp-src-link">出典：<a href="'+acc.src_url+'" target="_blank">'+acc.src_label+' →</a></div>'+
+    '</div>'+
+    '<div class="dp-ai">'+
+    '<div class="dp-ai-title">🤖 AI分析</div>'+
+    '<div class="dp-ai-note">⚠ 公開一次資料をもとにしたAI補助分析です。 断定には追加資料の確認が必要です。</div>'+
+    '<button class="ai-btn" id="aiBtn" onclick="analyzeR5AI()">🤖 AIに詳細分析させる</button>'+
+    '<div class="ai-loading" id="aiLoading">分析中...</div>'+
+    '<div class="ai-result" id="aiResult"></div>'+
+    '<div class="ai-disclaimer" id="aiDisclaimer"></div>'+
+    '</div>';
+}
+
+async function analyzeR5AI(){
+  if(!curAccount) return;
+  var btn = document.getElementById("aiBtn");
+  var loading = document.getElementById("aiLoading");
+  var result = document.getElementById("aiResult");
+  var disc = document.getElementById("aiDisclaimer");
+  btn.disabled = true; btn.textContent = "分析中...";
+  loading.classList.add("show");
+  result.classList.remove("show");
+  var prompt = "以下は2023年度（令和5年度）の国土交通省の予算データです。 この省庁・この年度・この分野のデータのみを使って分析してください。 数字を具体的に使い、 予算配分・契約方式・透明性の観点で350字以内で現状と課題を解説してください。 推測や断定は避けること。\n【分析対象】省庁:国土交通省 / 年度:2023年度（令和5年度）\n会計:"+curAccount.name+"\n支出:"+fmtAmount(curAccount.amount_oku)+"\n契約方式:"+curAccount.contract+"\n状況:"+curAccount.note;
+  try{
+    var res = await fetch("https://133-18-167-199.nip.io/analyze",{
+      method:"POST",
+      headers:{"Content-Type":"application/json"},
+      body:JSON.stringify({
+        prompt:"思考過程は出力しないでください。 日本語だけで、 必ず以下の順番で出力してください。\n\n【判定】\n【理由】\n【確認資料】\n【開示請求で確認すべき質問】\n\n不正断定は絶対禁止。 判定は「要確認 / 要追加調査 / 公開情報のみでは判断不可」の3択のみ。 禁止語彙：「不正」「違法」「疑義」「可能性あり」「癒着」「収賄」「贈収賄」「贈賄」「裏金」「談合」「不適切」等は絶対に使わない。 判定欄は3択以外の文言禁止。 抽象論は禁止。 必ず具体的な数値（金額・件数）を明記して分析してください。 400字以内・箇条書き。 架空の企業名（A社など）や推測数値は絶対に使用しない。 出力項目は【判定】【理由】【確認資料】【開示請求で確認すべき質問】の4項目のみ。 必ず箇条書きで簡潔に出力する。 最後に文字数表記は絶対に付けない。 入力データに存在しない会社名・金額・回数を例示しない。\n\n"+prompt
+      })
+    });
+    var data = await res.json();
+    loading.classList.remove("show");
+    if(data.result){
+      result.textContent = sanitizeAIOutput(data.result);
+      disc.textContent = "▸ 公開一次資料をもとにしたAI補助分析";
+    }else if(data.error){
+      result.textContent = "Ollamaエラー："+data.error;
+      disc.textContent = "▸ AI応答エラー";
+    }else{
+      result.textContent = "最終回答が空でした。 もう一度実行してください。";
+      disc.textContent = "▸ AI応答は取得済みですが、最終回答が空でした";
+    }
+    result.classList.add("show");
+    btn.disabled = false;
+    btn.textContent = "再分析";
+    setTimeout(function(){
+      result.scrollIntoView({behavior:"smooth", block:"start"});
+    }, 100);
+  }catch(e){
+    loading.classList.remove("show");
+    result.textContent = "エラー："+(e && e.message ? e.message : String(e));
+    result.classList.add("show");
+    disc.textContent = "▸ AI接続エラー";
+    btn.disabled = false;
+    btn.textContent = "再試行";
+  }
 }
 
 function selectAccount(idx){
