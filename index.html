@@ -2318,24 +2318,32 @@ function renderAccounts(m){
 
   // R5特別会計カード（暫定：参考値）
   if(currentYear === 2023 && m.name === "国土交通省"){
-    html += '<div style="font-size:11px;color:#888;margin:12px 0 8px">※道路関係予算：R5実額（事業費ベース、出典PDFリンクから確認可）。治水・港湾・空港は参考R6数値、R5実額は別途取得予定。</div>';
+    html += '<div style="font-size:11px;color:#888;margin:12px 0 8px">※全てR5（令和5年度）実額。 道路・治水：事業費ベース、 港湾：国費ベース、 空港：自動車安全特別会計 空港整備勘定（歳入＝歳出規模）。 ベースが分野により異なるため単純合算は不可。 各リンクから出典PDFを確認可。</div>';
     html += '<div class="accounts-grid">';
     html += '<div class="acc-card alert">';
     html += '<div class="acc-flag">⚠ 要調査</div>';
     html += '<div class="acc-name">道路関係予算（直轄＋補助）</div>';
-    html += '<div><span class="acc-amount big">2.3兆円</span><span style="font-size:9px;color:var(--text-dim);margin-left:4px">R5実額</span></div>';
+    html += '<div><span class="acc-amount big">2.3兆円</span><span style="font-size:9px;color:var(--text-dim);margin-left:4px">R5実額（事業費）</span></div>';
     html += '<div class="acc-bar-wrap"><div class="acc-bar" style="width:100%;background:var(--red)"></div></div>';
     html += '<div class="acc-src"><a href="https://www.mlit.go.jp/report/press/content/001598656.pdf" target="_blank">国交省 R5道路関係予算配分概要PDF</a></div>';
     html += '</div>';
     html += '<div class="acc-card">';
-    html += '<div class="acc-name">社会資本整備事業（治水）</div>';
-    html += '<div><span class="acc-amount">9,870億円</span><span style="font-size:9px;color:var(--text-dim);margin-left:4px">参考: R6</span></div>';
-    html += '<div class="acc-bar-wrap"><div class="acc-bar" style="width:47%;background:var(--green)"></div></div>';
+    html += '<div class="acc-name">治水関係予算（水管理・国土保全局）</div>';
+    html += '<div><span class="acc-amount">9,843億円</span><span style="font-size:9px;color:var(--text-dim);margin-left:4px">R5実額（事業費）</span></div>';
+    html += '<div class="acc-bar-wrap"><div class="acc-bar" style="width:43%;background:var(--green)"></div></div>';
+    html += '<div class="acc-src"><a href="https://www.mlit.go.jp/river/basic_info/yosan/gaiyou/yosan/r05/yosangaiyou_r503.pdf" target="_blank">国交省 R5水管理・国土保全局関係予算配分概要PDF</a></div>';
     html += '</div>';
     html += '<div class="acc-card">';
-    html += '<div class="acc-name">社会資本整備事業(港湾・空港)</div>';
-    html += '<div><span class="acc-amount">3,820億円</span><span style="font-size:9px;color:var(--text-dim);margin-left:4px">参考: R6</span></div>';
-    html += '<div class="acc-bar-wrap"><div class="acc-bar" style="width:18%;background:var(--green)"></div></div>';
+    html += '<div class="acc-name">港湾局関係予算</div>';
+    html += '<div><span class="acc-amount">2,638億円</span><span style="font-size:9px;color:var(--text-dim);margin-left:4px">R5実額（国費）</span></div>';
+    html += '<div class="acc-bar-wrap"><div class="acc-bar" style="width:11%;background:var(--green)"></div></div>';
+    html += '<div class="acc-src"><a href="https://www.mlit.go.jp/page/content/001580240.pdf" target="_blank">国交省 R5港湾局関係予算決定概要PDF</a></div>';
+    html += '</div>';
+    html += '<div class="acc-card">';
+    html += '<div class="acc-name">空港整備勘定（自動車安全特別会計）</div>';
+    html += '<div><span class="acc-amount">3,942億円</span><span style="font-size:9px;color:var(--text-dim);margin-left:4px">R5実額（特会）</span></div>';
+    html += '<div class="acc-bar-wrap"><div class="acc-bar" style="width:17%;background:var(--green)"></div></div>';
+    html += '<div class="acc-src"><a href="https://www.mlit.go.jp/page/content/001580226.pdf" target="_blank">国交省 R5航空局関係予算決定概要PDF</a></div>';
     html += '</div>';
     html += '</div>';
   }
