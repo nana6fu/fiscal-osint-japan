@@ -1009,6 +1009,33 @@ footer{font-size:10px;color:#30363d;padding:5px 24px;border-top:1px solid #0d111
     <div class="badge badge-blue">公開情報のみ使用</div>
   </div>
 </header>
+<!-- R7 デジタル庁セクション -->
+<div id="r7-digital-section" style="display:none;max-width:1200px;margin:24px auto;padding:0 16px">
+  <div class="chisei-title" style="margin-top:24px">デジタル庁・令和7年度（R7）契約データ集計（2025年4-12月時点）</div>
+  <div style="font-size:12px;color:#8b949e;margin:4px 0 12px">出典：<a href="https://www.digital.go.jp/procurement/proper-public-procurement" target="_blank" style="color:#58a6ff">デジタル庁 公共調達適正化ページ</a>（公表ファイル19本を集計） / 343契約・総額¥1,599億 / ※R7第4四半期（2026/1-3）データ未公開・2026年7月以降に更新予定</div>
+  <div class="acc-cards">
+    <div class="acc-card" id="digital-r7-acc-0" onclick="selectDigitalR7Account(0)">
+      <div class="acc-name">GSS集中</div>
+      <div class="acc-amount">¥979億</div>
+      <div class="acc-tag" style="color:#ff7b72">全契約の61.2%</div>
+    </div>
+    <div class="acc-card" id="digital-r7-acc-1" onclick="selectDigitalR7Account(1)">
+      <div class="acc-name">NEC一強</div>
+      <div class="acc-amount">¥553億</div>
+      <div class="acc-tag" style="color:#ff7b72">2位の3.3倍</div>
+    </div>
+    <div class="acc-card" id="digital-r7-acc-2" onclick="selectDigitalR7Account(2)">
+      <div class="acc-name">落札率100%</div>
+      <div class="acc-amount">22件 (20.2%)</div>
+      <div class="acc-tag" style="color:#ff7b72">競争入札中</div>
+    </div>
+    <div class="acc-card" id="digital-r7-acc-3" onclick="selectDigitalR7Account(3)">
+      <div class="acc-name">透明性</div>
+      <div class="acc-amount">343/343件</div>
+      <div class="acc-tag" style="color:#ff7b72">応札者数 空欄公表</div>
+    </div>
+  </div>
+</div>
 
 
 <div class="summary">
@@ -1212,8 +1239,6 @@ var SOURCES = {
   nta_chotatsu: {label:"📄 国税庁 調達情報", url:"https://www.nta.go.jp/information/procurement/page_00010.html"},
   daj_meisho: {label:"📄 デジタル庁 アクセンチュア指名停止処分（令和7年9月26日）", url:"https://www.digital.go.jp/assets/contents/node/basic_page/field_ref_resources/e49938bc-341e-49f4-91b9-49edc92fec4e/37f6f783/20250926_procurement-suspension-and-debarment.document.01.pdf"},
   daj_kanshi_r6: {label:"📄 デジタル庁 入札等監視委員会（令和6年度第2回）議事概要", url:"https://www.digital.go.jp/procurement/bid-surveillance-commission/ee294e66-d874-4595-a2e3-fb84217906a0"},
-  daj_r7_proc: {label:"📄 デジタル庁 公共調達適正化情報公表（令和7年度）", url:"https://www.digital.go.jp/procurement/proper-public-procurement"},
-  jinjikyoku_r5: {label:"📄 内閣人事局 国家公務員再就職状況の公表（令和5年度）", url:"https://www.cas.go.jp/jp/gaiyou/jimu/jinjikyoku/106-25-2/r06/kouhyou_0924.html"},
   denpa_account: {label:"📄 総務省 電波利用料財源決算状況", url:"https://www.tele.soumu.go.jp/j/sys/fees/account/index.htm"},
   denpa_partner: {label:"📄 総務省 PARTNER民間競争入札実施状況報告", url:"https://www.soumu.go.jp/main_content/000802507.pdf"},
   denpa_futangaku: {label:"📄 総務省 令和6年度主な無線局免許人の電波利用料負担額", url:"https://www.tele.soumu.go.jp/j/sys/fees/account/change/r06_futangaku/index.htm"},
@@ -2035,7 +2060,6 @@ function renderMinistries(){
     div.className="min-item"+(m.alert?" alert":"");
     div.id="min-"+m.id;
     var total=m.accounts.reduce(function(s,a){return s+a.amount_oku},0);
-    if(m.id==="daj" && (document.getElementById("yearSel")||{}).value==="2025"){total=1599;}
     div.innerHTML=
       '<div class="min-name">'+(m.alert?"⚠ ":"")+m.name+'</div>'+
       '<div class="min-count">'+m.accounts.length+'特別会計</div>'+
@@ -2080,7 +2104,7 @@ function renderAccounts(m){
 
   var html='<div class="ministry-header">';
   html+='<div class="ministry-title'+(m.alert?" alert":"")+'">'+m.name+'</div>';
-  html+='<div class="ministry-subtitle">総計 '+fmtAmount((m.id==="daj" && (document.getElementById("yearSel")||{}).value==="2025")?1599:total)+' | '+m.tag+'</div>';
+  html+='<div class="ministry-subtitle">総計 '+fmtAmount(total)+' | '+m.tag+'</div>';
   if(m.alert) html+='<div class="alert-badge">⚠ 要注意省庁</div>';
   html+='</div>';
 
@@ -2151,10 +2175,10 @@ function renderAccounts(m){
   // 8法人テーブル（国交省のみ）
   if(m.houjin && m.houjin.length>0 && !(currentYear===2023 && m.name==="国土交通省")){
     html+='<div class="primary-box" style="margin-bottom:14px">';
-    html+='<div class="primary-box-title">'+(m.id==="daj"?"主要落札企業 一覧（令和7年度・デジタル庁 全343契約 上位18社）":"主要落札企業 一覧（令和6年度・関東東北近畿北陸九州中国四国中部地整局）")+'</div>';
+    html+='<div class="primary-box-title">主要落札企業 一覧（令和6年度・関東東北近畿北陸九州中国四国中部地整局）</div>';
     var isMhlw = (m.id==="mhlw");
     html+='<table class="houjin-table">';
-    html+='<tr><th>企業名</th><th>'+(m.id==="daj"?'区分':(isMhlw?'担当勘定':'担当地整局'))+'</th><th>業務内容</th><th>'+(m.id==="daj"?'令和7年度受注金額':(isMhlw?'令和5年度受注金額':'令和6年度落札金額'))+'</th><th>OB再就職・役員情報</th></tr>';
+    html+='<tr><th>企業名</th><th>'+(isMhlw?'担当勘定':'担当地整局')+'</th><th>業務内容</th><th>'+(isMhlw?'令和5年度受注金額':'令和6年度落札金額')+'</th><th>OB再就職・役員情報</th></tr>';
     m.houjin.forEach(function(h){
       html+='<tr>';
       html+='<td>'+h.name+'</td>';
@@ -2166,7 +2190,7 @@ function renderAccounts(m){
       html+='</tr>';
     });
     html+='</table>';
-    if(isMhlw){html+='<div class="primary-src">出典：厚生労働省 随意契約・競争入札情報公表PDF（令和5年度）　📋確認済み主要契約のみ・速報値</div>';}else if(m.id==="mlit" && (!m.houjin_note || m.houjin_note.indexOf('令和6年度')<0)){html+='<div class="primary-src">出典：'+srcLink("yomiuri_2006")+'　※金額は道路整備特別会計からの支出（'+srcLink("shitsumon_169_141")+'）</div>';}else if(m.id==="daj"){html+='<div class="primary-src">出典：デジタル庁 公共調達適正化情報公表（令和7年度・公表ファイル19本を集計）</div>';}else{html+='<div class="primary-src">出典：各地方整備局 令和6年度入札結果データ（公開情報より集計）　🤖AI集計（参考値）</div>';}
+    if(isMhlw){html+='<div class="primary-src">出典：厚生労働省 随意契約・競争入札情報公表PDF（令和5年度）　📋確認済み主要契約のみ・速報値</div>';}else if(m.id==="mlit" && (!m.houjin_note || m.houjin_note.indexOf('令和6年度')<0)){html+='<div class="primary-src">出典：'+srcLink("yomiuri_2006")+'　※金額は道路整備特別会計からの支出（'+srcLink("shitsumon_169_141")+'）</div>';}else{html+='<div class="primary-src">出典：各地方整備局 令和6年度入札結果データ（公開情報より集計）　🤖AI集計（参考値）</div>';}
     html+='</div>';
   }
 
@@ -2563,7 +2587,7 @@ function selectAccount(idx){
     '<div class="dp-name">'+acc.name+'</div>'+
     '<div class="dp-ministry">'+curMinistry.name+'</div>'+
     '<div class="dp-amount">'+fmtAmount(acc.amount_oku)+'</div>'+
-    '<div class="dp-amount-label">'+(document.getElementById("yearSel").value==="2025"?"2025年度（令和7年度）契約額":(document.getElementById("yearSel").value==="2024"?"2024年度（令和6年度）歳出額":"2006年度（平成18年度）歳出額"))+'</div>'+
+    '<div class="dp-amount-label">'+(document.getElementById("yearSel").value==="2024"?"2024年度（令和6年度）歳出額":"2006年度（平成18年度）歳出額")+'</div>'+
 
     // 一次資料セクション
     '<div class="dp-primary">'+
@@ -2723,64 +2747,6 @@ async function analyzeAI(){
   }
 }
 
-var MINISTRIES_2025 = [
-  {
-    id:"daj", name:"デジタル庁", alert:true, tag:"GSS統合年・NEC一強・受注7社全社にOB再就職",
-    note:"令和7年度のデジタル庁調達は、GSS（ガバメントソリューションサービス）を軸に霞が関全省庁の統合移行が集中的に進行。R7契約総額¥1,599億のうち¥979億（61.2%）がGSS関連で、日本電気（NEC）が¥553億・GSS関連だけで¥503億を受注し、2位NTTデータの3.3倍という独占的地位を確立。一方、競争入札の落札率100%が22件（20.2%）、随意契約208件の97%が「契約の性質又は目的が競争を許さない」を根拠とするなど、形骸化した競争・実質随契の問題が浮上。さらにデジタル庁は調達公表PDFの個別契約一覧で「応札者数」「再就職役員数」欄を全343契約で空欄にしている（※職員全体の再就職状況は内閣人事局が年次・四半期で集約公表）。他省庁の同欄運用との比較は今後検証予定。12月には初の公共工事（大阪国際空港）も発注。※R7第4四半期（2026/1-3）データは2026年7月頃に更新予定。",
-    primary_facts:[
-      {text:"📄 <strong>GSS（ガバメントソリューションサービス）集中年度：¥979億（全契約61.2%）</strong>：R7契約総額¥1,599億のうち¥979億がGSS関連。霞が関全省庁のGSS統合移行年。NEC ¥503億・NTT東日本 ¥145億・KDDI ¥141億の3強構造。出典：<a href='https://www.digital.go.jp/procurement/proper-public-procurement' target='_blank' style='color:#4a8aff'>デジタル庁 公共調達適正化情報公表（令和7年度）</a>", src:"daj_r7_proc"},
-      {text:"📄 <strong>NEC一強の独占構造：¥553億で1位（2位の3.3倍）</strong>：日本電気が¥553億でダントツ1位、2位NTTデータ¥166億の3.3倍。億円超契約TOP10のうち7件がGSS関連、NECは「GSS運用一式」¥231億（随意）・「国税庁等GSS移行端末借入」¥171.6億（競争）・「GSS移行端末借入」¥54.3億（競争）・「GSS機器構築・保守」¥37.4億（競争）を独占。", src:"daj_r7_proc"},
-      {text:"📄 <strong>落札率100%競争入札が22件（20.2%）</strong>：競争入札135件のうち落札率公表109件、平均87.75%。100%（=予定価格と契約金額完全一致）が22件存在。100%落札の最大はPwCコンサル¥3.85億（GSS府省LAN統合作業支援）、次いでNTTデータ¥1.55億（第二期政府共通プラットフォーム支援）。", src:"daj_r7_proc"},
-      {text:"📄 <strong>個別契約一覧で「応札者数」「再就職役員数」欄を全343契約で空欄</strong>：デジタル庁の公共調達適正化情報公表PDFでは、個別契約一覧の「応札者数」「再就職役員数」欄が全343契約で空欄。落札率「ー」（予定価格非公表）も45件。※職員全体の再就職状況は内閣人事局が年次・四半期で集約公表しており、デジタル庁職員もここに含まれる。他省庁の同欄運用との比較は今後検証予定。", src:"daj_r7_proc"},
-      {text:"📄 <strong>随意契約97%が「競争を許さない」を根拠</strong>：随意契約208件のうち201件（97%）が会計法第29条の3第4項「契約の性質又は目的が競争を許さない」を根拠とする。本当にそれほど多いかは要検証。", src:"daj_r7_proc"},
-      {text:"📄 <strong>12月にデジタル庁初の公共工事</strong>：株式会社マイスター（大阪府摂津市）が「大阪国際空港庁舎原状回復工事（地下埋設物撤去・空調機移設）」¥2,535万を受注。R7まで物品役務契約のみだったデジタル庁が初めて工事発注した節目。", src:"daj_r7_proc"},
-      {text:"📄 <strong>NTTコミュニケーションズ→NTTドコモビジネス商号変更</strong>：法人番号7010001064648で名寄せ確認。2025年7月のNTTドコモによる吸収合併の影響でR7途中で商号変更、デジタル庁の契約一覧に両表記が混在（4契約・計¥17.3億）。", src:"daj_r7_proc"},
-      {text:"🏛 <strong>【構造的問題】GSS統合のベンダー集中とR6からの地続き</strong>：GSS関連の億円超契約TOP10のうち7件をNECが占める。GSSは霞が関全省庁の共通基盤化を目指す巨大プロジェクトで、特定ベンダーへの依存固定化リスクが構造的に発生。R6デジタル庁の「アクセンチュア無断再委託・指名停止」問題と地続きの構造。", src:"daj_r7_proc"},
-      {text:"🚩 <strong>R5年度・国家公務員OB再就職とR7契約の重なり（内閣人事局公表との突合）</strong>：① 経済産業審議官（事務次官級）2人 → NEC Corporate SEVP（副社長）／日立製作所 社長付（両社のR7契約計¥573億）。② 警視総監 → 富士通 執行役員SEVP、 警視庁副総監 → NTT東日本 特別参与。③ 国土交通省航空局管制技術課長 → NEC エアロスペース事業部門 参与（業務直結）。④ 元 内閣サイバーセキュリティセンター（NISC）参事官 → デロイト ディレクター。⑤ 元 金融庁検査企画官 → アクセンチュア プリンシプル・ディレクター（同社はR6で4ヶ月指名停止）。合計13人がデジタル庁R7受注7社（計¥830億・全契約の約52%）に再就職。出典：<a href='https://www.cas.go.jp/jp/gaiyou/jimu/jinjikyoku/106-25-2/r06/kouhyou_0924.html' target='_blank' style='color:#4a8aff'>内閣人事局 国家公務員再就職状況の公表（令和5年度）</a>", src:"jinjikyoku_r5"},
-      {text:"📊 <strong>NEC ¥553億受注への国家公務員OB集中（5人）</strong>：内閣人事局R5公表データで、 NECには5人が再就職。①経済産業審議官（事務次官級）→Corporate SEVP（副社長）、 ②財務省関税局長→顧問、 ③国土交通省航空局管制技術課長→エアロスペース事業部参与、 ④財務省大臣官房付→嘱託（上席主幹）、 ⑤外務省（内閣情報調査室併任）→上席プロフェッショナル。 NEC R7契約¥553億は2位NTTデータ¥166億の3.3倍。 ※公開データの相関であり違法性を断定するものではない。", src:"jinjikyoku_r5"},
-    ],
-    houjin:[
-      {name:"日本電気株式会社（NEC）", region:"GSS関連ほか", gyomu:"GSS運用一式¥231億（随）・国税庁GSS移行端末¥171.6億（競）・GSS移行端末¥54.3億（競）・GSS機器構築保守¥37.4億（競）等", amount_oku:552.9, tensyakuri:"📋R5公表5人: 元経済産業審議官→Corporate SEVP副社長、 元財務省関税局長→顧問、 元国交省航空局管制技術課長→エアロスペース参与 他"},
-      {name:"株式会社NTTデータ", region:"各種行政システム", gyomu:"マイナンバーカードSP搭載SMP構築¥37.1億・REPS連携¥16.2億・政府共通PF支援等", amount_oku:166.3, tensyakuri:"🤖未確認（31件・随25/競6）"},
-      {name:"NTT東日本（東日本電信電話）", region:"GSS通信基盤", gyomu:"GSS通信サービス用機器¥87.9億・出入国在留GSSネットワーク¥33億等", amount_oku:149.7, tensyakuri:"📋R5公表1人: 元警視庁副総監→特別参与"},
-      {name:"KDDI株式会社", region:"裁判所・気象庁GSS", gyomu:"最高裁判所GSS移行ネットワーク機器¥104億・気象庁GSS¥23.8億", amount_oku:141.6, tensyakuri:"🤖未確認（5件・全角/半角を名寄せ）"},
-      {name:"日本マイクロソフト株式会社", region:"GSS Microsoft365", gyomu:"GSSにおけるMicrosoft365等購入（単価契約）¥75.9億等", amount_oku:79.3, tensyakuri:"🤖未確認（4件・全件随意）"},
-      {name:"NECフィールディング株式会社", region:"経産省GSS", gyomu:"経産省（外局・地方経産局含む）GSS移行ネットワーク（単独契約）", amount_oku:67.6, tensyakuri:"🤖未確認（1件・随意契約）"},
-      {name:"アクセンチュア株式会社", region:"情報提供等記録開示システム他", gyomu:"情報提供等記録開示システム設計開発¥26.3億等（R6指名停止後R7に復帰）", amount_oku:39.7, tensyakuri:"🚩R6で4ヶ月指名停止 + 📋R5公表1人: 元金融庁検査企画官→プリンシプル・ディレクター"},
-      {name:"富士ソフト株式会社", region:"公共サービスメッシュ等", gyomu:"公共サービスメッシュ機関間情報連携運用保守¥21.6億等", amount_oku:32.2, tensyakuri:"🤖未確認（5件・随1/競4）"},
-      {name:"富士通株式会社", region:"e-Gov関連", gyomu:"e-Gov関連等", amount_oku:32.2, tensyakuri:"📋R5公表2人: 元警視総監→執行役員SEVP（社長特命）、 元国交省大臣官房付→シニアアドバイザー"},
-      {name:"一般社団法人行政情報システム研究所", region:"調査研究系", gyomu:"全件随意契約", amount_oku:29.6, tensyakuri:"🤖未確認（4件・総務省・経産省所管法人）"},
-      {name:"PwCコンサルティング合同会社", region:"コンサル系", gyomu:"GSS府省LAN統合作業支援¥3.85億（100%落札）等", amount_oku:21.5, tensyakuri:"📋R5公表1人: 元農林水産省輸出企画課調査官→マネージャー"},
-      {name:"フューチャーアーキテクト株式会社", region:"全件随意契約", gyomu:"全件随意契約", amount_oku:21.1, tensyakuri:"🤖未確認（4件・全件随意）"},
-      {name:"株式会社日立製作所", region:"マイキープラットフォーム等", gyomu:"マイキープラットフォーム関連等", amount_oku:20.0, tensyakuri:"📋R5公表2人: 元経済産業審議官→社長付、 元総務省大臣官房付→公共システム事業部特別顧問"},
-      {name:"富士通ネットワークソリューションズ株式会社", region:"GSSヘルプデスク", gyomu:"GSSヘルプデスクサービス（単独契約）", amount_oku:18.0, tensyakuri:"🤖未確認（1件・競争入札）"},
-      {name:"NTTコミュニケーションズ／NTTドコモビジネス", region:"R7途中で商号変更", gyomu:"2025年7月吸収合併でR7途中で商号変更、両表記混在（4契約）", amount_oku:17.3, tensyakuri:"🤖法人番号7010001064648で名寄せ確認"},
-      {name:"SBテクノロジー株式会社", region:"クラウド系", gyomu:"クラウド系運用保守等", amount_oku:16.5, tensyakuri:"🤖未確認（5件・随4/競1）"},
-      {name:"シンプレクス株式会社", region:"全件随意契約", gyomu:"全件随意契約", amount_oku:15.8, tensyakuri:"🤖未確認（2件・全件随意）"},
-      {name:"デロイトトーマツコンサルティング合同会社", region:"調査研究・コンサル系", gyomu:"調査研究・コンサル系", amount_oku:13.2, tensyakuri:"📋R5公表1人: 元 内閣サイバーセキュリティセンター（NISC）参事官→ディレクター"},
-    ],
-    houjin_note:"令和7年度・公表ファイル19本（2025年4-12月分・全343契約）を集計。NTT東日本・NTTコミュニケーションズ・KDDIは法人番号で名寄せ済み。📋OB再就職情報は内閣人事局 令和5年度公表（1,586件）とのクロスリファレンスで7社に計13人を確認。※R7第4四半期（2026/1-3）データ未公開、2026年7月以降に更新予定。出典：デジタル庁 公共調達適正化情報公表（令和7年度）・内閣人事局 再就職状況の公表（令和5年度）",
-    accounts:[
-      {name:"GSS集中（ガバメントソリューションサービス）",amount_oku:979,alert:true,
-       note:"R7契約総額¥1,599億のうち¥979億（61.2%）がGSS関連。NEC ¥503億・NTT東日本 ¥145億・KDDI ¥141億の3強構造。霞が関全省庁の統合システム移行年。",
-       contract:"競争入札・随意契約混在",
-       src_key:"daj_r7_proc",src_url:"https://www.digital.go.jp/procurement/proper-public-procurement"},
-      {name:"NEC一強（日本電気）",amount_oku:553,alert:true,
-       note:"日本電気が¥553億で1位、2位NTTデータ¥166億の3.3倍。GSS関連だけで¥503億。「GSS運用一式」¥231億（随意）・「国税庁GSS移行端末」¥171.6億（競争）等を独占。",
-       contract:"競争入札8件＋随意契約5件",
-       src_key:"daj_r7_proc",src_url:"https://www.digital.go.jp/procurement/proper-public-procurement"},
-      {name:"落札率100%競争入札（22件）",amount_oku:740,alert:true,
-       note:"競争入札135件中、落札率100%（=予定価格と契約金額完全一致）が22件（20.2%）。最大はPwCコンサル¥3.85億（GSS府省LAN支援）、次いでNTTデータ¥1.55億。平均落札率87.75%。",
-       contract:"競争入札（平均落札率87.75%）",
-       src_key:"daj_r7_proc",src_url:"https://www.digital.go.jp/procurement/proper-public-procurement"},
-      {name:"契約一覧で「再就職役員数」「応札者数」欄が空欄",amount_oku:1599,alert:true,
-       note:"R7契約全343件で「応札者数」「再就職役員数」が空欄公表。他省庁が記載する項目をデジタル庁のみ非開示。随意契約97%（201/208件）が会計法29条の3第4項を根拠。",
-       contract:"全契約・透明性最下位",
-       src_key:"daj_r7_proc",src_url:"https://www.digital.go.jp/procurement/proper-public-procurement"},
-    ]
-  }
-];
-
 document.getElementById("yearSel").addEventListener("change", function(){
   if(this.value === "2023"){
     MINISTRIES_ACTIVE = MINISTRIES_2023;
@@ -2820,19 +2786,6 @@ document.getElementById("yearSel").addEventListener("change", function(){
     document.querySelector(".sum-item:nth-child(4) .sum-val").innerHTML = '1,297<span style="font-size:13px">兆円</span>';
     document.querySelector(".sum-item:nth-child(4) .sum-sub").textContent = "国民1人あたり約1,040万円";
     document.querySelector(".sum-item:nth-child(1) .sum-label").textContent = "特別会計 歳出総額";
-  } else if(this.value === "2025"){
-    MINISTRIES_ACTIVE = MINISTRIES_2025;
-    document.getElementById("headerSrc").textContent = "公的資金の流れを、公開情報から検証する ｜ 特別会計・公共調達・政治資金・情報公開請求";
-    document.querySelector(".sum-item:nth-child(1) .sum-val").innerHTML = '1,599<span style="font-size:13px">億円</span>';
-    document.querySelector(".sum-item:nth-child(1) .sum-sub").textContent = "デジタル庁R7契約締結ベース（2025/4-12月）";
-    document.querySelector(".sum-item:nth-child(1) .sum-label").textContent = "デジタル庁R7契約総額（暫定）";
-    document.querySelector(".sum-item:nth-child(2) .sum-val").innerHTML = '979<span style="font-size:13px">億円</span>';
-    document.querySelector(".sum-item:nth-child(2) .sum-sub").textContent = "GSS関連（全契約の61.2%）";
-    document.querySelector(".sum-item:nth-child(3) .sum-val").innerHTML = '343<span style="font-size:13px">件</span>';
-    document.querySelector(".sum-item:nth-child(3) .sum-sub").textContent = "個別契約一覧で全件空欄";
-    document.querySelector(".sum-item:nth-child(3) .sum-label").textContent = "デジタル庁R7契約件数";
-    document.querySelector(".sum-item:nth-child(4) .sum-val").innerHTML = '22<span style="font-size:13px">件</span>';
-    document.querySelector(".sum-item:nth-child(4) .sum-sub").textContent = "競争入札中の落札率100%（20.2%）";
   } else {
     MINISTRIES_ACTIVE = MINISTRIES;
     document.getElementById("headerSrc").textContent = "公的資金の流れを、公開情報から検証する ｜ 特別会計・公共調達・政治資金・情報公開請求";
@@ -2860,9 +2813,7 @@ var MINISTRIES_ACTIVE = MINISTRIES;
 // 初期年度に合わせてヘッダー更新
 (function(){
   var yr = document.getElementById("yearSel").value;
-  if(yr === "2025"){
-    MINISTRIES_ACTIVE = MINISTRIES_2025;
-  } else if(yr === "2024"){
+  if(yr === "2024"){
     MINISTRIES_ACTIVE = MINISTRIES_2024;
     document.getElementById("headerSrc").textContent = "公的資金の流れを、公開情報から検証する ｜ 特別会計・公共調達・政治資金・情報公開請求";
     var s = document.getElementById("sumSrc1"); if(s) s.style.display = "none"; var s2 = document.getElementById("sumSrc2"); if(s2) s2.style.display = "none";
@@ -4620,14 +4571,6 @@ function selectModMinistry(){
 function appendModMinistryItem(){
   var el = document.getElementById("ministryList");
   if(!el) return;
-
-  var __yr = (document.getElementById('yearSel')||{}).value || '2024';
-  if(__yr === '2025'){
-    var __existing = document.getElementById('min-mod');
-    if(__existing) __existing.remove();
-    return;
-  }
-
   if(document.getElementById("min-mod")) return;
 
   var div = document.createElement("div");
@@ -4863,6 +4806,134 @@ const MOD_S_KANTO_ALL_CASES = [{"level": "🔴 要確認度 高", "score": 12, "
 
 
 
+<script>
+var DIGITAL_R7_ACCOUNTS = [
+  {
+    name: "GSS集中（ガバメントソリューションサービス）",
+    amount_oku: 979,
+    amount_note: "R7契約締結ベース",
+    alert: true,
+    contract: "競争入札・随意契約混在",
+    note: "R7契約総額¥1,599億のうち¥979億（61.2%）がGSS関連。霞が関全省庁のGSS統合移行年。NEC ¥503億・NTT東日本 ¥145億・KDDI ¥141億の3強構造。",
+    src_url: "https://www.digital.go.jp/procurement/proper-public-procurement",
+    src_label: "デジタル庁 公共調達適正化ページ（R7）"
+  },
+  {
+    name: "企業ランキング・NEC一強",
+    amount_oku: 553,
+    amount_note: "NEC R7契約合計",
+    alert: true,
+    contract: "競争入札8件＋随意契約5件",
+    note: "日本電気が¥553億で1位、2位NTTデータ ¥166億の3.3倍。NECは「GSS運用一式」¥231億（随意）、「国税庁GSS移行端末」¥171.6億（競争）、「GSS移行端末」¥54.3億（競争）、「GSS機器構築・保守」¥37.4億（競争）など大型契約を独占。",
+    src_url: "https://www.digital.go.jp/procurement/proper-public-procurement",
+    src_label: "デジタル庁 公共調達適正化ページ（R7）"
+  },
+  {
+    name: "落札率100%競争入札の存在",
+    amount_oku: 740,
+    amount_note: "R7競争入札の総額",
+    alert: true,
+    contract: "競争入札135件・平均87.75%",
+    note: "競争入札135件中、落札率公表109件。落札率100%（=予定価格と契約金額完全一致）が22件（20.2%）、99-100%未満11件、平均87.75%。100%落札の最大はPwCコンサル¥3.85億（GSS府省LAN支援）、NTTデータ¥1.55億（政府共通プラットフォーム支援）。",
+    src_url: "https://www.digital.go.jp/procurement/proper-public-procurement",
+    src_label: "デジタル庁 公共調達適正化ページ（R7）"
+  },
+  {
+    name: "透明性問題・応札者数および再就職役員数の非開示",
+    amount_oku: 1599,
+    amount_note: "R7総契約額",
+    alert: true,
+    contract: "随意契約97%が会計法29条の3第4項",
+    note: "R7契約全343件で「応札者数」「再就職役員数」が空欄公表。他省庁（厚労省・国交省）が記載する項目を非開示。さらに随意契約208件のうち201件（97%）が会計法29条の3第4項「契約の性質又は目的が競争を許さない」を根拠。",
+    src_url: "https://www.digital.go.jp/procurement/proper-public-procurement",
+    src_label: "デジタル庁 公共調達適正化ページ（R7）"
+  }
+];
+
+function selectDigitalR7Account(idx){
+  var acc = DIGITAL_R7_ACCOUNTS[idx];
+  curAccount = acc;
+  document.querySelectorAll(".acc-card").forEach(function(c){c.classList.remove("selected")});
+  var el = document.getElementById("digital-r7-acc-"+idx);
+  if(el) el.classList.add("selected");
+  var panel = document.getElementById("dpanel");
+  var inner = document.getElementById("dpanelInner");
+  panel.classList.add("open");
+  setTimeout(function(){
+    var isMobile = window.innerWidth <= 768;
+    if(isMobile){
+      panel.scrollIntoView({behavior:"smooth", block:"start"});
+      window.scrollBy({top: 200, behavior:"smooth"});
+    }
+  }, 200);
+  inner.innerHTML =
+    '<button class="dp-close" onclick="closeDetail()">✕</button>'+
+    '<div class="dp-name">'+acc.name+'</div>'+
+    '<div class="dp-ministry">デジタル庁（令和7年度）</div>'+
+    '<div class="dp-amount">'+fmtAmount(acc.amount_oku)+'</div>'+
+    '<div class="dp-amount-label">2025年度（令和7年度）'+acc.amount_note+'</div>'+
+    '<div class="dp-primary">'+
+    '<div class="dp-primary-title">一次資料（確認済みデータ）</div>'+
+    '<div class="dp-row"><span>所管省庁</span>デジタル庁</div>'+
+    '<div class="dp-row"><span>契約方式</span>'+acc.contract+'</div>'+
+    '<div class="dp-row" style="align-items:flex-start"><span>概要</span><span style="color:var(--text);text-align:right;max-width:200px;font-size:11px;line-height:1.5">'+acc.note+'</span></div>'+
+    '<div class="dp-src-link">出典：<a href="'+acc.src_url+'" target="_blank">'+acc.src_label+' →</a></div>'+
+    '</div>'+
+    '<div class="dp-ai">'+
+    '<div class="dp-ai-title">🤖 AI分析</div>'+
+    '<div class="dp-ai-note">⚠ 公開一次資料をもとにしたAI補助分析です。 断定には追加資料の確認が必要です。</div>'+
+    '<button class="ai-btn" id="aiBtn" onclick="analyzeDigitalR7AI()">🤖 AIに詳細分析させる</button>'+
+    '<div class="ai-loading" id="aiLoading">分析中...</div>'+
+    '<div class="ai-result" id="aiResult"></div>'+
+    '<div class="ai-disclaimer" id="aiDisclaimer"></div>'+
+    '</div>';
+}
+
+async function analyzeDigitalR7AI(){
+  if(!curAccount) return;
+  var btn = document.getElementById("aiBtn");
+  var loading = document.getElementById("aiLoading");
+  var result = document.getElementById("aiResult");
+  var disc = document.getElementById("aiDisclaimer");
+  btn.disabled = true; btn.textContent = "分析中...";
+  loading.classList.add("show");
+  result.classList.remove("show");
+  var prompt = "以下は2025年度（令和7年度）のデジタル庁の調達データです。 この省庁・この年度・この分野のデータのみを使って分析してください。 数字を具体的に使い、 予算配分・契約方式・透明性の観点で350字以内で現状と課題を解説してください。 推測や断定は避けること。\n【分析対象】省庁:デジタル庁 / 年度:2025年度（令和7年度）\n会計:"+curAccount.name+"\n支出:"+fmtAmount(curAccount.amount_oku)+"\n契約方式:"+curAccount.contract+"\n状況:"+curAccount.note;
+  try{
+    var res = await fetch("https://133-18-167-199.nip.io/analyze",{
+      method:"POST",
+      headers:{"Content-Type":"application/json"},
+      body:JSON.stringify({
+        prompt:"思考過程は出力しないでください。 日本語だけで、 必ず以下の順番で出力してください。\n\n【判定】\n【理由】\n【確認資料】\n【開示請求で確認すべき質問】\n\n不正断定は絶対禁止。 判定は「要確認 / 要追加調査 / 公開情報のみでは判断不可」の3択のみ。 禁止語彙：「不正」「違法」「疑義」「可能性あり」「癒着」「収賄」「贈収賄」「贈賄」「裏金」「談合」「不適切」等は絶対に使わない。 判定欄は3択以外の文言禁止。 抽象論は禁止。 必ず具体的な数値（金額・件数）を明記して分析してください。 400字以内・箇条書き。 架空の企業名（A社など）や推測数値は絶対に使用しない。 出力項目は【判定】【理由】【確認資料】【開示請求で確認すべき質問】の4項目のみ。 必ず箇条書きで簡潔に出力する。 最後に文字数表記は絶対に付けない。 入力データに存在しない会社名・金額・回数を例示しない。\n\n"+prompt
+      })
+    });
+    var data = await res.json();
+    loading.classList.remove("show");
+    var raw = (data && data.response) ? String(data.response) : "（応答なし）";
+    var clean = cleanAiVisibleText(raw);
+    result.innerHTML = clean.replace(/\n/g, "<br>");
+    result.classList.add("show");
+    disc.textContent = "⚠ AI生成。 断定根拠は一次資料で確認してください。";
+  }catch(e){
+    loading.classList.remove("show");
+    result.textContent = "エラー: "+e.message;
+    result.classList.add("show");
+  }
+  btn.disabled = false; btn.textContent = "🤖 もう一度分析";
+}
+
+(function(){
+  var sel = document.getElementById("yearSel");
+  if(!sel) return;
+  function syncR7Visibility(){
+    var sec = document.getElementById("r7-digital-section");
+    if(!sec) return;
+    sec.style.display = (sel.value === "2025") ? "block" : "none";
+  }
+  sel.addEventListener("change", syncR7Visibility);
+  syncR7Visibility();
+})();
+</script>
 
 </body>
 </html>
