@@ -1214,6 +1214,7 @@ var SOURCES = {
   daj_kanshi_r6: {label:"📄 デジタル庁 入札等監視委員会（令和6年度第2回）議事概要", url:"https://www.digital.go.jp/procurement/bid-surveillance-commission/ee294e66-d874-4595-a2e3-fb84217906a0"},
   daj_r7_proc: {label:"📄 デジタル庁 公共調達適正化情報公表（令和7年度）", url:"https://www.digital.go.jp/procurement/proper-public-procurement"},
   jinjikyoku_r5: {label:"📄 内閣人事局 国家公務員再就職状況の公表（令和5年度）", url:"https://www.cas.go.jp/jp/gaiyou/jimu/jinjikyoku/106-25-2/r06/kouhyou_0924.html"},
+  soumu_r7_proc: {label:"📄 総務省 公共調達に関する公表（令和7年度）", url:"https://www.soumu.go.jp/menu_sinsei/cyoutatsu/koukyouchoutatsu.html"},
   denpa_account: {label:"📄 総務省 電波利用料財源決算状況", url:"https://www.tele.soumu.go.jp/j/sys/fees/account/index.htm"},
   denpa_partner: {label:"📄 総務省 PARTNER民間競争入札実施状況報告", url:"https://www.soumu.go.jp/main_content/000802507.pdf"},
   denpa_futangaku: {label:"📄 総務省 令和6年度主な無線局免許人の電波利用料負担額", url:"https://www.tele.soumu.go.jp/j/sys/fees/account/change/r06_futangaku/index.htm"},
@@ -2035,7 +2036,7 @@ function renderMinistries(){
     div.className="min-item"+(m.alert?" alert":"");
     div.id="min-"+m.id;
     var total=m.accounts.reduce(function(s,a){return s+a.amount_oku},0);
-    if(m.id==="daj" && (document.getElementById("yearSel")||{}).value==="2025"){total=1599;}
+    if(m.id==="daj" && (document.getElementById("yearSel")||{}).value==="2025"){total=1599;} else if(m.id==="soumu" && (document.getElementById("yearSel")||{}).value==="2025"){total=525;}
     div.innerHTML=
       '<div class="min-name">'+(m.alert?"⚠ ":"")+m.name+'</div>'+
       '<div class="min-count">'+m.accounts.length+'特別会計</div>'+
@@ -2080,7 +2081,7 @@ function renderAccounts(m){
 
   var html='<div class="ministry-header">';
   html+='<div class="ministry-title'+(m.alert?" alert":"")+'">'+m.name+'</div>';
-  html+='<div class="ministry-subtitle">総計 '+fmtAmount((m.id==="daj" && (document.getElementById("yearSel")||{}).value==="2025")?1599:total)+' | '+m.tag+'</div>';
+  html+='<div class="ministry-subtitle">総計 '+fmtAmount((m.id==="daj" && (document.getElementById("yearSel")||{}).value==="2025")?1599:((m.id==="soumu" && (document.getElementById("yearSel")||{}).value==="2025")?525:total))+' | '+m.tag+'</div>';
   if(m.alert) html+='<div class="alert-badge">⚠ 要注意省庁</div>';
   html+='</div>';
 
@@ -2151,10 +2152,10 @@ function renderAccounts(m){
   // 8法人テーブル（国交省のみ）
   if(m.houjin && m.houjin.length>0 && !(currentYear===2023 && m.name==="国土交通省")){
     html+='<div class="primary-box" style="margin-bottom:14px">';
-    html+='<div class="primary-box-title">'+(m.id==="daj"?"主要落札企業 一覧（令和7年度・デジタル庁 全343契約 上位18社）":"主要落札企業 一覧（令和6年度・関東東北近畿北陸九州中国四国中部地整局）")+'</div>';
+    html+='<div class="primary-box-title">'+(m.id==="daj"?"主要落札企業 一覧（令和7年度・デジタル庁 全343契約 上位18社）":(m.id==="soumu"?"主要落札企業 一覧（令和7年度・総務省本省 公表21本236契約 Top12）":"主要落札企業 一覧（令和6年度・関東東北近畿北陸九州中国四国中部地整局）"))+'</div>';
     var isMhlw = (m.id==="mhlw");
     html+='<table class="houjin-table">';
-    html+='<tr><th>企業名</th><th>'+(m.id==="daj"?'区分':(isMhlw?'担当勘定':'担当地整局'))+'</th><th>業務内容</th><th>'+(m.id==="daj"?'令和7年度受注金額':(isMhlw?'令和5年度受注金額':'令和6年度落札金額'))+'</th><th>OB再就職・役員情報</th></tr>';
+    html+='<tr><th>企業名</th><th>'+(m.id==="daj"||m.id==="soumu"?'区分':(isMhlw?'担当勘定':'担当地整局'))+'</th><th>業務内容</th><th>'+(m.id==="daj"||m.id==="soumu"?'令和7年度受注金額':(isMhlw?'令和5年度受注金額':'令和6年度落札金額'))+'</th><th>OB再就職・役員情報</th></tr>';
     m.houjin.forEach(function(h){
       html+='<tr>';
       html+='<td>'+h.name+'</td>';
@@ -2166,7 +2167,7 @@ function renderAccounts(m){
       html+='</tr>';
     });
     html+='</table>';
-    if(isMhlw){html+='<div class="primary-src">出典：厚生労働省 随意契約・競争入札情報公表PDF（令和5年度）　📋確認済み主要契約のみ・速報値</div>';}else if(m.id==="mlit" && (!m.houjin_note || m.houjin_note.indexOf('令和6年度')<0)){html+='<div class="primary-src">出典：'+srcLink("yomiuri_2006")+'　※金額は道路整備特別会計からの支出（'+srcLink("shitsumon_169_141")+'）</div>';}else if(m.id==="daj"){html+='<div class="primary-src">出典：デジタル庁 公共調達適正化情報公表（令和7年度・公表ファイル19本を集計）</div>';}else{html+='<div class="primary-src">出典：各地方整備局 令和6年度入札結果データ（公開情報より集計）　🤖AI集計（参考値）</div>';}
+    if(isMhlw){html+='<div class="primary-src">出典：厚生労働省 随意契約・競争入札情報公表PDF（令和5年度）　📋確認済み主要契約のみ・速報値</div>';}else if(m.id==="mlit" && (!m.houjin_note || m.houjin_note.indexOf('令和6年度')<0)){html+='<div class="primary-src">出典：'+srcLink("yomiuri_2006")+'　※金額は道路整備特別会計からの支出（'+srcLink("shitsumon_169_141")+'）</div>';}else if(m.id==="daj"){html+='<div class="primary-src">出典：デジタル庁 公共調達適正化情報公表（令和7年度・公表ファイル19本を集計）</div>';}else if(m.id==="soumu"){html+='<div class="primary-src">出典：総務省 公共調達に関する公表（令和7年度・本省 公表21本236契約 ≥￥1M案件のみ採録） 📋確認済・速報値</div>';}else{html+='<div class="primary-src">出典：各地方整備局 令和6年度入札結果データ（公開情報より集計）　🤖AI集計（参考値）</div>';}
     html+='</div>';
   }
 
@@ -2778,6 +2779,58 @@ var MINISTRIES_2025 = [
        contract:"全契約・透明性最下位",
        src_key:"daj_r7_proc",src_url:"https://www.digital.go.jp/procurement/proper-public-procurement"},
     ]
+  },
+  {
+    id:"soumu", name:"総務省", alert:true, tag:"GSSデータ連係終了予告（R8.10）・NEC電波監視ロックイン・J-LISマイナンバー独占",
+    note:"令和7年度の総務省本省（大臣官房会計課）調達は、トラッキング総額￥525.22億（11ヶ月・236契約・≥￥1M案件のみ採録、R7.10公共調達PDFは未公表）。実年額は￥600～700億規模と推定。電波監視設備の「設備一意性」ロックインを軸にNECが￥65.67億（17件・9件が落札率99.9%以上）でTOP1。J-LIS（地方公共団体情報システム機構）はマイナンバー4件￥55.34億を全て100%随意で独占。IBMは「総合無線局監理」コンピュータ機器再借入だけで￥39.82億。FY末（R8.2）にACCESS￥27.9億・BCG￥18.5億の駆け込み大型2件。GSS統合年（デジタル庁R7とリンク）の証拠として「総務省共通基盤支援システムが令和8年10月で終了 → GSS AMS/GIMA連係」が随意契約の理由欄に明記された一次資料を確認。※内閣人事局R5天下りクロスは次フェーズで実施予定（ハーフスライス）。",
+    primary_facts:[
+      {text:"📄 <strong>NECが事実上のTOP1ベンダー：￥65.67億（17件・9件が落札率99.9%以上）</strong>：電波監視業務における「設備一意性」ロックインの典型例。R8.1「遠隔方位集中・地方センタ局更改 R7-9年度」￥21.4億 100%随意で 3年契約。現行設備の構築者が日本電気のみであることを随意契約の理由として明記。出典：<a href='https://www.soumu.go.jp/menu_sinsei/cyoutatsu/koukyouchoutatsu.html' target='_blank' style='color:#4a8aff'>総務省 公共調達に関する公表（令和7年度）</a>", src:"soumu_r7_proc"},
+      {text:"📄 <strong>地方公共団体情報システム機構（J-LIS）のマイナンバー独占：￥55.34億（4件、全て100%随意）</strong>：R7.4「次期マイナンバーカード整備」￥1.98億 → R7.7同名で￥36.3億追加発注 + 「旧氏附票連携システム改修」￥15億。「同機構のみ実施可能」を理由とする随意契約。", src:"soumu_r7_proc"},
+      {text:"📄 <strong>IBMの「総合無線局監理」機器再借入だけで￥39.82億</strong>：4契約番号（6721-2102, 6923-2106, 6923-2111, 6620-2109）を全て100%随意で同月一括更新。総合無線局監理システムがIBMハードウェアにロックインされた構造。", src:"soumu_r7_proc"},
+      {text:"📄 <strong>三菱電機 vs NEC 電波監視設備の2社分割が固定化</strong>：遠隔方位A型→NEC製→NECが保守受注、遠隔方位B型・短波・宇宙電波→三菱電機製→三菱電機が保守受注。機械的な2社分割が制度化。三菱電機の総合R7受注￥19.25億（3件・2件が99.9%以上）。", src:"soumu_r7_proc"},
+      {text:"📄 <strong>FY末（R8.2）駆け込み大型2件で￥46.4億</strong>：ACCESS「地域課題解決先進的通信」￥27.9億（落札率99.3%） + BCG「自動運転通信信頼性確保」￥18.5億（97.3%）。関連：アズビル4件で￥13億級（後述・要検証）、NEC「地域課題解決計画策定支援」￥2.09億。1社応札契約も多数。", src:"soumu_r7_proc"},
+      {text:"🏛 ️ <strong>【構造的問題】GSS統合年の一次資料：「総務省共通基盤支援システムが令和8年10月で終了」が随意契約の理由欄に明記</strong>：R7.12 富士通「総務省アカウント管理 GSS AMS/GIMA連係調査」￥19.5M（100%随意）の契約理由欄に「令和8年10月で総務省共通基盤支援システムが終了するため、その後の運用についてはGSS AMSやGIMAへ直接登録する必要がある」と明記。R7.7 コスモピア「総務省GSS運用支援業務」￥18.8M（落札率51.2%）も存在。デジタル庁R7「GSS統合年・￥979億」 narrative と直接接続するクロスリファレンス・ポイント。", src:"soumu_r7_proc"},
+      {text:"📄 <strong>異常落札率案件（追加調査候補）</strong>：富士通LAN複合機（本省）R7.8￥487.8M 落札率<strong>39.3%</strong>、三菱UFJリサーチAPAC AIドローンR8.2￥8.8M <strong>17.6%</strong>、野村総研インド子会社 諸外国電波利用料R7.9￥24.0M <strong>10.0%</strong>、PEGASUS HOLDINGS 5G/6G諸外国動向R7.5￥14.3M <strong>28.4%</strong>、KPMGコンサル 政治資金ガバメントクラウド移行R7.5￥29.5M <strong>54.1%</strong>。予定価格と落札価格の乖離が大きい案件群。1社応札の場合は予定価格過大算定の可能性が高い。", src:"soumu_r7_proc"},
+      {text:"🏛 ️ <strong>【要検証】アズビル本業外受注￥10億+ の謎</strong>：R8.2に「海外AIDCオール光NW」￥4.18億・「トルコOpen RAN展開」￥3.3億（100%・1社応札）・「地域課題解決推進体制」￥2.22億を空調メーカーのアズビル（法人番号9010001096367）が受注。本業の中央合同庁舎契約と同一法人。PDF表記ミス・子会社の可能性。要追加検証。", src:"soumu_r7_proc"},
+      {text:"🤖 <strong>内閣人事局R5天下りクロスは未着手（ハーフスライス・次フェーズ）</strong>：Top12のうち民間企業11社（NEC、三菱電機、三菱総研、BCG、ACCESS、楽天モバイル、富士通、アズビル、沖電気、IBM、IIJ）について国家公務員OB再就職クロスは次フェーズで実施予定。NECはデジタル庁R7クロスで既に5人（元経済産業審議官→Corporate SEVP、財務省関税局長→顧問、国交省航空局管制技術課長→エアロスペース参与等）が確認済みだが、「総務省契約に対する天下り」は別途検証が必要。", src:"jinjikyoku_r5"},
+    ],
+    houjin:[
+      {name:"日本電気株式会社（NEC）", region:"電波監視・量子暗号・無線局監理", gyomu:"遠隔方位センタ局更改￥21.4億（随）・量子暗号通信網R&D￥4.41億（随）・遠隔方位A型保守￥8.49億（随）・5.9GHz V2X技術検討￥4.72億（競）・電気通信行政情報￥6.41億（競）等", amount_oku:65.67, tensyakuri:"📋 R5公表でデジタル庁関連OB5人（元経産審議官→Corporate SEVP・財務省関税局長→顧問 他）。総務省契約への直接クロスは未確認・次フェーズ"},
+      {name:"地方公共団体情報システム機構（J-LIS）", region:"マイナンバー", gyomu:"次期マイナンバーカード整備￥38.3億（随）・旧氏附票連携システム改修￥15億（随）・地方交付税算定￥2.05億（競）等", amount_oku:55.34, tensyakuri:"🤖 地方公共団体情報システム機構法に基づく独立行政法人。総務省との所管関係要検証"},
+      {name:"日本アイ・ビー・エム株式会社", region:"総合無線局監理", gyomu:"機器再借入4契約（6721-2102/6923-2106/6923-2111/6620-2109）を全て100%随意・同月一括更新", amount_oku:39.82, tensyakuri:"🤖 未確認（5件・3件が99.9%以上）"},
+      {name:"株式会社ACCESS", region:"オール光NW・地域課題解決", gyomu:"地域課題解決先進的通信￥27.9億（競・落札率99.3%）・主要5地域オール光NW￥3.26億（競）", amount_oku:31.19, tensyakuri:"🤖 未確認（2件・R8.2駆け込み大型1件）"},
+      {name:"株式会社三菱総合研究所", region:"政策研究シンクタンク", gyomu:"オール光NW実証基盤￥3.96億（競）・V2N通信実証￥3.85億（競）・ドローン探知レーダー￥2.86億（競）等19件", amount_oku:22.77, tensyakuri:"🤖 未確認（19件・件数No.1）"},
+      {name:"楽天モバイル株式会社", region:"Open RAN", gyomu:"Open RAN相互運用性検証機能向上￥21.5億（競・落札率99.7%）1件", amount_oku:21.50, tensyakuri:"🤖 未確認（1件のみで6位）"},
+      {name:"三菱電機株式会社", region:"電波監視B型・短波・宇宙電波", gyomu:"遠隔方位B型・短波・宇宙電波監視保守￥7.61億（随）・遠隔方位センサ標準IV型15式￥9.50億（競）・短波監視センサ局計算機換装￥2.14億（随）", amount_oku:19.25, tensyakuri:"🤖 未確認（NECとの2社分割で固定化）"},
+      {name:"ボストン・コンサルティング・グループ（BCG）", region:"自動運転・国際競争力", gyomu:"自動運転通信信頼性確保￥18.5億（競・落札率97.3%）・デジタルインフラ国際競争力￥0.74億（競）", amount_oku:19.22, tensyakuri:"🤖 未確認（2件・R8.2駆け込み）"},
+      {name:"富士通株式会社", region:"オール光NW海外展開・GSS連係・LAN複合機", gyomu:"国際間接続オール光NW￥2.97億・MOFNオール光NW￥2.97億・北米オール光NW￥4.39億・LAN複合機本省￥4.88億（落札率<strong>39.3%</strong>）・GSS AMS/GIMA連係調査￥0.195億（随・GSS統合年証拠）", amount_oku:16.76, tensyakuri:"📋 デジタル庁R7でR5公表2人（元警視総監→執行役員SEVP・元国交省大臣官房付→シニアアドバイザー）・総務省契約への直接クロス未確認"},
+      {name:"インターネットイニシアティブ（IIJ）", region:"総合無線局監理回線", gyomu:"総合無線局監理 次期広域LAN￥13.09億（競）・データ移行回線￥2.34億（競）・総務省情報サイト運用￥1.00億（随）", amount_oku:16.43, tensyakuri:"🤖 未確認（3件）"},
+      {name:"アズビル株式会社", region:"中央合同庁舎本業＋本業外受注", gyomu:"<strong>【要検証】</strong>R8.2に「海外AIDCオール光NW」￥4.18億・「トルコOpen RAN展開」￥3.3億（100%・1社応札）・「地域課題解決推進体制」￥2.22億を空調メーカーが受注。本業の蒸気ボイラー更新￥2.97億（競）等も含む（法人番号9010001096367で同一）", amount_oku:15.00, tensyakuri:"🚩 本業外受注は表記ミス・子会社の可能性、要追加検証"},
+      {name:"沖電気工業株式会社", region:"V2X実証・大容量光アクセスR&D", gyomu:"高速道路V2X実証 5.9GHz帯￥12.97億（競）・大容量光アクセスR&D￥1.14億（随）", amount_oku:14.11, tensyakuri:"🤖 未確認（2件・R7.4の1件で大半）"},
+    ],
+    houjin_note:"令和7年度・本省（大臣官房会計課）公表ファイル22本のうち21本を集計（R7.10公共調達PDFは404・未公表）。≥￥1M案件のみ採録、計236契約・トラッキング総額￥525.22億。実年額は￥600～700億規模と推定。消防庁・統計局・地方総合通信局は別系統で除外。📋 OB再就職情報（内閣人事局R5公表とのクロスリファレンス）は次フェーズで実施予定（ハーフスライス）。出典：総務省 公共調達に関する公表 / 内閣人事局 再就職状況の公表（令和5年度）",
+    accounts:[
+      {name:"電波監視・無線局監理（NEC＋三菱電機＋IBM＋IIJ）",amount_oku:140,alert:true,
+       note:"設備一意性ロックインによる4社集中。NEC ￥65.67億（電波監視全般）・三菱電機 ￥19.25億（B型/短波/宇宙電波）・IBM ￥39.82億（コンピュータ機器再借入のみ）・IIJ ￥16.43億（広域LAN回線）。電波監視B型はR8.1の集中・地方センタ局更改￥21.4億（NEC・3年契約）で固定化。",
+       contract:"随意契約多数（同社のみ実施可能）",
+       src_key:"soumu_r7_proc",src_url:"https://www.soumu.go.jp/menu_sinsei/cyoutatsu/koukyouchoutatsu.html"},
+      {name:"マイナンバー（J-LIS独占）",amount_oku:55.34,alert:true,
+       note:"地方公共団体情報システム機構（J-LIS）4件全て100%随意で￥55.34億。R7.4「次期マイナンバーカード整備」￥1.98億→R7.7同名￥36.3億・旧氏附票連携￥15億と段階的に大型化。",
+       contract:"全件随意契約・落札率100%",
+       src_key:"soumu_r7_proc",src_url:"https://www.soumu.go.jp/menu_sinsei/cyoutatsu/koukyouchoutatsu.html"},
+      {name:"R8.2 FY末駆け込み大型（ACCESS＋BCG＋アズビル）",amount_oku:60,alert:true,
+       note:"FY末月のR8.2に超大型契約が集中。ACCESS「地域課題解決先進的通信」￥27.9億（99.3%）・BCG「自動運転通信信頼性確保」￥18.5億（97.3%）・アズビル4件で￥13億級（うち空調本業外受注￥10億+の謎）。",
+       contract:"競争入札（落札率高位＋一部1社応札）",
+       src_key:"soumu_r7_proc",src_url:"https://www.soumu.go.jp/menu_sinsei/cyoutatsu/koukyouchoutatsu.html"},
+      {name:"GSS統合年（デジタル庁R7とリンク）",amount_oku:0.4,alert:true,
+       note:"金額規模は小さいが narrative的に決定的。R7.12 富士通「総務省アカウント管理 GSS AMS/GIMA連係調査」￥19.5M（随）の契約理由欄に「令和8年10月で総務省共通基盤支援システムが終了 → GSS AMS/GIMAへ直接登録」と明記。R7.7 コスモピア「総務省GSS運用支援業務」￥18.8M（51.2%）も存在。デジタル庁R7の￥979億GSS集中とクロスリファレンス可能。",
+       contract:"随意契約＋競争入札（低落札率）",
+       src_key:"soumu_r7_proc",src_url:"https://www.soumu.go.jp/menu_sinsei/cyoutatsu/koukyouchoutatsu.html"},
+      {name:"異常落札率案件（追加調査候補）",amount_oku:5.6,alert:true,
+       note:"富士通LAN複合機本省R7.8 ￥487.8M <strong>39.3%</strong>、三菱UFJ印AIドローンR8.2 ￥8.8M <strong>17.6%</strong>、野村総研印 諸外国電波利用料R7.9 ￥24.0M <strong>10.0%</strong>、PEGASUS HD 5G/6G諸外国動向R7.5 ￥14.3M <strong>28.4%</strong>、KPMGコンサル 政治資金ガバメントクラウド移行R7.5 ￥29.5M <strong>54.1%</strong>等。予定価格の過大算定 or 戦略的低価格応札のいずれか。1社応札の場合は前者の可能性が高い。",
+       contract:"競争入札（異常低落札率）",
+       src_key:"soumu_r7_proc",src_url:"https://www.soumu.go.jp/menu_sinsei/cyoutatsu/koukyouchoutatsu.html"},
+    ]
   }
 ];
 
@@ -2823,16 +2876,16 @@ document.getElementById("yearSel").addEventListener("change", function(){
   } else if(this.value === "2025"){
     MINISTRIES_ACTIVE = MINISTRIES_2025;
     document.getElementById("headerSrc").textContent = "公的資金の流れを、公開情報から検証する ｜ 特別会計・公共調達・政治資金・情報公開請求";
-    document.querySelector(".sum-item:nth-child(1) .sum-val").innerHTML = '1,599<span style="font-size:13px">億円</span>';
-    document.querySelector(".sum-item:nth-child(1) .sum-sub").textContent = "デジタル庁R7契約締結ベース（2025/4-12月）";
-    document.querySelector(".sum-item:nth-child(1) .sum-label").textContent = "デジタル庁R7契約総額（暫定）";
+    document.querySelector(".sum-item:nth-child(1) .sum-val").innerHTML = '2,124<span style="font-size:13px">億円</span>';
+    document.querySelector(".sum-item:nth-child(1) .sum-sub").textContent = "デジタル庁￥1,599億 + 総務省￥525億";
+    document.querySelector(".sum-item:nth-child(1) .sum-label").textContent = "2025年度 R7契約総額（合算・暫定）";
     document.querySelector(".sum-item:nth-child(2) .sum-val").innerHTML = '979<span style="font-size:13px">億円</span>';
-    document.querySelector(".sum-item:nth-child(2) .sum-sub").textContent = "GSS関連（全契約の61.2%）";
-    document.querySelector(".sum-item:nth-child(3) .sum-val").innerHTML = '343<span style="font-size:13px">件</span>';
-    document.querySelector(".sum-item:nth-child(3) .sum-sub").textContent = "個別契約一覧で全件空欄";
-    document.querySelector(".sum-item:nth-child(3) .sum-label").textContent = "デジタル庁R7契約件数";
+    document.querySelector(".sum-item:nth-child(2) .sum-sub").textContent = "デジタル庁R7に集中・総務省はR8.10で共通基盤終了→GSS移行";
+    document.querySelector(".sum-item:nth-child(3) .sum-val").innerHTML = '579<span style="font-size:13px">件</span>';
+    document.querySelector(".sum-item:nth-child(3) .sum-sub").textContent = "デジタル庁343件 + 総務省236件（≥￥1M）";
+    document.querySelector(".sum-item:nth-child(3) .sum-label").textContent = "2025年度 R7契約件数（速報）";
     document.querySelector(".sum-item:nth-child(4) .sum-val").innerHTML = '22<span style="font-size:13px">件</span>';
-    document.querySelector(".sum-item:nth-child(4) .sum-sub").textContent = "競争入札中の落札率100%（20.2%）";
+    document.querySelector(".sum-item:nth-child(4) .sum-sub").textContent = "競争入札中の落札率100%（デジタル庁20.2%）";
   } else {
     MINISTRIES_ACTIVE = MINISTRIES;
     document.getElementById("headerSrc").textContent = "公的資金の流れを、公開情報から検証する ｜ 特別会計・公共調達・政治資金・情報公開請求";
