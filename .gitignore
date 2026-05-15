@@ -11,3 +11,9 @@ data/防衛省/
 # 静的データは公開する
 !src/frontend/data/
 !src/frontend/data/**
+# macOS AppleDouble metadata (FAT volumes)
+._*
+.DS_Store
+
+# Timestamped backups from Claude patches
+*.bak_*
