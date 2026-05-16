@@ -17,3 +17,6 @@ data/防衛省/
 
 # Timestamped backups from Claude patches
 *.bak_*
+
+# Local backup files (do not track, can be large)
+backups/
