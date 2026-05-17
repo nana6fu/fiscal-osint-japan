@@ -1,0 +1,45 @@
+# Wayback Machine 保存結果
+# 実行日時: 2026-05-18T07:03:54.265028
+# 合計: 11 URLs
+
+## サマリ
+- 保存成功: 1/11
+- Wayback最新スナップショット取得: 2/11
+
+## URL対応表
+
+### https://www.mod.go.jp/j/presiding/saishushoku/pdf/050401-060331.pdf
+- 保存結果: ✗ (http_523)
+
+### https://www.mod.go.jp/j/presiding/saishushoku/pdf/040401-050331.pdf
+- 保存結果: ✗ (http_523)
+- Wayback URL: http://web.archive.org/web/20250614204754/https://www.mod.go.jp/j/presiding/saishushoku/pdf/040401-050331.pdf
+
+### https://www.mod.go.jp/j/presiding/saishushoku/pdf/060401-070331.pdf
+- 保存結果: ✗ (http_523)
+
+### https://www.mod.go.jp/rdb/okinawa/yosan-keiyaku/nyusatsu/index.html
+- 保存結果: ✗ (http_523)
+
+### https://www.mod.go.jp/rdb/hokkaido/nyuusatu/0103.html
+- 保存結果: ✗ (http_523)
+
+### https://www.mod.go.jp/rdb/n-kanto/nyusatsu-keiyaku/nyusatsu-keiyaku.html
+- 保存結果: ✗ (rate_limit_429)
+- Wayback URL: http://web.archive.org/web/20250911083544/https://www.mod.go.jp/rdb/n-kanto/nyusatsu-keiyaku/nyusatsu-keiyaku.html
+
+### https://www.mod.go.jp/rdb/kyushu/contract/construction/kyushu/kekka2025_1kouji/index.html
+- 保存結果: ✗ (http_523)
+
+### https://www.mod.go.jp/rdb/kyushu/contract/construction/kyushu/kekka2025_3tabukouji/index.html
+- 保存結果: ✗ (http_523)
+
+### https://www.mod.go.jp/rdb/kyushu/contract/construction/kyushu/kekka2025_2gyoumu/index.html
+- 保存結果: ✗ (http_523)
+
+### https://www.mod.go.jp/rdb/kyushu/contract/construction/kyushu/kekka2025_4tabugyoumu/index.html
+- 保存結果: ✗ (http_523)
+
+### https://www.mod.go.jp/rdb/kyushu/contract/construction/index.html
+- 保存結果: ✓ (saved_new)
+

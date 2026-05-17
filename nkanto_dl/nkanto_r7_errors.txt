@@ -1,0 +1,3 @@
+カテゴリ	ファイル	エラー内容
+業務	068_市ヶ谷（７）非常用電源設備整備基本検討.pdf	missing: project,amount_excl,predicted_excl,company
+業務	127_北関東局管内（７）資材価格調査.pdf	missing: project,amount_excl,predicted_excl,company

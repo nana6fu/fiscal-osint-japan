@@ -1,0 +1,90 @@
+[
+  {
+    "url": "https://www.mod.go.jp/j/presiding/saishushoku/pdf/050401-060331.pdf",
+    "save_success": false,
+    "save_message": "http_523",
+    "wayback_url_from_save": null,
+    "wayback_url_latest": null,
+    "timestamp": "2026-05-18T07:00:41.313059"
+  },
+  {
+    "url": "https://www.mod.go.jp/j/presiding/saishushoku/pdf/040401-050331.pdf",
+    "save_success": false,
+    "save_message": "http_523",
+    "wayback_url_from_save": null,
+    "wayback_url_latest": "http://web.archive.org/web/20250614204754/https://www.mod.go.jp/j/presiding/saishushoku/pdf/040401-050331.pdf",
+    "timestamp": "2026-05-18T07:00:57.006069"
+  },
+  {
+    "url": "https://www.mod.go.jp/j/presiding/saishushoku/pdf/060401-070331.pdf",
+    "save_success": false,
+    "save_message": "http_523",
+    "wayback_url_from_save": null,
+    "wayback_url_latest": null,
+    "timestamp": "2026-05-18T07:01:06.644469"
+  },
+  {
+    "url": "https://www.mod.go.jp/rdb/okinawa/yosan-keiyaku/nyusatsu/index.html",
+    "save_success": false,
+    "save_message": "http_523",
+    "wayback_url_from_save": null,
+    "wayback_url_latest": null,
+    "timestamp": "2026-05-18T07:01:22.255008"
+  },
+  {
+    "url": "https://www.mod.go.jp/rdb/hokkaido/nyuusatu/0103.html",
+    "save_success": false,
+    "save_message": "http_523",
+    "wayback_url_from_save": null,
+    "wayback_url_latest": null,
+    "timestamp": "2026-05-18T07:01:38.036649"
+  },
+  {
+    "url": "https://www.mod.go.jp/rdb/n-kanto/nyusatsu-keiyaku/nyusatsu-keiyaku.html",
+    "save_success": false,
+    "save_message": "rate_limit_429",
+    "wayback_url_from_save": null,
+    "wayback_url_latest": "http://web.archive.org/web/20250911083544/https://www.mod.go.jp/rdb/n-kanto/nyusatsu-keiyaku/nyusatsu-keiyaku.html",
+    "timestamp": "2026-05-18T07:02:17.871154"
+  },
+  {
+    "url": "https://www.mod.go.jp/rdb/kyushu/contract/construction/kyushu/kekka2025_1kouji/index.html",
+    "save_success": false,
+    "save_message": "http_523",
+    "wayback_url_from_save": null,
+    "wayback_url_latest": null,
+    "timestamp": "2026-05-18T07:02:27.634983"
+  },
+  {
+    "url": "https://www.mod.go.jp/rdb/kyushu/contract/construction/kyushu/kekka2025_3tabukouji/index.html",
+    "save_success": false,
+    "save_message": "http_523",
+    "wayback_url_from_save": null,
+    "wayback_url_latest": null,
+    "timestamp": "2026-05-18T07:02:43.404931"
+  },
+  {
+    "url": "https://www.mod.go.jp/rdb/kyushu/contract/construction/kyushu/kekka2025_2gyoumu/index.html",
+    "save_success": false,
+    "save_message": "http_523",
+    "wayback_url_from_save": null,
+    "wayback_url_latest": null,
+    "timestamp": "2026-05-18T07:02:53.068249"
+  },
+  {
+    "url": "https://www.mod.go.jp/rdb/kyushu/contract/construction/kyushu/kekka2025_4tabugyoumu/index.html",
+    "save_success": false,
+    "save_message": "http_523",
+    "wayback_url_from_save": null,
+    "wayback_url_latest": null,
+    "timestamp": "2026-05-18T07:03:38.926533"
+  },
+  {
+    "url": "https://www.mod.go.jp/rdb/kyushu/contract/construction/index.html",
+    "save_success": true,
+    "save_message": "saved_new",
+    "wayback_url_from_save": "https://web.archive.org/web/20260517220138/https://www.mod.go.jp/rdb/kyushu/contract/construction/index.html",
+    "wayback_url_latest": null,
+    "timestamp": "2026-05-18T07:03:54.262387"
+  }
+]
