@@ -6080,6 +6080,154 @@ document.addEventListener('DOMContentLoaded', function(){
 <!-- ===== Stage 2 Phase 2: 2023年の組織的再配置 ===== -->
 <section id="stage2-phase2-section" style="max-width:1400px;margin:0 auto;padding:0 20px;"></section>
 
+<!-- ===== Stage 2 Phase 2 RV: R6→R7 受注変化 ===== -->
+<section id="stage2-phase2-rv-section" style="max-width:1400px;margin:24px auto 0;padding:0 20px;">
+<!-- Stage 2 Phase 2 RV: R6→R7 受注変化 -->
+<div style="background:rgba(120,180,220,0.06);border:1px solid #4a7090;border-radius:8px;padding:22px 26px;margin-top:24px;">
+  <h2 style="color:#7ec8ff;font-size:22px;margin:0 0 4px 0;">📈 R6 → R7 受注額変化（同一省庁単位）</h2>
+  <div style="color:#bbb;font-size:13px;margin-bottom:16px;line-height:1.6;">OB入社時期と受注額変化の対応を可視化。<strong style="color:#ffcc66;">相関の可視化であり、因果関係は主張しません</strong>。</div>
+  
+  <div style="background:rgba(0,0,0,0.25);border-radius:6px;padding:12px 16px;margin-bottom:18px;border-left:3px solid #ffcc66;">
+    <div style="color:#ffcc66;font-size:11px;font-weight:600;margin-bottom:4px;">📄 データ範囲</div>
+    <div style="color:#bbb;font-size:11px;line-height:1.6;">
+      厚労省＝R6一般会計（<a href="https://www.mhlw.go.jp/sinsei/chotatu/zuii/24honsyo.html" target="_blank" style="color:#7ec8ff;">24honsyo_ippan_01-04.xlsx</a>）／
+      財務省＝R6 全12ヶ月48ファイル（<a href="https://www.mof.go.jp/application-contact/procurement/approach/tekiseika/index.htm" target="_blank" style="color:#7ec8ff;">tekiseika202404〜202503</a>）<br>
+      <span style="color:#888;">📌 注：</span>総務省・デジタル庁の R6 は未取得（次フェーズで補完予定）。R7 数字は本ページ上部の Phase 2 公開済みデータ（省庁単体内訳）。
+    </div>
+  </div>
+  
+  <div style="display:flex;flex-direction:column;gap:12px;">
+
+    <div style="background:rgba(0,0,0,0.3);border:1px solid #555;border-radius:6px;padding:14px;">
+      <div style="display:flex;justify-content:space-between;align-items:flex-start;flex-wrap:wrap;gap:10px;margin-bottom:10px;">
+        <div>
+          <div style="color:#fff;font-size:15px;font-weight:700;margin-bottom:2px;">東芝DS × 厚生労働省</div>
+          <div style="color:#888;font-size:11px;">OB配置なし（公表上）</div>
+        </div>
+        <div style="display:flex;gap:6px;align-items:center;flex-wrap:wrap;">
+          <span style="font-size:10px;color:#888;">R6</span>
+          <span style="font-size:14px;color:#bbc;font-weight:600;">¥98.05億</span>
+          <span style="font-size:11px;color:#666;">→</span>
+          <span style="font-size:10px;color:#888;">R7</span>
+          <span style="font-size:22px;color:#ffcc66;font-weight:700;">¥516.15億</span>
+          <span style="font-size:11px;color:#7ec8ff;background:rgba(126,200,255,0.15);padding:3px 10px;border-radius:12px;font-weight:600;">5.3倍</span>
+        </div>
+      </div>
+      <div style="display:grid;grid-template-columns:1fr 1fr;gap:10px;">
+        <div style="background:rgba(0,0,0,0.25);border-radius:4px;padding:10px;">
+          <div style="color:#ffcc66;font-size:11px;font-weight:600;margin-bottom:5px;">R6 主要案件</div>
+          <div style="color:#bbb;line-height:1.5;margin:3px 0;font-size:11px;">• 厚労省統計処理システム更改 ¥34.24億</div><div style="color:#bbb;line-height:1.5;margin:3px 0;font-size:11px;">• 感染症サーベイランスシステム ¥27.25億</div>
+        </div>
+        <div style="background:rgba(255,200,100,0.05);border:1px solid rgba(255,200,100,0.15);border-radius:4px;padding:10px;">
+          <div style="color:#ffcc66;font-size:11px;font-weight:600;margin-bottom:5px;">R7 主要案件</div>
+          <div style="color:#e8dab0;line-height:1.5;margin:3px 0;font-size:11px;">• 厚労省LAN ¥481.61億</div>
+        </div>
+      </div>
+      <div style="margin-top:8px;color:#888;font-size:11px;font-style:italic;line-height:1.5;">▸ OBなしでも倍率は発生。既存独占構造のシグナル。</div>
+    </div>
+
+    <div style="background:rgba(0,0,0,0.3);border:1px solid #7ec8ff;border-radius:6px;padding:14px;">
+      <div style="display:flex;justify-content:space-between;align-items:flex-start;flex-wrap:wrap;gap:10px;margin-bottom:10px;">
+        <div>
+          <div style="color:#fff;font-size:15px;font-weight:700;margin-bottom:2px;">NTTデータ × 財務省</div>
+          <div style="color:#888;font-size:11px;">池田克史（警視庁副総監）2023-12 入社</div>
+        </div>
+        <div style="display:flex;gap:6px;align-items:center;flex-wrap:wrap;">
+          <span style="font-size:10px;color:#888;">R6</span>
+          <span style="font-size:14px;color:#bbc;font-weight:600;">¥15.65億</span>
+          <span style="font-size:11px;color:#666;">→</span>
+          <span style="font-size:10px;color:#888;">R7</span>
+          <span style="font-size:22px;color:#ffcc66;font-weight:700;">¥194.40億</span>
+          <span style="font-size:11px;color:#7ec8ff;background:rgba(126,200,255,0.15);padding:3px 10px;border-radius:12px;font-weight:600;">12.4倍</span>
+        </div>
+      </div>
+      <div style="display:grid;grid-template-columns:1fr 1fr;gap:10px;">
+        <div style="background:rgba(0,0,0,0.25);border-radius:4px;padding:10px;">
+          <div style="color:#ffcc66;font-size:11px;font-weight:600;margin-bottom:5px;">R6 主要案件</div>
+          <div style="color:#bbb;line-height:1.5;margin:3px 0;font-size:11px;">• 外債取引等管理システム ¥6.72億</div><div style="color:#bbb;line-height:1.5;margin:3px 0;font-size:11px;">• 外債取引保守業務 ¥6.51億</div>
+        </div>
+        <div style="background:rgba(255,200,100,0.05);border:1px solid rgba(255,200,100,0.15);border-radius:4px;padding:10px;">
+          <div style="color:#ffcc66;font-size:11px;font-weight:600;margin-bottom:5px;">R7 主要案件</div>
+          <div style="color:#e8dab0;line-height:1.5;margin:3px 0;font-size:11px;">• 財務省ADAMS等の財務省単体受注</div>
+        </div>
+      </div>
+      <div style="margin-top:8px;color:#888;font-size:11px;font-style:italic;line-height:1.5;">▸ 2023-12 入社後、R6（〜2025-03）はまだ小規模、R7（2025-04〜）で12倍に。</div>
+    </div>
+
+    <div style="background:rgba(0,0,0,0.3);border:1px solid #7ec8ff;border-radius:6px;padding:14px;">
+      <div style="display:flex;justify-content:space-between;align-items:flex-start;flex-wrap:wrap;gap:10px;margin-bottom:10px;">
+        <div>
+          <div style="color:#fff;font-size:15px;font-weight:700;margin-bottom:2px;">NEC × 財務省</div>
+          <div style="color:#888;font-size:11px;">諏訪園健司（関税局長）2023-12 等 4人入社</div>
+        </div>
+        <div style="display:flex;gap:6px;align-items:center;flex-wrap:wrap;">
+          <span style="font-size:10px;color:#888;">R6</span>
+          <span style="font-size:14px;color:#bbc;font-weight:600;">¥1.84億</span>
+          <span style="font-size:11px;color:#666;">→</span>
+          <span style="font-size:10px;color:#888;">R7</span>
+          <span style="font-size:22px;color:#ffcc66;font-weight:700;">¥32.70億</span>
+          <span style="font-size:11px;color:#7ec8ff;background:rgba(126,200,255,0.15);padding:3px 10px;border-radius:12px;font-weight:600;">17.8倍</span>
+        </div>
+      </div>
+      <div style="display:grid;grid-template-columns:1fr 1fr;gap:10px;">
+        <div style="background:rgba(0,0,0,0.25);border-radius:4px;padding:10px;">
+          <div style="color:#ffcc66;font-size:11px;font-weight:600;margin-bottom:5px;">R6 主要案件</div>
+          <div style="color:#bbb;line-height:1.5;margin:3px 0;font-size:11px;">• 財務省LAN ファイル復号 ¥1.13億</div><div style="color:#bbb;line-height:1.5;margin:3px 0;font-size:11px;">• 端末OS更新業務 ¥0.66億</div>
+        </div>
+        <div style="background:rgba(255,200,100,0.05);border:1px solid rgba(255,200,100,0.15);border-radius:4px;padding:10px;">
+          <div style="color:#ffcc66;font-size:11px;font-weight:600;margin-bottom:5px;">R7 主要案件</div>
+          <div style="color:#e8dab0;line-height:1.5;margin:3px 0;font-size:11px;">• 関税局システム ¥29億（100%随契LAN）</div>
+        </div>
+      </div>
+      <div style="margin-top:8px;color:#888;font-size:11px;font-style:italic;line-height:1.5;">▸ 関税局長OB入社直後、関税局システムで100%随契独占。</div>
+    </div>
+
+    <div style="background:rgba(0,0,0,0.3);border:1px solid #7ec8ff;border-radius:6px;padding:14px;">
+      <div style="display:flex;justify-content:space-between;align-items:flex-start;flex-wrap:wrap;gap:10px;margin-bottom:10px;">
+        <div>
+          <div style="color:#fff;font-size:15px;font-weight:700;margin-bottom:2px;">富士通 × 財務省</div>
+          <div style="color:#888;font-size:11px;">大石吉彦（警視総監）2023-04 入社 等2人</div>
+        </div>
+        <div style="display:flex;gap:6px;align-items:center;flex-wrap:wrap;">
+          <span style="font-size:10px;color:#888;">R6</span>
+          <span style="font-size:14px;color:#bbc;font-weight:600;">¥84.44億</span>
+          <span style="font-size:11px;color:#666;">→</span>
+          <span style="font-size:10px;color:#888;">R7</span>
+          <span style="font-size:22px;color:#ffcc66;font-weight:700;">¥199.50億</span>
+          <span style="font-size:11px;color:#7ec8ff;background:rgba(126,200,255,0.15);padding:3px 10px;border-radius:12px;font-weight:600;">2.4倍</span>
+        </div>
+      </div>
+      <div style="display:grid;grid-template-columns:1fr 1fr;gap:10px;">
+        <div style="background:rgba(0,0,0,0.25);border-radius:4px;padding:10px;">
+          <div style="color:#ffcc66;font-size:11px;font-weight:600;margin-bottom:5px;">R6 主要案件</div>
+          <div style="color:#bbb;line-height:1.5;margin:3px 0;font-size:11px;">• 財務省理財局システム更改 ¥32.90億</div><div style="color:#bbb;line-height:1.5;margin:3px 0;font-size:11px;">• 予算編成支援システム ¥16.89億</div>
+        </div>
+        <div style="background:rgba(255,200,100,0.05);border:1px solid rgba(255,200,100,0.15);border-radius:4px;padding:10px;">
+          <div style="color:#ffcc66;font-size:11px;font-weight:600;margin-bottom:5px;">R7 主要案件</div>
+          <div style="color:#e8dab0;line-height:1.5;margin:3px 0;font-size:11px;">• 継続案件 + 拡大</div>
+        </div>
+      </div>
+      <div style="margin-top:8px;color:#888;font-size:11px;font-style:italic;line-height:1.5;">▸ 2023-04 早期入社、R6 から既に大規模、R7 で更に倍増。</div>
+    </div>
+
+  </div>
+  
+  <div style="margin-top:16px;padding:12px 14px;background:rgba(0,0,0,0.25);border-radius:6px;">
+    <div style="color:#7ec8ff;font-size:13px;font-weight:600;margin-bottom:6px;">🤖 観察（時系列対応の可視化）</div>
+    <div style="color:#ddd;font-size:12px;line-height:1.7;">
+      ・<strong style="color:#ffcc66;">2023-12 入社組</strong>（諏訪園・池田）→ R6（〜2025-03）にはほぼ効果なし、R7（2025-04〜）で本格化<br>
+      ・<strong style="color:#ffcc66;">2023-04 入社組</strong>（大石）→ R6 から既に大規模、R7 で更に倍増<br>
+      ・<strong style="color:#ffcc66;">OB不在の東芝DS</strong> → OBがいなくても倍率は発生。既存独占構造の独立シグナル。
+    </div>
+    <div style="margin-top:8px;color:#888;font-size:11px;font-style:italic;line-height:1.6;">
+      OB入社時期と受注額変化の時系列が部分的に一致するが、これは相関の可視化であり、因果関係を示すものではない。受注決定には予算サイクル・案件規模・技術要件など複数要因が関与する。
+    </div>
+  </div>
+</div>
+<!-- /Stage 2 Phase 2 RV -->
+</section>
+<!-- ===== /Stage 2 Phase 2 RV ===== -->
+
 <script id="stage2-phase2-script">
 var STAGE2_PHASE2_DATA = {
   "title": "2023年の組織的再配置（17社・29人）",
