@@ -1,0 +1,224 @@
+{
+  "日立::2010001027031": {
+    "group": "日立",
+    "name": "株式会社日立ビルシステム\n東京都千代田区神田淡路町２－１０１",
+    "corp_num": "2010001027031",
+    "total": 9900000,
+    "count": 1,
+    "contracts": [
+      {
+        "project": "財務省税関研修所１号冷温水発生機分解整備\n令和6年4月1日～令和6年11月29日",
+        "amount_oku": 0.099,
+        "file": "tekiseika202404-1.xlsx"
+      }
+    ]
+  },
+  "富士通::1020001071491": {
+    "group": "富士通",
+    "name": "富士通株式会社\n神奈川県川崎市中原区上小田中４－１－１",
+    "corp_num": "1020001071491",
+    "total": 8444361574,
+    "count": 18,
+    "contracts": [
+      {
+        "project": "財務省理財局の情報システムに係る補正及び維持管理　一式",
+        "amount_oku": 6.68495,
+        "file": "tekiseika202404-3.xlsx"
+      },
+      {
+        "project": "法人企業統計調査等ネットワーク（ＦＡＢＮＥＴ）システムの運用・保守等業務　一式",
+        "amount_oku": 1.15127062,
+        "file": "tekiseika202404-3.xlsx"
+      },
+      {
+        "project": "法人企業統計調査等ネットワーク（ＦＡＢＮＥＴ）システムの改修業務　一式",
+        "amount_oku": 0.4466,
+        "file": "tekiseika202404-3.xlsx"
+      },
+      {
+        "project": "法人企業統計調査等ネットワーク（ＦＡＢＮＥＴ）システムの機器等リース、構築対応業務　一式",
+        "amount_oku": 3.443,
+        "file": "tekiseika202404-3.xlsx"
+      },
+      {
+        "project": "財務省理財局の情報システムの更改等に係る設計・開発及び移行業務　一式",
+        "amount_oku": 32.8980356,
+        "file": "tekiseika202404-3.xlsx"
+      },
+      {
+        "project": "予算書・決算書ホームページ公開システムの構築・運用業務　一式",
+        "amount_oku": 0.86691,
+        "file": "tekiseika202404-3.xlsx"
+      },
+      {
+        "project": "予算編成支援システムに係る環境適合等業務　一式",
+        "amount_oku": 16.885,
+        "file": "tekiseika202404-3.xlsx"
+      },
+      {
+        "project": "国債関係システム（国債入札システム）の機能改修に係る設計・開発業務　一式",
+        "amount_oku": 0.75614,
+        "file": "tekiseika202404-3.xlsx"
+      },
+      {
+        "project": "財務省理財局の情報システムに係る補正及び維持管理　一式",
+        "amount_oku": 1.13605,
+        "file": "tekiseika202404-3.xlsx"
+      },
+      {
+        "project": "財務省理財局の情報システムの更改等に係る設計・開発及び移行業務　一式",
+        "amount_oku": 10.5409644,
+        "file": "tekiseika202404-3.xlsx"
+      },
+      {
+        "project": "令和６年度国有財産総合情報管理システム改修に係る設計・開発業務　一式",
+        "amount_oku": 1.16114,
+        "file": "tekiseika202404-4.xlsx"
+      },
+      {
+        "project": "AI映像解析による監視取締りに関する調査研究　一式",
+        "amount_oku": 0.167013,
+        "file": "tekiseika202405-3.xlsx"
+      },
+      {
+        "project": "国庫収支事務オンラインシステムの機能改修に係る設計・開発業務　一式",
+        "amount_oku": 0.5126,
+        "file": "tekiseika202410-3.xlsx"
+      },
+      {
+        "project": "次々期予算編成支援システムに係る構成案策定業務　一式",
+        "amount_oku": 0.53119,
+        "file": "tekiseika202412-3.xlsx"
+      },
+      {
+        "project": "法人企業統計調査等ネットワーク（FABNET）システムの機器賃貸借(再リース）業務　一式",
+        "amount_oku": 0.33606312,
+        "file": "tekiseika202412-4.xlsx"
+      }
+    ]
+  },
+  "日立::7010001008844": {
+    "group": "日立",
+    "name": "株式会社日立製作所\n東京都千代田区丸の内１－６－６",
+    "corp_num": "7010001008844",
+    "total": 63786800,
+    "count": 2,
+    "contracts": [
+      {
+        "project": "国有財産総合情報管理システムにおける調査研究業務　一式",
+        "amount_oku": 0.376068,
+        "file": "tekiseika202404-3.xlsx"
+      },
+      {
+        "project": "予算編成支援システムのデータベース機能のクラウドサービスへの移行に係る検証業務　一式",
+        "amount_oku": 0.2618,
+        "file": "tekiseika202404-3.xlsx"
+      }
+    ]
+  },
+  "PwC::1010401023102": {
+    "group": "PwC",
+    "name": "PwCコンサルティング合同会社\n東京都千代田区大手町１－２－１",
+    "corp_num": "1010401023102",
+    "total": 108900000,
+    "count": 1,
+    "contracts": [
+      {
+        "project": "官庁会計システム等のシステム更改計画及びプロジェクト管理等に係る技術支援　一式",
+        "amount_oku": 1.089,
+        "file": "tekiseika202404-3.xlsx"
+      }
+    ]
+  },
+  "NTTデータ::6010601062093": {
+    "group": "NTTデータ",
+    "name": "株式会社NTTデータ\n東京都江東区豊洲３－３－３",
+    "corp_num": "6010601062093",
+    "total": 1564888600,
+    "count": 5,
+    "contracts": [
+      {
+        "project": "令和6年度官庁会計システム等の機能追加に係る業務　一式",
+        "amount_oku": 1.793,
+        "file": "tekiseika202404-3.xlsx"
+      },
+      {
+        "project": "マルチペイメントネットワーク共通ソフトウェアの保守　一式",
+        "amount_oku": 0.03696,
+        "file": "tekiseika202404-4.xlsx"
+      },
+      {
+        "project": "令和６年度官庁会計システムの機能追加（２回目）に係る業務　一式",
+        "amount_oku": 0.5885,
+        "file": "tekiseika202409-3.xlsx"
+      },
+      {
+        "project": "令和６年度外債取引等管理システムに係る保守業務（バックオフィス機能）　一式",
+        "amount_oku": 6.511296,
+        "file": "tekiseika202412-3.xlsx"
+      },
+      {
+        "project": "令和6年度外債取引等管理システムに係るデータセンタ・ネットワーク回線等運用保守業務　一式",
+        "amount_oku": 6.71913,
+        "file": "tekiseika202412-3.xlsx"
+      }
+    ]
+  },
+  "造幣局::6120005008509": {
+    "group": "造幣局",
+    "name": "独立行政法人造幣局\n大阪府大阪市北区天満１－１－７９",
+    "corp_num": "6120005008509",
+    "total": 17108720000,
+    "count": 1,
+    "contracts": [
+      {
+        "project": "貨幣の製造に関する事務　一式",
+        "amount_oku": 171.0872,
+        "file": "tekiseika202404-4.xlsx"
+      }
+    ]
+  },
+  "NEC::7010401022916": {
+    "group": "NEC",
+    "name": "日本電気株式会社\n東京都港区芝５－７－１",
+    "corp_num": "7010401022916",
+    "total": 184161684,
+    "count": 4,
+    "contracts": [
+      {
+        "project": "令和6年度財務省行政情報化LANシステムに係る無線LANアクセスポイント設置業務　一式",
+        "amount_oku": 0.02386464,
+        "file": "tekiseika202405-3.xlsx"
+      },
+      {
+        "project": "令和６年度財務省行政情報化LANシステムに係る無線LANアクセスポイント移設業務　一式",
+        "amount_oku": 0.026246,
+        "file": "tekiseika202410-3.xlsx"
+      },
+      {
+        "project": "財務省行政情報化ＬＡＮシステムに係るファイル復号業務　一式",
+        "amount_oku": 1.1319088,
+        "file": "tekiseika202503-4.xlsx"
+      },
+      {
+        "project": "財務省行政情報化ＬＡＮシステムに係る端末ＯＳ更新業務　一式",
+        "amount_oku": 0.6595974,
+        "file": "tekiseika202503-4.xlsx"
+      }
+    ]
+  },
+  "KDDI::9011101031552": {
+    "group": "KDDI",
+    "name": "KDDI株式会社\n東京都新宿区西新宿２－３－２",
+    "corp_num": "9011101031552",
+    "total": 5541800,
+    "count": 1,
+    "contracts": [
+      {
+        "project": "税関研修所テレビ会議システムにおける機器及び専用回線の移設等業務　一式",
+        "amount_oku": 0.055418,
+        "file": "tekiseika202412-4.xlsx"
+      }
+    ]
+  }
+}

@@ -1,0 +1,479 @@
+{
+  "PwC::1010401023102": {
+    "group": "PwC",
+    "corp_num": "1010401023102",
+    "name": "PwCコンサルティング合同会社\n東京都千代田区大手町１－２－１",
+    "total": 172616048,
+    "count": 8,
+    "contracts": [
+      {
+        "project": "民間企業の職務給等に関する調査研究事業",
+        "amount_oku": 0.2728,
+        "file": "24honsyo_ippan_03.xlsx"
+      },
+      {
+        "project": "在宅医療・救急医療連携にかかる調査・セミナー事業一式",
+        "amount_oku": 0.12175746,
+        "file": "24honsyo_ippan_03.xlsx"
+      },
+      {
+        "project": "介護職員処遇改善加算等の取得促進支援に係る調査・分析等一式",
+        "amount_oku": 0.275,
+        "file": "24honsyo_ippan_03.xlsx"
+      },
+      {
+        "project": "介護現場の働きやすい職場環境づくりに向けた経営の協働化・大規模化に関する調査研究事業一式",
+        "amount_oku": 0.154,
+        "file": "24honsyo_ippan_03.xlsx"
+      },
+      {
+        "project": "ライフステージに応じた歯科口腔保健推進事業",
+        "amount_oku": 0.198,
+        "file": "24honsyo_ippan_03.xlsx"
+      },
+      {
+        "project": "中途採用・経験者採用者が活躍する企業における情報公表その他取組に関する調査研究事業",
+        "amount_oku": 0.1155,
+        "file": "24honsyo_ippan_03.xlsx"
+      },
+      {
+        "project": "検査データの情報収集・分析・共有体制の整備に向けた調査事業一式",
+        "amount_oku": 0.49489,
+        "file": "24honsyo_ippan_03.xlsx"
+      },
+      {
+        "project": "企業における採用経路の選択動向等に関する調査研究事業",
+        "amount_oku": 0.09421302,
+        "file": "24honsyo_ippan_04.xlsx"
+      }
+    ]
+  },
+  "NEC::7010401022916": {
+    "group": "NEC",
+    "corp_num": "7010401022916",
+    "name": "日本電気（株）官公庁口\n東京都港区芝五丁目７番１号",
+    "total": 36749900,
+    "count": 2,
+    "contracts": [
+      {
+        "project": "2024（令和６）年度国民生活基礎調査に係る保健所等業務の支援業務一式",
+        "amount_oku": 0.092499,
+        "file": "24honsyo_ippan_03.xlsx"
+      },
+      {
+        "project": "カルテ情報から診療報酬の算定を可能とするためのAI活用に関する調査研究一式",
+        "amount_oku": 0.275,
+        "file": "24honsyo_ippan_03.xlsx"
+      }
+    ]
+  },
+  "日本通運::4010401022860": {
+    "group": "日本通運",
+    "corp_num": "4010401022860",
+    "name": "日本通運株式会社\n東京都港区芝３－３－１５",
+    "total": 10410400,
+    "count": 2,
+    "contracts": [
+      {
+        "project": "中央合同庁舎第５号館健康・生活衛生局及び感染症対策部レイアウト変更に伴う什器等移設作業一式",
+        "amount_oku": 0.07348,
+        "file": "24honsyo_ippan_03.xlsx"
+      },
+      {
+        "project": "看護師国家試験問題等の発送及び答案用紙等の回収業務",
+        "amount_oku": 0.030624,
+        "file": "24honsyo_ippan_03.xlsx"
+      }
+    ]
+  },
+  "三菱総研::6010001030403": {
+    "group": "三菱総研",
+    "corp_num": "6010001030403",
+    "name": "株式会社三菱総合研究所\n東京都千代田区永田町 2 -10-3",
+    "total": 2503161100,
+    "count": 23,
+    "contracts": [
+      {
+        "project": "入院・外来機能の分化・連携推進等に向けたデータ収集・分析業務一式",
+        "amount_oku": 3.575,
+        "file": "24honsyo_ippan_03.xlsx"
+      },
+      {
+        "project": "医療系ベンチャー・トータルサポート事業にかかる広報・運営業務一式",
+        "amount_oku": 1.1,
+        "file": "24honsyo_ippan_03.xlsx"
+      },
+      {
+        "project": "クリニカル・イノベーション・ネットワーク（CIN）推進支援に関する調査業務一式",
+        "amount_oku": 0.198,
+        "file": "24honsyo_ippan_03.xlsx"
+      },
+      {
+        "project": "科学的介護に向けた調査及び質の向上支援等事業",
+        "amount_oku": 0.280621,
+        "file": "24honsyo_ippan_03.xlsx"
+      },
+      {
+        "project": "介護事業実態調査（介護従事者処遇状況等調査）一式",
+        "amount_oku": 0.825,
+        "file": "24honsyo_ippan_03.xlsx"
+      },
+      {
+        "project": "医療機能情報提供制度・薬局機能情報提供制度の全国統一システムの運用・保守・改修に係るプロジェクト管理支援等業務一式（令和６年度）",
+        "amount_oku": 2.255,
+        "file": "24honsyo_ippan_03.xlsx"
+      },
+      {
+        "project": "予防接種事務デジタル化等事業プロジェクト管理及び調達支援業務等一式",
+        "amount_oku": 3.7565,
+        "file": "24honsyo_ippan_03.xlsx"
+      },
+      {
+        "project": "特定健診等事業効果検証及び医療費の地域差等の「見える化」等調査研究等業務一式",
+        "amount_oku": 0.3399,
+        "file": "24honsyo_ippan_03.xlsx"
+      },
+      {
+        "project": "電子申請届出システムの利用を開始する地方公共団体への伴走支援業務一式",
+        "amount_oku": 0.99,
+        "file": "24honsyo_ippan_03.xlsx"
+      },
+      {
+        "project": "介護ロボット等による生産性向上の取組に関する効果測定事業一式",
+        "amount_oku": 2.481314,
+        "file": "24honsyo_ippan_03.xlsx"
+      }
+    ]
+  },
+  "NTT東日本::8011101028104": {
+    "group": "NTT東日本",
+    "corp_num": "8011101028104",
+    "name": "東日本電信電話株式会社\n東京都新宿区西新宿３丁目１９番２号",
+    "total": 2860000000,
+    "count": 1,
+    "contracts": [
+      {
+        "project": "医療機関におけるサイバーセキュリティ確保事業",
+        "amount_oku": 28.6,
+        "file": "24honsyo_ippan_03.xlsx"
+      }
+    ]
+  },
+  "アクセンチュア::7010401001556": {
+    "group": "アクセンチュア",
+    "corp_num": "7010401001556",
+    "name": "アクセンチュア株式会社\n東京都港区赤坂１－８－１",
+    "total": 2140545000,
+    "count": 13,
+    "contracts": [
+      {
+        "project": "令和６年度全国でレセプト情報から抽出した医療情報を確認出来る仕組み等に係る周知広報、導入支援及び利用拡大対応調査研究等一式",
+        "amount_oku": 0.44,
+        "file": "24honsyo_ippan_03.xlsx"
+      },
+      {
+        "project": "令和６年度全国で医療情報を確認出来る仕組み等に係る周知広報、導入支援及び利用拡大対応調査研究等一式",
+        "amount_oku": 1.925,
+        "file": "24honsyo_ippan_03.xlsx"
+      },
+      {
+        "project": "電子処方箋に関する医療機関・薬局への導入支援・促進、周知広報等一式",
+        "amount_oku": 2.75,
+        "file": "24honsyo_ippan_03.xlsx"
+      },
+      {
+        "project": "診療報酬改定DX共通算定モジュールの実装支援に関する工程管理等支援業務一式（令和６年度）",
+        "amount_oku": 3.19,
+        "file": "24honsyo_ippan_03.xlsx"
+      },
+      {
+        "project": "人口動態調査データプロセッシングシステムのICD-11適用に係る調達支援業務一式",
+        "amount_oku": 0.825,
+        "file": "24honsyo_ippan_03.xlsx"
+      },
+      {
+        "project": "令和６年度分娩取扱施設情報提供ウェブサイト（仮称）開設・保守運用及び広報等業務一式",
+        "amount_oku": 0.3036,
+        "file": "24honsyo_ippan_03.xlsx"
+      },
+      {
+        "project": "介護情報の電子的な共有の仕組み及び介護被保険者証の電子化の実現に向けた実証に係る支援業務",
+        "amount_oku": 1.54,
+        "file": "24honsyo_ippan_03.xlsx"
+      },
+      {
+        "project": "介護情報の電子的な共有の仕組み及び介護被保険者証の電子化の実現に向けた実証に係る支援業務",
+        "amount_oku": 1.54,
+        "file": "24honsyo_ippan_03.xlsx"
+      },
+      {
+        "project": "医療扶助のオンライン資格確認を活用した更なる効果的な医療扶助の実施等にかかる調査研究一式",
+        "amount_oku": 1.188,
+        "file": "24honsyo_ippan_03.xlsx"
+      },
+      {
+        "project": "薬物乱用防止・大麻制度見直しに関するデジタル広報啓発事業一式",
+        "amount_oku": 0.59125,
+        "file": "24honsyo_ippan_03.xlsx"
+      }
+    ]
+  },
+  "NTTデータ::6010601062093": {
+    "group": "NTTデータ",
+    "corp_num": "6010601062093",
+    "name": "株式会社ＮＴＴデータ\n東京都江東区豊洲３丁目３番３号",
+    "total": 644083000,
+    "count": 3,
+    "contracts": [
+      {
+        "project": "医療機能情報提供制度・薬局機能情報提供制度の全国統一システムに係る運用・保守・改修業務一式（令和６年度）",
+        "amount_oku": 5.775,
+        "file": "24honsyo_ippan_03.xlsx"
+      },
+      {
+        "project": "匿名レセプト情報を使用した社会医療診療行為別統計作成一式",
+        "amount_oku": 0.5687,
+        "file": "24honsyo_ippan_04.xlsx"
+      },
+      {
+        "project": "厚生労働省LAN システムにおける\nForms 利用に係る設定変更等業務一式",
+        "amount_oku": 0.09713,
+        "file": "24honsyo_ippan_04.xlsx"
+      }
+    ]
+  },
+  "日立::1010001146848": {
+    "group": "日立",
+    "corp_num": "1010001146848",
+    "name": "株式会社日立コンサルティング\n東京都千代田区麹町２－４－１",
+    "total": 73150000,
+    "count": 1,
+    "contracts": [
+      {
+        "project": "国家資格等情報連携・活用システムとの連携に係る工程管理支援業務一式",
+        "amount_oku": 0.7315,
+        "file": "24honsyo_ippan_03.xlsx"
+      }
+    ]
+  },
+  "日立::7010001008844": {
+    "group": "日立",
+    "corp_num": "7010001008844",
+    "name": "株式会社日立製作所\n東京都品川区南大井六丁目２３番１号",
+    "total": 70400000,
+    "count": 1,
+    "contracts": [
+      {
+        "project": "指定難病患者データ及び小児慢性特定疾病児童等データの提供に係る支援等一式",
+        "amount_oku": 0.704,
+        "file": "24honsyo_ippan_03.xlsx"
+      }
+    ]
+  },
+  "東芝DS::7010401052137": {
+    "group": "東芝DS",
+    "corp_num": "7010401052137",
+    "name": "神奈川県川崎市幸区堀川町72番地34\n東芝デジタルソリューションズ株式会社\n官公営業第一部長\n倉田　薫",
+    "total": 9726904000,
+    "count": 5,
+    "contracts": [
+      {
+        "project": "障害福祉サービスデータベースの集計機能の拡充に伴う改修等作業一式",
+        "amount_oku": 1.441,
+        "file": "24honsyo_ippan_03.xlsx"
+      },
+      {
+        "project": "厚生労働省統計処理システム更改及び運用・保守一式",
+        "amount_oku": 34.243,
+        "file": "24honsyo_ippan_03.xlsx"
+      },
+      {
+        "project": "厚生労働省統計処理システム更改及び運用・保守一式",
+        "amount_oku": 34.243,
+        "file": "24honsyo_ippan_03.xlsx"
+      },
+      {
+        "project": "感染症サーベイランスシステム運用・保守等業務一式",
+        "amount_oku": 27.247,
+        "file": "24honsyo_ippan_03.xlsx"
+      },
+      {
+        "project": "厚生労働省情報提供システムにおけるＡＫＡＭＡＩ通信料",
+        "amount_oku": 0.09504,
+        "file": "24honsyo_ippan_04.xlsx"
+      }
+    ]
+  },
+  "NTTデータ::1010001143390": {
+    "group": "NTTデータ",
+    "corp_num": "1010001143390",
+    "name": "株式会社NTTデータ経営研究所\n東京都千代田区平河町２-７-９",
+    "total": 314600000,
+    "count": 2,
+    "contracts": [
+      {
+        "project": "重層的支援体制構築推進人材養成研修・広報啓発事業一式",
+        "amount_oku": 0.231,
+        "file": "24honsyo_ippan_03.xlsx"
+      },
+      {
+        "project": "就労世代の歯科健康診査等推進事業（モデル歯科健診事業）に係る調査研究等一式",
+        "amount_oku": 2.915,
+        "file": "24honsyo_ippan_03.xlsx"
+      }
+    ]
+  },
+  "デロイト::7010001088960": {
+    "group": "デロイト",
+    "corp_num": "7010001088960",
+    "name": "デロイトトーマツコンサルティング合同会社\n東京都千代田区丸の内三丁目２番３号　丸の内二重橋ビルディング",
+    "total": 950678872,
+    "count": 10,
+    "contracts": [
+      {
+        "project": "ローコーディングツール等を軸とした保守性・拡張性・連携性の高い現場視点のEMIS代替サービス調達に係る調査研究一式",
+        "amount_oku": 0.913,
+        "file": "24honsyo_ippan_03.xlsx"
+      },
+      {
+        "project": "厚生労働省LANシステムにおける運用支援業務一式",
+        "amount_oku": 1.045,
+        "file": "24honsyo_ippan_03.xlsx"
+      },
+      {
+        "project": "保険医療機関等管理システムのオンライン化拡大等に係る調査研究一式",
+        "amount_oku": 2.09,
+        "file": "24honsyo_ippan_03.xlsx"
+      },
+      {
+        "project": "医療機器等安定供給確保事業一式",
+        "amount_oku": 0.473,
+        "file": "24honsyo_ippan_03.xlsx"
+      },
+      {
+        "project": "保険医療機関等管理システムに係る工程管理支援等一式（令和6年度開始）",
+        "amount_oku": 1.727,
+        "file": "24honsyo_ippan_03.xlsx"
+      },
+      {
+        "project": "救急医療情報連携プラットフォームモデル事業",
+        "amount_oku": 0.4873,
+        "file": "24honsyo_ippan_03.xlsx"
+      },
+      {
+        "project": "「医薬品安定供給・流通確認システム（仮称）」の開発にかかる調達支援等業務一式",
+        "amount_oku": 0.045254,
+        "file": "24honsyo_ippan_03.xlsx"
+      },
+      {
+        "project": "安定確保医薬品リスト見直し業務一式",
+        "amount_oku": 0.2695,
+        "file": "24honsyo_ippan_03.xlsx"
+      },
+      {
+        "project": "データヘルス改革推進支援業務一式",
+        "amount_oku": 2.06073472,
+        "file": "24honsyo_ippan_04.xlsx"
+      },
+      {
+        "project": "年金財政計算システムのクラウド移行等のための調査研究一式",
+        "amount_oku": 0.396,
+        "file": "24honsyo_ippan_04.xlsx"
+      }
+    ]
+  },
+  "東芝DS::6320001000886": {
+    "group": "東芝DS",
+    "corp_num": "6320001000886",
+    "name": "東芝デジタルエンジニアリング株式会社\n神奈川県川崎市川崎区日進町１－５３",
+    "total": 69575000,
+    "count": 1,
+    "contracts": [
+      {
+        "project": "食品衛生申請等システム改修一式",
+        "amount_oku": 0.69575,
+        "file": "24honsyo_ippan_03.xlsx"
+      }
+    ]
+  },
+  "KDDI::3011101059021": {
+    "group": "KDDI",
+    "corp_num": "3011101059021",
+    "name": "ＫＤＤＩまとめてオフィス株式会社\n東京都渋谷区代々木３－２２－７",
+    "total": 10068630,
+    "count": 1,
+    "contracts": [
+      {
+        "project": "日本点字図書館ネットワーク機器入替構築一式",
+        "amount_oku": 0.1006863,
+        "file": "24honsyo_ippan_03.xlsx"
+      }
+    ]
+  },
+  "東芝DS::7010401052137 \n": {
+    "group": "東芝DS",
+    "corp_num": "7010401052137 \n",
+    "name": "東芝デジタルソリューションズ株式会社\n神奈川県川崎市幸区堀川町７２－３４\n",
+    "total": 8610800,
+    "count": 2,
+    "contracts": [
+      {
+        "project": "労働組合基礎調査システム改修に係る支援業務",
+        "amount_oku": 0.025608,
+        "file": "24honsyo_ippan_04.xlsx"
+      },
+      {
+        "project": "厚生労働省統計処理システムのOffice バージョンアップ対応（令和６年度）",
+        "amount_oku": 0.0605,
+        "file": "24honsyo_ippan_04.xlsx"
+      }
+    ]
+  },
+  "日立::7010001008844\n": {
+    "group": "日立",
+    "corp_num": "7010001008844\n",
+    "name": "株式会社日立製作所\n東京都品川区南大井６－２３－２",
+    "total": 1263993277,
+    "count": 2,
+    "contracts": [
+      {
+        "project": "調査課LAN ストレージディスク増設一式",
+        "amount_oku": 0.15758655,
+        "file": "24honsyo_ippan_04.xlsx"
+      },
+      {
+        "project": "提供口座情報照会システムの構築に係る設計・開発・運用及び保守等\n業務",
+        "amount_oku": 12.48234622,
+        "file": "24honsyo_ippan_04.xlsx"
+      }
+    ]
+  },
+  "日立::3010601021713": {
+    "group": "日立",
+    "corp_num": "3010601021713",
+    "name": "株式会社日立社会情報サービス\n東京都江東区東陽２－４－１８",
+    "total": 2552000,
+    "count": 1,
+    "contracts": [
+      {
+        "project": "令和6年度事件管理システム及び事例検索システムに係る運用・保守（10月～11月分）",
+        "amount_oku": 0.02552,
+        "file": "24honsyo_ippan_04.xlsx"
+      }
+    ]
+  },
+  "日立::7010001008844 \n": {
+    "group": "日立",
+    "corp_num": "7010001008844 \n",
+    "name": "株式会社日立製作所\t\n東京都品川区南大井６－２３－１\n",
+    "total": 65446656,
+    "count": 1,
+    "contracts": [
+      {
+        "project": "年金生活者支援給付金の請求勧奨及び継続認定業務の見直しに係る年金給付システム改修一式\n",
+        "amount_oku": 0.65446656,
+        "file": "24honsyo_ippan_04.xlsx"
+      }
+    ]
+  }
+}

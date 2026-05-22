@@ -1,0 +1,147 @@
+{
+  "meta": {
+    "version": "v1.2-phase1-finalized-with-bonus",
+    "scope": "Stage 2 Phase 1 - 防衛省系3社（東洋建設・いであ・オオバ）",
+    "policy": "全レコード verified=True（一次資料PDF確認済み）。受注推移とのクロスはStep 3で実施。相関であり因果ではない。",
+    "verification_date": "2026-05-20",
+    "next_phase": "Phase 2: NEC（井上剛＝R4PDF P7記載確認済み、Step 1.5副産物）等のIT系を追加"
+  },
+  "ob_records": [
+    {
+      "id": "ob_idea_001",
+      "ob_name": "落合健",
+      "previous_role": "海上自衛隊幹部候補生学校 副校長／校務統括補佐",
+      "previous_org": "防衛省（海上自衛隊）",
+      "retirement_date": "2023-02-20",
+      "reemployment_date": "2023-02-21",
+      "current_company": "いであ株式会社",
+      "industry": "環境計量証明業",
+      "current_position": "主任研究員",
+      "disclosure_pdf_year": "R4",
+      "disclosure_pdf_file": "040401-050331.pdf",
+      "disclosure_pdf_page": 7,
+      "source_url": "https://www.mod.go.jp/j/profile/employ/saisyusyoku/index.html",
+      "verified": true,
+      "verification_note": "R4 PDF P7で 'いであ株式会社 環境計量証明業 主任研究員' を確認。退職日R5.2.20→再就職日R5.2.21（連日）",
+      "related_bureau": "沖縄防衛局",
+      "related_contracts_note": "沖縄防衛局の環境監視4業務 累計¥61.81億・99%+落札率（R5→R7継続独占）"
+    },
+    {
+      "id": "ob_ooba_001",
+      "ob_name": "坪倉幹男",
+      "ob_age_at_retirement": 60,
+      "previous_role": "北関東防衛局企画部長",
+      "previous_org": "防衛省（北関東防衛局）",
+      "retirement_date": "2023-03-31",
+      "reemployment_date": "2023-06-01",
+      "current_company": "株式会社オオバ",
+      "industry": "建設コンサルタント",
+      "current_position": "顧問（営業本部）",
+      "disclosure_pdf_year": "R5",
+      "disclosure_pdf_file": "050401-060331.pdf",
+      "disclosure_pdf_page": 16,
+      "disclosure_record_no": 75,
+      "source_url": "https://www.mod.go.jp/j/profile/employ/saisyusyoku/index.html",
+      "verified": true,
+      "verification_note": "R5 PDF P16 #75 で確認。退職R5.3.31→再就職R5.6.1（約2ヶ月のブランク）",
+      "related_bureau": "北関東防衛局",
+      "related_contracts_note": "北関東防衛局から¥14.19億受注（同氏顧問就任後）"
+    },
+    {
+      "id": "ob_toyo_001",
+      "ob_name": "石倉三良",
+      "ob_age_at_retirement": 59,
+      "previous_role": "北海道防衛局長",
+      "previous_org": "防衛省（北海道防衛局）",
+      "retirement_date": "2023-07-14",
+      "reemployment_date": "2023-11-01",
+      "current_company": "東洋建設株式会社",
+      "industry": "総合建設業（海上・陸上土木・建築）・不動産事業等",
+      "current_position": "常務理事",
+      "disclosure_pdf_year": "R5",
+      "disclosure_pdf_file": "050401-060331.pdf",
+      "disclosure_pdf_page": 17,
+      "disclosure_record_no": 90,
+      "source_url": "https://www.mod.go.jp/j/profile/employ/saisyusyoku/index.html",
+      "verified": true,
+      "verification_note": "R5 PDF P17 #90 で確認。退職R5.7.14→再就職R5.11.1（約4ヶ月ブランク）",
+      "related_bureau": "北海道防衛局（起点）→ 全国地方防衛局",
+      "related_contracts_note": "東洋建設は6地方防衛局以上で受注。R7単年で¥228億+"
+    }
+  ],
+  "target_companies": [
+    {
+      "id": "idea",
+      "name": "いであ株式会社",
+      "category": "環境コンサル",
+      "related_ob_ids": [
+        "ob_idea_001"
+      ],
+      "ob_entry_date": "2023-02-21",
+      "fiscal_baseline": "OB入社年（2023）= R4年度末。実質R5/R6/R7で効果検証可能"
+    },
+    {
+      "id": "ooba",
+      "name": "株式会社オオバ",
+      "category": "建設コンサル",
+      "related_ob_ids": [
+        "ob_ooba_001"
+      ],
+      "ob_entry_date": "2023-06-01",
+      "fiscal_baseline": "OB入社年（2023）= R5年度の途中。R6/R7でフル効果"
+    },
+    {
+      "id": "toyo",
+      "name": "東洋建設株式会社",
+      "category": "建設・ゼネコン",
+      "related_ob_ids": [
+        "ob_toyo_001"
+      ],
+      "ob_entry_date": "2023-11-01",
+      "fiscal_baseline": "OB入社年（2023）= R5年度の途中。R6/R7でフル効果"
+    }
+  ],
+  "phase2_candidates_discovered_in_scan": [
+    {
+      "ob_name": "井上剛",
+      "ob_age_at_retirement": 57,
+      "previous_role": "情報本部情報官",
+      "current_company": "日本電気株式会社（NEC）",
+      "current_position": "参与（嘱託）",
+      "disclosure_pdf_year": "R4",
+      "disclosure_pdf_file": "040401-050331.pdf",
+      "disclosure_pdf_page": 7,
+      "note": "Phase 2でNECを追加する際の起点。メモリ記載の『R5公表NEC5人』とは別の可能性あり、要突合"
+    },
+    {
+      "ob_name": "河野順一",
+      "ob_age_at_retirement": 57,
+      "previous_role": "航空自衛隊中部航空方面隊司令部幕僚長",
+      "current_company": "東芝インフラシステムズ株式会社",
+      "current_position": "エキスパート職（嘱託）",
+      "disclosure_pdf_year": "R4",
+      "disclosure_pdf_file": "040401-050331.pdf",
+      "disclosure_pdf_page": 7,
+      "disclosure_record_no": 77,
+      "note": "Phase 2追加候補。東芝グループ。厚労省R7で東芝デジタルソリューションズ¥516億のロックインがあるため、グループ全体での OB×受注 構造を検証する価値あり"
+    },
+    {
+      "ob_name": "小谷克己",
+      "ob_age_at_retirement": 57,
+      "previous_role": "海上自衛隊東京業務隊付（旧:統合幕僚学校企画室長）",
+      "current_company": "株式会社伊藤電機",
+      "current_position": "（要確認）",
+      "disclosure_pdf_year": "R4",
+      "disclosure_pdf_file": "040401-050331.pdf",
+      "disclosure_pdf_page": 7,
+      "disclosure_record_no": 80,
+      "note": "Phase 2参考。中小企業のため受注規模は要調査"
+    }
+  ],
+  "timeline": {
+    "2023-02-21": "落合健 → いであ",
+    "2023-06-01": "坪倉幹男 → オオバ",
+    "2023-11-01": "石倉三良 → 東洋建設",
+    "fiscal_year_alignment": "全員 R5年度内（2023-04~2024-03）に再就職。R5/R6/R7の3年で受注推移を分析可能"
+  }
+}

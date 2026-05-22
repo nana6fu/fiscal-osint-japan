@@ -1,0 +1,113 @@
+{
+  "meta": {
+    "version": "v1.0-phase1",
+    "created": "2026-05-20",
+    "scope": "Stage 2 Phase 1 - 防衛省系3社（東洋建設・いであ・オオバ）",
+    "policy": "出典PDFが明確なものはverified:true。disclosure_period未確定のものはfalse。受注推移とのクロスはStep 3で実施。相関の可視化であり因果関係を主張しない。",
+    "next_phase": "Phase 2: IT系（NEC・富士通・日立・アクセンチュア等）を追加予定。",
+    "verification_pdfs_needed": [
+      "MOD R4: 050401-060331.pdf（2023-04~2024-03期間に再就職した自衛隊員）",
+      "MOD R5: 060401-070331.pdf（2024-04~2025-03期間）",
+      "MOD R6: 070401-080331.pdf（2025-04~2026-03期間、年度途中で部分公開の可能性）"
+    ]
+  },
+  "ob_records": [
+    {
+      "id": "ob_toyo_001",
+      "ob_name": "石倉三良",
+      "previous_role": "北海道防衛局長",
+      "previous_org": "防衛省",
+      "current_company": "東洋建設株式会社",
+      "current_position": "常務理事",
+      "disclosure_year": "R5",
+      "disclosure_period": "2023-04~2024-03",
+      "disclosure_pdf_file": "060401-070331.pdf",
+      "source_url": "https://www.mod.go.jp/j/profile/employ/saisyusyoku/index.html",
+      "verified": true,
+      "verification_note": "MOD R5公表PDFに記載確認済み（既存メモリより）",
+      "related_bureau": "北海道防衛局（起点）",
+      "related_contracts_note": "東洋建設は6地方防衛局以上で受注。R7単年で¥228億+。R5→R7で大幅拡大。"
+    },
+    {
+      "id": "ob_idea_001",
+      "ob_name": "落合健",
+      "previous_role": "元海上自衛隊（階級・部署は要追加確認）",
+      "previous_org": "防衛省",
+      "current_company": "いであ株式会社",
+      "current_position": "主任研究員",
+      "disclosure_year": "R4",
+      "disclosure_period": "2022-04~2023-03",
+      "disclosure_pdf_file": "050401-060331.pdf",
+      "source_url": "https://www.mod.go.jp/j/profile/employ/saisyusyoku/index.html",
+      "verified": true,
+      "verification_note": "MOD R4公表PDFに記載確認済み（既存メモリより）",
+      "related_bureau": "沖縄防衛局",
+      "related_contracts_note": "沖縄防衛局の環境監視4業務 累計¥61.81億・99%+落札率（R5→R7継続独占）"
+    },
+    {
+      "id": "ob_ooba_001",
+      "ob_name": "坪倉幹男",
+      "previous_role": "北関東防衛局企画部長",
+      "previous_org": "防衛省",
+      "current_company": "株式会社オオバ",
+      "current_position": "顧問",
+      "disclosure_year": "要確認",
+      "disclosure_period": null,
+      "disclosure_pdf_file": null,
+      "source_url": null,
+      "verified": false,
+      "verification_note": "既存メモリに記載あるが、公表PDFの年度・URLが未特定。R4・R5・R6PDFをスキャンして特定する必要あり。",
+      "related_bureau": "北関東防衛局",
+      "related_contracts_note": "北関東防衛局から¥14.19億受注（同氏顧問就任後）"
+    }
+  ],
+  "target_companies": [
+    {
+      "id": "toyo",
+      "name": "東洋建設株式会社",
+      "category": "建設・ゼネコン",
+      "related_ob_ids": [
+        "ob_toyo_001"
+      ],
+      "expected_phase1_focus": "防衛省地方防衛局9局横断（R5・R6・R7）",
+      "note": "北海道防衛局を起点に、全国6地方防衛局以上で受注拡大。R5→R7の3年間で大幅拡大が見られるか検証。"
+    },
+    {
+      "id": "idea",
+      "name": "いであ株式会社",
+      "category": "環境コンサル",
+      "related_ob_ids": [
+        "ob_idea_001"
+      ],
+      "expected_phase1_focus": "沖縄防衛局（環境監視4業務）",
+      "note": "沖縄防衛局の環境監視業務を独占。OB公表（R4）後の受注継続性が論点。財務指標として売上¥243億・営業利益13.4%、官公庁86%、辺野古関連が全社売上12%。"
+    },
+    {
+      "id": "ooba",
+      "name": "株式会社オオバ",
+      "category": "建設コンサル",
+      "related_ob_ids": [
+        "ob_ooba_001"
+      ],
+      "expected_phase1_focus": "北関東防衛局",
+      "note": "北関東防衛局からの受注¥14.19億。OB公表年度の特定が必要。"
+    }
+  ],
+  "analysis_design": {
+    "for_each_company": [
+      "1. R5/R6/R7の防衛省地方防衛局別受注額を集計",
+      "2. OB公表年度（disclosure_year）を時系列軸の基準点とする",
+      "3. 受注推移グラフ（局別の積み上げ棒グラフ）",
+      "4. OB公表前後の変化を%で表示",
+      "5. 相関≠因果の注記必須、検証が必要な交絡要因を列挙"
+    ],
+    "confounding_factors_to_note": [
+      "建設業界全体の伸び率",
+      "他業者の指名停止・JV解消の影響",
+      "災害復興需要（能登半島地震 R6 等）",
+      "防衛予算全体の伸び（R7で大幅増額）",
+      "ECI随契方式の拡大による特定企業集中",
+      "技術協力業務の二段構造（業務→工事の連鎖）"
+    ]
+  }
+}

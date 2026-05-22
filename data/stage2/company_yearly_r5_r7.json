@@ -1,0 +1,269 @@
+{
+  "toyo": {
+    "company_name": "東洋建設株式会社",
+    "by_year": {
+      "R5": {},
+      "R7": {
+        "KYUSHU": [
+          {
+            "matched_name": "東洋建設・松山建設特定JV",
+            "cases": 2,
+            "total_amount_oku": 39.0,
+            "methods": "一般競争入札",
+            "kinds": "工事",
+            "max_score": 4,
+            "high_cases": 0,
+            "avg_rate_pct": 92.53,
+            "sample_project": "築城(R7)南護岸整備工事",
+            "corp_number": "",
+            "bureau": "九州防衛局",
+            "year": "R7"
+          },
+          {
+            "matched_name": "東洋建設・不動テトラ・梅村組特定JV",
+            "cases": 1,
+            "total_amount_oku": 30.35,
+            "methods": "一般競争入札",
+            "kinds": "工事",
+            "max_score": 4,
+            "high_cases": 0,
+            "avg_rate_pct": 93.36,
+            "sample_project": "佐世保(7)崎辺桟橋新設工事（その２）",
+            "corp_number": "",
+            "bureau": "九州防衛局",
+            "year": "R7"
+          }
+        ],
+        "OKINAWA": [
+          {
+            "matched_name": "シュワブ（Ｒ７）造成工事（２工区）大林組・東洋建設・屋部土建建設共同企業体",
+            "cases": 1,
+            "total_amount_oku": 235.4,
+            "methods": "一般競争入札",
+            "kinds": "工事",
+            "max_score": 4,
+            "high_cases": 0,
+            "avg_rate_pct": 0,
+            "sample_project": "シュワブ（Ｒ７）造成工事（２工区）",
+            "corp_number": "7010401088742",
+            "bureau": "沖縄防衛局",
+            "year": "R7"
+          },
+          {
+            "matched_name": "シュワブ（Ｒ７）地盤改良工事東洋建設・安藤・間・屋部土建建設共同企業体",
+            "cases": 1,
+            "total_amount_oku": 41.52,
+            "methods": "一般競争入札",
+            "kinds": "工事",
+            "max_score": 4,
+            "high_cases": 0,
+            "avg_rate_pct": 0,
+            "sample_project": "シュワブ（Ｒ７）地盤改良工事（その３）",
+            "corp_number": "9120001077496",
+            "bureau": "沖縄防衛局",
+            "year": "R7"
+          }
+        ]
+      }
+    },
+    "year_totals": {
+      "R5": {
+        "cases": 0,
+        "amount_oku": 0.0
+      },
+      "R7": {
+        "cases": 5,
+        "amount_oku": 346.27
+      }
+    },
+    "matched_records": [
+      {
+        "matched_name": "東洋建設・松山建設特定JV",
+        "cases": 2,
+        "total_amount_oku": 39.0,
+        "methods": "一般競争入札",
+        "kinds": "工事",
+        "max_score": 4,
+        "high_cases": 0,
+        "avg_rate_pct": 92.53,
+        "sample_project": "築城(R7)南護岸整備工事",
+        "corp_number": "",
+        "bureau": "九州防衛局",
+        "year": "R7"
+      },
+      {
+        "matched_name": "東洋建設・不動テトラ・梅村組特定JV",
+        "cases": 1,
+        "total_amount_oku": 30.35,
+        "methods": "一般競争入札",
+        "kinds": "工事",
+        "max_score": 4,
+        "high_cases": 0,
+        "avg_rate_pct": 93.36,
+        "sample_project": "佐世保(7)崎辺桟橋新設工事（その２）",
+        "corp_number": "",
+        "bureau": "九州防衛局",
+        "year": "R7"
+      },
+      {
+        "matched_name": "シュワブ（Ｒ７）造成工事（２工区）大林組・東洋建設・屋部土建建設共同企業体",
+        "cases": 1,
+        "total_amount_oku": 235.4,
+        "methods": "一般競争入札",
+        "kinds": "工事",
+        "max_score": 4,
+        "high_cases": 0,
+        "avg_rate_pct": 0,
+        "sample_project": "シュワブ（Ｒ７）造成工事（２工区）",
+        "corp_number": "7010401088742",
+        "bureau": "沖縄防衛局",
+        "year": "R7"
+      },
+      {
+        "matched_name": "シュワブ（Ｒ７）地盤改良工事東洋建設・安藤・間・屋部土建建設共同企業体",
+        "cases": 1,
+        "total_amount_oku": 41.52,
+        "methods": "一般競争入札",
+        "kinds": "工事",
+        "max_score": 4,
+        "high_cases": 0,
+        "avg_rate_pct": 0,
+        "sample_project": "シュワブ（Ｒ７）地盤改良工事（その３）",
+        "corp_number": "9120001077496",
+        "bureau": "沖縄防衛局",
+        "year": "R7"
+      }
+    ]
+  },
+  "idea": {
+    "company_name": "いであ株式会社",
+    "by_year": {
+      "R5": {},
+      "R7": {
+        "OKINAWA": [
+          {
+            "matched_name": "いであ（）沖縄支社",
+            "cases": 3,
+            "total_amount_oku": 32.57,
+            "methods": "公募型プロポーザル",
+            "kinds": "業務",
+            "max_score": 10,
+            "high_cases": 3,
+            "avg_rate_pct": 0,
+            "sample_project": "シュワブ（Ｒ７）水域生物等調査",
+            "corp_number": "7010901005494",
+            "bureau": "沖縄防衛局",
+            "year": "R7"
+          }
+        ]
+      }
+    },
+    "year_totals": {
+      "R5": {
+        "cases": 0,
+        "amount_oku": 0.0
+      },
+      "R7": {
+        "cases": 3,
+        "amount_oku": 32.57
+      }
+    },
+    "matched_records": [
+      {
+        "matched_name": "いであ（）沖縄支社",
+        "cases": 3,
+        "total_amount_oku": 32.57,
+        "methods": "公募型プロポーザル",
+        "kinds": "業務",
+        "max_score": 10,
+        "high_cases": 3,
+        "avg_rate_pct": 0,
+        "sample_project": "シュワブ（Ｒ７）水域生物等調査",
+        "corp_number": "7010901005494",
+        "bureau": "沖縄防衛局",
+        "year": "R7"
+      }
+    ]
+  },
+  "ooba": {
+    "company_name": "株式会社オオバ",
+    "by_year": {
+      "R5": {
+        "KINKI_CHUBU": [
+          {
+            "matched_name": "小牧外(７)施設最適化総合設計（その１）ＪＦＥ設計･青島設計・内藤建築事務所・ムラシマ事務所・パシフィックコンサルタンツ・中央コンサルタンツ・オオバ共同体",
+            "cases": 1,
+            "total_amount_oku": 21.78,
+            "methods": "公募型プロポーザル方式",
+            "kinds": "",
+            "max_score": 5,
+            "high_cases": 0,
+            "avg_rate_pct": 0,
+            "sample_project": "小牧外（７）施設最適化総合設計（その１）",
+            "corp_number": "",
+            "bureau": "近畿中部防衛局",
+            "year": "R5"
+          }
+        ]
+      },
+      "R7": {
+        "N_KANTO": [
+          {
+            "matched_name": "アジア・パシフィック・オオバ・内藤建築共同体",
+            "cases": 1,
+            "total_amount_oku": 14.19,
+            "methods": "一般競争入札",
+            "kinds": "業務",
+            "max_score": 4,
+            "high_cases": 0,
+            "avg_rate_pct": 98.56,
+            "sample_project": "相馬原外（７）施設総合設計",
+            "corp_number": "",
+            "bureau": "北関東防衛局",
+            "year": "R7"
+          }
+        ]
+      }
+    },
+    "year_totals": {
+      "R5": {
+        "cases": 1,
+        "amount_oku": 21.78
+      },
+      "R7": {
+        "cases": 1,
+        "amount_oku": 14.19
+      }
+    },
+    "matched_records": [
+      {
+        "matched_name": "小牧外(７)施設最適化総合設計（その１）ＪＦＥ設計･青島設計・内藤建築事務所・ムラシマ事務所・パシフィックコンサルタンツ・中央コンサルタンツ・オオバ共同体",
+        "cases": 1,
+        "total_amount_oku": 21.78,
+        "methods": "公募型プロポーザル方式",
+        "kinds": "",
+        "max_score": 5,
+        "high_cases": 0,
+        "avg_rate_pct": 0,
+        "sample_project": "小牧外（７）施設最適化総合設計（その１）",
+        "corp_number": "",
+        "bureau": "近畿中部防衛局",
+        "year": "R5"
+      },
+      {
+        "matched_name": "アジア・パシフィック・オオバ・内藤建築共同体",
+        "cases": 1,
+        "total_amount_oku": 14.19,
+        "methods": "一般競争入札",
+        "kinds": "業務",
+        "max_score": 4,
+        "high_cases": 0,
+        "avg_rate_pct": 98.56,
+        "sample_project": "相馬原外（７）施設総合設計",
+        "corp_number": "",
+        "bureau": "北関東防衛局",
+        "year": "R7"
+      }
+    ]
+  }
+}

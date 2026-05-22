@@ -5,8 +5,14 @@ src/frontend/index_backup*.html
 output/
 youshiki.doc
 *.docx
-data/
-data/防衛省/
+# data/ 内は基本除外（生データは公式サイトにある）
+data/*
+
+# Layer 2 バックヤード公開（追記: 2026-05-22）
+!data/master/
+!data/inventory.md
+!data/stage2/
+# data/防衛省/ は data/* で自動除外
 
 # 静的データは公開する
 !src/frontend/data/

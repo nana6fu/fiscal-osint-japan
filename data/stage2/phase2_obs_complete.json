@@ -1,0 +1,399 @@
+{
+  "NEC": {
+    "sector": "IT",
+    "ob_count": 4,
+    "ob_list": [
+      {
+        "name": "望月　光弘",
+        "age": 59,
+        "former_position": "財務省大臣官房付",
+        "resign_date": "2023-07-01",
+        "join_date": "2023-10-01",
+        "company_full": "日本電気株式会社",
+        "role": "嘱託（上席主幹）"
+      },
+      {
+        "name": "諏訪園　健司",
+        "age": 58,
+        "former_position": "財務省関税局長",
+        "resign_date": "2023-07-04",
+        "join_date": "2023-12-01",
+        "company_full": "日本電気株式会社",
+        "role": "顧問"
+      },
+      {
+        "name": "田中　繁広",
+        "age": 59,
+        "former_position": "経済産業審議官",
+        "resign_date": "2021-07-01",
+        "join_date": "2023-04-01",
+        "company_full": "日本電気株式会社",
+        "role": "CorporateSEVP（副社長）"
+      },
+      {
+        "name": "河合　良則",
+        "age": 59,
+        "former_position": "国土交通省航空局交通管制部管制技術課長",
+        "resign_date": "2023-04-01",
+        "join_date": "2023-07-01",
+        "company_full": "日本電気株式会社",
+        "role": "エアロスペース事業部門センシングプロダクト統括部参与"
+      }
+    ],
+    "r7_oku": 697.34,
+    "r7_ministries": "デジタル庁¥552.9・総務省¥65.7・厚労省¥46.1・財務省¥32.7"
+  },
+  "日立製作所": {
+    "sector": "IT",
+    "ob_count": 2,
+    "ob_list": [
+      {
+        "name": "小宮　大一郎",
+        "age": 60,
+        "former_position": "総務省大臣官房付",
+        "resign_date": "2023-07-21",
+        "join_date": "2023-11-01",
+        "company_full": "株式会社日立製作所",
+        "role": "公共システム事業部特別顧問"
+      },
+      {
+        "name": "平井　裕秀",
+        "age": 59,
+        "former_position": "経済産業審議官",
+        "resign_date": "2023-07-04",
+        "join_date": "2024-01-01",
+        "company_full": "株式会社日立製作所",
+        "role": "社長付"
+      }
+    ],
+    "r7_oku": 54.01,
+    "r7_ministries": "（日立グループ計）"
+  },
+  "日立建機": {
+    "sector": "IT",
+    "ob_count": 1,
+    "ob_list": [
+      {
+        "name": "浜辺　哲也",
+        "age": 57,
+        "former_position": "中小企業庁中小企業政策統括調整官",
+        "resign_date": "2021-09-30",
+        "join_date": "2023-04-01",
+        "company_full": "日立建機株式会社",
+        "role": "執行役経営戦略本部長"
+      }
+    ],
+    "r7_oku": 0,
+    "r7_ministries": ""
+  },
+  "日立造船": {
+    "sector": "IT",
+    "ob_count": 1,
+    "ob_list": [
+      {
+        "name": "瀬川　恵子",
+        "age": 57,
+        "former_position": "環境省地球環境局特別国際交渉官",
+        "resign_date": "2023-06-30",
+        "join_date": "2023-10-01",
+        "company_full": "日立造船株式会社",
+        "role": "顧問"
+      }
+    ],
+    "r7_oku": 0,
+    "r7_ministries": ""
+  },
+  "富士通": {
+    "sector": "IT",
+    "ob_count": 2,
+    "ob_list": [
+      {
+        "name": "大石　吉彦",
+        "age": 59,
+        "former_position": "警視総監",
+        "resign_date": "2022-10-06",
+        "join_date": "2023-04-01",
+        "company_full": "富士通株式会社",
+        "role": "執行役員SEVP社長特命事項担当"
+      },
+      {
+        "name": "林　泰三",
+        "age": 55,
+        "former_position": "国土交通省大臣官房付",
+        "resign_date": "2023-07-04",
+        "join_date": "2024-01-01",
+        "company_full": "富士通株式会社",
+        "role": "シニアアドバイザー"
+      }
+    ],
+    "r7_oku": 322.63,
+    "r7_ministries": "財務省¥199.5・厚労省¥74.2・デジタル庁¥32.2・総務省¥16.8"
+  },
+  "NTTデータ": {
+    "sector": "IT",
+    "ob_count": 1,
+    "ob_list": [
+      {
+        "name": "池田　克史",
+        "age": 57,
+        "former_position": "警視庁副総監",
+        "resign_date": "2023-08-28",
+        "join_date": "2023-12-01",
+        "company_full": "株式会社NTTデータグループ",
+        "role": "顧問"
+      }
+    ],
+    "r7_oku": 402.04,
+    "r7_ministries": "財務省¥194.4・デジタル庁¥166.3・厚労省¥41.4"
+  },
+  "NTT東日本": {
+    "sector": "IT",
+    "ob_count": 1,
+    "ob_list": [
+      {
+        "name": "池田　克史",
+        "age": 57,
+        "former_position": "警視庁副総監",
+        "resign_date": "2023-08-28",
+        "join_date": "2023-12-01",
+        "company_full": "東日本電信電話株式会社",
+        "role": "特別参与"
+      }
+    ],
+    "r7_oku": 149.7,
+    "r7_ministries": "デジタル庁¥149.7"
+  },
+  "PwCあらた": {
+    "sector": "IT",
+    "ob_count": 1,
+    "ob_list": [
+      {
+        "name": "西村　智洋",
+        "age": 55,
+        "former_position": "公認会計士・監査審査会事務局主任公認会計士監査検査官",
+        "resign_date": "2023-06-30",
+        "join_date": "2023-07-01",
+        "company_full": "PwCあらた有限責任監査法人",
+        "role": "パートナー"
+      }
+    ],
+    "r7_oku": 23.21,
+    "r7_ministries": ""
+  },
+  "デロイト": {
+    "sector": "IT",
+    "ob_count": 1,
+    "ob_list": [
+      {
+        "name": "多田　明弘",
+        "age": 60,
+        "former_position": "経済産業事務次官",
+        "resign_date": "2023-07-04",
+        "join_date": "2024-01-01",
+        "company_full": "デロイトトーマツリスクアドバイザリー合同会社",
+        "role": "顧問"
+      }
+    ],
+    "r7_oku": 13.2,
+    "r7_ministries": ""
+  },
+  "日本通運": {
+    "sector": "物流",
+    "ob_count": 4,
+    "ob_list": [
+      {
+        "name": "佐野　裕之",
+        "age": 59,
+        "former_position": "東京税関業務部次長",
+        "resign_date": "2023-07-01",
+        "join_date": "2023-10-01",
+        "company_full": "日本通運株式会社",
+        "role": "調査役"
+      },
+      {
+        "name": "豊住　辰也",
+        "age": 59,
+        "former_position": "神戸税関総務部部付",
+        "resign_date": "2023-07-01",
+        "join_date": "2023-09-01",
+        "company_full": "日本通運株式会社",
+        "role": "神戸支店調査役"
+      },
+      {
+        "name": "宮本　浩司",
+        "age": 59,
+        "former_position": "大阪税関調査部長",
+        "resign_date": "2023-07-01",
+        "join_date": "2023-09-01",
+        "company_full": "日本通運株式会社",
+        "role": "大阪国際輸送支店調査役"
+      },
+      {
+        "name": "岡西　康博",
+        "age": 58,
+        "former_position": "国土交通審議官",
+        "resign_date": "2022-06-28",
+        "join_date": "2023-07-01",
+        "company_full": "日本通運株式会社",
+        "role": "常務理事"
+      }
+    ],
+    "r7_oku": 119.52,
+    "r7_ministries": "厚労省¥119.52（100%随契）"
+  },
+  "川崎重工": {
+    "sector": "重工",
+    "ob_count": 1,
+    "ob_list": [
+      {
+        "name": "十時　憲司",
+        "age": 55,
+        "former_position": "経済産業省大臣官房付",
+        "resign_date": "2022-07-01",
+        "join_date": "2023-06-01",
+        "company_full": "川崎重工業株式会社",
+        "role": "顧問"
+      }
+    ],
+    "r7_oku": 0,
+    "r7_ministries": ""
+  },
+  "IHI": {
+    "sector": "重工",
+    "ob_count": 1,
+    "ob_list": [
+      {
+        "name": "小澤　典明",
+        "age": 58,
+        "former_position": "資源エネルギー庁次長",
+        "resign_date": "2023-07-04",
+        "join_date": "2023-10-01",
+        "company_full": "株式会社IHI",
+        "role": "顧問"
+      }
+    ],
+    "r7_oku": 0,
+    "r7_ministries": ""
+  },
+  "鹿島建設": {
+    "sector": "建設",
+    "ob_count": 3,
+    "ob_list": [
+      {
+        "name": "中尾　剛",
+        "age": 60,
+        "former_position": "東京労働局新宿労働基準監督署長",
+        "resign_date": "2022-03-31",
+        "join_date": "2023-06-01",
+        "company_full": "鹿島建設株式会社",
+        "role": "技術研究所安全担当部長"
+      },
+      {
+        "name": "合屋　英之",
+        "age": 60,
+        "former_position": "農林水産省大臣官房政策課政策情報分析官 兼 農村振興局整備部水資源課付（九州農政局筑後川下流右岸農地防災事業所長）",
+        "resign_date": "2023-03-31",
+        "join_date": "2023-08-01",
+        "company_full": "鹿島建設株式会社",
+        "role": "土木管理本部プロジェクト推進部（官庁）担当部長"
+      },
+      {
+        "name": "青木　秀一",
+        "age": 58,
+        "former_position": "北海道開発局建設部地方整備課長",
+        "resign_date": "2023-07-04",
+        "join_date": "2023-11-01",
+        "company_full": "鹿島建設株式会社",
+        "role": "北海道支店土木部担当部長（技術担当）"
+      }
+    ],
+    "r7_oku": 0,
+    "r7_ministries": ""
+  },
+  "大成建設": {
+    "sector": "建設",
+    "ob_count": 1,
+    "ob_list": [
+      {
+        "name": "山川　昌男",
+        "age": 60,
+        "former_position": "文部科学省大臣官房付",
+        "resign_date": "2023-03-31",
+        "join_date": "2023-07-01",
+        "company_full": "大成建設株式会社",
+        "role": "理事"
+      }
+    ],
+    "r7_oku": 0,
+    "r7_ministries": ""
+  },
+  "清水建設": {
+    "sector": "建設",
+    "ob_count": 1,
+    "ob_list": [
+      {
+        "name": "坂井　孝行",
+        "age": 60,
+        "former_position": "宮内庁管理部長",
+        "resign_date": "2023-03-31",
+        "join_date": "2023-07-01",
+        "company_full": "清水建設株式会社",
+        "role": "顧問"
+      }
+    ],
+    "r7_oku": 0,
+    "r7_ministries": ""
+  },
+  "前田建設": {
+    "sector": "建設",
+    "ob_count": 3,
+    "ob_list": [
+      {
+        "name": "安仁屋　勉",
+        "age": 60,
+        "former_position": "内閣府沖縄総合事務局開発建設部技術企画官",
+        "resign_date": "2022-03-31",
+        "join_date": "2023-07-01",
+        "company_full": "前田建設工業株式会社",
+        "role": "沖縄支店顧問"
+      },
+      {
+        "name": "辻　政司",
+        "age": 60,
+        "former_position": "厚生労働大臣官房付",
+        "resign_date": "2023-03-31",
+        "join_date": "2023-06-01",
+        "company_full": "前田建設工業株式会社",
+        "role": "顧問（嘱託）"
+      },
+      {
+        "name": "原川　忠典",
+        "age": 60,
+        "former_position": "農林水産省農村振興局整備部付",
+        "resign_date": "2023-03-31",
+        "join_date": "2023-07-01",
+        "company_full": "前田建設工業株式会社",
+        "role": "常務理事"
+      }
+    ],
+    "r7_oku": 0,
+    "r7_ministries": ""
+  },
+  "造幣局": {
+    "sector": "内部",
+    "ob_count": 1,
+    "ob_list": [
+      {
+        "name": "谷口　靖",
+        "age": 62,
+        "former_position": "独立行政法人造幣局貨幣部生産管理課企画調整官（独立行政法人造幣局貨幣部長）",
+        "resign_date": "2023-03-31",
+        "join_date": "2023-04-01",
+        "company_full": "独立行政法人造幣局",
+        "role": "理事"
+      }
+    ],
+    "r7_oku": 171.6,
+    "r7_ministries": "財務省¥171.6（100%随契）"
+  }
+}
