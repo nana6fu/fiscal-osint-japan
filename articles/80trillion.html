@@ -1,0 +1,611 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>80兆円対米投資の財源を、財政投融資特別会計から追跡する | Fiscal OSINT Japan</title>
+<meta name="description" content="2025年7月の日米合意で発表された5,500億ドル(約80兆円)の対米投資支援枠。その財源は財政投融資特別会計を経由してJBICに集中し、5年でJBIC受領計が4.2倍に拡大。財務省自身が『米国関税対応』と明記したR7補正特第1号を含め、日米双方の一次資料から構造を追跡する。">
+<meta property="og:title" content="80兆円対米投資の財源を、財政投融資特別会計から追跡する">
+<meta property="og:description" content="JBIC受領計はR5→R8で4.2倍に拡大。財務省自身が『米国関税対応』と明記。">
+<meta property="og:type" content="article">
+<meta property="og:url" content="https://nana6fu.github.io/fiscal-osint-japan/articles/80trillion.html">
+<meta name="twitter:card" content="summary_large_image">
+<style>
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+body {
+  font-family: -apple-system, BlinkMacSystemFont, "Hiragino Sans", "Yu Gothic UI", "Meiryo", sans-serif;
+  background: #0a0e1a; color: #e0e0e0; line-height: 1.85; font-size: 16px;
+  -webkit-font-smoothing: antialiased;
+}
+.container { max-width: 720px; margin: 0 auto; padding: 0 20px; }
+.nav { background: rgba(10,14,26,.95); padding: 14px 0; border-bottom: 1px solid #2a2f3e; position: sticky; top: 0; z-index: 100; backdrop-filter: blur(8px); }
+.nav .container { display: flex; justify-content: space-between; align-items: center; }
+.nav-back { color: #4a8aff; text-decoration: none; font-size: 14px; }
+.nav-back:hover { text-decoration: underline; }
+.nav-site { font-weight: 700; font-size: 15px; letter-spacing: .3px; }
+.nav-site .accent { color: #ff6b6b; }
+.article-header { padding: 60px 0 30px; border-bottom: 1px solid #2a2f3e; margin-bottom: 40px; }
+h1.article-title { font-size: 30px; line-height: 1.4; margin-bottom: 14px; color: #fff; font-weight: 800; letter-spacing: .3px; }
+.article-subtitle { font-size: 17px; color: #aaa; margin-bottom: 28px; line-height: 1.7; font-weight: 400; }
+.article-meta { display: flex; flex-wrap: wrap; gap: 14px; font-size: 13px; color: #888; align-items: center; }
+.article-meta .tag { background: #1a1f2e; padding: 3px 10px; border-radius: 4px; color: #aaa; }
+.tldr { background: #1a1f2e; border-left: 4px solid #ffd700; padding: 22px 26px; margin: 32px 0; border-radius: 4px; }
+.tldr-label { font-size: 12px; color: #ffd700; font-weight: 700; letter-spacing: 1.5px; margin-bottom: 10px; }
+.tldr p { margin: 0; }
+article p { margin-bottom: 1.5em; }
+article section { margin-bottom: 56px; }
+h2 { font-size: 23px; margin: 56px 0 24px; padding-bottom: 14px; border-bottom: 2px solid #2a2f3e; color: #fff; font-weight: 700; line-height: 1.4; }
+h3 { font-size: 18px; margin: 32px 0 16px; color: #fff; font-weight: 600; }
+strong { color: #fff; }
+em.num { color: #ffd700; font-style: normal; font-weight: 700; }
+.highlight-fact { color: #ff6b6b; font-weight: 700; }
+blockquote { background: #1a1f2e; border-left: 4px solid #ff6b6b; padding: 20px 26px; margin: 26px 0; border-radius: 4px; color: #ddd; font-size: 15px; }
+blockquote.jp { border-left-color: #4a8aff; }
+blockquote.us { border-left-color: #ff6b6b; }
+blockquote p { margin: 0; }
+blockquote p + p { margin-top: .8em; }
+blockquote .source { display: block; margin-top: 14px; font-size: 13px; color: #888; }
+blockquote .source a { color: #4a8aff; }
+blockquote .quote-label { display: inline-block; font-size: 11px; font-weight: 700; padding: 2px 8px; border-radius: 3px; margin-bottom: 8px; letter-spacing: 1px; }
+blockquote.jp .quote-label { background: #1a3a5a; color: #4a8aff; }
+blockquote.us .quote-label { background: #5a1a1a; color: #ff6b6b; }
+.compare-table { width: 100%; border-collapse: collapse; margin: 26px 0; font-size: 14px; }
+.compare-table th, .compare-table td { padding: 12px 14px; text-align: left; border: 1px solid #2a2f3e; vertical-align: top; line-height: 1.6; }
+.compare-table thead { background: #1a1f2e; }
+.compare-table thead th { font-weight: 700; }
+.compare-table th.jp { color: #4a8aff; }
+.compare-table th.us { color: #ff6b6b; }
+.compare-table .row-label { background: #151a26; font-weight: 600; width: 22%; color: #ccc; }
+.compare-table td a { color: #4a8aff; }
+.marker { display: inline-block; padding: 2px 9px; border-radius: 3px; font-size: 12px; margin-right: 6px; font-weight: 600; letter-spacing: .3px; }
+.marker-ai { background: #2a2f3e; color: #b0b0b0; }
+.marker-primary { background: #1a3a4a; color: #4a8aff; }
+.marker-warn { background: #4a2a1a; color: #ffaa00; }
+.marker-cross { background: #5a1a1a; color: #ff6b6b; }
+a { color: #4a8aff; text-decoration: none; }
+a:hover { text-decoration: underline; }
+.sources, .changelog { background: #1a1f2e; padding: 24px 26px; border-radius: 8px; margin: 36px 0; font-size: 14px; }
+.sources h3, .changelog h3 { margin: 0 0 14px; color: #ffd700; font-size: 16px; border: none; padding: 0; }
+.sources ol { padding-left: 1.5em; }
+.sources li { margin-bottom: 10px; color: #ccc; line-height: 1.7; }
+.sources .policy { margin-top: 20px; padding-top: 16px; border-top: 1px solid #2a2f3e; }
+.sources .policy ul { padding-left: 1.5em; margin-top: 10px; }
+.sources .policy li { margin-bottom: 6px; }
+.changelog ul { padding-left: 1.5em; margin-top: 8px; }
+.changelog li { margin-bottom: 8px; color: #ccc; }
+.changelog li .date { color: #888; font-size: 13px; margin-right: 10px; }
+.next-article { background: #151a26; padding: 24px; border-radius: 8px; margin: 36px 0; border: 1px solid #2a2f3e; }
+.next-article h3 { margin: 0 0 12px; color: #fff; }
+.next-article p { margin-bottom: 0; color: #bbb; font-size: 14px; }
+footer { border-top: 1px solid #2a2f3e; padding: 30px 0; margin-top: 60px; text-align: center; font-size: 13px; color: #666; }
+footer a { color: #888; }
+footer p { margin-bottom: 6px; }
+.trend-table { width: 100%; border-collapse: collapse; margin: 26px 0; font-size: 14px; }
+.trend-table th, .trend-table td { padding: 10px 12px; text-align: right; border: 1px solid #2a2f3e; line-height: 1.6; }
+.trend-table th { background: #1a1f2e; font-weight: 700; text-align: center; color: #fff; }
+.trend-table td:first-child { text-align: left; background: #151a26; font-weight: 600; color: #ccc; }
+.trend-table .highlight { color: #ffd700; font-weight: 700; }
+.companies-table { width: 100%; border-collapse: collapse; margin: 26px 0; font-size: 13px; }
+.companies-table th, .companies-table td { padding: 10px 12px; text-align: left; border: 1px solid #2a2f3e; line-height: 1.5; vertical-align: top; }
+.companies-table th { background: #1a1f2e; font-weight: 700; }
+.companies-table td.amount { text-align: right; white-space: nowrap; color: #ffd700; font-weight: 700; }
+.companies-table tr.category-header td { background: #151a26; font-weight: 700; color: #4a8aff; padding: 8px 12px; }
+@media (max-width: 768px) {
+  body { font-size: 15px; }
+  h1.article-title { font-size: 22px; }
+  h2 { font-size: 19px; }
+  h3 { font-size: 17px; }
+  .container { padding: 0 16px; }
+  .article-header { padding: 40px 0 24px; }
+  blockquote, .tldr { padding: 16px 20px; }
+  .compare-table, .trend-table, .companies-table { font-size: 12px; }
+  .compare-table th, .compare-table td, .trend-table th, .trend-table td, .companies-table th, .companies-table td { padding: 8px 10px; }
+}
+</style>
+</head>
+<body>
+
+<nav class="nav">
+  <div class="container">
+    <a href="../index.html" class="nav-back">← Fiscal OSINT Japan ダッシュボードへ</a>
+    <div class="nav-site"><span class="accent">Fiscal OSINT</span> Japan</div>
+  </div>
+</nav>
+
+<div class="container">
+
+  <header class="article-header">
+    <h1 class="article-title">80兆円対米投資の財源を、財政投融資特別会計から追跡する</h1>
+    <p class="article-subtitle">JBIC受領計はR5→R8で4.2倍に拡大。財務省自身がR7補正で「米国関税対応」と明記。日米双方の一次資料から構造を追跡する。</p>
+    
+    <div class="article-meta">
+      <span>📅 公開: 2026/05/22</span>
+      <span>🔄 更新: 2026/05/22</span>
+      <span class="tag">80兆対米投資</span>
+      <span class="tag">財投特会</span>
+      <span class="tag">JBIC</span>
+      <span class="tag">OSINT</span>
+      <span>📝 約4,500字 / 読了 約15分</span>
+    </div>
+  </header>
+
+  <article>
+  
+    <div class="tldr">
+      <div class="tldr-label">TL;DR — 3行要約</div>
+      <p>① 2025年7月に発表された5,500億ドル（約80兆円）の対米投資支援枠は、「絵に描いた餅」ではなく、財政投融資特別会計から国際協力銀行（JBIC）への融資・出資という具体的な財政上の経路で既に動いている。<br>
+      ② JBICへの資金注入は <em class="num">R5(¥1兆557億)</em> から <em class="num">R8(¥4兆4,177億)</em> へ <strong class="highlight-fact">5年で4.2倍に拡大</strong>。財務省自身がR7補正特第1号で「米国関税対応」と明記している。<br>
+      ③ しかし、同じ合意に対する日米双方の説明には明確な齟齬があり、米国側の「投資」と日本側の「融資保証の枠」、利益配分の解釈、共同文書の有無まで食い違っている。</p>
+    </div>
+
+    <section>
+      <h2>1. はじめに ── 「絵に描いた餅」ではなかった</h2>
+      
+      <p>2025年7月22日、ドナルド・トランプ米大統領は自身のSNS「Truth Social」で、日本が5,500億ドル（約80兆円）を米国に投資する合意に達したと発表した。日本のメディアは「対米投資」「巨額の投資コミットメント」と報じたが、その実態は曖昧なまま時間が経過した。</p>
+
+      <p>本記事では、財務省・内閣官房・経済産業省・首相官邸・ホワイトハウス（大統領令、ファクトシート3本、覚書）など <strong>日米双方の一次資料14点</strong> を照らし合わせ、「80兆円」がどの財布から、どの経路で、どこへ向かっているのかを追跡する。</p>
+
+      <p>結論を先に述べる。<span class="highlight-fact">80兆円の中核は、財政投融資特別会計（財投特会）の投資勘定・財政融資資金勘定からJBIC（国際協力銀行）への出資・融資として既に動き始めている</span>。そして、その規模は政府公式の決算書類・予算書類から、R5（令和5年度）からR8（令和8年度）まで5年間で <strong>約4.2倍に拡大</strong> したことが確認できる。</p>
+    </section>
+
+    <section>
+      <h2>2. 背景：5,500億ドル枠とは何か</h2>
+      
+      <p>合意は2025年7月22日のトランプ大統領発表に始まる。トランプはTruth Socialで次のように投稿した。</p>
+
+      <blockquote class="us">
+        <div class="quote-label">🇺🇸 米国側 / トランプ大統領</div>
+        <p>"We just completed a massive Deal with Japan, perhaps the largest Deal ever made. <strong>Japan will invest, at my direction, $550 Billion Dollars into the United States, which will receive 90% of the Profits.</strong> This Deal will create Hundreds of Thousands of Jobs — There has never been anything like it."</p>
+        <p>(訳：日本と巨大な合意に達した。日本は私の指示の下、5,500億ドルを米国に投資する。米国は利益の90%を得る。)</p>
+        <span class="source">— 出典：Truth Social（2025年7月22日）／<a href="https://www.newsweek.com/donald-trump-trade-deal-japan-2102885" target="_blank">Newsweek</a>、<a href="https://www.aljazeera.com/economy/2025/7/23/trump-announces-massive-trade-deal-with-japan" target="_blank">Al Jazeera</a> 等が同一文言を引用</span>
+      </blockquote>
+
+      <p>翌日の2025年7月23日、ホワイトハウスは公式ファクトシートを発出した。</p>
+
+      <blockquote class="us">
+        <div class="quote-label">🇺🇸 米国側 / White House Fact Sheet</div>
+        <p>"Japan will invest $550 billion <strong>directed by the United States</strong> to rebuild and expand core American industries. ... At President Trump's direction, these funds will be targeted toward the revitalization of America's strategic industrial base. ... <strong>The United States will retain 90% of the profits</strong> from this investment."</p>
+        <p>(訳：日本は米国の指示の下、5,500億ドルを米国の中核産業の再建・拡大のために投資する。トランプ大統領の指示により、これらの資金は米国の戦略的産業基盤の再活性化に向けられる。米国は投資から得られる利益の90%を保持する。)</p>
+        <span class="source">— 出典：<a href="https://www.whitehouse.gov/fact-sheets/2025/07/fact-sheet-president-donald-j-trump-secures-unprecedented-u-s-japan-strategic-trade-and-investment-agreement/" target="_blank">White House Fact Sheet</a>（2025年7月23日）</span>
+      </blockquote>
+
+      <p>一方、同日の日本側の説明はトーンが大きく異なる。同日午後、石破茂内閣総理大臣（当時）は会見で次のように述べた。</p>
+
+      <blockquote class="jp">
+        <div class="quote-label">🇯🇵 日本側 / 石破総理</div>
+        <p>「日本企業が関与する医薬品、半導体等の重要分野での対米投資の促進のため、<strong>政府系金融機関が最大５,５００億ドル規模の出資、融資、融資保証を提供可能にする</strong>ということで合意をしたというのが正確なところでございます。この投資は、ＪＢＩＣ（国際協力銀行）による出資、融資、日本貿易保険（ＮＥＸＩ）による保証を活用するということを考えております」</p>
+        <span class="source">— 出典：<a href="https://www.kantei.go.jp/jp/103/statement/2025/0723bura2.html" target="_blank">首相官邸 米国関税措置に関する日米協議の合意等についての会見</a>（2025年7月23日）</span>
+      </blockquote>
+
+      <p>「日本が550 billion を投資する」（米国側）と、「政府系金融機関が出資・融資・融資保証を提供可能にする」（日本側）。<span class="highlight-fact">同じ合意を説明しているはずなのに、そもそも「日本が投資する」のか「金融機関が支援枠を作る」のか、性質の表現が一致していない</span>。</p>
+    </section>
+
+    <section>
+      <h2>3. 日米の理解の齟齬 ── 5つの食い違い</h2>
+      
+      <p>合意発表から10ヶ月が経過した時点（2026年5月）で、複数の食い違いが一次資料から確認できる。順に整理する。</p>
+
+      <h3>3-1. 性質の表現：「投資」か「融資保証の枠」か</h3>
+      
+      <p>トランプ大統領は2025年7月24日の会見でさらに踏み込んだ表現を使った。</p>
+
+      <blockquote class="us">
+        <div class="quote-label">🇺🇸 米国側 / トランプ大統領（2025年7月24日）</div>
+        <p>"Japan is putting up $550 billion in order to lower their tariffs a little bit. They put up, as you could call it, seed money. Let's call it seed money."</p>
+        <p>"<strong>It's not a loan or anything, it's a signing bonus</strong>"</p>
+        <p>(訳：日本は関税を少し下げてもらうために5,500億ドルを拠出している。シードマネー（種銭）と呼べるものだ。ローンでも何でもない、サイニングボーナスだ。)</p>
+        <span class="source">— 出典：AP通信（2025年7月24日）／<a href="https://www.marketbeat.com/articles/trump-says-japan-will-invest-550-billion-in-us-at-his-direction-it-may-not-be-a-sure-thing-2025-07-26" target="_blank">AP via MarketBeat</a></span>
+      </blockquote>
+
+      <p>「ローンでも何でもない、サイニングボーナス（契約金）だ」。これは、日本側が説明している「出資・融資・融資保証の枠」とは明確に異なる性質の表現である。</p>
+
+      <p>日本側内閣官房の総合対策本部資料（2025年7月25日付）でも、説明は一貫している。</p>
+
+      <blockquote class="jp">
+        <div class="quote-label">🇯🇵 日本側 / 内閣官房</div>
+        <p>「日本は、その実現に向け、<strong>政府系金融機関が最大5500億ドル規模の出資・融資・融資保証を提供することを可能にする</strong>」</p>
+        <span class="source">— 出典：<a href="https://www.cas.go.jp/jp/seisaku/tariff_measures/dai6/250725siryou1.pdf" target="_blank">内閣官房 米国の関税措置に関する日米協議：日米間の合意（概要）</a>（2025年7月25日）</span>
+      </blockquote>
+
+      <h3>3-2. 共同文書の不在 ── 外務報道官が明言</h3>
+
+      <p>7月22日の合意発表から、当面の間は<strong>正式な共同文書が存在しなかった</strong>。これは外務省自身が認めている。</p>
+
+      <blockquote class="jp">
+        <div class="quote-label">🇯🇵 日本側 / 外務報道官</div>
+        <p>「最終的には皆様御存じのとおり、7月22日の赤澤経済再生担当大臣とトランプ大統領とのやり取りも踏まえ、両国の国益に資する合意ができたものです。このようにギリギリまで折衝を行った、そういう経緯からして、<strong>共同文書は作成していない</strong>ということです。」</p>
+        <span class="source">— 出典：<a href="https://www.mofa.go.jp/mofaj/press/kaiken/kaikenit_000001_00104.html" target="_blank">外務省 北村外務報道官会見記録</a>（2025年7月30日）</span>
+      </blockquote>
+
+      <p>つまり、トランプの「Japan will invest, at my direction, $550 Billion」というSNS発信から、了解覚書（MOU）が署名される2025年9月4日までの約6週間、両国が合意した内容を共通の文書で確認することはできない状態だった。<span class="marker marker-warn">⚠️ 注</span> AP通信は同時期、日本側内閣官房（Cabinet Office）に取材し、次のような説明を得たと報じている。</p>
+
+      <blockquote class="jp">
+        <div class="quote-label">🇯🇵 日本側 / 内閣官房（AP取材）</div>
+        <p>"Japan's Cabinet Office indicated that the investment involves a credit facility from state-affiliated financial institutions, and further terms are still being worked out."</p>
+        <p>"Japanese trade negotiators have highlighted that <strong>no legally binding agreement is in place</strong> and believe that <strong>differences in understanding may need to be clarified</strong>."</p>
+        <p>(訳：日本の内閣官房は、この投資は政府系金融機関の信用ファシリティを伴うものであり、さらなる条件は調整中だと示した。日本の通商交渉担当者は、法的拘束力のある合意は存在せず、両国の理解の違いを明確化する必要があるかもしれないと強調した。)</p>
+        <span class="source">— 出典：<a href="https://www.marketbeat.com/articles/trump-says-japan-will-invest-550-billion-in-us-at-his-direction-it-may-not-be-a-sure-thing-2025-07-26" target="_blank">AP通信（2025年7月）</a></span>
+      </blockquote>
+
+      <p>日本政府自身が「理解の違いを明確化する必要があるかもしれない」と公に認めていたという事実は、合意の不安定さを示している。</p>
+
+      <h3>3-3. 9月4日のMOU署名 ── 日本だけが公開、米国は非公開</h3>
+
+      <p>2025年9月4日、米国ワシントンD.C.で赤澤亮正経済再生担当相（当時）とハワード・ラトニック米国商務長官が「日本国政府及びアメリカ合衆国政府の戦略的投資に関する了解覚書（MOU）」に署名した。日本側は内閣官房のサイトで仮訳を公開している。</p>
+
+      <blockquote class="jp">
+        <div class="quote-label">🇯🇵 日本側 / MOU 公式仮訳</div>
+        <p>「経済・国家安全保障上の利益を促進するため、日本が、半導体、医薬品、金属、重要鉱物、造船、エネルギー（パイプラインを含む）及び人工知能/量子コンピューティングを含むがこれらに限定されない様々な分野において、<strong>5,500億米ドルを米国に投資すること（資本コミットメント）</strong>が両国の最善の利益であると認識し、次の了解に達した。」</p>
+        <p>パラグラフ7：「日本は、大統領が当該投資先を選定したと日本が通知された日の後 45営業日以上経過した日に、米国投資アクセラレーターが指定する単一又は複数の口座に、<strong>米ドル建ての即時利用可能な資金を拠出する</strong>。」</p>
+        <p>パラグラフ8：「日本が資金提供を行わないことを選択した場合、米国は、大統領が定める率で<strong>単一又は複数の関税率を米国への日本からの輸入品に対して課すこともできる</strong>。」</p>
+        <span class="source">— 出典：<a href="https://www.cas.go.jp/jp/seisaku/tariff_measures/houmon/pdf/MOU(JP).pdf" target="_blank">内閣官房 戦略的投資に関する了解覚書（仮訳）</a>（2025年9月4日署名）</span>
+      </blockquote>
+
+      <p>MOU仮訳では「資本コミットメント」「米ドル建ての即時利用可能な資金を拠出」という表現になっている。これは石破総理が説明した「政府系金融機関が出資・融資・融資保証を提供可能にする」とはニュアンスが異なる。仮訳の文言は、米国側ファクトシートの "investment commitment" の翻訳に寄っている。</p>
+
+      <p>そして、<span class="highlight-fact">米国側は同じMOUを公開していない</span>。これは米国の独立調査機関 Just Security が指摘した。</p>
+
+      <blockquote class="us">
+        <div class="quote-label">🇺🇸 米国側 / Just Security 指摘</div>
+        <p>"the White House's executive order only referenced the $550 billion investment without explaining how the deal will operate. And while Japan has publicly released the memorandum, <strong>the Trump administration has not</strong> ── another omission."</p>
+        <p>(訳：ホワイトハウスの大統領令は5,500億ドルの投資に言及するだけで、合意がどう運用されるかは説明していない。日本は覚書を公開したが、トランプ政権は公開していない。これも省略事項のひとつだ。)</p>
+        <span class="source">— 出典：<a href="https://www.justsecurity.org/123478/trump-japan-deal-appropriations-clause/" target="_blank">Just Security（2025年11月）</a></span>
+      </blockquote>
+
+      <p>米国側は議会承認なしの「$550 billion slush fund（裏金庫）」と批判する分析もある。</p>
+
+      <h3>3-4. 利益配分の説明が複数バージョン</h3>
+
+      <p>「日本側10%、米国側90%」の利益配分は、報道で頻繁に引用される。しかし、時期や文書によって説明が違う。</p>
+
+      <table class="compare-table">
+        <thead>
+          <tr>
+            <th>時期・出典</th>
+            <th>説明された利益配分</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td class="row-label">内閣官房 2025/7/25 資料</td>
+            <td>「双方が負担する貢献やリスクの度合いに応じて決定」</td>
+          </tr>
+          <tr>
+            <td class="row-label">赤沢発言 2025/7/26 NHK番組</td>
+            <td>「当初日本側は5:5を提案 → 最終的に日米1:9」</td>
+          </tr>
+          <tr>
+            <td class="row-label">トランプ Truth Social 2025/7/22</td>
+            <td>"90% of the Profits"</td>
+          </tr>
+          <tr>
+            <td class="row-label">MOU仮訳 パラグラフ13（9/4署名）</td>
+            <td>（a）みなし配分額に等しい合計まで <strong>50:50</strong>／（b）その後 <strong>米国90:日本10</strong>（二段階）</td>
+          </tr>
+        </tbody>
+      </table>
+
+      <p>MOU署名時点では「みなし配分額まで50:50、それ以降90:10の二段階」という構造が明示された。<span class="marker marker-warn">⚠️ 注</span> 「みなし配分額」は MOU 付録で複雑に定義されており、「投資額にみなし金利を乗じた額」+「予想プロジェクト期間で割った値」+「繰越額」の合計とされる。実質的に投資元本回収相当額までは50:50、その後の超過収益が90:10という設計と読める（推測を含む）。</p>
+
+      <h3>3-5. 21社リストの位置づけ ── 日本「候補」、米国「コミット履行」</h3>
+
+      <p>2025年10月28日、トランプ大統領の訪日に合わせて、日米両政府は「日米間の投資に関する共同ファクトシート」を発出し、21社（22企業）の投資先と金額を公表した。しかし、その「位置づけ」について、日米の説明が異なる。</p>
+
+      <blockquote class="us">
+        <div class="quote-label">🇺🇸 米国側 / White House Fact Sheet</div>
+        <p>"Today in Tokyo, President Donald J. Trump announced major projects <strong>advancing Japan's previous $550 billion investment commitment</strong> to the United States. ... <strong>Japan and various Japanese companies have outlined their commitments</strong> to pursuing the following investments."</p>
+        <p>(訳：本日東京でトランプ大統領は、日本の従来の5,500億ドルの投資コミットメントを進展させる主要プロジェクトを発表した。日本および日本の各企業は、以下の投資を推進するというコミットメントを示した。)</p>
+        <span class="source">— 出典：<a href="https://www.whitehouse.gov/fact-sheets/2025/10/28195/" target="_blank">White House Fact Sheet</a>（2025年10月28日）</span>
+      </blockquote>
+
+      <p>一方、赤澤亮正経済産業大臣（当時）は同日の閣議後記者会見で次のように述べた。</p>
+
+      <blockquote class="jp">
+        <div class="quote-label">🇯🇵 日本側 / 赤澤経産相</div>
+        <p>「実際に5,500億ドルの当初の対象になるかどうかというのはあると、MOUに乗っけてですね。全て協議委員会、答申委員会と手続を動かして決まっていることなので、そういう意味で、<strong>MOU、プロセスとはまだ全く何の関わりもないもの</strong>でありますが、ただ、そのプロセスに乗せる、いわば<strong>候補とかね、種というか</strong>、そういうものを日米両政府、力を合わせてやろうとしてる」</p>
+        <span class="source">— 出典：<a href="https://www.meti.go.jp/speeches/kaiken/2025/20251028001.html" target="_blank">経済産業省 赤澤大臣閣議後記者会見の概要</a>（2025年10月28日）</span>
+      </blockquote>
+
+      <p><span class="highlight-fact">米国側は「commitment（コミットメント）の履行」と説明し、日本側は「候補・種であり、MOUプロセスとは何の関わりもない」と説明している</span>。同じ21社のリストを、両国がここまで違うトーンで発表したのは、改めて理解の違いを示すものだ。</p>
+
+      <p>日本側ファクトシート（経産省・財務省共同で発出した仮訳）の表現は、米国側と更に異なる。</p>
+
+      <blockquote class="jp">
+        <div class="quote-label">🇯🇵 日本側 / 共同ファクトシート（仮訳）</div>
+        <p>「今般のトランプ大統領の訪日に際し、日米両政府は、<strong>日米両国の企業が、次の分野におけるプロジェクト組成に関心を有していること</strong>を歓迎した」</p>
+        <p>「日米両政府は、9月4日に日米両国が署名を行った5,500億米ドルの戦略的投資に関する了解覚書の対象となる案件も含め、今後、日米両国のサプライチェーン強靱化に資する様々なビジネス上の取組が推進されることについて、<strong>強い期待を表明した</strong>」</p>
+        <span class="source">— 出典：<a href="https://www.mof.go.jp/policy/international_policy/convention/dialogue/251028_fact_sheet_2.pdf" target="_blank">財務省・経産省 日米間の投資に関する共同ファクトシート（仮訳）</a>（2025年10月28日）</span>
+      </blockquote>
+
+      <p>「企業が関心を有していること」「強い期待を表明」── 日本側ファクトシートの表現は、企業の判断を政府が応援するという構図に近い。一方、米国側ファクトシートは「Japan committed」「various Japanese companies have outlined their commitments」と書いている。<strong>同じ共同ファクトシート（であるはず）なのに、コミットメント強度の表現が異なる</strong>。</p>
+    </section>
+
+    <section>
+      <h2>4. 財務省が「米国関税対応」と明記した R7補正</h2>
+
+      <p>合意の本質は文書だけでは把握できない。実際にどの財布から、どこへ資金が動いたかを追う必要がある。財務省の特別会計予算書は、この点について雄弁である。</p>
+
+      <p>令和7年度補正予算（特第1号）は2025年11月28日に閣議決定され、令和7年12月16日に成立した。財投特会の投資勘定の補正説明には、次のような記述がある。</p>
+
+      <blockquote class="jp">
+        <div class="quote-label">🇯🇵 日本側 / 財務省 R7補正特第1号</div>
+        <p>「「強い経済」を実現する総合経済対策」の一環として、<strong>米国関税に対応するため株式会社国際協力銀行が行う日本戦略投資ファシリティを通じた企業支援のための財務基盤強化に要する資金に充てるための出資等を追加</strong>するものである。」</p>
+        <span class="source">— 出典：<a href="https://www.mof.go.jp/about_mof/mof_budget/special_account/zaitou/2025budget.html" target="_blank">財務省 令和7年度予算（財政投融資特別会計）</a>（補正特第1号）</span>
+      </blockquote>
+
+      <p><span class="highlight-fact">財務省自身が予算書類の中で「米国関税に対応するため」「JBIC日本戦略投資ファシリティ」と明記している</span>。これが、80兆対米投資が日本の公式予算プロセスに具体的に取り込まれた最初の足跡である。</p>
+
+      <p>この補正でJBICへの出資金が2,700億円追加された。次の表で、5年間の流れを見る。</p>
+    </section>
+
+    <section>
+      <h2>5. JBICへの資金注入 ── 5年で4.2倍</h2>
+
+      <p>財投特会から JBIC（国際協力銀行）への資金注入は、財政融資資金勘定からの融資と、投資勘定からの出資の2本立てで構成される。財務省特別会計の決算書・予算書から、5年分の数字を整理した。</p>
+
+      <table class="trend-table">
+        <thead>
+          <tr>
+            <th>区分</th>
+            <th>R5（決算）</th>
+            <th>R6（決算）</th>
+            <th>R7当初</th>
+            <th>R7補正後</th>
+            <th>R8当初</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>財政融資資金勘定→JBIC融資</td>
+            <td>¥9,527億</td>
+            <td>¥1,540億</td>
+            <td>¥7,200億</td>
+            <td>¥2兆6,600億</td>
+            <td class="highlight">¥4兆2,527億</td>
+          </tr>
+          <tr>
+            <td>投資勘定→JBIC出資</td>
+            <td>¥1,030億</td>
+            <td>¥1,210億</td>
+            <td>¥1,000億</td>
+            <td>¥3,700億</td>
+            <td class="highlight">¥1,650億</td>
+          </tr>
+          <tr>
+            <td><strong>JBIC受領計</strong></td>
+            <td><strong>¥1兆557億</strong></td>
+            <td><strong>¥2,750億</strong></td>
+            <td><strong>¥8,200億</strong></td>
+            <td><strong>¥3兆300億</strong></td>
+            <td class="highlight"><strong>¥4兆4,177億</strong></td>
+          </tr>
+        </tbody>
+      </table>
+
+      <p><span class="marker marker-primary">📄 一次資料</span> 出典：財務省「<a href="https://www.mof.go.jp/about_mof/mof_budget/special_account/zaitou/2023account.html" target="_blank">令和5年度決算</a>」「<a href="https://www.mof.go.jp/about_mof/mof_budget/special_account/zaitou/2024account.html" target="_blank">令和6年度決算</a>」「<a href="https://www.mof.go.jp/about_mof/mof_budget/special_account/zaitou/2025budget.html" target="_blank">令和7年度予算（補正含む）</a>」「<a href="https://www.mof.go.jp/about_mof/mof_budget/special_account/zaitou/2026budget.html" target="_blank">令和8年度予算</a>」</p>
+
+      <p>注目すべき特徴は3つある。</p>
+
+      <p><strong>① R5→R6で一旦減少</strong>：JBIC受領計は R5 ¥1兆557億から R6 ¥2,750億へと約4分の1に減少した。これは80兆合意以前の通常の運用ペースである。</p>
+
+      <p><strong>② R7当初予算では微増にとどまる</strong>：R7当初予算（2025年3月成立）時点では、80兆合意（2025年7月）はまだ存在しなかった。受領計は ¥8,200億で、R6から増えたが「平常運転」の範囲。</p>
+
+      <p><strong>③ R7補正で急増、R8でさらに拡大</strong>：80兆合意成立後の R7補正特第1号（2025年12月成立）で、JBIC融資が ¥7,200億から ¥2兆6,600億 へ約3.7倍に拡大した。続くR8当初予算（2026年3月成立）では更に増額され ¥4兆2,527億 となった。<strong>R5 から R8 で受領計は4.18倍に拡大</strong>している。</p>
+
+      <p>これらの数字は、財務省の公式予算書類から検証可能であり、JBIC への資金注入が80兆合意のタイミングに合わせて急増している事実を示している。</p>
+
+      <p>赤沢経済再生担当相は、これらの財源について次のような説明をしている。</p>
+
+      <blockquote class="jp">
+        <div class="quote-label">🇯🇵 日本側 / 赤沢発言（2025年9月12日）</div>
+        <p>「JBICからの融資について、<strong>半分は外国為替資金特別会計（外為特会）の運用収入などで対応可能だと思う。米国債等を売却する必要はない</strong>。あとは政府保証付きのドル建ての債券の発行や通貨スワップで考えている」</p>
+        <span class="source">— 出典：日本経済新聞 2025年9月12日／ReHacQ（リハック）出演時</span>
+      </blockquote>
+
+      <p>外為特会の資金残高は R6末（2025年3月31日時点）で約¥187兆、その大半が米国債を含む外貨資産で保有されている。<span class="marker marker-warn">⚠️ 推察</span> 赤沢氏の説明によれば、JBIC が米企業へドル建てで融資する原資の一部は、外為特会が保有する米国債の利子等から得られる運用収入で賄うことになる。「米国債の利子で米国企業へ融資する」という構造である（赤沢発言の解釈・推察を含む）。</p>
+    </section>
+
+    <section>
+      <h2>6. 投資先決定の構造と21社</h2>
+
+      <p>MOUのパラグラフ1〜5は、投資先決定のガバナンスを定めている。</p>
+
+      <blockquote class="jp">
+        <div class="quote-label">🇯🇵 日本側 / MOU 仮訳</div>
+        <p>パラグラフ1：「<strong>米国大統領は、投資委員会により推薦された中から投資先を選定する。</strong>」</p>
+        <p>パラグラフ2：「投資は、本覚書の日付から<strong>2029年1月19日</strong>までの間、随時、行われる。」</p>
+        <p>パラグラフ4：「投資委員会は、<strong>米国商務長官が議長</strong>を務め、投資委員会が随時選出する他の委員を含む。」</p>
+        <p>パラグラフ11：「米国は、各投資に関連して新しい投資SPVを設立する。各投資SPVは<strong>米国又は米国が指名する者がゼネラルパートナーとなって管理、統治する</strong>。」</p>
+        <span class="source">— 出典：<a href="https://www.cas.go.jp/jp/seisaku/tariff_measures/houmon/pdf/MOU(JP).pdf" target="_blank">内閣官房 戦略的投資に関する了解覚書（仮訳）</a></span>
+      </blockquote>
+
+      <p>3つの重要な構造が読み取れる。第一に、<strong>投資先決定権は米国大統領にある</strong>。投資委員会の議長は米国商務長官（ラトニック氏）。日本も「協議委員会」を通じてインプットは提供できるが、最終決定はあくまで米大統領。第二に、<strong>2029年1月19日</strong>──トランプ大統領の任期終了日まで投資を実施する。「3年半で80兆」のスケジュール感はここから来る。第三に、<strong>投資SPV（特別目的会社）の管理権も米国側</strong>にある。日本は資金を拠出し、ガバナンスは米国側が担う構図である。</p>
+
+      <p>そして、21社の具体的なリストが2025年10月28日に公表された。日本側ファクトシート（仮訳）から、金額が明示されている案件を以下に整理する。</p>
+
+      <table class="companies-table">
+        <thead>
+          <tr>
+            <th>企業</th>
+            <th>事業内容</th>
+            <th class="amount">事業規模</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr class="category-header"><td colspan="3">１．エネルギー（合計約$325B / 約49兆円）</td></tr>
+          <tr><td>Westinghouse</td><td>AP1000原子炉・SMR建設。三菱重工・東芝・IHI関与検討</td><td class="amount">最大$100B</td></tr>
+          <tr><td>GEベルノバ日立</td><td>SMR（BWRX-300）建設。日立GEベルノバ等関与検討</td><td class="amount">最大$100B</td></tr>
+          <tr><td>Bechtel</td><td>発電所・変電所・送電網。日本企業関与検討</td><td class="amount">最大$25B</td></tr>
+          <tr><td>Kiewit</td><td>エンジニアリング・調達・建設。日本企業関与検討</td><td class="amount">最大$25B</td></tr>
+          <tr><td>GE Vernova</td><td>ガスタービン・蒸気タービン等の大型電力機器</td><td class="amount">最大$25B</td></tr>
+          <tr><td>SoftBank Group</td><td>大規模電力インフラの設計・開発・運用</td><td class="amount">最大$25B</td></tr>
+          <tr><td>Carrier</td><td>電力インフラ向け冷却システム</td><td class="amount">最大$20B</td></tr>
+          <tr><td>Kinder Morgan</td><td>天然ガス送電・電力インフラ</td><td class="amount">最大$7B</td></tr>
+          
+          <tr class="category-header"><td colspan="3">２．AI向け電源開発</td></tr>
+          <tr><td>NuScale / ENTRA1エナジー</td><td>AI向け電源（ガス火力・原子力）検討</td><td class="amount">未明示</td></tr>
+          
+          <tr class="category-header"><td colspan="3">３．AIインフラ強化（金額明示分$60B / 約9兆円）</td></tr>
+          <tr><td>東芝</td><td>電力モジュール・データセンター用変圧器等</td><td class="amount">未明示</td></tr>
+          <tr><td>日立製作所</td><td>HVDC送電・変電設備、データセンター向け</td><td class="amount">未明示</td></tr>
+          <tr><td>三菱電機</td><td>データセンター向け発電・電源システム</td><td class="amount">最大$30B</td></tr>
+          <tr><td>フジクラ</td><td>光ファイバーケーブル</td><td class="amount">未明示</td></tr>
+          <tr><td>TDK</td><td>先端電子部品・パワーモジュール</td><td class="amount">未明示</td></tr>
+          <tr><td>村田製作所</td><td>MLCC・電子部品・ESS関連</td><td class="amount">最大$15B</td></tr>
+          <tr><td>パナソニック</td><td>エネルギー貯蔵システム・電子機器</td><td class="amount">最大$15B</td></tr>
+          
+          <tr class="category-header"><td colspan="3">４．重要鉱物等（合計約$6B / 約9000億円）</td></tr>
+          <tr><td>ファルコン・カッパー</td><td>米国西部の銅製錬・精錬施設</td><td class="amount">$2B</td></tr>
+          <tr><td>カーボン・ホールディングス</td><td>アンモニア・尿素肥料施設</td><td class="amount">最大$3B</td></tr>
+          <tr><td>エレメントシックス</td><td>高圧高温ダイヤモンド砥粒製造</td><td class="amount">$0.5B</td></tr>
+          <tr><td>マックスエナジー</td><td>米国南部の原油タンカー航路改善</td><td class="amount">$0.6B</td></tr>
+          <tr><td>ミトラケム</td><td>リチウム鉄リン酸塩生産</td><td class="amount">$0.35B</td></tr>
+        </tbody>
+      </table>
+
+      <p><span class="marker marker-primary">📄 一次資料</span> 出典：<a href="https://www.mof.go.jp/policy/international_policy/convention/dialogue/251028_fact_sheet_2.pdf" target="_blank">財務省 日米間の投資に関する共同ファクトシート（仮訳）</a>（2025年10月28日）</p>
+
+      <p>金額が明示されている案件の合計は <strong>約$393B（約60兆円）</strong>。これは80兆（$550B）の <strong>約71%</strong> に相当する。米国側ファクトシートはこれを「nearly $490 billion in what it described as new investments」と表現している（Just Securityの引用）。</p>
+
+      <p>注目すべき構造的特徴がある。<strong>合計約49兆円のエネルギー分野のうち、Westinghouse と GEベルノバ日立だけで$200B（約30兆円）を占める</strong>。両方とも原子力発電所（AP1000・SMR）の建設である。「80兆対米投資」の最大の柱は、米国における原子力発電所の建設である、と読み取れる。</p>
+    </section>
+
+    <section>
+      <h2>7. 構造的問題 ── 特会という器の性質</h2>
+
+      <p>財投特会には、一般会計とは大きく異なる性質がある。それは、<span class="highlight-fact">「毎年積み上がる」</span>という構造である。</p>
+
+      <p>一般会計は単年度予算で、原則として年度末に「使い切り」となる（繰越制度はあるが例外的）。一方、財投特会は資金残高（ストック）を年度をまたいで保持する。R6末の財政融資資金勘定の資金残高は <strong>¥126.49兆</strong>。この資金から、毎年JBIC等への融資が実行され、回収された分が再運用される。</p>
+
+      <p>JBICへの融資・出資は、JBICのバランスシートに「対外融資残高」として積み上がる。そのJBICが米企業に対米投資ファシリティとして資金を出すと、米企業側に「政府保証付き融資」として残る。<span class="marker marker-warn">⚠️ 解釈</span> つまり80兆対米投資は、財投特会という器の中で毎年JBICへの資金注入が継続し、3年半の期間（トランプ任期2029年1月19日まで）にわたって積み上がる設計と読める。これがMOUパラグラフ2「2029年1月19日までの間、随時、行われる」の財政上の意味である。</p>
+
+      <p>議会承認プロセスとの関係も問われている。米国側では、独立調査機関 Just Security が次のように指摘する。</p>
+
+      <blockquote class="us">
+        <div class="quote-label">🇺🇸 米国側 / Just Security 分析</div>
+        <p>"The deal, formalized in a memorandum of understanding, <strong>operates outside the congressional appropriations process</strong>. ... $550 billion slush fund would amount to <strong>eight percent of federal spending in FY2024</strong>, or more than the GDP of 34 states and all but 26 countries."</p>
+        <p>(訳：覚書という形で正式化された合意は、議会の予算承認プロセスの外で運用される。5,500億ドルの裏金庫は、2024会計年度の連邦支出の8%に相当し、米国34州のGDPを上回り、26カ国を除く全ての国のGDPを上回る規模である。)</p>
+        <span class="source">— 出典：<a href="https://www.justsecurity.org/123478/trump-japan-deal-appropriations-clause/" target="_blank">Just Security（2025年11月13日）</a></span>
+      </blockquote>
+
+      <p>米国側でも「議会予算承認なしに運用される裏金庫」という指摘が、独立調査機関から出ている事実は重要である。</p>
+
+      <p>米国メディア Axios も、合意の不透明性について早期から指摘していた。</p>
+
+      <blockquote class="us">
+        <div class="quote-label">🇺🇸 米国側 / Axios 分析</div>
+        <p>"It's unclear what legal entities — on either the Japanese or U.S. side — would be involved, or <strong>what would be in it for Japanese companies if they have neither control over the investments nor a financial return</strong>."</p>
+        <p>(訳：日米いずれの側でも、どの法的主体が関与するのかは不明である。日本企業が投資のコントロール権も金融リターンも持たないのなら、日本企業にとって何が見返りなのかも不明である。)</p>
+        <span class="source">— 出典：<a href="https://www.axios.com/2025/07/24/japan-trade-deal-trump-tariffs" target="_blank">Axios（2025年7月24日）</a></span>
+      </blockquote>
+
+      <p>日本企業の側にどのような実利があるのかという疑問は、米国メディアから既に提起されている。</p>
+
+      <p>日本側でも、野村総合研究所のエコノミスト 木内登英 氏が次のように分析している。</p>
+
+      <blockquote class="jp">
+        <div class="quote-label">🇯🇵 日本側 / 野村総研 木内登英</div>
+        <p>「内容は、今までトランプ政権側が説明してきたものに近く、米国主導、米国優位の枠組みとの性格が強い。日本にとってはかなり不平等な取り決めになったとも言えるのではないか。」</p>
+        <p>「日本が米国のために都合よく資金を提供するスキームである。本来、日本企業の成長・発展のため、ひいては国民の利益のために存在する日本の政府系金融機関が、米国経済・産業のために資金を提供するスキームとなっているのは大きな問題だ。」</p>
+        <span class="source">— 出典：<a href="https://www.nri.com/jp/media/column/kiuchi/20250905_4.html" target="_blank">野村総研 木内登英の経済の潮流</a>（2026年3月10日付）</span>
+      </blockquote>
+
+      <p>日米双方の独立した分析機関・専門家が、それぞれの視点から構造的な疑問を呈している、というのが現時点の客観的状況である。</p>
+    </section>
+
+    <section>
+      <h2>8. 残された問い</h2>
+
+      <p>80兆対米投資について、現時点で公開情報からは判別できない、残された問いが複数ある。</p>
+
+      <p><strong>① 21社の進捗</strong>：2025年10月28日に公表された21社の具体的な投資実行状況は、各社の有価証券報告書・適時開示等で個別に追跡する必要がある。2026年2月に第1弾3案件（ガス火力・人工ダイヤ・港湾整備、総額360億ドル）が発表されたが、その後の更新は限定的である。</p>
+
+      <p><strong>② 「みなし配分額」の正確な計算式</strong>：MOU パラグラフ13の利益配分（50:50→90:10二段階）の境界となる「みなし配分額」の定義は MOU 付録に複雑に書かれているが、実際の数値計算がどうなるのかは個別投資ごとに違う。透明な開示が必要である。</p>
+
+      <p><strong>③ 投資失敗時のリスク負担</strong>：MOU パラグラフ17は「投資に関して行われた判断について、米国、日本、投資委員会等は責任を負わない」と免責規定を置く。しかし、損失が発生した場合、日本が拠出した資金は誰のリスクで保有されるのか、明確ではない。</p>
+
+      <p><strong>④ 法的拘束力と関税報復の関係</strong>：MOU パラグラフ21は「法的拘束力なし」と明示するが、パラグラフ8は「日本が資金提供を行わない場合、米国は関税を課すこともできる」と規定する。事実上の強制力をどう評価するか。</p>
+
+      <p><strong>⑤ 外為特会の運用収入を巡る将来計画</strong>：赤沢発言「JBICからの融資の半分は外為特会の運用収入で対応可能」が事実上のスキームとなるのか。外為特会は2025年7月の旧外為法ベースの開示制度のもと、運用収入の用途について更なる透明化が必要である。</p>
+
+      <p>本記事は構造の概観にとどまる。各問いに対しては、別途の追跡記事を準備する予定である。</p>
+    </section>
+
+    <section class="sources">
+      <h3>📚 データソースと編集方針</h3>
+      
+      <p><strong>本記事で参照した一次資料14点：</strong></p>
+      <ol>
+        <li><a href="https://www.whitehouse.gov/fact-sheets/2025/07/fact-sheet-president-donald-j-trump-secures-unprecedented-u-s-japan-strategic-trade-and-investment-agreement/" target="_blank">White House Fact Sheet（合意発表）</a> — 2025年7月23日</li>
+        <li>Trump Truth Social 投稿 — 2025年7月22日（<a href="https://www.newsweek.com/donald-trump-trade-deal-japan-2102885" target="_blank">Newsweek</a>、<a href="https://www.aljazeera.com/economy/2025/7/23/trump-announces-massive-trade-deal-with-japan" target="_blank">Al Jazeera</a> 等が同一文言を引用）</li>
+        <li>トランプ大統領 "seed money / signing bonus" 発言 — 2025年7月24日（<a href="https://www.marketbeat.com/articles/trump-says-japan-will-invest-550-billion-in-us-at-his-direction-it-may-not-be-a-sure-thing-2025-07-26" target="_blank">AP via MarketBeat</a>）</li>
+        <li><a href="https://www.kantei.go.jp/jp/103/statement/2025/0723bura2.html" target="_blank">首相官邸 石破総理 米国関税措置に関する日米協議の合意等についての会見</a> — 2025年7月23日</li>
+        <li><a href="https://www.cas.go.jp/jp/seisaku/tariff_measures/dai6/250725siryou1.pdf" target="_blank">内閣官房 米国の関税措置に関する日米協議：日米間の合意（概要）</a> — 2025年7月25日</li>
+        <li>赤沢発言 NHK番組「出資1〜2%・利益配分」 — 2025年7月26日（<a href="https://www.bloomberg.com/jp/news/articles/2025-07-28/T03B7BGPWCL200" target="_blank">Bloomberg</a>、<a href="https://www.jiji.com/jc/article?k=2025072600440&g=int" target="_blank">時事通信</a>）</li>
+        <li><a href="https://www.mofa.go.jp/mofaj/press/kaiken/kaikenit_000001_00104.html" target="_blank">外務省 北村外務報道官会見記録</a>「共同文書は作成していない」 — 2025年7月30日</li>
+        <li><a href="https://www.whitehouse.gov/presidential-actions/2025/09/implementing-the-united-states-japan-agreement/" target="_blank">大統領令 Implementing The United States–Japan Agreement</a> — 2025年9月4日</li>
+        <li><a href="https://www.cas.go.jp/jp/seisaku/tariff_measures/houmon/pdf/MOU(JP).pdf" target="_blank">内閣官房 戦略的投資に関する了解覚書（仮訳）</a> — 2025年9月4日署名</li>
+        <li><a href="https://www.whitehouse.gov/fact-sheets/2025/09/fact-sheet-president-donald-j-trump-implements-a-historic-u-s-japan-framework-agreement/" target="_blank">White House Fact Sheet（実施段階）</a> — 2025年9月5日</li>
+        <li>赤沢発言 ReHacQ番組「外為特会の運用収入で対応」 — 2025年9月12日（<a href="https://www.nikkei.com/article/DGXZQOUA12CCR0S5A910C2000000/" target="_blank">日本経済新聞</a>）</li>
+        <li><a href="https://www.whitehouse.gov/fact-sheets/2025/10/28195/" target="_blank">White House Fact Sheet（21社公表）</a> — 2025年10月28日</li>
+        <li><a href="https://www.mof.go.jp/policy/international_policy/convention/dialogue/251028_fact_sheet_2.pdf" target="_blank">財務省・経産省 日米間の投資に関する共同ファクトシート（仮訳）</a> — 2025年10月28日</li>
+        <li><a href="https://www.meti.go.jp/speeches/kaiken/2025/20251028001.html" target="_blank">経済産業省 赤澤大臣閣議後記者会見の概要</a>「MOUプロセスとは関わりなし」 — 2025年10月28日</li>
+      </ol>
+
+      <p style="margin-top:20px;"><strong>財務省特別会計データ（JBIC受領計の5年推移）：</strong></p>
+      <ol>
+        <li><a href="https://www.mof.go.jp/about_mof/mof_budget/special_account/zaitou/2023account.html" target="_blank">財務省 令和5年度決算（財政投融資特別会計）</a></li>
+        <li><a href="https://www.mof.go.jp/about_mof/mof_budget/special_account/zaitou/2024account.html" target="_blank">財務省 令和6年度決算（財政投融資特別会計）</a></li>
+        <li><a href="https://www.mof.go.jp/about_mof/mof_budget/special_account/zaitou/2025budget.html" target="_blank">財務省 令和7年度予算（補正含む）</a></li>
+        <li><a href="https://www.mof.go.jp/about_mof/mof_budget/special_account/zaitou/2026budget.html" target="_blank">財務省 令和8年度予算（財政投融資特別会計）</a></li>
+      </ol>
+
+      <p style="margin-top:20px;"><strong>分析記事（一次資料の解釈支援）：</strong></p>
+      <ol>
+        <li><a href="https://www.nri.com/jp/media/column/kiuchi/20250905_4.html" target="_blank">野村総研 木内登英「日米合意の投資に関する覚書：米国優位の不平等な取り決めに」</a></li>
+        <li><a href="https://www.justsecurity.org/123478/trump-japan-deal-appropriations-clause/" target="_blank">Just Security "Trump's Japan Deal and the Disappearing Appropriations Clause"</a></li>
+        <li><a href="https://www.axios.com/2025/07/24/japan-trade-deal-trump-tariffs" target="_blank">Axios "Japan trade deal includes $550 billion in unanswered questions"</a></li>
+      </ol>
+      
+      <div class="policy">
+        <p><strong>編集方針：</strong></p>
+        <ul>
+          <li>公開情報のみを使用（情報公開請求による未公開資料は含まない）</li>
+          <li>事実と推測を厳密に区別（<span class="marker marker-warn">⚠️ 推測</span> マーカーで明示）</li>
+          <li>AIによる集計・分析は明示（<span class="marker marker-ai">🤖 AI集計</span> マーカー）</li>
+          <li>誤り発見時は即訂正、履歴を本記事末尾に残す</li>
+          <li>両論併記を徹底（日米双方の引用を並列表記）</li>
+          <li>引用は原文ベース。翻訳は明示</li>
+        </ul>
+      </div>
+    </section>
+
+    <section class="changelog">
+      <h3>📝 更新履歴</h3>
+      <ul>
+        <li><span class="date">2026/05/22</span>初版公開</li>
+        <li><span class="date">2026/05/22</span>訂正：第4章「令和7年度補正予算（特第1号）」の閣議決定日を 2025年12月8日 → 2025年11月28日 に修正（DeepSeek分析による指摘）。成立日（12月16日）は変更なし。</li>
+      </ul>
+    </section>
+
+    <section class="next-article">
+      <h3>関連記事・次回予告</h3>
+      <p>第2号記事「特会から防衛費へ¥1.84兆 — R5にだけ発生した政府の単発繰入」を執筆中。本記事で触れた外為特会・財投特会から防衛力強化一般会計への直接繰入の構造を、別の角度から分析する。</p>
+      <p style="margin-top:12px;">ダッシュボードでは年度ごと（R5/R6/R7）の財務省・防衛省・厚労省・総務省・デジタル庁の特会・調達データを公開している。<a href="../index.html">→ ダッシュボードに戻る</a></p>
+    </section>
+    
+  </article>
+
+</div>
+
+<footer>
+  <p>Fiscal OSINT Japan © 2026</p>
+  <p>
+    <a href="https://x.com/FiscalOSINT_JP" target="_blank">X (@FiscalOSINT_JP)</a> ·
+    <a href="../index.html">ダッシュボードに戻る</a>
+  </p>
+  <p style="margin-top:12px; font-size:12px;">本記事の内容は2026年5月22日時点の公開情報に基づく。誤り・追加情報のご指摘歓迎。</p>
+</footer>
+
+</body>
+</html>
