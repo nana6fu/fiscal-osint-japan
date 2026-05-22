@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://nana6fu.github.io/fiscal-osint-japan/sitemap.xml
