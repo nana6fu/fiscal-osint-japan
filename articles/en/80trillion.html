@@ -1,0 +1,709 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Tracing the ¥80 Trillion US Investment Pledge Through Japan's FILP Special Account | Fiscal OSINT Japan</title>
+<meta name="description" content="The July 2025 US-Japan trade agreement announced a $550 billion (~¥80 trillion) investment pledge. JBIC capital injections from Japan's FILP Special Account expanded 4.2× from FY2023 to FY2026, with the Ministry of Finance itself labeling the FY2025 supplementary budget as 'responding to US tariffs'. We trace the structural pathway through 14 primary sources from both Japanese and US governments.">
+<meta property="og:title" content="Tracing the ¥80 Trillion US Investment Pledge Through Japan's FILP Special Account">
+<meta property="og:description" content="JBIC inflows expanded 4.2× from FY2023 to FY2026. Japan's Ministry of Finance itself labels it 'responding to US tariffs'.">
+<meta property="og:type" content="article">
+<meta property="og:url" content="https://nana6fu.github.io/fiscal-osint-japan/articles/en/80trillion.html">
+<meta name="twitter:card" content="summary_large_image">
+
+<link rel="alternate" hreflang="en" href="https://nana6fu.github.io/fiscal-osint-japan/articles/en/80trillion.html">
+<link rel="alternate" hreflang="ja" href="https://nana6fu.github.io/fiscal-osint-japan/articles/80trillion.html">
+<link rel="alternate" hreflang="x-default" href="https://nana6fu.github.io/fiscal-osint-japan/articles/80trillion.html">
+<link rel="canonical" href="https://nana6fu.github.io/fiscal-osint-japan/articles/en/80trillion.html">
+
+<style>
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+body {
+  font-family: -apple-system, BlinkMacSystemFont, "Helvetica Neue", Arial, sans-serif;
+  background: #0a0e1a; color: #e0e0e0; line-height: 1.85; font-size: 16px;
+  -webkit-font-smoothing: antialiased;
+}
+.container { max-width: 720px; margin: 0 auto; padding: 0 20px; }
+.nav { background: rgba(10,14,26,.95); padding: 14px 0; border-bottom: 1px solid #2a2f3e; position: sticky; top: 0; z-index: 100; backdrop-filter: blur(8px); }
+.nav .container { display: flex; justify-content: space-between; align-items: center; }
+.nav-back { color: #4a8aff; text-decoration: none; font-size: 14px; }
+.nav-back:hover { text-decoration: underline; }
+.nav-site { font-weight: 700; font-size: 15px; letter-spacing: .3px; }
+.nav-site .accent { color: #ff6b6b; }
+.lang-switch { display: inline-flex; align-items: center; gap: 6px; background: #1a1f2e; padding: 5px 12px; border-radius: 4px; font-size: 13px; color: #aaa; border: 1px solid #2a2f3e; margin-left: 12px; }
+.lang-switch a { color: #aaa; text-decoration: none; padding: 0 4px; }
+.lang-switch a.active { color: #ffd700; font-weight: 700; }
+.lang-switch a:hover { color: #4a8aff; }
+
+.article-header { padding: 60px 0 30px; border-bottom: 1px solid #2a2f3e; margin-bottom: 40px; }
+h1.article-title { font-size: 28px; line-height: 1.35; margin-bottom: 14px; color: #fff; font-weight: 800; letter-spacing: .2px; }
+.article-subtitle { font-size: 17px; color: #aaa; margin-bottom: 28px; line-height: 1.7; font-weight: 400; }
+.article-meta { display: flex; flex-wrap: wrap; gap: 14px; font-size: 13px; color: #888; align-items: center; }
+.article-meta .tag { background: #1a1f2e; padding: 3px 10px; border-radius: 4px; color: #aaa; }
+
+.tldr { background: #1a1f2e; border-left: 4px solid #ffd700; padding: 22px 26px; margin: 32px 0; border-radius: 4px; }
+.tldr-label { font-size: 12px; color: #ffd700; font-weight: 700; letter-spacing: 1.5px; margin-bottom: 10px; }
+.tldr p { margin: 0; }
+
+article p { margin-bottom: 1.5em; }
+article section { margin-bottom: 56px; }
+h2 { font-size: 22px; margin: 56px 0 24px; padding-bottom: 14px; border-bottom: 2px solid #2a2f3e; color: #fff; font-weight: 700; line-height: 1.4; }
+h3 { font-size: 17px; margin: 32px 0 16px; color: #fff; font-weight: 600; }
+strong { color: #fff; }
+em.num { color: #ffd700; font-style: normal; font-weight: 700; }
+.highlight-fact { color: #ff6b6b; font-weight: 700; }
+
+blockquote { background: #1a1f2e; border-left: 4px solid #ff6b6b; padding: 20px 26px; margin: 26px 0; border-radius: 4px; color: #ddd; font-size: 15px; }
+blockquote.jp { border-left-color: #4a8aff; }
+blockquote.us { border-left-color: #ff6b6b; }
+blockquote p { margin: 0; }
+blockquote p + p { margin-top: .8em; }
+blockquote .source { display: block; margin-top: 14px; font-size: 13px; color: #888; }
+blockquote .source a { color: #4a8aff; }
+blockquote .quote-label { display: inline-block; font-size: 11px; font-weight: 700; padding: 2px 8px; border-radius: 3px; margin-bottom: 8px; letter-spacing: 1px; }
+blockquote.jp .quote-label { background: #1a3a5a; color: #4a8aff; }
+blockquote.us .quote-label { background: #5a1a1a; color: #ff6b6b; }
+blockquote .original-jp { display: block; margin-top: 12px; padding-top: 10px; border-top: 1px solid #2a2f3e; font-size: 13px; color: #888; font-style: italic; }
+
+.compare-table { width: 100%; border-collapse: collapse; margin: 26px 0; font-size: 14px; }
+.compare-table th, .compare-table td { padding: 12px 14px; text-align: left; border: 1px solid #2a2f3e; vertical-align: top; line-height: 1.6; }
+.compare-table thead { background: #1a1f2e; }
+.compare-table thead th { font-weight: 700; }
+.compare-table .row-label { background: #151a26; font-weight: 600; width: 30%; color: #ccc; }
+
+.marker { display: inline-block; padding: 2px 9px; border-radius: 3px; font-size: 12px; margin-right: 6px; font-weight: 600; letter-spacing: .3px; }
+.marker-ai { background: #2a2f3e; color: #b0b0b0; }
+.marker-primary { background: #1a3a4a; color: #4a8aff; }
+.marker-warn { background: #4a2a1a; color: #ffaa00; }
+
+a { color: #4a8aff; text-decoration: none; }
+a:hover { text-decoration: underline; }
+
+.sources, .changelog { background: #1a1f2e; padding: 24px 26px; border-radius: 8px; margin: 36px 0; font-size: 14px; }
+.sources h3, .changelog h3 { margin: 0 0 14px; color: #ffd700; font-size: 16px; border: none; padding: 0; }
+.sources ol { padding-left: 1.5em; }
+.sources li { margin-bottom: 10px; color: #ccc; line-height: 1.7; }
+.sources .policy { margin-top: 20px; padding-top: 16px; border-top: 1px solid #2a2f3e; }
+.sources .policy ul { padding-left: 1.5em; margin-top: 10px; }
+.sources .policy li { margin-bottom: 6px; }
+.changelog ul { padding-left: 1.5em; margin-top: 8px; }
+.changelog li { margin-bottom: 8px; color: #ccc; }
+.changelog li .date { color: #888; font-size: 13px; margin-right: 10px; }
+
+.next-article { background: #151a26; padding: 24px; border-radius: 8px; margin: 36px 0; border: 1px solid #2a2f3e; }
+.next-article h3 { margin: 0 0 12px; color: #fff; }
+.next-article p { margin-bottom: 0; color: #bbb; font-size: 14px; }
+
+.trend-table { width: 100%; border-collapse: collapse; margin: 26px 0; font-size: 14px; }
+.trend-table th, .trend-table td { padding: 10px 12px; text-align: right; border: 1px solid #2a2f3e; line-height: 1.6; }
+.trend-table th { background: #1a1f2e; font-weight: 700; text-align: center; color: #fff; }
+.trend-table td:first-child { text-align: left; background: #151a26; font-weight: 600; color: #ccc; }
+.trend-table .highlight { color: #ffd700; font-weight: 700; }
+
+.companies-table { width: 100%; border-collapse: collapse; margin: 26px 0; font-size: 13px; }
+.companies-table th, .companies-table td { padding: 10px 12px; text-align: left; border: 1px solid #2a2f3e; line-height: 1.5; vertical-align: top; }
+.companies-table th { background: #1a1f2e; font-weight: 700; }
+.companies-table td.amount { text-align: right; white-space: nowrap; color: #ffd700; font-weight: 700; }
+.companies-table tr.category-header td { background: #151a26; font-weight: 700; color: #4a8aff; padding: 8px 12px; }
+
+footer { border-top: 1px solid #2a2f3e; padding: 30px 0; margin-top: 60px; text-align: center; font-size: 13px; color: #666; }
+footer a { color: #888; }
+footer p { margin-bottom: 6px; }
+
+@media (max-width: 768px) {
+  body { font-size: 15px; }
+  h1.article-title { font-size: 22px; }
+  h2 { font-size: 19px; }
+  h3 { font-size: 16px; }
+  .container { padding: 0 16px; }
+  .article-header { padding: 40px 0 24px; }
+  blockquote, .tldr { padding: 16px 20px; }
+  .compare-table, .trend-table, .companies-table { font-size: 12px; }
+  .compare-table th, .compare-table td, .trend-table th, .trend-table td, .companies-table th, .companies-table td { padding: 8px 10px; }
+  .lang-switch { margin-left: 0; }
+  .nav .container { flex-wrap: wrap; gap: 8px; }
+}
+</style>
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "NewsArticle",
+  "headline": "Tracing the ¥80 Trillion US Investment Pledge Through Japan's FILP Special Account",
+  "alternativeHeadline": "JBIC inflows from the FILP Special Account expanded 4.2× from FY2023 to FY2026. Japan's Ministry of Finance itself labels its FY2025 supplementary budget as 'responding to US tariffs'.",
+  "datePublished": "2026-05-22T00:00:00+09:00",
+  "dateModified": "2026-05-23T00:00:00+09:00",
+  "author": {
+    "@type": "Organization",
+    "name": "Fiscal OSINT Japan",
+    "url": "https://nana6fu.github.io/fiscal-osint-japan/"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "Fiscal OSINT Japan",
+    "url": "https://nana6fu.github.io/fiscal-osint-japan/"
+  },
+  "description": "The July 2025 US-Japan trade agreement announced a $550 billion (~¥80 trillion) investment pledge. We trace its actual fiscal pathway through Japan's FILP Special Account into JBIC capital injections, expanding 4.2× from FY2023 to FY2026. Cross-referenced through 14 primary sources from both Japanese and US governments.",
+  "keywords": "$550 billion, $550B, Japan-US investment, FILP, JBIC, special account, US tariffs, Japan-US deal, MOU, fact-checking, OSINT, public capital, Fiscal Investment and Loan Program",
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "https://nana6fu.github.io/fiscal-osint-japan/articles/en/80trillion.html"
+  },
+  "articleSection": "Investigative Journalism",
+  "license": "https://creativecommons.org/licenses/by/4.0/",
+  "inLanguage": "en",
+  "isAccessibleForFree": true
+}
+</script>
+</head>
+<body>
+
+<nav class="nav">
+  <div class="container">
+    <a href="../../index.html" class="nav-back">← Dashboard (Japanese)</a>
+    <div>
+      <span class="nav-site"><span class="accent">Fiscal OSINT</span> Japan</span>
+      <span class="lang-switch">
+        🌐
+        <a href="../80trillion.html">JP</a>
+        <span style="color:#555;">/</span>
+        <a href="80trillion.html" class="active">EN</a>
+      </span>
+    </div>
+  </div>
+</nav>
+
+<div class="container">
+
+  <header class="article-header">
+    <h1 class="article-title">Tracing the ¥80 Trillion US Investment Pledge Through Japan's FILP Special Account</h1>
+    <p class="article-subtitle">JBIC capital injections from Japan's FILP Special Account expanded <strong>4.2× from FY2023 to FY2026</strong>. Japan's Ministry of Finance itself labels its FY2025 supplementary budget as "responding to US tariffs." We trace the structural pathway through 14 primary sources from both Japanese and US governments.</p>
+    
+    <div class="article-meta">
+      <span>📅 Published: 2026/05/22</span>
+      <span>🔄 Updated: 2026/05/23</span>
+      <span class="tag">$550B / ¥80 trillion</span>
+      <span class="tag">FILP Special Account</span>
+      <span class="tag">JBIC</span>
+      <span class="tag">OSINT</span>
+      <span>📝 ~3,500 words / ~20 min read</span>
+    </div>
+  </header>
+
+  <article>
+  
+    <div class="tldr">
+      <p>① The $550 billion (~¥80 trillion) US investment pledge announced in July 2025 is not a "painted rice cake" (an empty promise). It is already in motion through a concrete fiscal pathway: loans and equity from Japan's <strong>Fiscal Investment and Loan Program (FILP) Special Account</strong> directed to the Japan Bank for International Cooperation (JBIC).<br>
+      ② JBIC inflows expanded from <em class="num">FY2023 ¥1.0557 trillion</em> to <em class="num">FY2026 ¥4.4177 trillion</em> — a <strong class="highlight-fact">4.2× increase from FY2023 to FY2026</strong>. The Ministry of Finance itself labels Japan's FY2025 first supplementary budget as "responding to US tariffs."<br>
+      ③ However, Japanese and US explanations of the same agreement reveal clear discrepancies — from the very nature of the deal (US calls it "investment," Japan calls it "a credit facility framework") to profit distribution, the existence of joint documents, and the status of the 21-company list.</p>
+    </div>
+
+    <section>
+      <h2>1. Introduction — Not an Empty Promise</h2>
+      
+      <p>On July 22, 2025, US President Donald Trump announced on his social network Truth Social that Japan had agreed to invest $550 billion (approximately ¥80 trillion at then-prevailing exchange rates of ¥145/$) in the United States. Japanese media reported it as "US-bound investment" or a "massive investment commitment," but the actual substance remained ambiguous as months passed.</p>
+
+      <p>This article cross-references <strong>14 primary sources from both Japanese and US governments</strong> — including documents from the Ministry of Finance, Cabinet Secretariat, Ministry of Economy, Trade and Industry, Prime Minister's Office, the White House (executive order, three fact sheets, and the memorandum of understanding) — to trace which fiscal pocket the "¥80 trillion" actually comes from, by what pathway, and to what destination.</p>
+
+      <p>The conclusion, stated upfront: <span class="highlight-fact">the core of the ¥80 trillion pledge has already begun moving as equity investments and loans from Japan's Fiscal Investment and Loan Program (FILP) Special Account to the Japan Bank for International Cooperation (JBIC)</span>. The scale, verifiable from the Ministry of Finance's official settlement and budget documents, has expanded approximately <strong>4.2× over the four fiscal years from FY2023 (R5) to FY2026 (R8)</strong>.</p>
+
+      <p style="background:#151a26; padding:14px 18px; border-radius:4px; border-left:3px solid #4a8aff; font-size:14px; color:#bbb;"><strong style="color:#4a8aff;">Note for international readers:</strong> Japan's Special Accounts (特別会計) are not equivalent to "special funds" in other jurisdictions. They are separate fiscal pockets — 19 in total across the central government — that operate alongside the general account. Unlike the general account, which resets annually under the single-year budget principle (unspent funds in principle expire at fiscal year-end), Special Accounts maintain fund balances that roll over year to year, accumulating into trillion-yen-scale reserves. This rollover structure becomes central to understanding the ¥80 trillion pledge in Section 7.</p>
+    </section>
+
+    <section>
+      <h2>2. Background: What is the $550 Billion Framework?</h2>
+      
+      <p>The agreement began with President Trump's July 22, 2025 announcement on Truth Social:</p>
+
+      <blockquote class="us">
+        <div class="quote-label">🇺🇸 US / President Trump</div>
+        <p>"We just completed a massive Deal with Japan, perhaps the largest Deal ever made. <strong>Japan will invest, at my direction, $550 Billion Dollars into the United States, which will receive 90% of the Profits.</strong> This Deal will create Hundreds of Thousands of Jobs — There has never been anything like it."</p>
+        <span class="source">— Source: Truth Social (July 22, 2025), quoted verbatim by <a href="https://www.newsweek.com/donald-trump-trade-deal-japan-2102885" target="_blank">Newsweek</a>, <a href="https://www.aljazeera.com/economy/2025/7/23/trump-announces-massive-trade-deal-with-japan" target="_blank">Al Jazeera</a>, and others.</span>
+      </blockquote>
+
+      <p>The following day, July 23, 2025, the White House released an official fact sheet:</p>
+
+      <blockquote class="us">
+        <div class="quote-label">🇺🇸 US / White House Fact Sheet</div>
+        <p>"Japan will invest $550 billion <strong>directed by the United States</strong> to rebuild and expand core American industries. ... At President Trump's direction, these funds will be targeted toward the revitalization of America's strategic industrial base. ... <strong>The United States will retain 90% of the profits</strong> from this investment."</p>
+        <span class="source">— Source: <a href="https://www.whitehouse.gov/fact-sheets/2025/07/fact-sheet-president-donald-j-trump-secures-unprecedented-u-s-japan-strategic-trade-and-investment-agreement/" target="_blank">White House Fact Sheet</a> (July 23, 2025)</span>
+      </blockquote>
+
+      <p>The Japanese side's explanation that same day struck a very different tone. In the afternoon, then-Prime Minister Shigeru Ishiba stated:</p>
+
+      <blockquote class="jp">
+        <div class="quote-label">🇯🇵 Japan / Prime Minister Ishiba</div>
+        <p>"To accurately characterize what was agreed: <strong>government-affiliated financial institutions will be enabled to provide up to $550 billion in equity investments, loans, and loan guarantees</strong> for US-bound investments by Japanese companies in critical sectors such as pharmaceuticals and semiconductors. This investment is to be implemented through equity investments and loans from the Japan Bank for International Cooperation (JBIC) and guarantees from Nippon Export and Investment Insurance (NEXI)."</p>
+        <span class="source">— Source: <a href="https://www.kantei.go.jp/jp/103/statement/2025/0723bura2.html" target="_blank">Prime Minister's Office, Press conference on the Japan-US tariff agreement</a> (July 23, 2025)</span>
+      </blockquote>
+
+      <p>"Japan will invest $550 billion" (US side) versus "Government-affiliated financial institutions will be enabled to provide investments, loans, and loan guarantees" (Japan side). <span class="highlight-fact">These two sides are supposedly describing the same agreement — yet the very nature of the deal disagrees: is Japan investing, or are financial institutions creating a support facility?</span></p>
+    </section>
+
+    <section>
+      <h2>3. Five Discrepancies in Japan-US Understanding</h2>
+      
+      <p>Ten months after the agreement (as of May 2026), multiple discrepancies can be confirmed from primary sources. We organize them below.</p>
+
+      <h3>3-1. The Nature of the Deal: "Investment" or "Credit Facility Framework"?</h3>
+      
+      <p>Trump went further in his July 24, 2025 remarks:</p>
+
+      <blockquote class="us">
+        <div class="quote-label">🇺🇸 US / President Trump (July 24, 2025)</div>
+        <p>"Japan is putting up $550 billion in order to lower their tariffs a little bit. They put up, as you could call it, seed money. Let's call it seed money."</p>
+        <p>"<strong>It's not a loan or anything, it's a signing bonus.</strong>"</p>
+        <span class="source">— Source: AP via <a href="https://www.marketbeat.com/articles/trump-says-japan-will-invest-550-billion-in-us-at-his-direction-it-may-not-be-a-sure-thing-2025-07-26" target="_blank">MarketBeat</a> (July 24, 2025)</span>
+      </blockquote>
+
+      <p>"Not a loan or anything — a signing bonus." This is clearly a different characterization than the Japanese side's "framework for equity investments, loans, and loan guarantees."</p>
+
+      <p>Japan's Cabinet Secretariat document (dated July 25, 2025) is consistent with Ishiba's explanation:</p>
+
+      <blockquote class="jp">
+        <div class="quote-label">🇯🇵 Japan / Cabinet Secretariat</div>
+        <p>"To realize this, <strong>government-affiliated financial institutions will be enabled to provide up to $550 billion in equity investments, loans, and loan guarantees.</strong>"</p>
+        <span class="source">— Source: <a href="https://www.cas.go.jp/jp/seisaku/tariff_measures/dai6/250725siryou1.pdf" target="_blank">Cabinet Secretariat, Japan-US Tariff Negotiations: Outline of the Japan-US Agreement</a> (July 25, 2025)</span>
+      </blockquote>
+
+      <h3>3-2. No Joint Document — A Foreign Ministry Spokesman Admits</h3>
+
+      <p>For weeks after the July 22 announcement, <strong>no formal joint document existed</strong>. The Ministry of Foreign Affairs itself acknowledged this:</p>
+
+      <blockquote class="jp">
+        <div class="quote-label">🇯🇵 Japan / Foreign Ministry Spokesman</div>
+        <p>"As you know, ultimately an agreement serving the national interests of both countries was reached, based on the July 22 exchange between Minister for Economic Revitalization Akazawa and President Trump. Given the negotiations went down to the wire, <strong>no joint document was prepared</strong>."</p>
+        <span class="source">— Source: <a href="https://www.mofa.go.jp/mofaj/press/kaiken/kaikenit_000001_00104.html" target="_blank">Ministry of Foreign Affairs, Press Briefing by Foreign Ministry Spokesperson Kitamura</a> (July 30, 2025)</span>
+      </blockquote>
+
+      <p>In other words, from Trump's "Japan will invest, at my direction, $550 Billion" tweet until the MOU signing on September 4, 2025 — a span of roughly six weeks — neither country had a shared document confirming what had been agreed. <span class="marker marker-warn">⚠️ Note</span> AP reported during this same period that it had interviewed Japan's Cabinet Office and received the following explanation:</p>
+
+      <blockquote class="jp">
+        <div class="quote-label">🇯🇵 Japan / Cabinet Office (via AP interview)</div>
+        <p>"Japan's Cabinet Office indicated that the investment involves a credit facility from state-affiliated financial institutions, and further terms are still being worked out."</p>
+        <p>"Japanese trade negotiators have highlighted that <strong>no legally binding agreement is in place</strong> and believe that <strong>differences in understanding may need to be clarified</strong>."</p>
+        <span class="source">— Source: <a href="https://www.marketbeat.com/articles/trump-says-japan-will-invest-550-billion-in-us-at-his-direction-it-may-not-be-a-sure-thing-2025-07-26" target="_blank">AP via MarketBeat</a> (July 2025)</span>
+      </blockquote>
+
+      <p>That Japan's own government publicly acknowledged "differences in understanding may need to be clarified" demonstrates the agreement's instability.</p>
+
+      <h3>3-3. September 4 MOU Signing — Japan Released It, the US Did Not</h3>
+
+      <p>On September 4, 2025, in Washington D.C., then-Minister for Economic Revitalization Akazawa Ryosei and US Commerce Secretary Howard Lutnick signed the "Memorandum of Understanding on Strategic Investment Between the Government of Japan and the Government of the United States of America." Japan released a provisional Japanese translation on the Cabinet Secretariat's website:</p>
+
+      <blockquote class="jp">
+        <div class="quote-label">🇯🇵 Japan / MOU Provisional Translation</div>
+        <p>"Recognizing that it is in the best interest of both nations to promote economic and national security interests, Japan agrees that <strong>$550 billion will be invested in the United States (capital commitment)</strong> across various sectors including but not limited to semiconductors, pharmaceuticals, metals, critical minerals, shipbuilding, energy (including pipelines), and artificial intelligence/quantum computing."</p>
+        <p>Paragraph 7: "Japan shall, on or after a date 45 business days following the date on which Japan is notified that the President has selected an investment, <strong>contribute immediately available US dollar-denominated funds</strong> to the account(s) designated by the US Investment Accelerator."</p>
+        <p>Paragraph 8: "If Japan elects not to provide funding, the United States may <strong>impose a tariff rate or rates on imports from Japan to the United States at a rate determined by the President</strong>."</p>
+        <span class="source">— Source: <a href="https://www.cas.go.jp/jp/seisaku/tariff_measures/houmon/pdf/MOU(JP).pdf" target="_blank">Cabinet Secretariat, MOU on Strategic Investment (Provisional Translation)</a> (signed September 4, 2025)</span>
+      </blockquote>
+
+      <p>The MOU's provisional translation uses terms like "capital commitment" and "immediately available US dollar-denominated funds." This carries a different nuance than PM Ishiba's earlier "enabling financial institutions to provide investments, loans, and loan guarantees." The MOU language tracks closer to the US side's "investment commitment."</p>
+
+      <p style="background:#151a26; padding:12px 16px; border-radius:4px; border-left:3px solid #ffaa00; font-size:13px; color:#bbb;"><span class="marker marker-warn">⚠️ Note</span> "Capital commitment" in standard finance refers to a binding obligation by limited partners to fund a private equity vehicle. The MOU's use of this term is unusual: Paragraph 21 of the same document explicitly states it has <em>no legal binding force</em>, yet uses language typically reserved for binding obligations. This linguistic mismatch is part of the structural ambiguity tracked throughout this article.</p>
+
+      <p>And <span class="highlight-fact">the US side has not released the same MOU</span>. The US independent research organization Just Security pointed this out:</p>
+
+      <blockquote class="us">
+        <div class="quote-label">🇺🇸 US / Just Security</div>
+        <p>"The White House's executive order only referenced the $550 billion investment without explaining how the deal will operate. And while Japan has publicly released the memorandum, <strong>the Trump administration has not</strong> — another omission."</p>
+        <span class="source">— Source: <a href="https://www.justsecurity.org/123478/trump-japan-deal-appropriations-clause/" target="_blank">Just Security</a> (November 2025)</span>
+      </blockquote>
+
+      <p>Some US analysts have criticized the deal as operating like a "$550 billion slush fund" outside the congressional appropriations process.</p>
+
+      <h3>3-4. Multiple Versions of the Profit-Sharing Explanation</h3>
+
+      <p>The "10% Japan / 90% US" profit split is frequently cited in media reports. But the explanation has shifted depending on timing and document.</p>
+
+      <table class="compare-table">
+        <thead>
+          <tr>
+            <th>Date / Source</th>
+            <th>Stated profit distribution</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td class="row-label">Cabinet Secretariat document, July 25, 2025</td>
+            <td>"Determined based on the contributions and risks borne by each side"</td>
+          </tr>
+          <tr>
+            <td class="row-label">Akazawa on NHK, July 26, 2025</td>
+            <td>"Japan initially proposed 50:50 → final agreement is Japan 10% : US 90%"</td>
+          </tr>
+          <tr>
+            <td class="row-label">Trump on Truth Social, July 22, 2025</td>
+            <td>"90% of the Profits"</td>
+          </tr>
+          <tr>
+            <td class="row-label">MOU Provisional Translation, Paragraph 13 (Sept 4 signing)</td>
+            <td>(a) <strong>50:50</strong> up to the Deemed Allocation Amount, (b) thereafter <strong>US 90 : Japan 10</strong> (two-tier structure)</td>
+          </tr>
+        </tbody>
+      </table>
+
+      <p>At the time of MOU signing, the two-tier structure was made explicit: 50:50 up to the "Deemed Allocation Amount," then 90:10 beyond that. <span class="marker marker-warn">⚠️ Note</span> The "Deemed Allocation Amount" is complexly defined in the MOU's appendix: it equals "the amount invested multiplied by a deemed interest rate" + "divided by the expected project duration" + "plus carryforward amount." Effectively, this can be read as a design where the first tier (50:50) corresponds to recovery of principal-equivalent, and the second tier (90:10) applies to excess returns thereafter (inference involved).</p>
+
+      <h3>3-5. The 21-Company List: Japan Calls Them "Candidates," US Says "Commitments Being Fulfilled"</h3>
+
+      <p>On October 28, 2025, coinciding with Trump's visit to Japan, both governments released a "Japan-US Joint Fact Sheet on Investment" disclosing 21 companies (22 firms) and project amounts. But how these companies are characterized differs between the two sides:</p>
+
+      <blockquote class="us">
+        <div class="quote-label">🇺🇸 US / White House Fact Sheet</div>
+        <p>"Today in Tokyo, President Donald J. Trump announced major projects <strong>advancing Japan's previous $550 billion investment commitment</strong> to the United States. ... <strong>Japan and various Japanese companies have outlined their commitments</strong> to pursuing the following investments."</p>
+        <span class="source">— Source: <a href="https://www.whitehouse.gov/fact-sheets/2025/10/28195/" target="_blank">White House Fact Sheet</a> (October 28, 2025)</span>
+      </blockquote>
+
+      <p>Meanwhile, METI Minister Akazawa Ryosei made the following statement at his post-Cabinet press conference the same day:</p>
+
+      <blockquote class="jp">
+        <div class="quote-label">🇯🇵 Japan / METI Minister Akazawa</div>
+        <p>"Whether these will actually become part of the initial $550 billion is something that's determined through the MOU's procedures, through the Consultation Committee and Investment Committee. So in that sense, <strong>they currently have nothing to do with the MOU process</strong>. They are merely <strong>candidates, or 'seeds,'</strong> that both Japanese and US governments will work together to bring into the process."</p>
+        <span class="source">— Source: <a href="https://www.meti.go.jp/speeches/kaiken/2025/20251028001.html" target="_blank">METI, Minister Akazawa's Post-Cabinet Press Conference</a> (October 28, 2025)</span>
+      </blockquote>
+
+      <p><span class="highlight-fact">The US side describes these as "fulfillment of commitments," while the Japan side describes them as "candidates or seeds, with no relation yet to the MOU process."</span> That both governments released the same 21-company list with such different tones again highlights the gap in understanding.</p>
+
+      <p>Japan's own version of the joint fact sheet (released jointly by METI and the Ministry of Finance) uses yet different language:</p>
+
+      <blockquote class="jp">
+        <div class="quote-label">🇯🇵 Japan / Joint Fact Sheet (Provisional Translation)</div>
+        <p>"On the occasion of President Trump's visit to Japan, both governments welcomed that <strong>companies of both countries have expressed interest in forming projects in the following areas</strong>."</p>
+        <p>"Both governments expressed <strong>strong expectations</strong> that various business initiatives — including those that may fall within the scope of the September 4 MOU on $550 billion strategic investment — will be advanced to strengthen Japan-US supply chain resilience."</p>
+        <span class="source">— Source: <a href="https://www.mof.go.jp/policy/international_policy/convention/dialogue/251028_fact_sheet_2.pdf" target="_blank">Ministry of Finance & METI, Japan-US Joint Fact Sheet on Investment (Provisional Translation)</a> (October 28, 2025)</span>
+      </blockquote>
+
+      <p>"Companies have expressed interest" / "Strong expectations expressed" — Japan's fact sheet positions this as government supporting corporate decision-making. Meanwhile, the US fact sheet writes "Japan committed" and "various Japanese companies have outlined their commitments." <strong>The same joint fact sheet (supposedly) — but the commitment intensity differs significantly.</strong></p>
+    </section>
+
+    <section>
+      <h2>4. Ministry of Finance Explicitly Labels FY2025 Supplementary Budget as "Responding to US Tariffs"</h2>
+
+      <p>The substance of the agreement cannot be grasped from documents alone. We need to trace which pocket actual funds moved from, and to where. Japan's Ministry of Finance budget documents are eloquent on this point.</p>
+
+      <p>Japan's FY2025 first supplementary budget (R7補正特第1号) was approved by Cabinet on November 28, 2025 and enacted on December 16, 2025. The Investment Account of the FILP Special Account's supplementary budget explanation reads:</p>
+
+      <blockquote class="jp">
+        <div class="quote-label">🇯🇵 Japan / Ministry of Finance, FY2025 First Supplementary Budget</div>
+        <p>"As part of the 'Comprehensive Economic Measures to Realize a Strong Economy,' <strong>this budget adds equity investment and other funds to strengthen the financial base of the Japan Bank for International Cooperation's Japan Strategic Investment Facility, which is undertaken to respond to US tariffs</strong> for supporting Japanese companies."</p>
+        <span class="source">— Source: <a href="https://www.mof.go.jp/about_mof/mof_budget/special_account/zaitou/2025budget.html" target="_blank">Ministry of Finance, FY2025 Budget (FILP Special Account, First Supplementary)</a></span>
+      </blockquote>
+
+      <p><span class="highlight-fact">The Ministry of Finance itself explicitly states in its budget documents: "responding to US tariffs" and "JBIC Japan Strategic Investment Facility"</span>. This is the first concrete trace of the ¥80 trillion US investment commitment being incorporated into Japan's formal budget process.</p>
+
+      <p>This supplementary budget added ¥270 billion in JBIC equity. The next table shows the five-year trend.</p>
+    </section>
+
+    <section>
+      <h2>5. Capital Injections into JBIC — 4.2× from FY2023 to FY2026</h2>
+
+      <p>JBIC capital injections from the FILP Special Account consist of two channels: loans from the Fiscal Loan Fund Account, and equity investments from the Investment Account. We compiled five years of figures from the Ministry of Finance's Special Account settlement and budget documents:</p>
+
+      <table class="trend-table">
+        <thead>
+          <tr>
+            <th>Channel</th>
+            <th>FY2023<br>(R5, settled)</th>
+            <th>FY2024<br>(R6, settled)</th>
+            <th>FY2025<br>(R7, initial)</th>
+            <th>FY2025<br>(R7, post-supp.)</th>
+            <th>FY2026<br>(R8, initial)</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Fiscal Loan Fund → JBIC loans</td>
+            <td>¥952.7B</td>
+            <td>¥154.0B</td>
+            <td>¥720.0B</td>
+            <td>¥2,660.0B</td>
+            <td class="highlight">¥4,252.7B</td>
+          </tr>
+          <tr>
+            <td>Investment Account → JBIC equity</td>
+            <td>¥103.0B</td>
+            <td>¥121.0B</td>
+            <td>¥100.0B</td>
+            <td>¥370.0B</td>
+            <td class="highlight">¥165.0B</td>
+          </tr>
+          <tr>
+            <td><strong>JBIC inflows total</strong></td>
+            <td><strong>¥1,055.7B</strong></td>
+            <td><strong>¥275.0B</strong></td>
+            <td><strong>¥820.0B</strong></td>
+            <td><strong>¥3,030.0B</strong></td>
+            <td class="highlight"><strong>¥4,417.7B</strong></td>
+          </tr>
+        </tbody>
+      </table>
+      <p style="font-size:13px; color:#888; margin-top:-12px;">¥1B = 1 billion yen ≒ $6.3 million at ¥159/$ (current rate). Note: Japan's fiscal year runs April 1 – March 31.</p>
+
+      <p><span class="marker marker-primary">📄 Primary Source</span> Source: Ministry of Finance "<a href="https://www.mof.go.jp/about_mof/mof_budget/special_account/zaitou/2023account.html" target="_blank">FY2023 Settlement</a>," "<a href="https://www.mof.go.jp/about_mof/mof_budget/special_account/zaitou/2024account.html" target="_blank">FY2024 Settlement</a>," "<a href="https://www.mof.go.jp/about_mof/mof_budget/special_account/zaitou/2025budget.html" target="_blank">FY2025 Budget (including Supplementary)</a>," "<a href="https://www.mof.go.jp/about_mof/mof_budget/special_account/zaitou/2026budget.html" target="_blank">FY2026 Budget</a>"</p>
+
+      <p>Three notable features emerge:</p>
+
+      <p><strong>① FY2023 → FY2024: a temporary decline.</strong> JBIC inflows decreased from ¥1,055.7B to ¥275.0B — to about a quarter. This is the normal operating pace before the ¥80 trillion agreement.</p>
+
+      <p><strong>② FY2025 initial budget: only modest growth.</strong> At the time of the FY2025 initial budget (enacted March 2025), the ¥80 trillion agreement (July 2025) did not yet exist. Inflows were ¥820.0B — increased from FY2024 but within "normal operations."</p>
+
+      <p><strong>③ FY2025 supplementary budget: sharp acceleration; FY2026 expanded further.</strong> Following the ¥80 trillion agreement, the FY2025 first supplementary budget (enacted December 2025) expanded JBIC loans from ¥720.0B to ¥2,660.0B — a 3.7× jump. The subsequent FY2026 initial budget (enacted March 2026) further raised loans to ¥4,252.7B. <strong>Total JBIC inflows expanded 4.18× from FY2023 to FY2026.</strong></p>
+
+      <p>These figures are independently verifiable from official Ministry of Finance budget documents, and demonstrate that capital injections into JBIC accelerated sharply, timed with the ¥80 trillion agreement.</p>
+
+      <p>Minister Akazawa explained the funding source as follows:</p>
+
+      <blockquote class="jp">
+        <div class="quote-label">🇯🇵 Japan / Minister Akazawa (September 12, 2025)</div>
+        <p>"Regarding JBIC's loans, <strong>I believe about half can be covered by investment income from the Foreign Exchange Fund Special Account (FEFSA), etc. There is no need to sell US Treasury securities</strong>. The rest will be addressed through government-guaranteed dollar-denominated bond issuances and currency swaps."</p>
+        <span class="source">— Source: Nikkei (September 12, 2025) / from his appearance on ReHacQ program</span>
+      </blockquote>
+
+      <p>The FEFSA's fund balance at the end of FY2024 (as of March 31, 2025) was approximately ¥187 trillion, the majority held as foreign currency assets including US Treasury securities. <span class="marker marker-warn">⚠️ Inference</span> Based on Akazawa's explanation, the funds JBIC will lend to US companies in dollars will partly come from investment income (such as interest on US Treasury securities) earned by the FEFSA. The structure is: <em>using interest from US Treasuries to lend to US companies</em> (this involves interpretation/inference of Akazawa's statement).</p>
+    </section>
+
+    <section>
+      <h2>6. Investment Decision Structure and the 21 Companies</h2>
+
+      <p>MOU paragraphs 1–5 define the governance of investment decisions:</p>
+
+      <blockquote class="jp">
+        <div class="quote-label">🇯🇵 Japan / MOU Provisional Translation</div>
+        <p>Paragraph 1: "<strong>The US President will select investments from among those recommended by the Investment Committee.</strong>"</p>
+        <p>Paragraph 2: "Investments will be made from time to time during the period from the date of this MOU to <strong>January 19, 2029</strong>."</p>
+        <p>Paragraph 4: "The Investment Committee will be <strong>chaired by the US Secretary of Commerce</strong>, and will include other members selected from time to time by the Investment Committee."</p>
+        <p>Paragraph 11: "The United States will establish a new Investment SPV in connection with each investment. <strong>Each Investment SPV will be managed and governed by the United States or its designee acting as the general partner.</strong>"</p>
+        <span class="source">— Source: <a href="https://www.cas.go.jp/jp/seisaku/tariff_measures/houmon/pdf/MOU(JP).pdf" target="_blank">Cabinet Secretariat, MOU on Strategic Investment (Provisional Translation)</a></span>
+      </blockquote>
+
+      <p>Three important structural features emerge. First, <strong>investment-selection authority lies with the US President</strong>. The Investment Committee's chair is the US Secretary of Commerce (Lutnick). Japan can provide input through its Consultation Committee, but the final decision rests with the US president. Second, <strong>investments run until January 19, 2029</strong> — the end of Trump's term. This is the source of the "¥80 trillion in 3.5 years" timeline. Third, <strong>management of the Investment SPVs is also on the US side</strong>. Japan provides the capital; the US handles governance.</p>
+
+      <p>The specific 21-company list was made public on October 28, 2025. From Japan's provisional translation of the joint fact sheet, here are the projects with disclosed amounts:</p>
+
+      <table class="companies-table">
+        <thead>
+          <tr>
+            <th>Company</th>
+            <th>Project</th>
+            <th class="amount">Project size</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr class="category-header"><td colspan="3">1. Energy (Total ~$325B / ~¥49 trillion)</td></tr>
+          <tr><td>Westinghouse</td><td>AP1000 reactors and SMR construction. Mitsubishi Heavy Industries, Toshiba, IHI under consideration</td><td class="amount">Up to $100B</td></tr>
+          <tr><td>GE Vernova Hitachi</td><td>SMR (BWRX-300) construction. Hitachi-GE Vernova etc. under consideration</td><td class="amount">Up to $100B</td></tr>
+          <tr><td>Bechtel</td><td>Power plants, substations, transmission. Japanese firms under consideration</td><td class="amount">Up to $25B</td></tr>
+          <tr><td>Kiewit</td><td>Engineering, procurement, construction. Japanese firms under consideration</td><td class="amount">Up to $25B</td></tr>
+          <tr><td>GE Vernova</td><td>Gas turbines, steam turbines and other large power equipment</td><td class="amount">Up to $25B</td></tr>
+          <tr><td>SoftBank Group</td><td>Large-scale power infrastructure design, development, operation</td><td class="amount">Up to $25B</td></tr>
+          <tr><td>Carrier</td><td>Cooling systems for power infrastructure</td><td class="amount">Up to $20B</td></tr>
+          <tr><td>Kinder Morgan</td><td>Natural gas transmission and power infrastructure</td><td class="amount">Up to $7B</td></tr>
+          
+          <tr class="category-header"><td colspan="3">2. Power generation for AI</td></tr>
+          <tr><td>NuScale / ENTRA1 Energy</td><td>Power for AI (gas thermal, nuclear) under consideration</td><td class="amount">Not specified</td></tr>
+          
+          <tr class="category-header"><td colspan="3">3. AI infrastructure (disclosed amounts $60B / ~¥9 trillion)</td></tr>
+          <tr><td>Toshiba</td><td>Power modules, data center transformers, etc.</td><td class="amount">Not specified</td></tr>
+          <tr><td>Hitachi</td><td>HVDC transmission, substation equipment for data centers</td><td class="amount">Not specified</td></tr>
+          <tr><td>Mitsubishi Electric</td><td>Power generation and supply systems for data centers</td><td class="amount">Up to $30B</td></tr>
+          <tr><td>Fujikura</td><td>Optical fiber cables</td><td class="amount">Not specified</td></tr>
+          <tr><td>TDK</td><td>Advanced electronic components and power modules</td><td class="amount">Not specified</td></tr>
+          <tr><td>Murata Manufacturing</td><td>MLCC, electronic components, ESS-related</td><td class="amount">Up to $15B</td></tr>
+          <tr><td>Panasonic</td><td>Energy storage systems, electronic equipment</td><td class="amount">Up to $15B</td></tr>
+          
+          <tr class="category-header"><td colspan="3">4. Critical minerals (Total ~$6B / ~¥900B)</td></tr>
+          <tr><td>Falcon Copper</td><td>Copper smelting/refining in the western US</td><td class="amount">$2B</td></tr>
+          <tr><td>Carbon Holdings</td><td>Ammonia / urea fertilizer facilities</td><td class="amount">Up to $3B</td></tr>
+          <tr><td>Element Six</td><td>High-pressure high-temperature diamond abrasive manufacturing</td><td class="amount">$0.5B</td></tr>
+          <tr><td>Max Energy</td><td>Improvement of crude oil tanker routes in the southern US</td><td class="amount">$0.6B</td></tr>
+          <tr><td>Mitra Chem</td><td>Lithium iron phosphate production</td><td class="amount">$0.35B</td></tr>
+        </tbody>
+      </table>
+
+      <p><span class="marker marker-primary">📄 Primary Source</span> Source: <a href="https://www.mof.go.jp/policy/international_policy/convention/dialogue/251028_fact_sheet_2.pdf" target="_blank">Ministry of Finance, Japan-US Joint Fact Sheet on Investment (Provisional Translation)</a> (October 28, 2025)</p>
+
+      <p>Total disclosed amounts sum to approximately <strong>$393.45B (~¥60 trillion)</strong>, equivalent to <strong>about 71% of the $550 billion pledge</strong>. The US fact sheet described this as "nearly $490 billion in what it described as new investments" (per Just Security).</p>
+
+      <p>One structural feature is notable: <strong>of the ~¥49 trillion in the Energy category, Westinghouse and GE Vernova Hitachi alone account for $200B (~¥30 trillion)</strong>. Both involve nuclear power plant construction (AP1000 and SMR). The largest pillar of the "¥80 trillion US-bound investment," then, is the construction of nuclear power plants in the United States.</p>
+    </section>
+
+    <section>
+      <h2>7. Structural Issue — The Nature of Special Accounts as a Container</h2>
+
+      <p>Japan's FILP Special Account has a fundamentally different character from the general account. That difference is: <span class="highlight-fact">it accumulates year over year</span>.</p>
+
+      <p>Japan's general account operates on a single-year budget principle — in principle, unspent funds expire at year-end (carryover exists but is exceptional). The FILP Special Account, by contrast, maintains a fund balance (stock) across fiscal years. As of end-FY2024, the Fiscal Loan Fund Account's fund balance was <strong>¥126.49 trillion</strong>. From this pool, loans to JBIC and others are executed each year, and repayments are reinvested.</p>
+
+      <p>JBIC capital injections accumulate on JBIC's balance sheet as "outstanding overseas loans." When JBIC then provides funds to US companies as a US-bound investment facility, this appears on the US company side as "government-guaranteed loans." <span class="marker marker-warn">⚠️ Interpretation</span> The ¥80 trillion US-bound investment, in other words, is designed as a structure where capital injections into JBIC continue year by year within the FILP Special Account container, accumulating over the 3.5-year period until the end of Trump's term (January 19, 2029). This is the fiscal meaning of MOU Paragraph 2: "Investments will be made from time to time... until January 19, 2029."</p>
+
+      <p>The relationship with the congressional appropriations process is also being questioned. On the US side, Just Security points out:</p>
+
+      <blockquote class="us">
+        <div class="quote-label">🇺🇸 US / Just Security</div>
+        <p>"The deal, formalized in a memorandum of understanding, <strong>operates outside the congressional appropriations process</strong>. ... [The] $550 billion slush fund would amount to <strong>eight percent of federal spending in FY2024</strong>, or more than the GDP of 34 states and all but 26 countries."</p>
+        <span class="source">— Source: <a href="https://www.justsecurity.org/123478/trump-japan-deal-appropriations-clause/" target="_blank">Just Security</a> (November 13, 2025)</span>
+      </blockquote>
+
+      <p>That an independent US research organization is characterizing this as "a slush fund operating outside congressional appropriations" is significant.</p>
+
+      <p>US media Axios also raised opacity concerns early on:</p>
+
+      <blockquote class="us">
+        <div class="quote-label">🇺🇸 US / Axios</div>
+        <p>"It's unclear what legal entities — on either the Japanese or U.S. side — would be involved, or <strong>what would be in it for Japanese companies if they have neither control over the investments nor a financial return</strong>."</p>
+        <span class="source">— Source: <a href="https://www.axios.com/2025/07/24/japan-trade-deal-trump-tariffs" target="_blank">Axios</a> (July 24, 2025)</span>
+      </blockquote>
+
+      <p>The question of what tangible benefit Japanese companies receive has been raised in US media from the outset.</p>
+
+      <p>On the Japan side, Kiuchi Takahide, an economist at Nomura Research Institute, offers this analysis:</p>
+
+      <blockquote class="jp">
+        <div class="quote-label">🇯🇵 Japan / Kiuchi Takahide, Nomura Research Institute</div>
+        <p>"The substance is close to what the Trump administration had been explaining all along — strongly characterized as US-led and US-advantaged. One could say it has become quite an unequal arrangement for Japan."</p>
+        <p>"This is a scheme convenient for Japan to provide funds to the US. The fact that Japan's government-affiliated financial institutions — which originally exist for the growth and development of Japanese companies and the benefit of Japanese citizens — have become a scheme providing funds for the US economy and industry is a major issue."</p>
+        <span class="source">— Source: <a href="https://www.nri.com/jp/media/column/kiuchi/20250905_4.html" target="_blank">Nomura Research Institute, Kiuchi Takahide's Economic Currents</a> (March 10, 2026)</span>
+      </blockquote>
+
+      <p>Independent analysts on both sides have raised structural concerns from their respective viewpoints. That is the objective picture at this moment.</p>
+    </section>
+
+    <section>
+      <h2>8. Remaining Questions</h2>
+
+      <p>Several questions about the ¥80 trillion US-bound investment cannot yet be answered from publicly available information.</p>
+
+      <p><strong>① Progress of the 21 companies.</strong> The actual investment execution status of the 21 companies disclosed October 28, 2025 must be tracked individually through each company's securities reports and timely disclosures. In February 2026, the first three projects (gas thermal power, synthetic diamond, port improvement; total $36 billion) were announced, but updates since have been limited.</p>
+
+      <p><strong>② The precise calculation of "Deemed Allocation Amount."</strong> The MOU Paragraph 13 profit-distribution boundary (50:50 → 90:10 two-tier structure) hinges on the "Deemed Allocation Amount," defined complexly in the MOU appendix. How this calculation actually plays out will vary by investment. Transparent disclosure is needed.</p>
+
+      <p><strong>③ Risk burden in case of investment failure.</strong> MOU Paragraph 17 includes an exemption clause: "The United States, Japan, the Investment Committee, etc. shall not be liable for decisions made regarding investments." But if losses occur, on whose risk are the funds contributed by Japan held? This is not clear.</p>
+
+      <p><strong>④ Legal binding and tariff retaliation.</strong> MOU Paragraph 21 explicitly states "no legal binding force," but Paragraph 8 stipulates "the US may impose tariffs if Japan does not provide funding." How should the de facto coercive force be evaluated?</p>
+
+      <p><strong>⑤ Future plans for FEFSA investment income.</strong> Will Akazawa's statement that "half of JBIC's loans can be covered by FEFSA investment income" become the de facto scheme? Under Japan's current FEFSA disclosure framework, further transparency about how investment income is used will be necessary.</p>
+
+      <p>This article presents only the structural overview. Separate follow-up articles will address each of these questions.</p>
+    </section>
+
+    <!-- Open Data section -->
+    <section class="sources" style="background:#1a2a4a; border-left:4px solid #4a8aff;">
+      <h3 style="color:#4a8aff;">📊 Open Data</h3>
+      
+      <p>The data used in this article is published in machine-readable CSV format. <strong>Free to download, reuse, and verify</strong>.</p>
+      
+      <p><strong>Available datasets:</strong></p>
+      <ol>
+        <li><a href="../../datasets/jbic_5year.csv" target="_blank">jbic_5year.csv</a> — JBIC inflows 5-year trend (FY2023→FY2026)</li>
+        <li><a href="../../datasets/tokkai_zaitou_5year.csv" target="_blank">tokkai_zaitou_5year.csv</a> — FILP Special Account total expenditure, 5-year trend</li>
+        <li><a href="../../datasets/companies_21.csv" target="_blank">companies_21.csv</a> — List of 21 companies in the $550B US investment pledge</li>
+        <li><a href="../../datasets/" target="_blank">Full datasets/ directory</a> · <a href="../../datasets/README.md" target="_blank">README</a></li>
+      </ol>
+      
+      <p style="margin-top:16px;"><strong>License:</strong> <a href="https://creativecommons.org/publicdomain/zero/1.0/" target="_blank">CC0 1.0 Universal</a> (public domain). Attribution appreciated but not required. Academic, journalistic, policy, and commercial use are all welcome.</p>
+    </section>
+
+    <section class="sources">
+      <h3>📚 Primary Sources and Editorial Policy</h3>
+      
+      <p><strong>14 primary sources cited in this article:</strong></p>
+      <ol>
+        <li><a href="https://www.whitehouse.gov/fact-sheets/2025/07/fact-sheet-president-donald-j-trump-secures-unprecedented-u-s-japan-strategic-trade-and-investment-agreement/" target="_blank">White House Fact Sheet (announcement)</a> — July 23, 2025</li>
+        <li>Trump Truth Social post — July 22, 2025 (quoted verbatim by <a href="https://www.newsweek.com/donald-trump-trade-deal-japan-2102885" target="_blank">Newsweek</a>, <a href="https://www.aljazeera.com/economy/2025/7/23/trump-announces-massive-trade-deal-with-japan" target="_blank">Al Jazeera</a> and others)</li>
+        <li>President Trump's "seed money / signing bonus" remarks — July 24, 2025 (<a href="https://www.marketbeat.com/articles/trump-says-japan-will-invest-550-billion-in-us-at-his-direction-it-may-not-be-a-sure-thing-2025-07-26" target="_blank">AP via MarketBeat</a>)</li>
+        <li><a href="https://www.kantei.go.jp/jp/103/statement/2025/0723bura2.html" target="_blank">Prime Minister's Office, PM Ishiba press conference on the Japan-US tariff agreement</a> — July 23, 2025</li>
+        <li><a href="https://www.cas.go.jp/jp/seisaku/tariff_measures/dai6/250725siryou1.pdf" target="_blank">Cabinet Secretariat, Outline of the Japan-US Agreement</a> — July 25, 2025</li>
+        <li>Akazawa on NHK program re: profit distribution — July 26, 2025 (<a href="https://www.bloomberg.com/jp/news/articles/2025-07-28/T03B7BGPWCL200" target="_blank">Bloomberg</a>, <a href="https://www.jiji.com/jc/article?k=2025072600440&g=int" target="_blank">Jiji Press</a>)</li>
+        <li><a href="https://www.mofa.go.jp/mofaj/press/kaiken/kaikenit_000001_00104.html" target="_blank">Ministry of Foreign Affairs, Spokesman Kitamura press briefing</a> "no joint document was prepared" — July 30, 2025</li>
+        <li><a href="https://www.whitehouse.gov/presidential-actions/2025/09/implementing-the-united-states-japan-agreement/" target="_blank">Executive Order: Implementing the United States–Japan Agreement</a> — September 4, 2025</li>
+        <li><a href="https://www.cas.go.jp/jp/seisaku/tariff_measures/houmon/pdf/MOU(JP).pdf" target="_blank">Cabinet Secretariat, MOU on Strategic Investment (Provisional Translation)</a> — signed September 4, 2025</li>
+        <li><a href="https://www.whitehouse.gov/fact-sheets/2025/09/fact-sheet-president-donald-j-trump-implements-a-historic-u-s-japan-framework-agreement/" target="_blank">White House Fact Sheet (implementation phase)</a> — September 5, 2025</li>
+        <li>Akazawa on ReHacQ program re: FEFSA investment income — September 12, 2025 (<a href="https://www.nikkei.com/article/DGXZQOUA12CCR0S5A910C2000000/" target="_blank">Nikkei</a>)</li>
+        <li><a href="https://www.whitehouse.gov/fact-sheets/2025/10/28195/" target="_blank">White House Fact Sheet (21 companies)</a> — October 28, 2025</li>
+        <li><a href="https://www.mof.go.jp/policy/international_policy/convention/dialogue/251028_fact_sheet_2.pdf" target="_blank">Ministry of Finance & METI, Joint Fact Sheet on Investment (Provisional Translation)</a> — October 28, 2025</li>
+        <li><a href="https://www.meti.go.jp/speeches/kaiken/2025/20251028001.html" target="_blank">METI, Minister Akazawa post-Cabinet press conference</a> "no relation yet to the MOU process" — October 28, 2025</li>
+      </ol>
+
+      <p style="margin-top:20px;"><strong>Ministry of Finance Special Account data (5-year JBIC inflow trend):</strong></p>
+      <ol>
+        <li><a href="https://www.mof.go.jp/about_mof/mof_budget/special_account/zaitou/2023account.html" target="_blank">MOF, FY2023 Settlement (FILP Special Account)</a></li>
+        <li><a href="https://www.mof.go.jp/about_mof/mof_budget/special_account/zaitou/2024account.html" target="_blank">MOF, FY2024 Settlement (FILP Special Account)</a></li>
+        <li><a href="https://www.mof.go.jp/about_mof/mof_budget/special_account/zaitou/2025budget.html" target="_blank">MOF, FY2025 Budget (including supplementary)</a></li>
+        <li><a href="https://www.mof.go.jp/about_mof/mof_budget/special_account/zaitou/2026budget.html" target="_blank">MOF, FY2026 Budget (FILP Special Account)</a></li>
+      </ol>
+
+      <p style="margin-top:20px;"><strong>Analytical articles (supporting interpretation of primary sources):</strong></p>
+      <ol>
+        <li><a href="https://www.nri.com/jp/media/column/kiuchi/20250905_4.html" target="_blank">Nomura Research Institute, Kiuchi Takahide — "Japan-US Investment MOU: An Unequal Arrangement Favoring the US"</a></li>
+        <li><a href="https://www.justsecurity.org/123478/trump-japan-deal-appropriations-clause/" target="_blank">Just Security — "Trump's Japan Deal and the Disappearing Appropriations Clause"</a></li>
+        <li><a href="https://www.axios.com/2025/07/24/japan-trade-deal-trump-tariffs" target="_blank">Axios — "Japan trade deal includes $550 billion in unanswered questions"</a></li>
+      </ol>
+      
+      <div class="policy">
+        <p><strong>Editorial Policy:</strong></p>
+        <ul>
+          <li>Public sources only (no information obtained via disclosure requests)</li>
+          <li>Facts and inferences strictly separated (<span class="marker marker-warn">⚠️ Inference</span> marker)</li>
+          <li>AI-aggregated content marked explicitly (<span class="marker marker-ai">🤖 AI Aggregation</span> marker)</li>
+          <li>Immediate correction of discovered errors, logged in this article's revision history</li>
+          <li>Balanced presentation (Japan and US quotes presented in parallel)</li>
+          <li>Original-language citations with translations explicitly marked</li>
+        </ul>
+        
+        <p style="margin-top:20px;"><strong>AI Methodology:</strong></p>
+        <ul>
+          <li>Articles on this site are co-authored by AI (Claude) and a human editor</li>
+          <li>Fact-checking uses multiple AI systems (Claude / GPT / DeepSeek / Gemini) cross-referencing each other</li>
+          <li>Corrections triggered by AI analysis are clearly noted in the revision history</li>
+          <li>AI use is disclosed, not hidden, as part of the methodology</li>
+          <li>Final editorial judgment and responsibility rest with the human editor</li>
+        </ul>
+      </div>
+    </section>
+
+    <section class="changelog">
+      <h3>📝 Revision History</h3>
+      <ul>
+        <li><span class="date">2026/05/22</span>First published</li>
+        <li><span class="date">2026/05/22</span>Correction: Section 4 — Cabinet decision date of FY2025 first supplementary budget corrected from December 8, 2025 → November 28, 2025 (DeepSeek analysis pointed out). Enactment date (December 16) unchanged.</li>
+        <li><span class="date">2026/05/22</span>Correction: "4.2× over 5 years" corrected to "4.2× from FY2023 to FY2026" (GPT analysis pointed out). FY2023 → FY2026 spans 4 fiscal years, so "over 5 years" was inaccurate. Multiplier (4.2×) unchanged.</li>
+        <li><span class="date">2026/05/23</span>Update: 21-company total amount refined from "~$393B" to "~$393.45B" (more precise value).</li>
+        <li><span class="date">2026/05/23</span>Update: Datasets (CSV) released at <a href="../../datasets/">datasets/</a> (CC0 1.0).</li>
+        <li><span class="date">2026/05/23</span>Update: Article text now explicitly licensed under CC BY 4.0. AI Methodology section added (transparency about methodology).</li>
+        <li><span class="date">2026/05/23</span>English translation published at this URL.</li>
+        <li><span class="date">2026/05/23</span>Improvements based on DeepSeek translation review: (1) Added an explanatory note in Section 1 about Japan's Special Account system for international readers unfamiliar with the structure. (2) Added a clarifying note in Section 3-3 about the unusual use of "capital commitment" in a non-binding agreement context.</li>
+      </ul>
+    </section>
+
+    <section class="next-article">
+      <h3>Related Articles · Next Up</h3>
+      <p>Article #2, "Japan's One-Time Defense Funding Scheme: The Special Law That Extracted ¥1.84 Trillion from Special Accounts, and the Tomahawks Bought at Twice the US Navy Price," is now published. <a href="special-account-defense.html">→ Read Article #2 (English)</a></p>
+      <p style="margin-top:12px;">The dashboard publishes yearly Special Account and procurement data for the Ministry of Finance, Ministry of Defense, Ministry of Health Labour and Welfare, MIC, and Digital Agency. <a href="../../index.html">→ Return to dashboard (Japanese)</a></p>
+    </section>
+    
+  </article>
+
+</div>
+
+<footer>
+  <p>Fiscal OSINT Japan © 2026 · operated by SN0W8ALL LLC</p>
+  <p style="margin-top:10px;">
+    <strong>Articles:</strong> <a href="https://creativecommons.org/licenses/by/4.0/" target="_blank" rel="license">CC BY 4.0</a> · 
+    <strong>Datasets:</strong> <a href="https://creativecommons.org/publicdomain/zero/1.0/" target="_blank" rel="license">CC0 1.0</a>
+  </p>
+  <p style="margin-top:10px; font-size:12px;">
+    Citation with source attribution is freely permitted. Example:<br>
+    "Fiscal OSINT Japan, 'Tracing the ¥80 Trillion US Investment Pledge Through Japan's FILP Special Account' (May 22, 2026)"
+  </p>
+  <p style="margin-top:14px;">
+    <a href="https://x.com/FiscalOSINT_JP" target="_blank">X (@FiscalOSINT_JP)</a> ·
+    <a href="../../index.html">Dashboard (JP)</a> ·
+    <a href="../../datasets/" target="_blank">📊 datasets</a>
+  </p>
+  <p style="margin-top:12px; font-size:12px;">This article is based on publicly available information as of May 22, 2026. Corrections and additional information welcome.</p>
+</footer>
+
+</body>
+</html>

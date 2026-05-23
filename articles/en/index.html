@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Articles | Fiscal OSINT Japan</title>
+<meta name="description" content="Investigative articles by Fiscal OSINT Japan. Cross-referencing Japanese and US primary sources to trace public capital flows. All articles licensed under CC BY 4.0; datasets under CC0 1.0.">
+<meta property="og:title" content="Articles — Fiscal OSINT Japan">
+<meta property="og:description" content="Investigative articles tracing Japan's public capital flows through open sources, with bilingual coverage.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://nana6fu.github.io/fiscal-osint-japan/articles/en/">
+
+<link rel="alternate" hreflang="en" href="https://nana6fu.github.io/fiscal-osint-japan/articles/en/">
+<link rel="alternate" hreflang="ja" href="https://nana6fu.github.io/fiscal-osint-japan/articles/">
+<link rel="alternate" hreflang="x-default" href="https://nana6fu.github.io/fiscal-osint-japan/articles/">
+<link rel="canonical" href="https://nana6fu.github.io/fiscal-osint-japan/articles/en/">
+
+<style>
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+body {
+  font-family: -apple-system, BlinkMacSystemFont, "Helvetica Neue", Arial, sans-serif;
+  background: #0a0e1a; color: #e0e0e0; line-height: 1.85; font-size: 16px;
+  -webkit-font-smoothing: antialiased;
+}
+.container { max-width: 960px; margin: 0 auto; padding: 0 20px; }
+.nav { background: rgba(10,14,26,.95); padding: 14px 0; border-bottom: 1px solid #2a2f3e; position: sticky; top: 0; z-index: 100; backdrop-filter: blur(8px); }
+.nav .container { display: flex; justify-content: space-between; align-items: center; }
+.nav-back { color: #4a8aff; text-decoration: none; font-size: 14px; }
+.nav-back:hover { text-decoration: underline; }
+.nav-site { font-weight: 700; font-size: 15px; letter-spacing: .3px; }
+.nav-site .accent { color: #ff6b6b; }
+.lang-switch { display: inline-flex; align-items: center; gap: 6px; background: #1a1f2e; padding: 5px 12px; border-radius: 4px; font-size: 13px; color: #aaa; border: 1px solid #2a2f3e; margin-left: 12px; }
+.lang-switch a { color: #aaa; text-decoration: none; padding: 0 4px; }
+.lang-switch a.active { color: #ffd700; font-weight: 700; }
+.lang-switch a:hover { color: #4a8aff; }
+
+.page-header { padding: 60px 0 40px; border-bottom: 1px solid #2a2f3e; margin-bottom: 50px; }
+h1.page-title { font-size: 32px; line-height: 1.4; margin-bottom: 14px; color: #fff; font-weight: 800; letter-spacing: .3px; }
+.page-subtitle { font-size: 17px; color: #aaa; margin-bottom: 24px; line-height: 1.7; font-weight: 400; }
+.page-intro { font-size: 15px; color: #bbb; line-height: 1.9; max-width: 720px; }
+.page-intro p { margin-bottom: 0.8em; }
+.page-intro p:last-child { margin-bottom: 0; }
+
+.category-section { margin-bottom: 60px; }
+.category-title { font-size: 14px; color: #ffd700; font-weight: 700; letter-spacing: 1.5px; margin-bottom: 20px; padding-bottom: 12px; border-bottom: 1px solid #2a2f3e; }
+
+.article-cards { display: grid; grid-template-columns: 1fr; gap: 24px; }
+.article-card { background: #1a1f2e; border: 1px solid #2a2f3e; border-radius: 10px; padding: 28px 30px; transition: border-color 0.2s, transform 0.2s; }
+.article-card:hover { border-color: #4a8aff; transform: translateY(-2px); }
+.card-number { font-size: 12px; color: #ff6b6b; font-weight: 700; letter-spacing: 2px; margin-bottom: 12px; }
+.card-title { font-size: 22px; line-height: 1.5; color: #fff; font-weight: 700; margin-bottom: 12px; }
+.card-title a { color: #fff; text-decoration: none; }
+.card-title a:hover { color: #4a8aff; text-decoration: underline; }
+.card-subtitle { font-size: 15px; color: #bbb; line-height: 1.7; margin-bottom: 18px; }
+.card-meta { display: flex; flex-wrap: wrap; gap: 10px; font-size: 12px; color: #888; margin-bottom: 18px; align-items: center; }
+.card-meta .tag { background: #0f1424; padding: 3px 9px; border-radius: 3px; color: #aaa; }
+.card-tldr { background: #0f1424; border-left: 3px solid #ffd700; padding: 14px 18px; margin: 16px 0 20px; border-radius: 3px; font-size: 13px; color: #ccc; line-height: 1.8; }
+.card-tldr p { margin: 0; }
+.card-cta { display: inline-block; color: #4a8aff; font-size: 14px; font-weight: 600; padding: 8px 0; border-bottom: 1px solid transparent; transition: border-color 0.2s; }
+.card-cta:hover { border-bottom-color: #4a8aff; text-decoration: none; }
+.card-stats { display: flex; gap: 16px; font-size: 12px; color: #888; margin-top: 14px; padding-top: 14px; border-top: 1px solid #2a2f3e; flex-wrap: wrap; }
+.card-stats .stat-item { color: #aaa; }
+.card-stats .stat-item .label { color: #666; margin-right: 4px; }
+
+.coming-soon { background: #151a26; border: 1px dashed #2a2f3e; border-radius: 10px; padding: 28px 30px; text-align: center; }
+.coming-soon h3 { color: #888; font-size: 16px; margin-bottom: 10px; font-weight: 600; }
+.coming-soon p { color: #666; font-size: 14px; line-height: 1.7; }
+
+.about-section { background: #1a1f2e; padding: 30px 32px; border-radius: 10px; margin-top: 50px; }
+.about-section h2 { color: #ffd700; font-size: 18px; margin-bottom: 16px; font-weight: 700; }
+.about-section p { color: #ccc; font-size: 14px; line-height: 1.9; margin-bottom: 12px; }
+.about-section p:last-child { margin-bottom: 0; }
+.about-section ul { padding-left: 1.5em; color: #ccc; font-size: 14px; line-height: 1.9; }
+.about-section ul li { margin-bottom: 6px; }
+.about-section a { color: #4a8aff; }
+
+footer { border-top: 1px solid #2a2f3e; padding: 30px 0; margin-top: 80px; text-align: center; font-size: 13px; color: #666; }
+footer a { color: #888; }
+footer p { margin-bottom: 6px; }
+
+@media (max-width: 768px) {
+  body { font-size: 15px; }
+  h1.page-title { font-size: 24px; }
+  .page-header { padding: 40px 0 28px; }
+  .article-card { padding: 22px 22px; }
+  .card-title { font-size: 18px; }
+  .card-subtitle { font-size: 14px; }
+  .container { padding: 0 16px; }
+  .lang-switch { margin-left: 0; }
+  .nav .container { flex-wrap: wrap; gap: 8px; }
+}
+</style>
+</head>
+<body>
+
+<nav class="nav">
+  <div class="container">
+    <a href="../../index.html" class="nav-back">← Dashboard (Japanese)</a>
+    <div>
+      <span class="nav-site"><span class="accent">Fiscal OSINT</span> Japan</span>
+      <span class="lang-switch">
+        🌐
+        <a href="../index.html">JP</a>
+        <span style="color:#555;">/</span>
+        <a href="index.html" class="active">EN</a>
+      </span>
+    </div>
+  </div>
+</nav>
+
+<div class="container">
+
+  <header class="page-header">
+    <h1 class="page-title">📝 Articles</h1>
+    <p class="page-subtitle">Cross-referencing Japanese and US primary sources to trace public capital flows</p>
+    <div class="page-intro">
+      <p>Fiscal OSINT Japan investigative articles are built around the <strong>cross-referencing and reconstruction of primary sources</strong> published by Japan's Ministry of Finance, the Cabinet, the Diet, the Board of Audit, and US government agencies. We do not use unreleased materials obtained via disclosure requests. Instead, we aim to visualize the structural pathways of capital flows using only publicly accessible sources that any reader can independently verify.</p>
+      <p>Articles are published under <strong>CC BY 4.0</strong>; supporting datasets (CSV) are released under <strong>CC0 1.0 (public domain)</strong>. Academic, journalistic, policy, and commercial use — all welcome.</p>
+      <p>For an overview of this project and the dashboard, see <a href="about.html">About Fiscal OSINT Japan</a>.</p>
+    </div>
+  </header>
+
+  <!-- Series 1: US-bound Public Capital Flows -->
+  <section class="category-section">
+    <h2 class="category-title">SERIES 1 — US-BOUND PUBLIC CAPITAL FLOWS</h2>
+    
+    <div class="article-cards">
+      
+      <!-- Article #2 -->
+      <article class="article-card">
+        <div class="card-number">ARTICLE #2 · 2026/05/23</div>
+        <h3 class="card-title"><a href="special-account-defense.html">Japan's One-Time Defense Funding Scheme — The Special Law That Extracted ¥1.84 Trillion from Special Accounts, and the Tomahawks Bought at Twice the US Navy Price</a></h3>
+        <p class="card-subtitle">The "amount first, funding source later" structure starting from the May 2022 Japan-US summit. A new law (Defense Funding Securing Act, 2023) extracted ¥1.84 trillion from Special Accounts, channeling 80% directly into US-made weapons via FMS. We trace the structure through primary sources from both Japanese and US governments.</p>
+        
+        <div class="card-meta">
+          <span class="tag">Special Account</span>
+          <span class="tag">Defense Budget</span>
+          <span class="tag">FMS</span>
+          <span class="tag">Defense Funding Securing Act</span>
+          <span class="tag">Tomahawk</span>
+        </div>
+        
+        <div class="card-tldr">
+          <p>① In FY2023, Japan transferred a one-time ¥1.84 trillion from the FEFSA and FILP Special Accounts to the general account, authorized by the Defense Funding Securing Act (Act No. 69 of 2023).<br>
+          ② Article 14 of the same Act locks these funds to defense expenditure. A new "Defense Capabilities Enhancement Fund" was established in the general account — effectively a quasi-defense special account.<br>
+          ③ FY2023 FMS procurement was ¥1.4768 trillion — quadrupled YoY, expanded 13× over a decade. Tomahawk unit prices were 1.9–2.3× the US Navy's domestic price.<br>
+          ④ FMS prepayments are held in the FMS Trust Fund at the US Treasury, invested in US Treasury securities. Japan's Board of Audit has flagged uncollected balances since 1997; the most recent report cited ¥1.14 trillion uncollected for 5+ years.</p>
+        </div>
+        
+        <a href="special-account-defense.html" class="card-cta">→ Read article</a>
+        
+        <div class="card-stats">
+          <span class="stat-item"><span class="label">📝</span>~5,500 words</span>
+          <span class="stat-item"><span class="label">⏱</span>~25 min read</span>
+          <span class="stat-item"><span class="label">📚</span>30+ primary sources</span>
+          <span class="stat-item"><span class="label">📊</span><a href="../../datasets/">4 related CSVs</a></span>
+          <span class="stat-item"><a href="../special-account-defense.html">日本語版</a></span>
+        </div>
+      </article>
+      
+      <!-- Article #1 -->
+      <article class="article-card">
+        <div class="card-number">ARTICLE #1 · 2026/05/22</div>
+        <h3 class="card-title"><a href="80trillion.html">Tracing the ¥80 Trillion US Investment Pledge Through Japan's FILP Special Account</a></h3>
+        <p class="card-subtitle">JBIC capital injections from Japan's FILP Special Account expanded 4.2× from FY2023 to FY2026. Japan's Ministry of Finance itself labels its FY2025 supplementary budget as "responding to US tariffs." We trace the structural pathway through 14 primary sources from both Japanese and US governments.</p>
+        
+        <div class="card-meta">
+          <span class="tag">$550B / ¥80 trillion</span>
+          <span class="tag">FILP Special Account</span>
+          <span class="tag">JBIC</span>
+          <span class="tag">MOU</span>
+          <span class="tag">OSINT</span>
+        </div>
+        
+        <div class="card-tldr">
+          <p>① The $550 billion (~¥80 trillion) US investment pledge announced in July 2025 is already in motion through a concrete fiscal pathway: loans and equity from Japan's FILP Special Account to JBIC.<br>
+          ② JBIC inflows expanded from FY2023 ¥1.0557 trillion to FY2026 ¥4.4177 trillion — a 4.2× increase. The Ministry of Finance itself labels Japan's FY2025 supplementary budget as "responding to US tariffs."<br>
+          ③ Japanese and US explanations of the same agreement reveal clear discrepancies — from the very nature of the deal to profit distribution, the existence of joint documents, and the status of the 21-company list.</p>
+        </div>
+        
+        <a href="80trillion.html" class="card-cta">→ Read article</a>
+        
+        <div class="card-stats">
+          <span class="stat-item"><span class="label">📝</span>~5,600 words</span>
+          <span class="stat-item"><span class="label">⏱</span>~20 min read</span>
+          <span class="stat-item"><span class="label">📚</span>14 primary sources</span>
+          <span class="stat-item"><span class="label">📊</span><a href="../../datasets/">3 related CSVs</a></span>
+          <span class="stat-item"><a href="../80trillion.html">日本語版</a></span>
+        </div>
+      </article>
+      
+      <!-- Coming Soon -->
+      <div class="coming-soon">
+        <h3>🔄 In preparation</h3>
+        <p>Article #3 (forthcoming): Cumulative unreconciled balances in the FMS Trust Fund attributable to Japan; year-by-year balance of the Defense Capabilities Enhancement Fund.</p>
+      </div>
+      
+    </div>
+  </section>
+
+  <!-- About section -->
+  <section class="about-section">
+    <h2>📋 About Fiscal OSINT Japan</h2>
+    <p><strong>Editorial Policy:</strong></p>
+    <ul>
+      <li>Public sources only (no disclosure requests, no unauthorized channels)</li>
+      <li>Facts and inferences strictly separated (⚠️ Inference marker)</li>
+      <li>AI-aggregated content marked explicitly (🤖 AI Aggregation marker)</li>
+      <li>Immediate correction of discovered errors, logged in each article's revision history</li>
+      <li>Balanced presentation (Japan and US quotes presented in parallel)</li>
+      <li>Original-language citations with translations explicitly marked</li>
+      <li>Primary source links provided wherever possible, with Text Fragments URLs (#:~:text=...) where applicable</li>
+    </ul>
+    <p style="margin-top:16px;"><strong>AI Methodology:</strong></p>
+    <ul>
+      <li>Articles on this site are co-authored by AI (Claude) and a human editor</li>
+      <li>Fact-checking uses multiple AI systems (Claude / GPT / DeepSeek / Gemini) cross-referencing each other</li>
+      <li>Corrections triggered by AI analysis are clearly noted in the revision history</li>
+      <li>AI use is disclosed, not hidden, as part of the methodology</li>
+      <li>Final editorial judgment and responsibility rest with the human editor</li>
+    </ul>
+    <p style="margin-top:16px;"><strong>License:</strong> Articles <a href="https://creativecommons.org/licenses/by/4.0/" target="_blank">CC BY 4.0</a> · Datasets <a href="https://creativecommons.org/publicdomain/zero/1.0/" target="_blank">CC0 1.0</a></p>
+    <p style="margin-top:12px;">For full project overview, dashboard summary, and contact information, see <a href="about.html">About Fiscal OSINT Japan</a>.</p>
+  </section>
+
+</div>
+
+<footer>
+  <p>Fiscal OSINT Japan © 2026 · operated by SN0W8ALL LLC</p>
+  <p style="margin-top:14px;">
+    <a href="https://x.com/FiscalOSINT_JP" target="_blank">X (@FiscalOSINT_JP)</a> ·
+    <a href="../../index.html">Dashboard (JP)</a> ·
+    <a href="../../datasets/" target="_blank">📊 datasets</a>
+  </p>
+  <p style="margin-top:12px; font-size:12px;">Corrections and additional information welcome.</p>
+</footer>
+
+</body>
+</html>

@@ -1,0 +1,748 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Japan's One-Time Defense Funding Scheme: The Special Law That Extracted ¥1.84 Trillion from Special Accounts, and the Tomahawks Bought at Twice the US Navy Price | Fiscal OSINT Japan</title>
+<meta name="description" content="A new Japanese law (the Defense Funding Securing Act, 2023) overrode standard Special Account rules to transfer ¥1.84 trillion to defense spending. 80% of this was channeled into US-made weapons via Foreign Military Sales (FMS). Tomahawk unit prices for Japan were approximately twice the US Navy's domestic price. We trace the structure from the May 2022 Japan-US summit through to the FMS Trust Fund at the US Treasury, using primary sources from both governments.">
+<meta property="og:title" content="Japan's One-Time Defense Funding Scheme — ¥1.84 Trillion Extracted via Special Law, Tomahawks at Twice the US Navy Price">
+<meta property="og:description" content="The 'amount first, funding source later' structure starting from the May 2022 Japan-US summit. A new law extracted ¥1.84T from Special Accounts; 80% went directly into US weapons via FMS at twice the US Navy's domestic price.">
+<meta property="og:type" content="article">
+<meta property="og:url" content="https://nana6fu.github.io/fiscal-osint-japan/articles/en/special-account-defense.html">
+<meta name="twitter:card" content="summary_large_image">
+
+<link rel="alternate" hreflang="en" href="https://nana6fu.github.io/fiscal-osint-japan/articles/en/special-account-defense.html">
+<link rel="alternate" hreflang="ja" href="https://nana6fu.github.io/fiscal-osint-japan/articles/special-account-defense.html">
+<link rel="alternate" hreflang="x-default" href="https://nana6fu.github.io/fiscal-osint-japan/articles/special-account-defense.html">
+<link rel="canonical" href="https://nana6fu.github.io/fiscal-osint-japan/articles/en/special-account-defense.html">
+
+<style>
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+body {
+  font-family: -apple-system, BlinkMacSystemFont, "Helvetica Neue", Arial, sans-serif;
+  background: #0a0e1a; color: #e0e0e0; line-height: 1.85; font-size: 16px;
+  -webkit-font-smoothing: antialiased;
+}
+.container { max-width: 720px; margin: 0 auto; padding: 0 20px; }
+.nav { background: rgba(10,14,26,.95); padding: 14px 0; border-bottom: 1px solid #2a2f3e; position: sticky; top: 0; z-index: 100; backdrop-filter: blur(8px); }
+.nav .container { display: flex; justify-content: space-between; align-items: center; }
+.nav-back { color: #4a8aff; text-decoration: none; font-size: 14px; }
+.nav-back:hover { text-decoration: underline; }
+.nav-site { font-weight: 700; font-size: 15px; letter-spacing: .3px; }
+.nav-site .accent { color: #ff6b6b; }
+.lang-switch { display: inline-flex; align-items: center; gap: 6px; background: #1a1f2e; padding: 5px 12px; border-radius: 4px; font-size: 13px; color: #aaa; border: 1px solid #2a2f3e; margin-left: 12px; }
+.lang-switch a { color: #aaa; text-decoration: none; padding: 0 4px; }
+.lang-switch a.active { color: #ffd700; font-weight: 700; }
+.lang-switch a:hover { color: #4a8aff; }
+
+.article-header { padding: 60px 0 30px; border-bottom: 1px solid #2a2f3e; margin-bottom: 40px; }
+h1.article-title { font-size: 27px; line-height: 1.35; margin-bottom: 14px; color: #fff; font-weight: 800; letter-spacing: .2px; }
+.article-subtitle { font-size: 17px; color: #aaa; margin-bottom: 28px; line-height: 1.7; font-weight: 400; }
+.article-meta { display: flex; flex-wrap: wrap; gap: 14px; font-size: 13px; color: #888; align-items: center; }
+.article-meta .tag { background: #1a1f2e; padding: 3px 10px; border-radius: 4px; color: #aaa; }
+
+.tldr { background: #1a1f2e; border-left: 4px solid #ffd700; padding: 22px 26px; margin: 32px 0; border-radius: 4px; }
+.tldr-label { font-size: 12px; color: #ffd700; font-weight: 700; letter-spacing: 1.5px; margin-bottom: 10px; }
+.tldr p { margin: 0; }
+
+article p { margin-bottom: 1.5em; }
+article section { margin-bottom: 56px; }
+h2 { font-size: 22px; margin: 56px 0 24px; padding-bottom: 14px; border-bottom: 2px solid #2a2f3e; color: #fff; font-weight: 700; line-height: 1.4; }
+h3 { font-size: 17px; margin: 32px 0 16px; color: #fff; font-weight: 600; }
+strong { color: #fff; }
+em.num { color: #ffd700; font-style: normal; font-weight: 700; }
+.highlight-fact { color: #ff6b6b; font-weight: 700; }
+
+blockquote { background: #1a1f2e; border-left: 4px solid #ff6b6b; padding: 20px 26px; margin: 26px 0; border-radius: 4px; color: #ddd; font-size: 15px; }
+blockquote.jp { border-left-color: #4a8aff; }
+blockquote.us { border-left-color: #ff6b6b; }
+blockquote.law { border-left-color: #ffd700; }
+blockquote p { margin: 0; }
+blockquote p + p { margin-top: .8em; }
+blockquote .source { display: block; margin-top: 14px; font-size: 13px; color: #888; }
+blockquote .source a { color: #4a8aff; }
+blockquote .quote-label { display: inline-block; font-size: 11px; font-weight: 700; padding: 2px 8px; border-radius: 3px; margin-bottom: 8px; letter-spacing: 1px; }
+blockquote.jp .quote-label { background: #1a3a5a; color: #4a8aff; }
+blockquote.us .quote-label { background: #5a1a1a; color: #ff6b6b; }
+blockquote.law .quote-label { background: #4a3a1a; color: #ffd700; }
+
+.compare-table { width: 100%; border-collapse: collapse; margin: 26px 0; font-size: 14px; }
+.compare-table th, .compare-table td { padding: 12px 14px; text-align: left; border: 1px solid #2a2f3e; vertical-align: top; line-height: 1.6; }
+.compare-table thead { background: #1a1f2e; }
+.compare-table thead th { font-weight: 700; }
+.compare-table .row-label { background: #151a26; font-weight: 600; width: 22%; color: #ccc; }
+
+.timeline-table { width: 100%; border-collapse: collapse; margin: 26px 0; font-size: 14px; }
+.timeline-table th, .timeline-table td { padding: 10px 12px; text-align: left; border: 1px solid #2a2f3e; vertical-align: top; line-height: 1.6; }
+.timeline-table th { background: #1a1f2e; font-weight: 700; color: #fff; }
+.timeline-table td.date { white-space: nowrap; color: #ffd700; font-weight: 600; width: 18%; }
+.timeline-table td.event { color: #ddd; }
+.timeline-table td.source { font-size: 12px; color: #888; }
+
+.flow-map { background: #1a1f2e; padding: 24px; border-radius: 8px; margin: 26px 0; overflow-x: auto; }
+.flow-map svg { max-width: 100%; height: auto; }
+
+.marker { display: inline-block; padding: 2px 9px; border-radius: 3px; font-size: 12px; margin-right: 6px; font-weight: 600; letter-spacing: .3px; }
+.marker-ai { background: #2a2f3e; color: #b0b0b0; }
+.marker-primary { background: #1a3a4a; color: #4a8aff; }
+.marker-warn { background: #4a2a1a; color: #ffaa00; }
+
+a { color: #4a8aff; text-decoration: none; }
+a:hover { text-decoration: underline; }
+
+.sources, .changelog { background: #1a1f2e; padding: 24px 26px; border-radius: 8px; margin: 36px 0; font-size: 14px; }
+.sources h3, .changelog h3 { margin: 0 0 14px; color: #ffd700; font-size: 16px; border: none; padding: 0; }
+.sources ol { padding-left: 1.5em; }
+.sources li { margin-bottom: 10px; color: #ccc; line-height: 1.7; }
+.sources .policy { margin-top: 20px; padding-top: 16px; border-top: 1px solid #2a2f3e; }
+.sources .policy ul { padding-left: 1.5em; margin-top: 10px; }
+.sources .policy li { margin-bottom: 6px; }
+.changelog ul { padding-left: 1.5em; margin-top: 8px; }
+.changelog li { margin-bottom: 8px; color: #ccc; }
+.changelog li .date { color: #888; font-size: 13px; margin-right: 10px; }
+
+.next-article { background: #151a26; padding: 24px; border-radius: 8px; margin: 36px 0; border: 1px solid #2a2f3e; }
+.next-article h3 { margin: 0 0 12px; color: #fff; }
+.next-article p { margin-bottom: 0; color: #bbb; font-size: 14px; }
+
+footer { border-top: 1px solid #2a2f3e; padding: 30px 0; margin-top: 60px; text-align: center; font-size: 13px; color: #666; }
+footer a { color: #888; }
+footer p { margin-bottom: 6px; }
+
+@media (max-width: 768px) {
+  body { font-size: 15px; }
+  h1.article-title { font-size: 21px; }
+  h2 { font-size: 19px; }
+  h3 { font-size: 16px; }
+  .container { padding: 0 16px; }
+  .article-header { padding: 40px 0 24px; }
+  blockquote, .tldr { padding: 16px 20px; }
+  .compare-table, .timeline-table { font-size: 12px; }
+  .compare-table th, .compare-table td, .timeline-table th, .timeline-table td { padding: 8px 10px; }
+  .lang-switch { margin-left: 0; }
+  .nav .container { flex-wrap: wrap; gap: 8px; }
+}
+</style>
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "NewsArticle",
+  "headline": "Japan's One-Time Defense Funding Scheme: The Special Law That Extracted ¥1.84 Trillion from Special Accounts, and the Tomahawks Bought at Twice the US Navy Price",
+  "alternativeHeadline": "The 'amount first, funding source later' structure starting from the May 2022 Japan-US summit. A new law extracted ¥1.84T from Special Accounts and channeled 80% directly into US weapons via FMS. Tomahawk unit prices for Japan were approximately twice the US Navy's domestic price.",
+  "datePublished": "2026-05-23T00:00:00+09:00",
+  "dateModified": "2026-05-23T00:00:00+09:00",
+  "author": {
+    "@type": "Organization",
+    "name": "Fiscal OSINT Japan",
+    "url": "https://nana6fu.github.io/fiscal-osint-japan/"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "Fiscal OSINT Japan",
+    "url": "https://nana6fu.github.io/fiscal-osint-japan/"
+  },
+  "description": "A new Japanese law (the Defense Funding Securing Act, 2023) overrode standard Special Account rules to transfer ¥1.84 trillion to defense spending in FY2023. 80% of this was channeled into US-made weapons via Foreign Military Sales (FMS). Tomahawk unit prices for Japan were approximately twice the US Navy's domestic price. We trace the structure from the May 2022 Japan-US summit through to the FMS Trust Fund at the US Treasury.",
+  "keywords": "Special Account, defense budget, Defense Funding Securing Act, FEFSA, FILP, FMS, Foreign Military Sales, Tomahawk, Defense Capabilities Enhancement Fund, Defense Buildup Program, OSINT, public capital",
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "https://nana6fu.github.io/fiscal-osint-japan/articles/en/special-account-defense.html"
+  },
+  "articleSection": "Investigative Journalism",
+  "license": "https://creativecommons.org/licenses/by/4.0/",
+  "inLanguage": "en",
+  "isAccessibleForFree": true
+}
+</script>
+</head>
+<body>
+
+<nav class="nav">
+  <div class="container">
+    <a href="../../index.html" class="nav-back">← Dashboard (Japanese)</a>
+    <div>
+      <span class="nav-site"><span class="accent">Fiscal OSINT</span> Japan</span>
+      <span class="lang-switch">
+        🌐
+        <a href="../special-account-defense.html">JP</a>
+        <span style="color:#555;">/</span>
+        <a href="special-account-defense.html" class="active">EN</a>
+      </span>
+    </div>
+  </div>
+</nav>
+
+<div class="container">
+
+  <header class="article-header">
+    <h1 class="article-title">Japan's One-Time Defense Funding Scheme — The Special Law That Extracted ¥1.84 Trillion from Special Accounts, and the Tomahawks Bought at Twice the US Navy Price</h1>
+    <p class="article-subtitle">The "amount first, funding source later" structure starting from the May 2022 Japan-US summit. A new law extracted ¥1.84 trillion from Special Accounts and channeled 80% directly into US-made weapons via FMS. We trace the structure through primary sources from both Japanese and US governments.</p>
+    
+    <div class="article-meta">
+      <span>📅 Published: 2026/05/23</span>
+      <span>🔄 Updated: 2026/05/23</span>
+      <span class="tag">Special Account</span>
+      <span class="tag">Defense Budget</span>
+      <span class="tag">FMS</span>
+      <span class="tag">Defense Funding Securing Act</span>
+      <span class="tag">Tomahawk</span>
+      <span>📝 ~5,000 words / ~25 min read</span>
+    </div>
+  </header>
+
+  <article>
+
+    <div class="tldr">
+      <p>① In FY2023 (Reiwa 5), Japan transferred a one-time total of <em class="num">¥1.84 trillion</em> from the Foreign Exchange Fund Special Account (FEFSA) and the Fiscal Investment and Loan Program (FILP) Special Account into the general account. The legal basis was the <strong>Defense Funding Securing Act</strong> (Act No. 69 of 2023, formally the "Special Measures Act for Securing Necessary Financial Resources for Drastically Strengthening Defense Capabilities").<br>
+      ② Article 14 of the same act <strong>locks the use of these funds to defense expenditures</strong>. A new "<strong>Defense Capabilities Enhancement Fund</strong>" was established inside the general account — effectively a quasi-defense special account.<br>
+      ③ FY2023 FMS (Foreign Military Sales) procurement reached <em class="num">¥1.4768 trillion</em>, approximately <strong class="highlight-fact">four times the previous year's level</strong>, expanding 13× over ten years. Tomahawk unit prices for Japan were <strong>approximately 1.9–2.3× the US Navy's domestic price</strong>.<br>
+      ④ FMS prepayments are held in the FMS Trust Fund at the US Treasury and invested in US Treasury securities and similar instruments. Japan's Board of Audit has repeatedly flagged "uncollected / unreconciled" balances since 1997; the most recent report cited <em class="num">¥1.14 trillion</em> as uncollected for over five years.</p>
+    </div>
+
+    <section>
+      <h2>1. Introduction — Where Did ¥1.84 Trillion Come From, and Where Did It Go?</h2>
+
+      <p>In FY2023 (Reiwa 5, April 2023 – March 2024), the Japanese government transferred a one-time <strong>¥1.84 trillion</strong> from the Foreign Exchange Fund Special Account (FEFSA) and the Fiscal Investment and Loan Program (FILP) Special Account into the general account, and from there channeled the funds toward defense spending. This was a <strong>"one-time, single-event scheme"</strong> with no precedent in prior years.</p>
+
+      <p>The headlines at the time used the framing of "increasing the defense budget by raising taxes." But the actual reality of how the money moved was different: <span class="highlight-fact">funds were extracted from Special Accounts before any tax increase took effect</span>. Article 14 of the Defense Funding Securing Act locks the use of these funds to defense spending, and a new "Defense Capabilities Enhancement Fund" was established inside the general account — effectively functioning as a quasi-defense special account.</p>
+
+      <p>And those funds did not stop at defense procurement broadly. <span class="highlight-fact">Approximately 80% of FY2023 defense procurement (¥1.4768 trillion) was directed into US-made weapons via Foreign Military Sales (FMS)</span>, with Japan paying Tomahawk unit prices approximately 1.9–2.3× the US Navy's domestic price. Furthermore, FMS prepayments are held in the FMS Trust Fund at the US Treasury, where they are invested in US Treasury securities and similar instruments.</p>
+
+      <p>This article traces the structure of where ¥1.84 trillion came from and where it ended up, using primary sources from both Japanese and US governments — the Ministry of Finance, Ministry of Defense, Cabinet Secretariat, parliamentary records, Board of Audit reports, US DSCA Congressional Notifications, the US Navy budget book, and others.</p>
+
+      <p style="background:#151a26; padding:14px 18px; border-radius:4px; border-left:3px solid #4a8aff; font-size:14px; color:#bbb;"><strong style="color:#4a8aff;">Note for international readers:</strong> Japan's Special Accounts (特別会計) are separate fiscal pockets — 19 in total across the central government — that operate alongside the general account. Unlike the general account, which resets annually under the single-year budget principle, Special Accounts maintain fund balances that roll over year to year, accumulating into trillion-yen-scale reserves. The Foreign Exchange Fund Special Account (FEFSA) primarily holds foreign currency assets used for exchange-rate intervention, while the Fiscal Investment and Loan Program (FILP) Special Account funds long-term policy lending. Both are central to this article.</p>
+    </section>
+
+    <section>
+      <h2>2. Anatomy of the ¥1.84 Trillion — The Three Pathways</h2>
+
+      <p>The ¥1.84 trillion flowed into the general account through three separate routes. Each had a different legal basis. The Ministry of Finance's official budget documents reveal the structure clearly:</p>
+
+      <h3>① Foreign Exchange Fund Special Account (FEFSA) → ¥1,200,433,043,000</h3>
+
+      <p>The largest route. Article 3 of the Defense Funding Securing Act authorized a special transfer from the FEFSA's "surplus" to the general account.</p>
+
+      <blockquote class="law">
+        <div class="quote-label">📜 LAW / Defense Funding Securing Act, Article 3</div>
+        <p>"In FY2023, in addition to the transfer to the general account as stipulated in Article 8, Paragraph 2 of the Foreign Exchange Fund Special Account Act (Act No. 56 of 1951), <strong>an amount equivalent to the surplus calculated according to specified methods may be transferred to the general account</strong>."</p>
+        <span class="source">— Source: <a href="https://elaws.e-gov.go.jp/document?lawid=505AC0000000069" target="_blank">Defense Funding Securing Act (Act No. 69 of 2023)</a></span>
+      </blockquote>
+
+      <p>The FEFSA's fund balance at the end of FY2022 was approximately ¥197 trillion, the majority held as foreign currency assets including US Treasury securities. Investment income (interest, dividends, exchange gains) accumulates within the FEFSA. <span class="highlight-fact">Under the standard rule, surplus transfers to the general account are calculated by a fixed formula. The Defense Funding Securing Act overrode this</span>, enabling a discretionary transfer of ¥1.2 trillion — approximately three times the typical annual transfer.</p>
+
+      <h3>② FILP Special Account, Investment Account → ¥436.7 Billion</h3>
+
+      <p>The second route involved the Investment Account (also known as the Industrial Investment Account) of the FILP Special Account. Funds came from the surplus of returns on investments in policy-oriented entities (JBIC, Nippon Export and Investment Insurance, etc.).</p>
+
+      <p>This route was authorized through the regular FY2023 budget rather than the Defense Funding Securing Act itself, but with explicit Cabinet-level coordination that this surplus would be earmarked for defense.</p>
+
+      <h3>③ FILP Special Account, Fiscal Loan Fund Account → ¥200 Billion</h3>
+
+      <p>The third route. Article 2 of the Defense Funding Securing Act authorized a one-time transfer of ¥200 billion from the Fiscal Loan Fund Account.</p>
+
+      <blockquote class="law">
+        <div class="quote-label">📜 LAW / Defense Funding Securing Act, Article 2</div>
+        <p>"In FY2023, <strong>¥200 billion shall be transferred from the Fiscal Loan Fund Account of the Fiscal Investment and Loan Program Special Account to the general account.</strong>"</p>
+        <span class="source">— Source: <a href="https://elaws.e-gov.go.jp/document?lawid=505AC0000000069" target="_blank">Defense Funding Securing Act, Article 2</a></span>
+      </blockquote>
+
+      <p>The Fiscal Loan Fund Account is the largest of the FILP Special Account's three accounts, holding ¥126 trillion in fund balance (as of end-FY2024). Its standard purpose is funding long-term loans to JBIC, Japan Bank for International Cooperation, and other policy-financial institutions. <span class="highlight-fact">Diverting ¥200 billion from this account to defense spending is itself outside the original mission of the account</span>, and it required a special law to authorize.</p>
+
+      <h3>Three Pathways: Total</h3>
+
+      <table class="compare-table">
+        <thead>
+          <tr>
+            <th>Pathway</th>
+            <th>Amount</th>
+            <th>Legal basis</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td class="row-label">① FEFSA</td>
+            <td>¥1,200,433,043,000 (~¥1.2 trillion)</td>
+            <td>Defense Funding Securing Act, Article 3</td>
+          </tr>
+          <tr>
+            <td class="row-label">② FILP / Investment Account</td>
+            <td>¥436.7 billion</td>
+            <td>FY2023 Budget (with Cabinet coordination)</td>
+          </tr>
+          <tr>
+            <td class="row-label">③ FILP / Fiscal Loan Fund</td>
+            <td>¥200 billion</td>
+            <td>Defense Funding Securing Act, Article 2</td>
+          </tr>
+          <tr>
+            <td class="row-label"><strong>Total</strong></td>
+            <td><strong>~¥1.84 trillion</strong></td>
+            <td>(equivalent to ~$11.6 billion at ¥159/$ current rate, or ~$13.5 billion at the FY2023 exchange rate of ¥136/$)</td>
+          </tr>
+        </tbody>
+      </table>
+
+      <p><span class="marker marker-primary">📄 Primary Source</span> Source: <a href="https://www.mof.go.jp/about_mof/bills/211diet/2023y.html" target="_blank">Ministry of Finance, 211th Diet Submitted Bills (Defense Funding Securing Act)</a></p>
+    </section>
+
+    <section>
+      <h2>3. Locked to Defense Use by Law — Article 14 of the Defense Funding Securing Act</h2>
+
+      <p>Once transferred to the general account, the ¥1.84 trillion was not freely usable. Article 14 of the Defense Funding Securing Act stipulates:</p>
+
+      <blockquote class="law">
+        <div class="quote-label">📜 LAW / Defense Funding Securing Act, Article 14</div>
+        <p>"The funds transferred to the general account pursuant to the provisions of Articles 2 and 3 <strong>shall be used to cover expenditures related to drastic strengthening of defense capabilities (excluding expenditures financed by national bonds)</strong>."</p>
+        <span class="source">— Source: <a href="https://elaws.e-gov.go.jp/document?lawid=505AC0000000069" target="_blank">Defense Funding Securing Act, Article 14</a></span>
+      </blockquote>
+
+      <p><span class="highlight-fact">This is unusual.</span> Under Japan's general account budget principle (single-year, no use restriction), funds in the general account are fungible — they can be allocated to any expenditure category based on each year's Cabinet decision and Diet approval. Article 14 violates this principle: <strong>the use of these specific funds is fixed to defense expenditures by law</strong>.</p>
+
+      <h3>"Defense Capabilities Enhancement Fund" — A Quasi-Defense Special Account Inside the General Account</h3>
+
+      <p>The Defense Funding Securing Act also established a new fund within the general account: the <strong>Defense Capabilities Enhancement Fund</strong> (防衛力強化資金, Article 7).</p>
+
+      <p>This fund operates as follows:</p>
+      <ul style="padding-left:1.5em; margin-bottom:1.5em;">
+        <li style="margin-bottom:8px; color:#ddd;">Surplus revenues earmarked for defense (FEFSA transfers, investment account transfers, asset sales, etc.) are deposited into this fund</li>
+        <li style="margin-bottom:8px; color:#ddd;">Funds are drawn from this account for defense expenditures as needed across multiple fiscal years</li>
+        <li style="margin-bottom:8px; color:#ddd;">Unlike the general account, the balance can <strong>roll over across fiscal years</strong></li>
+        <li style="margin-bottom:8px; color:#ddd;">Defense Capabilities Enhancement Fund operates essentially like a Special Account dedicated to defense</li>
+      </ul>
+
+      <p><span class="marker marker-warn">⚠️ Interpretation</span> Conceptually, the Defense Capabilities Enhancement Fund creates a fiscal vehicle that has <strong>the rollover characteristics of a Special Account</strong>, while remaining nominally inside the general account. This sidesteps the political and legal complexity of creating a formal "Defense Special Account" (which has been discussed and rejected for decades in Japanese fiscal policy) while delivering the same functional effect.</p>
+    </section>
+
+
+    <section>
+      <h2>4. Timeline — Amount Was Decided First, Funding Source Was Sought Later from Special Accounts</h2>
+
+      <p>Reviewing the chronological order of decisions reveals the structural problem clearly: <span class="highlight-fact">the total defense budget amount (¥43 trillion over 5 years) was decided first, and the funding source was figured out afterward by reaching into Special Accounts</span>.</p>
+
+      <table class="timeline-table">
+        <thead>
+          <tr>
+            <th>Date</th>
+            <th>Event</th>
+            <th>Source</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td class="date">2022/05/23</td>
+            <td class="event">Biden-Kishida Japan-US summit. Kishida states Japan will pursue "substantial increase in defense budget" — the first public commitment, with no specific amount yet.</td>
+            <td class="source"><a href="https://www.mofa.go.jp/files/100347254.pdf" target="_blank">MOFA Joint Statement</a></td>
+          </tr>
+          <tr>
+            <td class="date">2022/11/13</td>
+            <td class="event">Biden-Kishida summit in Phnom Penh (ASEAN). Kishida reiterates "drastic strengthening of defense capabilities."</td>
+            <td class="source"><a href="https://www.mofa.go.jp/mofaj/na/na1/us/page1_001403.html" target="_blank">MOFA</a></td>
+          </tr>
+          <tr>
+            <td class="date">2022/12/16</td>
+            <td class="event">Cabinet approves the National Security Strategy, National Defense Strategy, and Defense Buildup Program (the "Three Strategic Documents"). "Counterstrike capabilities" (formerly known as "enemy base strike capabilities") is officially incorporated. <strong>Total defense expenditure target: ¥43 trillion over 5 years</strong>.</td>
+            <td class="source"><a href="https://www.cas.go.jp/jp/siryou/221216anzenhoshou.html" target="_blank">Cabinet Secretariat, National Security Strategy</a></td>
+          </tr>
+          <tr>
+            <td class="date">2022/12/23</td>
+            <td class="event">Cabinet approves FY2023 budget. Defense-related expenditures: ¥6.82 trillion, up 26.3% YoY. <strong>Defense Capabilities Enhancement Fund: ¥3.378 trillion contribution (planned)</strong>.</td>
+            <td class="source"><a href="https://www.mof.go.jp/about_mof/mof_budget/special_account/zaitou/2023budget.html" target="_blank">MOF FY2023 Budget</a></td>
+          </tr>
+          <tr>
+            <td class="date">2023/02/28</td>
+            <td class="event">Defense Funding Securing Act bill submitted to the 211th Diet. <strong>Defense funding amount and use determined before law enactment</strong> — a structural inversion.</td>
+            <td class="source"><a href="https://www.mof.go.jp/about_mof/bills/211diet/2023y.html" target="_blank">MOF Bills</a></td>
+          </tr>
+          <tr>
+            <td class="date">2023/06/16</td>
+            <td class="event">Defense Funding Securing Act enacted. Articles 2, 3, 7, 14 establish the legal scheme for one-time Special Account transfers and the Defense Capabilities Enhancement Fund.</td>
+            <td class="source"><a href="https://elaws.e-gov.go.jp/document?lawid=505AC0000000069" target="_blank">Act No. 69 of 2023</a></td>
+          </tr>
+          <tr>
+            <td class="date">2023/11/17</td>
+            <td class="event">DSCA Congressional Notification: US approves the sale of up to 400 Tomahawk missiles to Japan, total $2.35 billion (approximately ¥352 billion at ¥150/$ at the time).</td>
+            <td class="source"><a href="https://www.dsca.mil/press-media/major-arms-sales/japan-tomahawk-cruise-missiles" target="_blank">DSCA</a></td>
+          </tr>
+          <tr>
+            <td class="date">2024/01/18</td>
+            <td class="event">Japan-US Tomahawk procurement contract signed: 400 missiles, total ¥254 billion. <strong>Unit cost — government refused to disclose specifically</strong>; Kishida stated in February 2024 Diet committee that "we did not disclose" the specific unit price.</td>
+            <td class="source"><a href="https://www.tokyo-np.co.jp/article/303682" target="_blank">Tokyo Shimbun</a></td>
+          </tr>
+        </tbody>
+      </table>
+
+      <p>The pattern is clear: <strong>the ¥43 trillion / 5-year defense budget total was decided at the Cabinet level in December 2022</strong>, before the Defense Funding Securing Act was even submitted to the Diet. The financial scheme to fund this — Special Account transfers, the Defense Capabilities Enhancement Fund — was then legislated retroactively to match the predetermined amount.</p>
+
+      <p>The constitutional principle of fiscal democracy (Article 83 of the Japanese Constitution: "The authority to administer national finances shall be exercised as the Diet shall determine") suggests that the Diet should determine the amount based on examined need. In this case, the order was reversed.</p>
+    </section>
+
+    <section>
+      <h2>5. The Scale of ¥1.84 Trillion — A Third of MEXT's Budget Moved in One Stroke</h2>
+
+      <p>To put ¥1.84 trillion in context, here are comparative figures from the FY2023 general account:</p>
+
+      <table class="compare-table">
+        <thead>
+          <tr>
+            <th>Reference</th>
+            <th>Amount (FY2023)</th>
+            <th>Relation to ¥1.84T</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td class="row-label">¥1.84 trillion (one-time SA transfer)</td>
+            <td>¥1.84 trillion</td>
+            <td>—</td>
+          </tr>
+          <tr>
+            <td class="row-label">Defense Budget (initial)</td>
+            <td>¥6.82 trillion</td>
+            <td>~27% of defense budget</td>
+          </tr>
+          <tr>
+            <td class="row-label">MEXT Budget (initial)</td>
+            <td>¥5.29 trillion</td>
+            <td>~35% of education ministry's annual budget</td>
+          </tr>
+          <tr>
+            <td class="row-label">Disaster Reserve Fund</td>
+            <td>¥0.5 trillion</td>
+            <td>3.7× the disaster reserve</td>
+          </tr>
+        </tbody>
+      </table>
+
+      <p>The ¥1.84 trillion is equivalent to <strong>approximately one-third of the entire annual budget of MEXT</strong> (the Ministry of Education, Culture, Sports, Science and Technology). For a single fiscal year transfer with discretionary legal authorization, this is an exceptional figure.</p>
+
+      <h3>Defense Spending Has Continued to Expand</h3>
+
+      <p>Japan's defense-related expenditures since FY2022:</p>
+
+      <table class="compare-table">
+        <thead>
+          <tr>
+            <th>Fiscal Year</th>
+            <th>Total (¥ trillion)</th>
+            <th>YoY change</th>
+            <th>% of GDP (approx.)</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr><td class="row-label">FY2022 (R4)</td><td>¥5.40</td><td>—</td><td>~0.96%</td></tr>
+          <tr><td class="row-label">FY2023 (R5)</td><td><strong>¥6.82</strong></td><td><strong>+26.3%</strong></td><td>~1.19%</td></tr>
+          <tr><td class="row-label">FY2024 (R6)</td><td>¥7.95</td><td>+16.5%</td><td>~1.36%</td></tr>
+          <tr><td class="row-label">FY2025 (R7)</td><td>¥8.47</td><td>+6.5%</td><td>~1.42%</td></tr>
+        </tbody>
+      </table>
+
+      <p><span class="marker marker-primary">📄 Primary Source</span> <a href="../../datasets/defense_budget_yoy.csv" target="_blank">defense_budget_yoy.csv</a> (CC0 1.0). Source: Defense White Papers (2023, 2024 editions), MOD FY2025 Budget Outline.</p>
+
+      <p>The FY2023 jump of +26.3% was the largest single-year increase in Japan's postwar history. The structural framework set up by the Defense Funding Securing Act (one-time SA transfers + Defense Capabilities Enhancement Fund rollover) supports this trajectory across multiple years.</p>
+    </section>
+
+    <section>
+      <h2>6. Destination of ¥1.84 Trillion (Part 1) — FMS Buying Spree of US-Made Weapons</h2>
+
+      <p>Where did the ¥1.84 trillion actually go? The answer, traced through the FY2023 defense budget detailed line items, is clear: <span class="highlight-fact">the majority went to procurement, and the majority of that procurement went to US-made weapons via Foreign Military Sales (FMS)</span>.</p>
+
+      <p>FY2023 FMS procurement total: <strong>¥1.4768 trillion</strong>. The previous year (FY2022) was ¥361.7 billion — meaning FMS procurement <strong>quadrupled year-over-year</strong>.</p>
+
+      <p>Looking at the 10-year trend: in FY2013, Japan's FMS procurement was ¥117 billion. By FY2023, it had reached ¥1.4768 trillion — a <strong>13× expansion in a decade</strong>.</p>
+
+      <h3>Major FY2023 FMS Procurement Items</h3>
+
+      <table class="compare-table">
+        <thead>
+          <tr>
+            <th>Item</th>
+            <th>FY2023 Budget</th>
+            <th>Note</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr><td class="row-label">Tomahawk Block V missiles</td><td>~¥211.3 billion (initial)</td><td>For counterstrike capabilities. Final contract ¥254B for 400 missiles in Jan 2024.</td></tr>
+          <tr><td class="row-label">SM-6 missiles</td><td>~¥17.5 billion</td><td>Multi-purpose missiles (anti-air, anti-cruise missile)</td></tr>
+          <tr><td class="row-label">JASSM-ER missiles</td><td>~¥9.6 billion</td><td>Air-launched standoff missiles, for F-15 upgrade</td></tr>
+          <tr><td class="row-label">SLAM-ER missiles</td><td>—</td><td>Air-launched standoff missiles</td></tr>
+          <tr><td class="row-label">E-2D Advanced Hawkeye</td><td>~¥118.3 billion</td><td>5 airborne early-warning aircraft</td></tr>
+          <tr><td class="row-label">P-1 fixed-wing patrol aircraft<br>(supplemental)</td><td>—</td><td>Anti-submarine warfare</td></tr>
+          <tr><td class="row-label">CH-47JA Chinook helicopters</td><td>—</td><td>Heavy-lift transport helicopters</td></tr>
+          <tr><td class="row-label">Patriot PAC-3 MSE missiles</td><td>—</td><td>Air defense missiles</td></tr>
+        </tbody>
+      </table>
+
+      <p><span class="marker marker-primary">📄 Primary Source</span> Sources: <a href="https://www.mod.go.jp/j/yosan/yosan_gaiyo/2023/yosan_20230106.pdf" target="_blank">MOD FY2023 Budget Outline</a>, individual DSCA Congressional Notifications, <a href="https://www.tokyo-np.co.jp/article/303682" target="_blank">Tokyo Shimbun</a></p>
+
+      <p>If we apply a rough breakdown — assuming approximately 80% of FY2023 procurement was FMS-related — then of the ¥1.84 trillion extracted from Special Accounts, <strong>approximately ¥1.47 trillion (80%) went directly into US-made weapons</strong>. The remaining 20% covered Japanese domestic equipment, base maintenance, and personnel costs.</p>
+
+      <p><span class="marker marker-warn">⚠️ Inference</span> The strict 80% breakdown is approximate. The ¥1.84T Special Account transfer was deposited into the Defense Capabilities Enhancement Fund and drawn down across multiple fiscal years. The exact correspondence between "which yen from the SA transfer went to which procurement" is not separately accounted in MOD budget documents. The 80% figure reflects the proportion of FY2023's overall procurement expenditure that was FMS, not a strict allocation of the SA transfer.</p>
+    </section>
+
+    <section>
+      <h2>7. Tomahawk Unit Prices — Japan Pays Approximately Twice the US Navy's Domestic Price</h2>
+
+      <p>The Tomahawk cruise missile contract signed in January 2024 (400 missiles for ¥254 billion) became a focal point because the unit price comparison revealed a striking pattern. The Japanese government refused to disclose the specific unit cost — Prime Minister Kishida stated at a February 2024 Diet committee that "we did not specify" the unit price.</p>
+
+      <p>However, the contract total and quantity are public, allowing back-calculation. Cross-referencing with the US Navy's internal procurement budget reveals a substantial price differential.</p>
+
+      <h3>Three-Way Comparison: Japan vs. US Navy vs. Australia</h3>
+
+      <table class="compare-table">
+        <thead>
+          <tr>
+            <th>Purchaser</th>
+            <th>Contract scale</th>
+            <th>Per-unit cost (yen equivalent)</th>
+            <th>Source</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td class="row-label" style="color:#ff6b6b;">🇺🇸 US Navy<br>(domestic procurement)</td>
+            <td>Tomahawk body + canister</td>
+            <td><span style="color:#4a8aff;">~¥273.5 million</span><br><span style="font-size:12px; color:#888;">($1.822M body + $189K canister ÷ ¥136/$ at FY2023)<br>FY2023 actual ≒ $2M/unit</span></td>
+            <td><a href="https://media.defense.gov/2023/Mar/29/2003188815/-1/-1/0/WPN_BOOK.PDF" target="_blank">US Navy FY2024 Weapons Procurement Justification Book</a><br><span style="font-size:12px; color:#888;">(FY2023 actual: 70 missiles / $139,983K)</span></td>
+          </tr>
+          <tr>
+            <td class="row-label" style="color:#4a8aff;">🇯🇵 Japan<br>(via FMS)</td>
+            <td>Up to 400 missiles<br>DSCA approval: $2.35B<br>Final contract: ¥254 billion</td>
+            <td><strong>¥530M – ¥640M per unit</strong><br><span style="font-size:12px; color:#888;">DSCA-basis ($2.35B÷400 @¥136/$): ~¥530M<br>Contract-basis (¥254B÷400): ¥635M<br>※Both include related equipment. Body-only unit price not disclosed.</span></td>
+            <td><a href="https://www.jcp.or.jp/akahata/aik22/2023-02-28/2023022801_04_0.html" target="_blank">Akahata (citing US Navy R23 Budget)</a> / <a href="https://www.tokyo-np.co.jp/article/303682" target="_blank">Tokyo Shimbun (contract amount)</a></td>
+          </tr>
+          <tr>
+            <td class="row-label" style="color:#ffd700;">🇦🇺 Australia<br>(via FMS)</td>
+            <td>200 Block V + 20 Block IV<br>Total $895M</td>
+            <td>~¥410 million per unit<br><span style="font-size:12px; color:#888;">(@¥136/$, 220-unit equivalent)</span></td>
+            <td><a href="https://www.dsca.mil/press-media/major-arms-sales/government-australia-tomahawk-weapon-system" target="_blank">US State Department, Australia Sales Approval (March 2023)</a></td>
+          </tr>
+        </tbody>
+      </table>
+
+      <p>Three observations emerge:</p>
+
+      <p><strong>① The Japan unit price is approximately 1.9–2.3× the US Navy's domestic price.</strong> Even using the more conservative DSCA-basis ($530M/unit), the multiplier is ~1.9×. Using the final contract-basis (¥635M/unit), it reaches ~2.3×. The Japanese government has not publicly disclosed the body-only unit price — the comparison is necessarily between "Japan total including related equipment" and "US Navy body + canister."</p>
+
+      <p><strong>② Australia, also a FMS purchaser, pays a price between the US Navy's and Japan's.</strong> Australia's ~¥410M/unit is approximately 1.5× the US Navy domestic price. Japan's price exceeds Australia's by 30-55%, suggesting that Japan-specific factors (volume, timing, support packages, foreign currency exposure) account for the additional spread.</p>
+
+      <p><strong>③ The body-only unit price for Japan is treated as "non-disclosed by the government."</strong> Akahata reported that Kishida, when asked at the February 2024 Diet committee, "did not disclose" the body unit cost. Japan's standard FMS contracts include lifecycle support packages, training, and spares — these are bundled and the breakdown is not made public. Whether the high spread reflects bundling overhead or actual body-price discrimination cannot be determined from public data.</p>
+
+      <p><span class="marker marker-primary">📄 Primary Source</span> Full data available as: <a href="../../datasets/fms_tomahawk_price_comparison.csv" target="_blank">fms_tomahawk_price_comparison.csv</a> (CC0 1.0). Independent verification welcomed.</p>
+
+      <p><span class="marker marker-warn">⚠️ Note</span> The FY2023 exchange rate of ¥136/$ is used in this table because that rate corresponded to when the procurement decisions and DSCA approvals were made (December 2022 – November 2023). Using the current exchange rate (¥159/$) would yield different yen figures but identical multiplier ratios (1.9–2.3×) — the multiplier is what matters for the comparison.</p>
+    </section>
+
+
+    <section>
+      <h2>8. Destination of ¥1.84 Trillion (Part 2) — Prepayment to the FMS Trust Fund at the US Treasury</h2>
+
+      <p>The Foreign Military Sales (FMS) system requires the purchasing country to <strong>prepay 100% of the contract amount</strong> before equipment delivery. These prepayments do not stay with the manufacturer (Raytheon for Tomahawks, Lockheed Martin for F-35, etc.). Instead, they are held in the <strong>FMS Trust Fund at the US Treasury</strong>, invested in US Treasury securities and similar instruments.</p>
+
+      <h3>Payment Flow (Based on Japan's Board of Audit FY2018 Report)</h3>
+
+      <p>Japan's Board of Audit conducted a special investigation of FMS procurement procedures based on a 2018 request from the House of Councillors. The flow is:</p>
+
+      <ol style="padding-left:1.6em; margin-bottom:1.5em;">
+        <li style="margin-bottom:10px; color:#ddd;">Japan signs an LOA (Letter of Offer and Acceptance) with the US Defense Security Cooperation Agency (DSCA)</li>
+        <li style="margin-bottom:10px; color:#ddd;">Japan's Ministry of Defense remits the full contract amount in USD to the FMS Trust Fund at the US Treasury</li>
+        <li style="margin-bottom:10px; color:#ddd;">The funds are <strong>invested in US Treasury securities and similar instruments</strong>, generating interest</li>
+        <li style="margin-bottom:10px; color:#ddd;">When manufacturer payments come due (typically over multiple years), funds are drawn from the trust fund and paid to the manufacturer</li>
+        <li style="margin-bottom:10px; color:#ddd;">Interest earned during the holding period accrues to the US Treasury, not to Japan</li>
+        <li style="margin-bottom:10px; color:#ddd;">After delivery and acceptance, any unused funds (surplus) should theoretically be returned to Japan via the Final Statement Account process</li>
+      </ol>
+
+      <p><span class="marker marker-primary">📄 Primary Source</span> <a href="https://report.jbaudit.go.jp/org/h30/YOUSEI2/2018-h30-Y2010-0.htm" target="_blank">Board of Audit of Japan, FMS Investigation Report (FY2018), Section 2</a></p>
+
+      <h3>US Treasury Investment Structure — Japan's Prepayments Used to Buy US Treasury Securities</h3>
+
+      <p>The structural irony of this arrangement is worth pausing on:</p>
+
+      <ul style="padding-left:1.5em; margin-bottom:1.5em;">
+        <li style="margin-bottom:10px; color:#ddd;"><strong>Japan's FEFSA already holds ~¥187 trillion in foreign currency assets, the majority in US Treasury securities</strong> (the asset that finances US fiscal deficits)</li>
+        <li style="margin-bottom:10px; color:#ddd;"><strong>Japan now withdraws ¥1.84 trillion from this FEFSA and transfers it via Special Law to the general account</strong></li>
+        <li style="margin-bottom:10px; color:#ddd;"><strong>The general account uses this for defense procurement, ~80% of which (¥1.48 trillion) goes to FMS</strong></li>
+        <li style="margin-bottom:10px; color:#ddd;"><strong>FMS prepayments are held in the FMS Trust Fund at the US Treasury</strong></li>
+        <li style="margin-bottom:10px; color:#ddd;"><strong>The FMS Trust Fund invests in US Treasury securities</strong></li>
+      </ul>
+
+      <p>The structural cycle: <span class="highlight-fact">Japanese taxpayer funds → FEFSA holdings of US Treasury securities → withdrawn via Special Law → reinvested in US Treasury securities via the FMS Trust Fund</span>.</p>
+
+      <h3>Unsettled Balances — A 30-Year Problem Repeatedly Flagged by Japan's Board of Audit</h3>
+
+      <p>Since 1997, Japan's Board of Audit has repeatedly flagged "uncollected balances" in the FMS Trust Fund. The most recent reports note:</p>
+
+      <blockquote class="jp">
+        <div class="quote-label">🇯🇵 Japan / Board of Audit FY2018 Report</div>
+        <p>"Among items requiring reconciliation (where equipment has been delivered but final settlement has not been completed), the total amount unreconciled exceeded <strong>¥1.14 trillion that has remained uncollected for five or more years</strong>."</p>
+        <p>"The Board of Audit has expressed concerns about unreconciled balances in every report since FY2002. Despite improvements in administrative procedures, the structural problem of multi-year delays in final settlement persists."</p>
+        <span class="source">— Source: <a href="https://report.jbaudit.go.jp/org/h30/YOUSEI2/2018-h30-Y2010-0.htm" target="_blank">Board of Audit of Japan, FY2018 Audit Report (FMS Procurement Investigation)</a></span>
+      </blockquote>
+
+      <p>More recently, Nikkei reported in January 2026:</p>
+
+      <blockquote class="jp">
+        <div class="quote-label">🇯🇵 Japan / Nikkei, January 2026</div>
+        <p>"As of the end of FY2024 (March 2025), approximately ¥1 trillion in FMS procurement remains unreconciled (uncollected) for more than five years past the originally scheduled delivery time. While FMS procurement has expanded sharply since FY2023 under the Defense Capabilities Enhancement Fund framework, settlement and reconciliation processes have not kept pace."</p>
+        <span class="source">— Source: <a href="https://www.nikkei.com/article/DGXZQOUD132QZ0T10C26A1000000/" target="_blank">Nikkei, "Outstanding US Equipment Procurement Reaches ¥1 Trillion Over 5 Years"</a> (January 16, 2026)</span>
+      </blockquote>
+
+      <p><span class="marker marker-warn">⚠️ Note</span> The ¥1 trillion "uncollected after 5+ years" figure represents items where equipment was either not delivered on the originally scheduled timeline or where final accounting reconciliation has not been completed. This does not necessarily mean ¥1 trillion was lost — it means ¥1 trillion sits in the US Treasury's trust fund (earning interest for the US) while not yet being closed out from Japan's accounting perspective.</p>
+    </section>
+
+    <section>
+      <h2>9. Remaining Questions</h2>
+
+      <p>Several questions about the ¥1.84 trillion scheme cannot yet be answered from public information.</p>
+
+      <p><strong>① The FY2024 and beyond pattern.</strong> The ¥1.84 trillion in FY2023 was a one-time transfer authorized by the Defense Funding Securing Act. But the Defense Capabilities Enhancement Fund created by the same Act is a recurring fiscal vehicle. How much additional capital is being routed into it in FY2024, FY2025, and FY2026 — and from which sources — requires tracking each year's budget documents.</p>
+
+      <p><strong>② Final settlement of the Tomahawk contract.</strong> The 400-unit, ¥254 billion contract signed in January 2024 is scheduled for delivery from 2025 through 2027. As deliveries are completed, the Board of Audit framework requires reconciliation. Whether the actual delivered unit price (after settlement) matches or differs from the contract amount will be a key data point. This will be visible in approximately 2026-2028 audit reports.</p>
+
+      <p><strong>③ FEFSA investment income transparency.</strong> The Defense Funding Securing Act used FEFSA "surplus" — that is, investment income on foreign currency assets — for the ¥1.2 trillion transfer. Japan's FEFSA is governed by transparency rules that are stricter than they were in the 1990s but still less detailed than equivalent reserves elsewhere. The methodology for calculating "surplus available for transfer" should be made more transparent.</p>
+
+      <p><strong>④ The 30-year history of unreconciled FMS balances.</strong> The Board of Audit has flagged this issue since 1997. The cumulative total of unreconciled amounts attributable to Japan (not just the current snapshot) would be a useful longitudinal data point. We plan to compile this from individual annual reports in a future article.</p>
+
+      <p><strong>⑤ The Defense Capabilities Enhancement Fund's year-by-year balance.</strong> Since the Fund operates with rollover capability, its balance at the end of each fiscal year would reveal whether the system is functioning as a "savings vehicle" for defense (accumulating funds) or as a "pass-through" vehicle (spent down each year). This data is published in MOF settlement documents but requires aggregation across multiple years to interpret.</p>
+
+      <p>These five questions form the agenda for follow-up articles in the Fiscal OSINT Japan "US-Bound Public Capital Flows" series.</p>
+    </section>
+
+    <!-- Open Data section -->
+    <section class="sources" style="background:#1a2a4a; border-left:4px solid #4a8aff;">
+      <h3 style="color:#4a8aff;">📊 Open Data</h3>
+      
+      <p>All data used in this article is published in machine-readable CSV format under <strong>CC0 1.0 (public domain)</strong>. Verification, replication, and re-analysis are encouraged.</p>
+      
+      <p><strong>Available datasets:</strong></p>
+      <ol>
+        <li><a href="../../datasets/special_account_defense_routes.csv" target="_blank">special_account_defense_routes.csv</a> — Breakdown of the ¥1.84 trillion Special Account transfer (3 pathways) with legal basis</li>
+        <li><a href="../../datasets/defense_budget_yoy.csv" target="_blank">defense_budget_yoy.csv</a> — Japan's defense-related expenditures, year-over-year (FY2022→FY2025)</li>
+        <li><a href="../../datasets/fms_tomahawk_price_comparison.csv" target="_blank">fms_tomahawk_price_comparison.csv</a> — Tomahawk missile unit cost comparison: US Navy domestic vs. Japan FMS vs. Australia FMS</li>
+        <li><a href="../../datasets/defense_funding_timeline.csv" target="_blank">defense_funding_timeline.csv</a> — Decision-making timeline: May 2022 Japan-US summit → January 2024 Tomahawk LOA signing (12 key events)</li>
+        <li><a href="../../datasets/" target="_blank">Full datasets/ directory</a> · <a href="../../datasets/README.md" target="_blank">README</a></li>
+      </ol>
+      
+      <p style="margin-top:16px;"><strong>License:</strong> <a href="https://creativecommons.org/publicdomain/zero/1.0/" target="_blank">CC0 1.0 Universal</a> (public domain). Attribution appreciated but not required.</p>
+    </section>
+
+    <section class="sources">
+      <h3>📚 Primary Sources and Editorial Policy</h3>
+      
+      <p style="color:#ffd700;"><strong>【Cabinet / Diplomatic】</strong></p>
+      <ol>
+        <li><a href="https://www.mofa.go.jp/files/100347254.pdf" target="_blank">MOFA, Japan-US Joint Statement: "Strengthening the Free and Open International Order"</a> — May 23, 2022</li>
+        <li><a href="https://www.mofa.go.jp/mofaj/na/na1/us/page1_001403.html" target="_blank">MOFA, Japan-US Summit Record (Phnom Penh)</a> — November 13, 2022</li>
+        <li><a href="https://www.cas.go.jp/jp/siryou/221216anzenhoshou.html" target="_blank">Cabinet Secretariat, National Security Strategy</a> — December 16, 2022 (Three Strategic Documents Cabinet decision PDFs)</li>
+      </ol>
+
+      <p style="margin-top:14px; color:#ffd700;"><strong>【Tomahawk Pricing & Contracts】</strong></p>
+      <ol>
+        <li><a href="https://media.defense.gov/2023/Mar/29/2003188815/-1/-1/0/WPN_BOOK.PDF" target="_blank">US Navy FY2024 Weapons Procurement Justification Book (WPN Book, includes FY2023 actuals)</a> — DoD official PDF (FY2023 Tomahawk: 70 missiles / $139,983K ≒ $2M/unit)</li>
+        <li><a href="https://www.jcp.or.jp/akahata/aik22/2023-02-28/2023022801_04_0.html" target="_blank">Akahata: "Tomahawk Purchase 400 Units — Unit Cost Twice the US Price"</a> — February 28, 2023 (citing US Navy R23 Budget; cites $1.822M body + $189K canister)</li>
+        <li><a href="https://www.tokyo-np.co.jp/article/303682" target="_blank">Tokyo Shimbun: "400 Tomahawks Contracted at ¥254 Billion"</a> — January 18, 2024</li>
+        <li><a href="https://www.nikkei.com/article/DGXZQOGN1805H0Y3A111C2000000/" target="_blank">Nikkei: "US Approves Tomahawk Sale to Japan at ~¥352 Billion"</a> — November 18, 2023</li>
+        <li><a href="https://www.dsca.mil/press-media/major-arms-sales/government-australia-tomahawk-weapon-system" target="_blank">US State Department, Australia Tomahawk Sale Approval</a> — March 2023</li>
+        <li><a href="https://www.nikkei.com/article/DGXZQOUD132QZ0T10C26A1000000/" target="_blank">Nikkei: "Outstanding US Equipment Procurement Reaches ¥1 Trillion Over 5 Years"</a> — January 16, 2026</li>
+        <li><a href="https://www.nikkei.com/article/DGXZQOUD179DY0X11C25A0000000/" target="_blank">Nikkei: "54 Items Worth ¥1.2 Billion Unaccounted in SDF Defense Procurement"</a> — October 17, 2025</li>
+      </ol>
+
+      <p style="margin-top:14px; color:#ffd700;"><strong>【Board of Audit of Japan】</strong></p>
+      <ol>
+        <li><a href="https://report.jbaudit.go.jp/org/h30/2018-h30-0755-0.htm" target="_blank">Board of Audit, FY2018 Audit Report, Chapter 4 "FMS Procurement" (House of Councillors Request)</a></li>
+        <li><a href="https://report.jbaudit.go.jp/org/h30/YOUSEI2/2018-h30-Y2001-0.htm" target="_blank">Board of Audit, FMS Procurement Investigation Section 1 (Background)</a></li>
+        <li><a href="https://report.jbaudit.go.jp/org/h30/YOUSEI2/2018-h30-Y2010-0.htm" target="_blank">Board of Audit, FMS Procurement Investigation Section 2 (Results)</a></li>
+        <li><a href="https://report.jbaudit.go.jp/org/h30/YOUSEI2/2018-h30-Y2109-0.htm" target="_blank">Board of Audit, FMS Glossary</a></li>
+      </ol>
+
+      <p style="margin-top:14px; color:#ffd700;"><strong>【Ministry of Defense】</strong></p>
+      <ol>
+        <li><a href="https://www.mod.go.jp/j/yosan/yosan_gaiyo/2023/yosan_20230106.pdf" target="_blank">MOD FY2023 Budget Outline</a></li>
+        <li><a href="https://www.mod.go.jp/j/policy/agenda/guideline/plan/pdf/program.pdf" target="_blank">MOD Defense Buildup Program</a> (Japanese; <a href="https://www.mod.go.jp/j/policy/agenda/guideline/plan/pdf/program_en.pdf" target="_blank">English official version</a>)</li>
+      </ol>
+
+      <p style="margin-top:14px; color:#ffd700;"><strong>【Ministry of Finance (Defense Funding Securing Act)】</strong></p>
+      <ol>
+        <li><a href="https://elaws.e-gov.go.jp/document?lawid=505AC0000000069" target="_blank">Defense Funding Securing Act (Act No. 69 of 2023)</a> — Official law database</li>
+        <li><a href="https://www.mof.go.jp/about_mof/bills/211diet/2023y.html" target="_blank">MOF, 211th Diet Submitted Bills</a></li>
+        <li><a href="https://www.mof.go.jp/about_mof/mof_budget/special_account/zaitou/2023budget.html" target="_blank">MOF FY2023 Budget (FILP Special Account)</a></li>
+      </ol>
+
+      <p style="margin-top:14px; color:#ffd700;"><strong>【DSCA (US Defense Security Cooperation Agency)】</strong></p>
+      <ol>
+        <li><a href="https://www.dsca.mil/press-media/major-arms-sales/japan-tomahawk-cruise-missiles" target="_blank">DSCA Congressional Notification: Japan Tomahawk Missile Sale Approval ($2.35B)</a> — November 17, 2023</li>
+      </ol>
+
+      <p style="margin-top:14px; color:#ffd700;"><strong>【Analytical / Interpretive】</strong></p>
+      <ol>
+        <li><a href="https://www.spf.org/iina/articles/tsuruoka_24.html" target="_blank">Sasakawa Peace Foundation, Tsuruoka Michito: "Why Japan's Defense Budget is Fundamentally an 'Amount-First' Decision"</a></li>
+        <li><a href="https://www.jri.co.jp/page.jsp?id=105216" target="_blank">Japan Research Institute, Makita Ken: "Toward Increasing General Account Revenue Through Time-Limited Expansion of FEFSA Use"</a></li>
+        <li><a href="https://japanknowledge.com/contents/nipponica/sample_koumoku.html?entryid=3195" target="_blank">Encyclopedia of Japan: "Defense Funding Securing Act"</a></li>
+      </ol>
+
+      <div class="policy">
+        <p><strong>Editorial Policy:</strong></p>
+        <ul>
+          <li>Public sources only (no information obtained via disclosure requests)</li>
+          <li>Facts and inferences strictly separated (<span class="marker marker-warn">⚠️ Inference</span> marker)</li>
+          <li>AI-aggregated content marked explicitly (<span class="marker marker-ai">🤖 AI Aggregation</span> marker)</li>
+          <li>Immediate correction of discovered errors, logged in this article's revision history</li>
+          <li>Balanced presentation (Japan and US quotes presented in parallel)</li>
+          <li>Original-language citations with translations explicitly marked</li>
+          <li>Primary source links provided wherever possible, with Text Fragments URLs (#:~:text=...) where applicable</li>
+        </ul>
+        
+        <p style="margin-top:20px;"><strong>AI Methodology:</strong></p>
+        <ul>
+          <li>Articles on this site are co-authored by AI (Claude) and a human editor</li>
+          <li>Fact-checking uses multiple AI systems (Claude / GPT / DeepSeek / Gemini) cross-referencing each other</li>
+          <li>Corrections triggered by AI analysis are clearly noted in the revision history</li>
+          <li>AI use is disclosed, not hidden, as part of the methodology</li>
+          <li>Final editorial judgment and responsibility rest with the human editor</li>
+        </ul>
+      </div>
+    </section>
+
+    <section class="changelog">
+      <h3>📝 Revision History</h3>
+      <ul>
+        <li><span class="date">2026/05/23</span>First published (Japanese version)</li>
+        <li><span class="date">2026/05/23</span>Correction: Section 7 — Per-unit price calculation methodology in the three-way Tomahawk comparison clarified (DeepSeek analysis). Original price source "~¥528M" was unclear; now expressed as DSCA-basis ($2.35B÷400 @¥136/$): ~¥528M, and contract-basis (¥254B÷400): ¥635M. Body-only unit cost is non-disclosed by the Japanese government (Kishida stated at Feb 2024 Diet committee that "we did not disclose"). Multiplier range updated from "~1.9×" to "1.9–2.3×".</li>
+        <li><span class="date">2026/05/23</span>Update: Datasets (CSV) published at <a href="../../datasets/">datasets/</a> (CC0 1.0). Four files related to this article added.</li>
+        <li><span class="date">2026/05/23</span>Correction: Title revised to emphasize the "one-time scheme" and "twice the US Navy price" — the core claims of the article — for clearer reader access. (Previous title: "From Special Accounts to Defense Spending: ¥1.84T — R5 One-Time Transfer and the FMS Trust Fund.")</li>
+        <li><span class="date">2026/05/23</span>Correction: Two broken primary-source links replaced (editor browser verification): (1) Kishida December 2022 press conference URL on kantei.go.jp replaced with the more stable Cabinet Secretariat National Security Strategy page; (2) Board of Audit FY2018 Report "Highlights" URL (jbaudit.go.jp/report/new/characteristic30/...) replaced with the equivalent page on report.jbaudit.go.jp.</li>
+        <li><span class="date">2026/05/23</span>Correction: Three-way Tomahawk comparison table source attribution — link text "US Navy R23 Budget" was previously pointing to Akahata's citing article. Replaced with direct link to the US Navy FY2024 Weapons Procurement Justification Book (DoD official PDF, with FY2023 actuals: 70 missiles / $139,983K ≒ $2M/unit). Akahata is now listed as a secondary source with explicit notation. This correction is foundational to OSINT integrity: link text must match the actual destination.</li>
+        <li><span class="date">2026/05/23</span>English translation published at this URL.</li>
+      </ul>
+    </section>
+
+    <section class="next-article">
+      <h3>Related Articles · Next Up</h3>
+      <p>Article #1 in this series, "<a href="80trillion.html">Tracing the ¥80 Trillion US Investment Pledge Through Japan's FILP Special Account</a>" — a parallel investigation into the $550 billion Japan-US investment commitment.</p>
+      <p style="margin-top:12px;">Article #3 (forthcoming): Cumulative unreconciled balances in the FMS Trust Fund, and year-by-year balance of the Defense Capabilities Enhancement Fund.</p>
+      <p style="margin-top:12px;"><a href="../../index.html">→ Return to Dashboard (Japanese)</a></p>
+    </section>
+    
+  </article>
+
+</div>
+
+<footer>
+  <p>Fiscal OSINT Japan © 2026 · operated by SN0W8ALL LLC</p>
+  <p style="margin-top:10px;">
+    <strong>Articles:</strong> <a href="https://creativecommons.org/licenses/by/4.0/" target="_blank" rel="license">CC BY 4.0</a> · 
+    <strong>Datasets:</strong> <a href="https://creativecommons.org/publicdomain/zero/1.0/" target="_blank" rel="license">CC0 1.0</a>
+  </p>
+  <p style="margin-top:10px; font-size:12px;">
+    Citation with source attribution is freely permitted. Example:<br>
+    "Fiscal OSINT Japan, 'Japan's One-Time Defense Funding Scheme: The Special Law That Extracted ¥1.84 Trillion from Special Accounts, and the Tomahawks Bought at Twice the US Navy Price' (May 23, 2026)"
+  </p>
+  <p style="margin-top:14px;">
+    <a href="https://x.com/FiscalOSINT_JP" target="_blank">X (@FiscalOSINT_JP)</a> ·
+    <a href="../../index.html">Dashboard (JP)</a> ·
+    <a href="../../datasets/" target="_blank">📊 datasets</a>
+  </p>
+  <p style="margin-top:12px; font-size:12px;">This article is based on publicly available information as of May 23, 2026. Corrections and additional information welcome.</p>
+</footer>
+
+</body>
+</html>

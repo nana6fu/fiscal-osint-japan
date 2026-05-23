@@ -111,6 +111,11 @@ footer p { margin-bottom: 6px; }
   .compare-table, .trend-table, .timeline-table { font-size: 12px; }
   .compare-table th, .compare-table td, .trend-table th, .trend-table td, .timeline-table th, .timeline-table td { padding: 8px 10px; }
 }
+
+.lang-switch { display: inline-flex; align-items: center; gap: 6px; background: #1a1f2e; padding: 5px 12px; border-radius: 4px; font-size: 13px; color: #aaa; border: 1px solid #2a2f3e; margin-left: 12px; }
+.lang-switch a { color: #aaa; text-decoration: none; padding: 0 4px; }
+.lang-switch a.active { color: #ffd700; font-weight: 700; }
+.lang-switch a:hover { color: #4a8aff; }
 </style>
 <script type="application/ld+json">
 {
@@ -148,7 +153,15 @@ footer p { margin-bottom: 6px; }
 <nav class="nav">
   <div class="container">
     <a href="../index.html" class="nav-back">← Fiscal OSINT Japan ダッシュボードへ</a>
-    <div class="nav-site"><span class="accent">Fiscal OSINT</span> Japan</div>
+    <div>
+      <span class="nav-site"><span class="accent">Fiscal OSINT</span> Japan</span>
+      <span class="lang-switch">
+        🌐
+        <a href="special-account-defense.html" class="active">JP</a>
+        <span style="color:#555;">/</span>
+        <a href="en/special-account-defense.html">EN</a>
+      </span>
+    </div>
   </div>
 </nav>
 
@@ -651,25 +664,27 @@ footer p { margin-bottom: 6px; }
           <tr>
             <td class="row-label" style="color:#ff6b6b;">🇺🇸 米海軍（自国調達）</td>
             <td>トマホーク本体 + キャニスター</td>
-            <td><span style="color:#4a8aff;">約 ¥2億7,355万円</span><br><span style="font-size:12px; color:#888;">（$182.2万 + $18.9万 ÷ ¥136/$）<br>FY2023実績ベース ≒ $200万/発</span></td>
+            <td><span style="color:#4a8aff;">約 ¥2億7,355万円</span><span style="font-size:12px; color:#888;"> (当時¥136/$)</span><br><span style="font-size:12px; color:#888;">現在レート換算: 約 ¥3億1,975万円 (¥159/$, 2026/05時点)<br>本体$182.2万 + キャニスター$18.9万<br>FY2023実績ベース ≒ $200万/発</span></td>
             <td><a href="https://media.defense.gov/2023/Mar/29/2003188815/-1/-1/0/WPN_BOOK.PDF" target="_blank">米海軍FY2024兵器調達予算書PDF</a><br><span style="font-size:12px; color:#888;">（FY2023実績 70発/$139,983千）</span></td>
           </tr>
           <tr>
             <td class="row-label" style="color:#4a8aff;">🇯🇵 日本（FMS経由）<br><span style="font-size:11px; color:#888;">※単価は政府非公開</span></td>
             <td>最大400発<br>DSCA承認: $23.5億<br>最終契約: ¥2,540億</td>
-            <td><span style="color:#ff6b6b;"><strong>¥5.3億 〜 ¥6.4億</strong></span><br><span style="font-size:12px; color:#888;">DSCA承認時($23.5億÷400発@¥136/$): 約¥5.28億<br>最終契約ベース(¥2,540億÷400発): ¥6.35億<br>※いずれも関連装備含む。本体単価は非公開</span></td>
+            <td><span style="color:#ff6b6b;"><strong>¥5.3億 〜 ¥6.4億</strong></span><span style="font-size:12px; color:#888;"> (当時レート)</span><br><span style="font-size:12px; color:#888;">DSCA承認時($23.5億÷400発): 当時¥136/$で約¥5.28億／現在¥159/$で約¥6.17億<br>最終契約ベース(¥2,540億÷400発): ¥6.35億（円建て契約のためレート無関係）<br>※いずれも関連装備含む。本体単価は非公開</span></td>
             <td><a href="https://www.jcp.or.jp/akahata/aik22/2023-02-28/2023022801_04_0.html#:~:text=%EF%BC%91%E7%99%BA%E3%81%82%E3%81%9F%E3%82%8A%E7%B4%84%EF%BC%95%E5%84%84%EF%BC%92%EF%BC%98%EF%BC%90%EF%BC%90%E4%B8%87%E5%86%86" target="_blank">赤旗（DSCA算出）</a> / <a href="https://www.tokyo-np.co.jp/article/303682" target="_blank">東京新聞（契約額）</a></td>
           </tr>
           <tr>
             <td class="row-label" style="color:#ffd700;">🇦🇺 オーストラリア（FMS経由）</td>
             <td>BlockV 200発 + BlockIV 20発、$8.95億</td>
-            <td>約 ¥4億700万円<br><span style="font-size:12px; color:#888;">（@¥136/$、220発換算）</span></td>
+            <td>約 ¥4億700万円<span style="font-size:12px; color:#888;"> (当時¥136/$)</span><br><span style="font-size:12px; color:#888;">現在レート換算: 約 ¥4億7,564万円 (¥159/$, 2026/05時点)<br>$895M ÷ 220発換算</span></td>
             <td><a href="https://ja.wikipedia.org/wiki/%E3%83%88%E3%83%9E%E3%83%9B%E3%83%BC%E3%82%AF_(%E3%83%9F%E3%82%B5%E3%82%A4%E3%83%AB)#:~:text=2023%E5%B9%B43%E6%9C%88" target="_blank">米国務省 豪州売却承認（2023年3月）</a></td>
           </tr>
         </tbody>
       </table>
 
-      <p>3点が同時に読み取れる。</p>
+      <p style="font-size:13px; color:#888; margin-top:-12px;">※倍率（1.9〜2.3倍）はレートに依存しない。為替レート変動は3者すべてに同じ係数で適用されるため、米海軍・日本・豪州間の比較構造は不変。本表では <strong>当時レート(¥136/$)を主表示、現在レート(¥159/$、2026/05時点)を併記</strong>している。</p>
+
+<p>3点が同時に読み取れる。</p>
 
       <p>第一に、<strong class="highlight-fact">日本の1発単価は米海軍国内価格（¥2.74億）の約1.9〜2.3倍</strong>。算出根拠の幅は次の通り：DSCA承認時の$23.5億ベースで計算すると約¥5.28億/発（米海軍の1.93倍）、2024年1月の最終契約額¥2,540億ベースで計算すると約¥6.35億/発（米海軍の2.32倍）。<strong>正確な本体単価は政府が非公開とした</strong>。岸田首相は2023年2月の衆院予算委員会で「単価を明らかにしなかった」と赤旗が報じている。第二に、<strong>同じFMS制度を使う豪州よりも約30%高い</strong>。第三に、<strong>日本は最大400発のうち半数を一世代前の旧型「ブロックIV」とした</strong>（東京新聞2024年1月）。</p>
 
@@ -893,6 +908,8 @@ footer p { margin-bottom: 6px; }
         <li><span class="date">2026/05/23</span>訂正：第7章トマホーク日米豪3者比較における日本側単価の算出根拠を明記（DeepSeek分析による指摘）。「約¥5億2,800万円」の出典が不明瞭との指摘を受け、DSCA承認時の$23.5億ベース計算値（約¥5.28億/発）と最終契約¥2,540億ベース計算値（¥6.35億/発）を並列表記に変更。本体単価は政府が非公開（岸田首相が「明らかにしなかった」と赤旗報道）であることを本文に明記。米海軍国内価格との倍率も「約1.9倍」から「約1.9〜2.3倍」に修正。</li>
         <li><span class="date">2026/05/23</span>追記：データセット（CSV）を <a href="../datasets/">datasets/</a> で公開開始（CC0 1.0）。本記事関連の4ファイルを追加。</li>
         <li><span class="date">2026/05/23</span>訂正：タイトルを「特会から防衛費へ ¥1.84兆 — R5の単発繰入と、その先のFMS信託基金」から「防衛費財源の単発スキーム — 特会¥1.84兆を抜く特別法と、米海軍の2倍で買うトマホーク」に変更。記事の核心（金額が先・財源が後の構造／米国製兵器への直行ルート）をタイトルで直接表現する形に修正。</li>
+        <li><span class="date">2026/05/23</span>更新：第7章トマホーク3者比較テーブルに「当時レート(¥136/$)」と「現在レート(¥159/$、2026/05時点)」の両方を併記する形式に変更。倍率(1.9〜2.3倍)はレート非依存のため不変だが、絶対額の現在価値を読者が把握できるようにした。
+        <li><span class="date">2026/05/23</span>追記：言語切替UI(🌐 JP/EN)をナビゲーションに追加。英語版記事へのリンクを設置。</li>
         <li><span class="date">2026/05/23</span>訂正：壊れた一次資料リンク2件を修正（編集者ブラウザでの動作確認による指摘）。①岸田首相2022/12/16記者会見の首相官邸URL（kantei.go.jp/jp/101_kishida/...）→ より長期安定する内閣官房「国家安全保障戦略について」ページ（cas.go.jp）に差し替え。②会計検査院H30決算検査報告「特色」ページURL（jbaudit.go.jp/report/new/characteristic30/...、サイトリニューアルにより404）→ 同等内容を含むreport.jbaudit.go.jp側のページに差し替え。リンク先タイトルも実態に合わせて変更。</li>
         <li><span class="date">2026/05/23</span>訂正：第7章トマホーク3者比較テーブルおよび参考資料リストにおいて、リンクテキスト「米海軍省R23予算書」が赤旗の引用記事を指していた問題を修正（編集者指摘）。米海軍予算書原本（米国防総省公式PDF：media.defense.gov掲載のFY2024 WPN Book、FY2023実績70発/$139,983千で約$200万/発と記載）への直接リンクに差し替え。赤旗は補足ソースとして残し、「米海軍省R23予算書を引用」との関係を明示。CSV `fms_tomahawk_price_comparison.csv` の primary_source_url も同様に修正。OSINTメディアとして表示テキストと実体URLの一致は基本原則であり、迅速に訂正した。</li>
       </ul>

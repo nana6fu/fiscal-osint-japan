@@ -76,6 +76,11 @@ footer p { margin-bottom: 6px; }
   .card-subtitle { font-size: 14px; }
   .container { padding: 0 16px; }
 }
+
+.lang-switch { display: inline-flex; align-items: center; gap: 6px; background: #1a1f2e; padding: 5px 12px; border-radius: 4px; font-size: 13px; color: #aaa; border: 1px solid #2a2f3e; margin-left: 12px; }
+.lang-switch a { color: #aaa; text-decoration: none; padding: 0 4px; }
+.lang-switch a.active { color: #ffd700; font-weight: 700; }
+.lang-switch a:hover { color: #4a8aff; }
 </style>
 </head>
 <body>
@@ -83,7 +88,15 @@ footer p { margin-bottom: 6px; }
 <nav class="nav">
   <div class="container">
     <a href="../index.html" class="nav-back">← Fiscal OSINT Japan ダッシュボードへ</a>
-    <div class="nav-site"><span class="accent">Fiscal OSINT</span> Japan</div>
+    <div>
+      <span class="nav-site"><span class="accent">Fiscal OSINT</span> Japan</span>
+      <span class="lang-switch">
+        🌐
+        <a href="index.html" class="active">JP</a>
+        <span style="color:#555;">/</span>
+        <a href="en/index.html">EN</a>
+      </span>
+    </div>
   </div>
 </nav>
 
