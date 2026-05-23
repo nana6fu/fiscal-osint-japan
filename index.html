@@ -1007,6 +1007,9 @@ footer{font-size:10px;color:#30363d;padding:5px 24px;border-top:1px solid #0d111
     <div class="badge badge-red">⚠ OB再就職・随意契約 要確認</div>
     <div class="badge badge-green">🤖 AI: Groq Llama3.3</div>
     <div class="badge badge-blue">公開情報のみ使用</div>
+    <a href="us-investment.html" class="badge badge-blue nav-link" style="text-decoration:none;">→ 80兆対米投資</a>
+    <a href="articles/80trillion.html" class="badge badge-green nav-link nav-link-green" style="text-decoration:none;">📝 記事</a>
+    <a href="datasets/" class="badge badge-blue nav-link" style="text-decoration:none;">📊 datasets</a>
   </div>
 </header>
 
@@ -1066,6 +1069,25 @@ footer{font-size:10px;color:#30363d;padding:5px 24px;border-top:1px solid #0d111
 .reemp-tab-btn.active{background:#1f6feb;border-color:#1f6feb;color:#fff}
 .reemp-year-sel{background:#161b22;border:1px solid #30363d;color:#f0f6fc;padding:6px 10px;border-radius:6px;font-size:13px;font-weight:600;font-family:inherit;cursor:pointer}
 .reemp-year-sel:focus{outline:none;border-color:#58a6ff}
+
+/* Nav links (clickable badges) - 枠線太く+ホバーエフェクトでリンクと識別 */
+.nav-link {
+  border-width: 2px !important;
+  cursor: pointer;
+  transition: all 0.15s ease;
+}
+.nav-link:hover {
+  background: rgba(74, 138, 255, 0.15) !important;
+  border-color: #4a8aff !important;
+  transform: translateY(-1px);
+  box-shadow: 0 2px 8px rgba(74, 138, 255, 0.25);
+}
+.nav-link-green:hover {
+  background: rgba(74, 230, 110, 0.12) !important;
+  border-color: #4ae66e !important;
+  box-shadow: 0 2px 8px rgba(74, 230, 110, 0.25) !important;
+}
+
 </style>
 <section id="reempSection" style="max-width:1400px;margin:24px auto 0;padding:0 20px;color:#c9d1d9;font-family:-apple-system,BlinkMacSystemFont,'Hiragino Sans','Noto Sans JP',sans-serif">
   <div style="border-top:1px solid #30363d;padding-top:24px">

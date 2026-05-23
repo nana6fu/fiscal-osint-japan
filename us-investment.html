@@ -1,0 +1,2116 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>80兆円対米投資の構造可視化 | Fiscal OSINT Japan</title>
+<meta name="description" content="2025年7月に発表された5,500億ドル(約80兆円)の日米合意。財政投融資特別会計からJBIC、21社、米国SPVまで、80兆円の資金フローを可視化。一次資料14点に基づくOSINT分析。">
+<meta property="og:title" content="80兆円対米投資の構造可視化 | Fiscal OSINT Japan">
+<meta property="og:description" content="財投特会→JBIC→21社の資金フロー、時系列、5年推移、焦げ付きリスクシナリオを公開情報のみで構築">
+<meta property="og:type" content="article">
+<meta property="og:url" content="https://nana6fu.github.io/fiscal-osint-japan/us-investment.html">
+<meta name="twitter:card" content="summary_large_image">
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "AnalysisNewsArticle",
+  "headline": "80兆円対米投資の構造可視化",
+  "datePublished": "2026-05-23T00:00:00+09:00",
+  "author": { "@type": "Organization", "name": "Fiscal OSINT Japan" },
+  "publisher": { "@type": "Organization", "name": "Fiscal OSINT Japan" },
+  "license": "https://creativecommons.org/licenses/by/4.0/",
+  "inLanguage": "ja-JP",
+  "isAccessibleForFree": true,
+  "keywords": "80兆対米投資, 財投特会, JBIC, MOU, 5500億ドル, 21社, 資金フロー, 焦げ付きリスク"
+}
+</script>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;700;900&family=Share+Tech+Mono&display=swap');
+*{box-sizing:border-box;margin:0;padding:0}
+:root{
+  --bg:#080c10;--surface:#0d1117;--border:#1e2736;
+  --red:#e63946;--red-dim:#7a1a20;
+  --blue:#4895ef;--green:#43aa8b;--yellow:#f4a261;
+  --text:#c9d1d9;--text-dim:#6e7681;--text-bright:#f0f6fc;
+  --font-mono:'Share Tech Mono',monospace;
+}
+html,body{height:100%;background:var(--bg);color:var(--text);font-family:'Noto Sans JP',sans-serif}
+
+/* HEADER */
+header{padding:14px 24px;border-bottom:1px solid var(--border);display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:10px;background:#0d1117;position:sticky;top:0;z-index:100}
+.header-left h1{font-size:15px;font-weight:900;color:var(--text-bright)}
+.header-left h1 span{color:var(--red)}
+.header-left p{font-size:10px;color:var(--text-dim);margin-top:2px;font-family:var(--font-mono)}
+.badges{display:flex;gap:6px;align-items:center;flex-wrap:wrap}
+.badge{font-size:10px;padding:3px 8px;border-radius:3px;font-family:var(--font-mono);border:1px solid}
+.badge-red{color:var(--red);border-color:var(--red-dim);background:#1a0508}
+.badge-blue{color:var(--blue);border-color:#1a3a6e;background:#060e1a}
+.badge-green{color:var(--green);border-color:#1a3a2a;background:#060e0a}
+.year-sel{background:#0d1117;color:var(--text-bright);border:1px solid #30363d;border-radius:4px;padding:4px 10px;font-size:13px;font-weight:700;cursor:pointer}
+
+/* SUMMARY */
+.summary{display:grid;grid-template-columns:repeat(4,1fr);border-bottom:1px solid var(--border)}
+.sum-item{padding:12px 18px;border-right:1px solid var(--border);position:relative}
+.sum-item:last-child{border-right:none}
+.sum-label{font-size:10px;color:var(--text-dim);margin-bottom:3px;font-family:var(--font-mono)}
+.sum-val{font-size:20px;font-weight:900}
+.sum-val.red{color:var(--red)}.sum-val.blue{color:var(--blue)}.sum-val.yellow{color:var(--yellow)}.sum-val.green{color:var(--green)}
+.sum-sub{font-size:10px;color:var(--text-dim);margin-top:2px}
+.sum-src{font-size:9px;margin-top:4px}
+.sum-src a{color:#4a6a8a;text-decoration:none;font-family:var(--font-mono)}
+.sum-src a:hover{color:var(--blue);text-decoration:underline}
+.sum-alert{position:absolute;top:8px;right:8px;font-size:9px;color:var(--red);border:1px solid var(--red-dim);padding:1px 5px;border-radius:2px;font-family:var(--font-mono);background:#1a0508}
+
+/* LAYOUT */
+.layout{display:flex;height:calc(100vh - 152px)}
+
+/* LEFT SIDEBAR */
+.ministry-list{width:220px;flex-shrink:0;border-right:1px solid var(--border);overflow-y:auto;padding:10px 0}
+.ministry-list::-webkit-scrollbar{width:3px}
+.ministry-list::-webkit-scrollbar-thumb{background:#30363d;border-radius:2px}
+.min-item{padding:9px 14px;cursor:pointer;border-left:3px solid transparent;transition:all .15s}
+.min-item:hover{background:#0d1117}
+.min-item.active{background:#0d1117;border-left-color:var(--red)}
+.min-item.alert{border-left-color:var(--red-dim)}
+.min-item.alert.active{border-left-color:var(--red)}
+.min-name{font-size:12px;font-weight:700;color:var(--text-bright)}
+.min-item.alert .min-name{color:var(--red)}
+.min-count{font-size:10px;color:var(--text-dim);margin-top:1px;font-family:var(--font-mono)}
+.min-total{font-size:11px;color:var(--yellow);font-family:var(--font-mono);font-weight:700;margin-top:1px}
+.min-tag{display:inline-block;font-size:9px;padding:1px 5px;border-radius:2px;margin-top:3px;font-family:var(--font-mono);background:#1a0508;color:var(--red);border:1px solid var(--red-dim)}
+
+/* CENTER */
+.account-area{flex:1;overflow-y:auto;padding:14px 18px}
+.account-area::-webkit-scrollbar{width:3px}
+.account-area::-webkit-scrollbar-thumb{background:#30363d;border-radius:2px}
+.ministry-header{margin-bottom:12px;display:flex;align-items:center;gap:10px;flex-wrap:wrap}
+.ministry-title{font-size:17px;font-weight:900;color:var(--text-bright)}
+.ministry-title.alert{color:var(--red)}
+.ministry-subtitle{font-size:11px;color:var(--text-dim);font-family:var(--font-mono)}
+.alert-badge{font-size:10px;color:var(--red);border:1px solid var(--red);padding:2px 8px;border-radius:3px;font-family:var(--font-mono);background:#1a0508;animation:pulse 2s infinite}
+@keyframes pulse{0%,100%{opacity:1}50%{opacity:.6}}
+
+/* 一次資料ボックス */
+.primary-box{background:#060e06;border:1px solid #1a3a1a;border-radius:6px;padding:14px 16px;margin-bottom:14px}
+.chisei-box{background:#060e06;border:1px solid #1a3a1a;border-radius:6px;padding:14px 16px;margin-bottom:14px}
+.chisei-title{font-size:10px;color:#4a8a4a;font-family:var(--font-mono);margin-bottom:10px}
+.chisei-table{width:100%;border-collapse:collapse;font-size:11px}
+.chisei-table th{background:#0a1a0a;color:#4a8a4a;font-family:var(--font-mono);font-size:9px;padding:5px 8px;text-align:right;border-bottom:1px solid #1a3a1a;white-space:nowrap}
+.chisei-table th:first-child{text-align:left}
+.chisei-table td{padding:5px 8px;border-bottom:1px solid #0d1a0d;color:var(--text);text-align:right;font-family:var(--font-mono);font-size:11px}
+.chisei-table td:first-child{text-align:left;color:var(--text-bright);font-weight:700;font-family:inherit;font-size:12px}
+.chisei-table tr:hover td{background:#0a160a}
+.chisei-table tr.total-row td{color:#7dcc7d;font-weight:700;border-top:1px solid #2a4a2a;background:#050e05}
+.chisei-table td a{color:#4a6a8a;text-decoration:none;font-size:9px}
+.chisei-table td a:hover{color:var(--blue)}
+.ratio-high{color:#cc4444!important}
+.ratio-bar{display:inline-block;height:5px;border-radius:2px;vertical-align:middle;margin-left:4px;background:#2a5a2a}
+.chisei-note{font-size:9px;color:var(--text-dim);margin-top:8px;padding-top:6px;border-top:1px solid #1a3a1a;font-family:var(--font-mono)}
+.primary-box-title{font-size:10px;color:#4a8a4a;font-family:var(--font-mono);margin-bottom:8px;display:flex;align-items:center;gap:6px}
+.primary-fact{font-size:12px;color:#b0d8b0;line-height:1.8;margin-bottom:6px}
+.primary-fact strong{color:#7dcc7d}
+.primary-src{font-size:10px;margin-top:6px;padding-top:6px;border-top:1px solid #1a3a1a}
+.primary-src a{color:#4a6a8a;text-decoration:none;font-family:var(--font-mono);font-size:9px}
+.primary-src a:hover{color:var(--blue);text-decoration:underline}
+
+.overview-box{background:#0d1117;border:1px solid var(--border);border-radius:6px;padding:14px 16px;margin-bottom:14px}
+.overview-title{font-size:10px;color:var(--text-dim);font-family:var(--font-mono);margin-bottom:8px}
+
+/* 8法人テーブル */
+.houjin-table{width:100%;border-collapse:collapse;font-size:11px;margin-top:8px}
+.houjin-table th{background:#0a1a0a;color:#4a8a4a;font-family:var(--font-mono);font-size:9px;padding:6px 8px;text-align:left;border-bottom:1px solid #1a3a1a}
+.houjin-table td{padding:6px 8px;border-bottom:1px solid #0d1a0d;color:var(--text);vertical-align:top}
+.houjin-table tr:hover td{background:#0a160a}
+.houjin-table td.amount{color:var(--red);font-family:var(--font-mono);font-weight:700}
+.houjin-table td.region{color:var(--text-dim);font-size:10px}
+
+.accounts-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(260px,1fr));gap:8px;margin-bottom:20px}
+.acc-card{background:#0d1117;border:1px solid var(--border);border-radius:6px;padding:12px 14px;cursor:pointer;transition:all .2s;position:relative;overflow:hidden}
+.acc-card::before{content:'';position:absolute;top:0;left:0;right:0;height:2px;background:#30363d}
+.acc-card:hover{border-color:#30363d;transform:translateY(-1px)}
+.acc-card.alert{border-color:#2a1015}
+.acc-card.alert::before{background:var(--red)}
+.acc-card.selected{border-color:var(--red);box-shadow:0 0 0 1px var(--red-dim)}
+.acc-name{font-size:12px;font-weight:700;color:var(--text-bright);margin-bottom:5px;line-height:1.5}
+.acc-amount{font-size:19px;font-weight:900;font-family:var(--font-mono);color:var(--text-bright)}
+.acc-amount.big{color:var(--red)}
+.acc-bar-wrap{margin-top:7px;background:#1e2736;border-radius:2px;height:3px}
+.acc-bar{height:3px;border-radius:2px}
+.acc-src{font-size:10px;color:#4a6a8a;margin-top:5px}
+.acc-src a{color:#4a6a8a;text-decoration:none;font-family:var(--font-mono)}
+.acc-src a:hover{color:var(--blue);text-decoration:underline}
+.acc-flag{position:absolute;top:7px;right:7px;font-size:9px;color:var(--red);font-family:var(--font-mono);background:#1a0508;border:1px solid var(--red-dim);padding:1px 5px;border-radius:2px}
+
+/* RIGHT PANEL */
+.dpanel{width:0;flex-shrink:0;overflow:hidden;border-left:1px solid var(--border);background:#0a0e14;transition:width .3s}
+.dpanel.open{width:320px}
+.dpanel-inner{width:320px;padding:18px;overflow-y:auto;height:100%;position:relative}
+.dpanel-inner::-webkit-scrollbar{width:3px}
+.dpanel-inner::-webkit-scrollbar-thumb{background:#30363d;border-radius:2px}
+.dp-close{position:absolute;top:10px;right:10px;background:none;border:none;color:var(--text-dim);font-size:16px;cursor:pointer}
+.dp-name{font-size:13px;font-weight:700;color:var(--text-bright);margin-bottom:3px;line-height:1.5;padding-right:20px}
+.dp-ministry{font-size:10px;color:var(--text-dim);font-family:var(--font-mono);margin-bottom:12px}
+.dp-amount{font-size:26px;font-weight:900;font-family:var(--font-mono);color:var(--red);margin-bottom:2px}
+.dp-amount-label{font-size:10px;color:var(--text-dim);margin-bottom:16px}
+
+/* 一次資料セクション */
+.dp-primary{background:#060e06;border:1px solid #1a3a1a;border-radius:5px;padding:12px;margin-bottom:12px}
+.dp-primary-title{font-size:10px;color:#4a8a4a;font-family:var(--font-mono);margin-bottom:8px}
+.dp-row{display:flex;justify-content:space-between;font-size:11px;padding:3px 0;color:var(--text)}
+.dp-row span{color:var(--text-dim)}
+.dp-src-link{font-size:9px;margin-top:6px;padding-top:6px;border-top:1px solid #1a3a1a}
+.dp-src-link a{color:#4a6a8a;text-decoration:none;font-family:var(--font-mono)}
+.dp-src-link a:hover{color:var(--blue);text-decoration:underline}
+
+/* 追跡フロー */
+.dp-track{background:#06080e;border:1px solid #2a3a5a;border-radius:5px;padding:12px;margin-bottom:12px}
+.track-flow{margin-top:8px}
+.track-step{display:flex;gap:8px;align-items:flex-start}
+.track-icon{font-size:16px;flex-shrink:0;margin-top:2px}
+.track-content{flex:1}
+.track-label{font-size:9px;color:#4a6a8a;font-family:var(--font-mono);margin-bottom:2px}
+.track-val{font-size:11px;color:var(--text);line-height:1.6}
+.track-date{font-size:9px;color:var(--text-dim);margin-top:2px}
+.track-arrow{text-align:center;color:#2a3a5a;font-size:14px;margin:4px 0 4px 12px}
+
+/* AI分析セクション */
+.dp-ai{background:#0a0e14;border:1px solid #2a2a3a;border-radius:5px;padding:12px;margin-bottom:12px}
+.dp-ai-title{font-size:10px;color:#6a6a8a;font-family:var(--font-mono);margin-bottom:8px}
+.dp-ai-note{font-size:9px;color:#4a4a6a;font-family:var(--font-mono);margin-bottom:8px;padding:4px 6px;background:#08080f;border-radius:3px}
+.ai-btn{width:100%;padding:8px 12px;background:linear-gradient(135deg,#0a1a0a,#0a2a0a);border:1px solid #2a5a2a;border-radius:5px;color:#7dcc7d;font-size:11px;cursor:pointer;transition:all .2s;text-align:left;font-family:'Noto Sans JP',sans-serif}
+.ai-btn:hover{background:linear-gradient(135deg,#0f2a0f,#0f3a0f);border-color:#4a8a4a}
+.ai-btn:disabled{opacity:.5;cursor:not-allowed}
+.ai-loading{display:none;margin-top:8px;padding:6px;text-align:center;font-size:11px;color:#7dcc7d;font-family:var(--font-mono)}
+.ai-loading.show{display:block}
+.ai-result{display:none;margin-top:8px;padding:10px;background:#060e06;border:1px solid #2a5a2a;border-radius:5px;font-size:11px;color:#b0d8b0;line-height:1.9;white-space:pre-wrap;font-family:'Noto Sans JP',sans-serif}
+.ai-result.show{display:block}
+.ai-disclaimer{font-size:9px;color:#4a6a4a;font-family:var(--font-mono);margin-top:6px;line-height:1.6}
+
+footer{font-size:10px;color:#30363d;padding:5px 24px;border-top:1px solid #0d1117;font-family:var(--font-mono)}
+
+/* コスト比較 */
+.cost-box{background:#0a0a14;border:1px solid #2a2a4a;border-radius:5px;padding:10px;margin-bottom:12px}
+.cost-box-title{font-size:10px;color:#6a6aaa;font-family:var(--font-mono);margin-bottom:8px}
+.cost-row{display:flex;justify-content:space-between;align-items:center;padding:4px 0;border-bottom:1px solid #1a1a2a}
+.cost-row:last-child{border-bottom:none}
+.cost-label{font-size:10px;color:var(--text-dim)}
+.cost-val-bad{font-size:12px;color:var(--red);font-family:var(--font-mono);font-weight:700}
+.cost-val-good{font-size:12px;color:var(--green);font-family:var(--font-mono);font-weight:700}
+.cost-val-warn{font-size:12px;color:var(--yellow);font-family:var(--font-mono);font-weight:700}
+.cost-note{font-size:9px;color:#4a4a6a;margin-top:6px;line-height:1.6;font-family:var(--font-mono)}
+
+/* コスト比較 */
+.cost-box{background:#0a0a14;border:1px solid #2a2a4a;border-radius:5px;padding:10px;margin-bottom:12px}
+.cost-title{font-size:10px;color:#6a6aaa;font-family:var(--font-mono);margin-bottom:8px}
+.cost-row{display:flex;justify-content:space-between;padding:4px 0;border-bottom:1px solid #1a1a2a}
+.cost-row:last-child{border-bottom:none}
+.cost-lbl{font-size:10px;color:var(--text-dim)}
+.cost-red{font-size:12px;color:var(--red);font-family:var(--font-mono);font-weight:700}
+.cost-grn{font-size:12px;color:var(--green);font-family:var(--font-mono);font-weight:700}
+.cost-ylw{font-size:12px;color:var(--yellow);font-family:var(--font-mono);font-weight:700}
+.cost-note{font-size:9px;color:#4a4a6a;margin-top:6px;line-height:1.6}
+.cost-note a{color:#4a6a8a;text-decoration:none}
+
+/* MOBILE */
+@media(max-width:768px){
+  .summary{grid-template-columns:repeat(2,1fr)}
+  .layout{flex-direction:column;height:auto}
+  .ministry-list{width:100%;border-right:none;border-bottom:1px solid var(--border);display:flex;flex-wrap:nowrap;overflow-x:auto;padding:8px;gap:6px}
+  .min-item{flex-shrink:0;border-left:none;border-bottom:3px solid transparent;padding:6px 10px;border-radius:4px;background:#0d1117}
+  .min-item.active{border-bottom-color:var(--red)}
+  .min-item.alert{border-bottom-color:var(--red-dim)}
+  .min-tag{display:none}
+  .account-area{padding:10px}
+  .dpanel{position:fixed;bottom:0;left:0;right:0;width:100%!important;height:0;border-left:none;border-top:1px solid var(--border);z-index:1000;transition:height .3s}
+  .dpanel.open{height:70vh;width:100%!important}
+  .dpanel-inner{width:100%;height:100%;overflow-y:auto}
+  .accounts-grid{grid-template-columns:1fr}
+  .houjin-table{font-size:10px}
+}
+.cost-box{background:#0a0a14;border:1px solid #2a2a4a;border-radius:5px;padding:10px;margin-bottom:12px}
+.cost-title{font-size:10px;color:#6a6aaa;font-family:var(--font-mono);margin-bottom:8px}
+.cost-row{display:flex;justify-content:space-between;padding:4px 0;border-bottom:1px solid #1a1a2a}
+.cost-row:last-child{border-bottom:none}
+.cost-lbl{font-size:10px;color:var(--text-dim)}
+.cost-red{font-size:12px;color:var(--red);font-family:var(--font-mono);font-weight:700}
+.cost-grn{font-size:12px;color:var(--green);font-family:var(--font-mono);font-weight:700}
+.cost-ylw{font-size:12px;color:var(--yellow);font-family:var(--font-mono);font-weight:700}
+.cost-note{font-size:9px;color:#4a4a6a;margin-top:6px;line-height:1.6}
+.cost-note a{color:#4a6a8a;text-decoration:none}
+
+/* === MLIT national ranking layout fix === */
+.mlit-national-grid{
+  display:grid;
+  grid-template-columns:1.35fr .9fr;
+  gap:14px;
+  align-items:start;
+}
+
+.mlit-rank-card,
+.mlit-company-card{
+  box-sizing:border-box;
+  min-height:138px;
+  max-height:138px;
+  overflow:hidden;
+  display:flex;
+  flex-direction:column;
+  justify-content:space-between;
+}
+
+.mlit-rank-card{
+  background:#0b1220;
+  border:1px solid #263244;
+  border-radius:8px;
+  padding:9px 10px;
+  margin-bottom:8px;
+}
+
+.mlit-company-card{
+  background:#07111f;
+  border:1px solid #1e3a5f;
+  border-radius:8px;
+  padding:9px 10px;
+  margin-bottom:8px;
+}
+
+.mlit-rank-card div,
+.mlit-company-card div{
+  word-break:break-word;
+}
+
+.mlit-rank-card div:nth-child(2),
+.mlit-company-card div:nth-child(2){
+  line-height:1.45;
+}
+
+.mlit-rank-card div:nth-child(2){
+  display:-webkit-box;
+  -webkit-box-orient:vertical;
+  -webkit-line-clamp:2;
+  overflow:hidden;
+}
+
+.mlit-rank-card div:nth-child(3),
+.mlit-rank-card div:nth-child(4),
+.mlit-rank-card div:nth-child(5),
+.mlit-company-card div:nth-child(3),
+.mlit-company-card div:nth-child(4),
+.mlit-company-card div:nth-child(5){
+  display:-webkit-box;
+  -webkit-box-orient:vertical;
+  -webkit-line-clamp:2;
+  overflow:hidden;
+}
+
+@media (max-width: 1100px){
+  .mlit-national-grid{
+    grid-template-columns:1fr;
+  }
+  .mlit-rank-card,
+  .mlit-company-card{
+    max-height:none;
+    min-height:0;
+  }
+}
+
+
+/* === MLIT inline case detail === */
+.mlit-rank-card{
+  cursor:pointer;
+  transition:background .12s ease, border-color .12s ease, transform .12s ease;
+}
+
+.mlit-rank-card:hover{
+  background:#101b2d !important;
+  transform:translateY(-1px);
+}
+
+.mlit-rank-card.selected{
+  border-color:#7dd3fc !important;
+  box-shadow:0 0 0 1px rgba(125,211,252,.45) inset;
+}
+
+.mlit-inline-detail{
+  background:linear-gradient(135deg,rgba(20,38,64,.95),rgba(8,14,26,.98));
+  border:1px solid rgba(125,211,252,.45);
+  border-radius:10px;
+  padding:12px 13px;
+  margin:-2px 0 10px 0;
+  box-shadow:0 0 0 1px rgba(125,211,252,.08) inset;
+}
+
+.mlit-inline-detail-title{
+  font-size:12px;
+  color:#7dd3fc;
+  font-weight:800;
+  margin-bottom:7px;
+}
+
+.mlit-inline-detail-project{
+  font-size:13px;
+  color:#fff;
+  font-weight:800;
+  line-height:1.5;
+  margin-bottom:8px;
+}
+
+.mlit-inline-detail-row{
+  display:grid;
+  grid-template-columns:72px 1fr;
+  gap:8px;
+  font-size:11px;
+  line-height:1.6;
+  border-top:1px solid rgba(255,255,255,.06);
+  padding:5px 0;
+}
+
+.mlit-inline-detail-row span:first-child{
+  color:#8fa3bf;
+}
+
+.mlit-inline-detail-row span:last-child{
+  color:#dbeafe;
+}
+
+.mlit-inline-detail-note{
+  font-size:10px;
+  color:#ffd166;
+  line-height:1.6;
+  margin-top:7px;
+}
+
+
+/* === MLIT region top20 panel === */
+.mlit-region-card{
+  background:#111827;
+  border:1px solid #263244;
+  border-radius:8px;
+  padding:9px;
+  cursor:pointer;
+  transition:transform .12s ease, border-color .12s ease, background .12s ease;
+}
+.mlit-region-card:hover{
+  transform:translateY(-1px);
+  border-color:#7dd3fc;
+  background:#132033;
+}
+.mlit-region-card.selected{
+  border-color:#7dd3fc;
+  box-shadow:0 0 0 1px rgba(125,211,252,.45) inset;
+}
+.mlit-region-cases{
+  display:none;
+  background:rgba(7,17,31,.92);
+  border:1px solid rgba(125,211,252,.35);
+  border-radius:10px;
+  padding:12px;
+  margin:0 0 14px 0;
+}
+.mlit-region-cases.show{
+  display:block;
+}
+.mlit-region-cases-title{
+  font-size:14px;
+  color:#7dd3fc;
+  font-weight:800;
+  margin-bottom:8px;
+}
+.mlit-region-case-row{
+  background:#081525;
+  border:1px solid rgba(120,170,255,.22);
+  border-left:4px solid #7dd3fc;
+  border-radius:8px;
+  padding:9px 10px;
+  margin-bottom:7px;
+}
+.mlit-region-case-head{
+  display:flex;
+  justify-content:space-between;
+  gap:10px;
+  font-size:11px;
+  font-weight:800;
+  color:#7dd3fc;
+  margin-bottom:5px;
+}
+.mlit-region-case-title{
+  font-size:12px;
+  color:#fff;
+  font-weight:800;
+  line-height:1.45;
+}
+.mlit-region-case-meta{
+  font-size:10px;
+  color:#aab7c8;
+  line-height:1.55;
+  margin-top:4px;
+}
+.mlit-region-case-reason{
+  font-size:10px;
+  color:#8fa3bf;
+  line-height:1.55;
+  margin-top:4px;
+}
+
+
+/* === MLIT company cases panel === */
+.mlit-company-card{
+  cursor:pointer;
+  transition:transform .12s ease, border-color .12s ease, background .12s ease;
+}
+
+.mlit-company-card:hover{
+  transform:translateY(-1px);
+  border-color:#7dd3fc;
+  background:#102036;
+}
+
+.mlit-company-card.selected{
+  border-color:#7dd3fc;
+  box-shadow:0 0 0 1px rgba(125,211,252,.45) inset;
+}
+
+.mlit-company-cases{
+  display:none;
+  background:rgba(7,17,31,.94);
+  border:1px solid rgba(125,211,252,.35);
+  border-radius:10px;
+  padding:12px;
+  margin:12px 0 14px 0;
+}
+
+.mlit-company-cases.show{
+  display:block;
+}
+
+.mlit-company-cases-title{
+  font-size:14px;
+  color:#7dd3fc;
+  font-weight:800;
+  margin-bottom:8px;
+}
+
+.mlit-company-case-row{
+  background:#081525;
+  border:1px solid rgba(120,170,255,.22);
+  border-left:4px solid #7dd3fc;
+  border-radius:8px;
+  padding:9px 10px;
+  margin-bottom:7px;
+}
+
+.mlit-company-case-head{
+  display:flex;
+  justify-content:space-between;
+  gap:10px;
+  font-size:11px;
+  font-weight:800;
+  color:#7dd3fc;
+  margin-bottom:5px;
+}
+
+.mlit-company-case-title{
+  font-size:12px;
+  color:#fff;
+  font-weight:800;
+  line-height:1.45;
+}
+
+.mlit-company-case-meta{
+  font-size:10px;
+  color:#aab7c8;
+  line-height:1.55;
+  margin-top:4px;
+}
+
+.mlit-company-case-reason{
+  font-size:10px;
+  color:#8fa3bf;
+  line-height:1.55;
+  margin-top:4px;
+}
+
+
+/* === MLIT company inline cases fix === */
+#mlit-company-cases{
+  display:none !important;
+}
+
+.mlit-company-card{
+  cursor:pointer;
+}
+
+.mlit-company-inline-cases{
+  background:linear-gradient(135deg,rgba(20,38,64,.95),rgba(8,14,26,.98));
+  border:1px solid rgba(125,211,252,.45);
+  border-radius:10px;
+  padding:11px 12px;
+  margin:-2px 0 10px 0;
+  box-shadow:0 0 0 1px rgba(125,211,252,.08) inset;
+}
+
+.mlit-company-inline-title{
+  font-size:13px;
+  color:#7dd3fc;
+  font-weight:800;
+  margin-bottom:7px;
+}
+
+.mlit-company-inline-note{
+  font-size:10px;
+  color:#aaa;
+  line-height:1.6;
+  margin-bottom:9px;
+}
+
+.mlit-company-inline-row{
+  background:#081525;
+  border:1px solid rgba(120,170,255,.22);
+  border-left:4px solid #7dd3fc;
+  border-radius:8px;
+  padding:8px 9px;
+  margin-bottom:7px;
+}
+
+.mlit-company-inline-head{
+  display:flex;
+  justify-content:space-between;
+  gap:10px;
+  font-size:10px;
+  font-weight:800;
+  color:#7dd3fc;
+  margin-bottom:5px;
+}
+
+.mlit-company-inline-project{
+  font-size:11px;
+  color:#fff;
+  font-weight:800;
+  line-height:1.45;
+}
+
+.mlit-company-inline-meta{
+  font-size:10px;
+  color:#aab7c8;
+  line-height:1.5;
+  margin-top:4px;
+}
+
+.mlit-company-card.selected{
+  border-color:#7dd3fc !important;
+  box-shadow:0 0 0 1px rgba(125,211,252,.45) inset;
+}
+
+
+/* === FOIA request template panel === */
+.foia-btn{
+  margin-top:10px;
+  display:inline-block;
+  background:#123b2a;
+  color:#b7f7c2;
+  border:1px solid #2f8f46;
+  border-radius:8px;
+  padding:8px 11px;
+  font-size:11px;
+  font-weight:800;
+  cursor:pointer;
+}
+
+.foia-btn:hover{
+  background:#185237;
+}
+
+.foia-template-box{
+  background:#07111f;
+  border:1px solid rgba(125,211,252,.35);
+  border-radius:10px;
+  padding:12px;
+  margin-top:10px;
+}
+
+.foia-template-title{
+  color:#7dd3fc;
+  font-size:13px;
+  font-weight:800;
+  margin-bottom:8px;
+}
+
+.foia-template-text{
+  width:100%;
+  min-height:360px;
+  background:#050b14;
+  color:#dbeafe;
+  border:1px solid #263244;
+  border-radius:8px;
+  padding:10px;
+  font-size:12px;
+  line-height:1.75;
+  box-sizing:border-box;
+  white-space:pre-wrap;
+}
+
+.foia-copy-btn{
+  margin-top:8px;
+  background:#0b4a7a;
+  color:#dff6ff;
+  border:1px solid #3aa6d9;
+  border-radius:8px;
+  padding:7px 10px;
+  font-size:11px;
+  font-weight:800;
+  cursor:pointer;
+}
+
+.foia-copy-btn:hover{
+  background:#11669e;
+}
+
+
+
+/* === Sidebar MOD panel === */
+.mod-panel{
+  margin:0 0 18px 0;
+  padding:18px;
+  border:1px solid rgba(125,211,252,.35);
+  border-radius:14px;
+  background:linear-gradient(135deg,rgba(9,18,32,.96),rgba(15,26,43,.96));
+  box-shadow:0 10px 24px rgba(0,0,0,.25);
+}
+.mod-panel-title{font-size:20px;font-weight:900;color:#e5f6ff;margin-bottom:6px;}
+.mod-panel-sub{font-size:12px;color:#aab7c8;line-height:1.7;margin-bottom:14px;}
+.mod-summary-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px;margin-bottom:14px;}
+.mod-summary-card{background:#0b1627;border:1px solid #263244;border-radius:10px;padding:10px;}
+.mod-summary-card-title{font-size:12px;color:#7dd3fc;font-weight:800;}
+.mod-summary-card-num{font-size:18px;color:#fff;font-weight:900;margin-top:4px;}
+.mod-section-title{font-size:14px;color:#ffb86b;font-weight:900;margin:14px 0 8px;}
+.mod-rank-card{background:#081525;border:1px solid rgba(120,170,255,.22);border-left:4px solid #ff6b6b;border-radius:9px;padding:10px;margin-bottom:8px;}
+.mod-rank-head{display:flex;justify-content:space-between;gap:10px;font-size:11px;color:#7dd3fc;font-weight:900;margin-bottom:5px;}
+.mod-rank-project{font-size:13px;color:#fff;font-weight:900;line-height:1.45;}
+.mod-rank-meta{font-size:11px;color:#aab7c8;line-height:1.55;margin-top:4px;}
+.mod-rank-reason{font-size:10px;color:#8fa3bf;line-height:1.55;margin-top:4px;}
+.mod-company-card{background:#0b1627;border:1px solid rgba(120,170,255,.22);border-radius:9px;padding:9px;margin-bottom:7px;}
+.mod-company-name{font-size:12px;color:#fff;font-weight:900;line-height:1.45;}
+.mod-company-meta{font-size:10px;color:#aab7c8;line-height:1.5;margin-top:4px;}
+
+
+/* === MOD 2 column layout === */
+.mod-hero-grid{
+  display:grid;
+  grid-template-columns:repeat(4,minmax(0,1fr));
+  gap:10px;
+  margin:14px 0 18px;
+}
+
+.mod-hero-card{
+  background:#0b1627;
+  border:1px solid #263244;
+  border-radius:12px;
+  padding:12px;
+  min-height:72px;
+}
+
+.mod-hero-label{
+  color:#7dd3fc;
+  font-size:12px;
+  font-weight:900;
+  margin-bottom:6px;
+}
+
+.mod-hero-value{
+  color:#fff;
+  font-size:22px;
+  font-weight:900;
+  letter-spacing:.02em;
+}
+
+.mod-layout-2col{
+  display:grid;
+  grid-template-columns:minmax(0,1.55fr) minmax(340px,.95fr);
+  gap:16px;
+  align-items:start;
+}
+
+.mod-column-box{
+  background:rgba(7,15,27,.55);
+  border:1px solid rgba(125,211,252,.18);
+  border-radius:14px;
+  padding:14px;
+}
+
+.mod-rank-card{
+  cursor:pointer;
+  transition:transform .12s ease, border-color .12s ease, background .12s ease;
+}
+
+.mod-rank-card:hover{
+  transform:translateY(-1px);
+  border-color:#7dd3fc !important;
+  background:#0b1d33;
+}
+
+.mod-company-card{
+  cursor:pointer;
+  transition:transform .12s ease, border-color .12s ease, background .12s ease;
+}
+
+.mod-company-card:hover{
+  transform:translateY(-1px);
+  border-color:#7dd3fc;
+  background:#10223a;
+}
+
+@media(max-width:1100px){
+  .mod-hero-grid{grid-template-columns:repeat(2,minmax(0,1fr));}
+  .mod-layout-2col{grid-template-columns:1fr;}
+}
+
+
+/* === MOD click detail and alignment fix === */
+.mod-panel{
+  box-sizing:border-box;
+  width:100%;
+  max-width:none;
+  margin:0;
+}
+
+.mod-hero-grid{
+  width:100%;
+  box-sizing:border-box;
+}
+
+.mod-layout-2col{
+  width:100%;
+  box-sizing:border-box;
+  display:grid;
+  grid-template-columns:minmax(0,1.42fr) minmax(360px,.88fr);
+  gap:14px;
+  align-items:start;
+}
+
+.mod-column-box{
+  box-sizing:border-box;
+  width:100%;
+  min-width:0;
+}
+
+.mod-rank-card,
+.mod-company-card{
+  box-sizing:border-box;
+  width:100%;
+}
+
+.mod-rank-card.active,
+.mod-company-card.active{
+  border-color:#7dd3fc !important;
+  box-shadow:0 0 0 1px rgba(125,211,252,.45), 0 8px 24px rgba(0,0,0,.25);
+}
+
+.mod-detail-box{
+  background:linear-gradient(135deg,rgba(12,29,50,.96),rgba(10,22,38,.96));
+  border:1px solid rgba(125,211,252,.45);
+  border-radius:12px;
+  padding:14px;
+  margin-bottom:14px;
+}
+
+.mlit-inline-detail-title{
+  font-size:16px;
+  font-weight:900;
+  color:#7dd3fc;
+  margin-bottom:8px;
+}
+
+.mlit-inline-detail-project{
+  font-size:15px;
+  font-weight:900;
+  color:#fff;
+  line-height:1.55;
+  margin-bottom:10px;
+}
+
+.mlit-inline-detail-row{
+  display:grid;
+  grid-template-columns:100px 1fr;
+  gap:10px;
+  border-top:1px solid rgba(148,163,184,.16);
+  padding:7px 0;
+  font-size:12px;
+  line-height:1.55;
+}
+
+.mlit-inline-detail-row span:first-child{
+  color:#8fa3bf;
+  font-weight:900;
+}
+
+.mlit-inline-detail-row span:last-child{
+  color:#e5edf7;
+}
+
+.mlit-inline-detail-note{
+  font-size:11px;
+  color:#ffd166;
+  line-height:1.65;
+  margin-top:8px;
+}
+
+.mod-mini-case{
+  border:1px solid rgba(120,170,255,.22);
+  border-left:4px solid #7dd3fc;
+  background:#081525;
+  border-radius:9px;
+  padding:9px;
+  margin:8px 0;
+}
+
+.mod-mini-case-title{
+  color:#fff;
+  font-weight:900;
+  font-size:12px;
+  line-height:1.5;
+}
+
+.mod-mini-case-meta{
+  color:#aab7c8;
+  font-size:10px;
+  line-height:1.55;
+  margin-top:4px;
+}
+
+@media(max-width:1100px){
+  .mod-layout-2col{
+    grid-template-columns:1fr;
+  }
+}
+
+
+/* === MOD inline detail unified with MLIT === */
+.mod-inline-detail{
+  display:none;
+  background:linear-gradient(135deg,rgba(12,29,50,.96),rgba(10,22,38,.96));
+  border:1px solid rgba(125,211,252,.45);
+  border-radius:12px;
+  padding:14px;
+  margin:-2px 0 12px 0;
+}
+
+.mlit-inline-detail.show{
+  display:block;
+}
+
+.mlit-inline-detail-title{
+  font-size:16px;
+  font-weight:900;
+  color:#7dd3fc;
+  margin-bottom:8px;
+}
+
+.mlit-inline-detail-project{
+  font-size:15px;
+  font-weight:900;
+  color:#fff;
+  line-height:1.55;
+  margin-bottom:10px;
+}
+
+.mlit-inline-detail-row{
+  display:grid;
+  grid-template-columns:100px 1fr;
+  gap:10px;
+  border-top:1px solid rgba(148,163,184,.16);
+  padding:7px 0;
+  font-size:12px;
+  line-height:1.55;
+}
+
+.mlit-inline-detail-row span:first-child{
+  color:#8fa3bf;
+  font-weight:900;
+}
+
+.mlit-inline-detail-row span:last-child{
+  color:#e5edf7;
+}
+
+.mlit-inline-detail-note{
+  font-size:11px;
+  color:#ffd166;
+  line-height:1.65;
+  margin-top:8px;
+}
+
+.mod-mini-case{
+  border:1px solid rgba(120,170,255,.22);
+  border-left:4px solid #7dd3fc;
+  background:#081525;
+  border-radius:9px;
+  padding:9px;
+  margin:8px 0;
+}
+
+.mod-mini-case-title{
+  color:#fff;
+  font-weight:900;
+  font-size:12px;
+  line-height:1.5;
+}
+
+.mod-mini-case-meta{
+  color:#aab7c8;
+  font-size:10px;
+  line-height:1.55;
+  margin-top:4px;
+}
+
+
+/* FOIA template size lock: match MLIT compact UI */
+.foia-template-box{
+  font-size:12px !important;
+  line-height:1.65 !important;
+}
+.foia-template-title{
+  font-size:13px !important;
+}
+.foia-template-desc{
+  font-size:11px !important;
+  line-height:1.6 !important;
+}
+.foia-template-text{
+  font-size:11px !important;
+  line-height:1.65 !important;
+  min-height:220px !important;
+  max-height:320px !important;
+}
+.foia-copy-btn{
+  font-size:11px !important;
+}
+
+</style>
+
+
+
+
+
+<style id="mlit-region-click-fix">
+#mlit-region-cases .mlit-inline-detail:not(.show){
+  display:none;
+}
+#mlit-region-cases .mlit-region-case-row{
+  cursor:pointer;
+  transition: border-color .15s ease, box-shadow .15s ease, transform .15s ease;
+}
+#mlit-region-cases .mlit-region-case-row:hover{
+  border-color:#7dd3fc !important;
+  box-shadow:0 0 0 1px rgba(125,211,252,.45);
+  transform:translateY(-1px);
+}
+#mlit-region-cases .mlit-region-case-row.selected{
+  border-color:#7dd3fc !important;
+  box-shadow:0 0 0 1px rgba(125,211,252,.7);
+}
+
+/* Nav links (clickable badges) - 枠線太く+ホバーエフェクトでリンクと識別 */
+.nav-link {
+  border-width: 2px !important;
+  cursor: pointer;
+  transition: all 0.15s ease;
+}
+.nav-link:hover {
+  background: rgba(74, 138, 255, 0.15) !important;
+  border-color: #4a8aff !important;
+  transform: translateY(-1px);
+  box-shadow: 0 2px 8px rgba(74, 138, 255, 0.25);
+}
+.nav-link-green:hover {
+  background: rgba(74, 230, 110, 0.12) !important;
+  border-color: #4ae66e !important;
+  box-shadow: 0 2px 8px rgba(74, 230, 110, 0.25) !important;
+}
+
+</style>
+
+</head>
+<body>
+<header>
+  <div class="header-left">
+    <h1>Fiscal OSINT <span>Japan</span></h1>
+    <p id="headerSrc">80兆円対米投資の構造可視化 ｜ 財投特会・JBIC・21社・MOU</p>
+  </div>
+  <div class="badges">
+    <a href="index.html" class="badge badge-blue nav-link" style="text-decoration:none;">← 国内ダッシュボード</a>
+    <a href="articles/80trillion.html" class="badge badge-green nav-link nav-link-green" style="text-decoration:none;">📝 詳細記事</a>
+    <a href="datasets/" class="badge badge-blue nav-link" style="text-decoration:none;">📊 datasets</a>
+  </div>
+</header>
+
+
+<div class="summary">
+  <div class="sum-item">
+    <div class="sum-label">合意総額</div>
+    <div class="sum-val red">80<span style="font-size:13px">兆円</span></div>
+    <div class="sum-sub">5,500億ドル (USD)</div>
+    <div class="sum-src"><a href="https://www.whitehouse.gov/fact-sheets/2025/07/fact-sheet-president-donald-j-trump-secures-unprecedented-u-s-japan-strategic-trade-and-investment-agreement/" target="_blank">WH Fact Sheet 2025/7/23 →</a></div>
+    <div class="sum-alert">米国指示・米国90%収益</div>
+  </div>
+  <div class="sum-item">
+    <div class="sum-label">JBIC受領計 R5→R8</div>
+    <div class="sum-val yellow">4.2<span style="font-size:13px">倍</span></div>
+    <div class="sum-sub">¥1.06兆 → ¥4.42兆</div>
+    <div class="sum-src"><a href="datasets/jbic_5year.csv" target="_blank">datasets/jbic_5year.csv →</a></div>
+  </div>
+  <div class="sum-item">
+    <div class="sum-label">21社の金額確定分</div>
+    <div class="sum-val blue">$393.45<span style="font-size:13px">B</span></div>
+    <div class="sum-sub">80兆の71%（約60兆円）</div>
+    <div class="sum-src"><a href="https://www.mof.go.jp/policy/international_policy/convention/dialogue/251028_fact_sheet_2.pdf" target="_blank">共同ファクトシート 2025/10/28 →</a></div>
+  </div>
+  <div class="sum-item">
+    <div class="sum-label">投資実施期限</div>
+    <div class="sum-val green">2029<span style="font-size:13px">/1/19</span></div>
+    <div class="sum-sub">トランプ任期終了まで</div>
+    <div class="sum-src"><a href="https://www.cas.go.jp/" target="_blank">MOU パラグラフ2 →</a></div>
+  </div>
+</div>
+
+
+<main style="padding:24px 32px; max-width:1400px; margin:0 auto;">
+
+  <div style="background:#0b1220; border:1px solid #263244; border-radius:8px; padding:14px 18px; margin-bottom:24px;">
+    <div style="font-size:11px;color:#888;margin-bottom:8px;font-family:var(--font-mono);">概要</div>
+    <div style="font-size:13px; color:#ccc; line-height:1.8;">
+      本ページは <a href="articles/80trillion.html" style="color:#4a8aff;">記事「80兆円対米投資の財源を、財政投融資特別会計から追跡する」</a> の<strong>視覚的サマリ</strong>です。ざっと全体像を把握するためのページであり、詳細な解説・引用・出典は記事を参照してください。
+    </div>
+  </div>
+
+  <nav style="background:#0b1220; border:1px solid #263244; border-radius:8px; padding:14px 18px; margin-bottom:24px;">
+    <div style="font-size:11px;color:#888;margin-bottom:8px;font-family:var(--font-mono);">セクション目次</div>
+    <div style="display:flex; gap:14px; flex-wrap:wrap; font-size:13px;">
+      <a href="#section-flow" style="color:#4a8aff; text-decoration:none;">① 資金フローマップ</a>
+      <a href="#section-timeline" style="color:#4a8aff; text-decoration:none;">② 時系列タイムライン</a>
+      <a href="#section-trend" style="color:#4a8aff; text-decoration:none;">③ JBIC 5年推移</a>
+      <a href="#section-companies" style="color:#4a8aff; text-decoration:none;">④ 21社リスト</a>
+      <a href="#section-risk" style="color:#4a8aff; text-decoration:none;">⑤ 焦げ付きリスクシナリオ</a>
+    </div>
+  </nav>
+
+    <section id="section-flow" style="margin-bottom:48px;">
+      <h2 style="font-size:18px; padding:14px 18px; background:#0b1220; border-left:4px solid #4a8aff; border-radius:4px; margin-bottom:14px; color:#fff;">
+        ① 資金フローマップ
+      </h2>
+      
+      <p style="color:#aaa; font-size:13px; line-height:1.7; margin-bottom:24px;">
+        80兆円対米投資の資金経路。日本の特別会計から JBIC、米国SPV、そして 21 社の投資先まで、一連の流れを可視化します。
+      </p>
+      
+      <div style="display:flex; flex-direction:column; align-items:center; gap:0; padding:30px 20px; background:#06090f; border:1px solid #1a2a4a; border-radius:8px;">
+        
+        <div style="display:flex; flex-wrap:wrap; justify-content:center; gap:18px; width:100%; max-width:1100px;">
+          
+          <div style="flex:1 1 300px; background:#0b1220; border:1px solid #2a3a5a; border-radius:8px; padding:16px;">
+            <div style="font-size:11px; color:#888; margin-bottom:6px; font-family:var(--font-mono);">日本側</div>
+            <div style="font-size:15px; font-weight:600; color:#fff; margin-bottom:8px;">一般会計</div>
+            <div style="font-size:12px; color:#aaa; line-height:1.6;">
+              防衛力強化資金への直接繰入<br>
+              <span style="color:#ffcc66;">R5単発 ¥1.2兆</span><br>
+              （外為特会繰入経由）
+            </div>
+          </div>
+          
+          <div style="flex:1 1 300px; background:#0b1220; border:1px solid #2a3a5a; border-radius:8px; padding:16px;">
+            <div style="font-size:11px; color:#888; margin-bottom:6px; font-family:var(--font-mono);">日本側</div>
+            <div style="font-size:15px; font-weight:600; color:#fff; margin-bottom:8px;">外為特会</div>
+            <div style="font-size:12px; color:#aaa; line-height:1.6;">
+              資金規模 <span style="color:#ffcc66;">約¥187兆</span><br>
+              米国債等の運用収入<br>
+              <span style="color:#7ec8ff;">JBIC融資の財源の半分（赤沢発言）</span>
+            </div>
+          </div>
+          
+          <div style="flex:1 1 300px; background:#0b1220; border:2px solid #4a8aff; border-radius:8px; padding:16px;">
+            <div style="font-size:11px; color:#4a8aff; margin-bottom:6px; font-family:var(--font-mono);">日本側 ★中核</div>
+            <div style="font-size:15px; font-weight:600; color:#fff; margin-bottom:8px;">財政投融資特別会計</div>
+            <div style="font-size:12px; color:#aaa; line-height:1.6;">
+              財政融資資金勘定 → JBIC融資<br>
+              投資勘定 → JBIC出資<br>
+              <span style="color:#ffcc66;">R5→R8で 4.2倍に拡大</span>
+            </div>
+          </div>
+        </div>
+        
+        <div style="font-size:32px; color:#4a8aff; line-height:1; padding:8px 0;">↓</div>
+        
+        <div style="background:#0b1220; border:2px solid #4a8aff; border-radius:8px; padding:18px 24px; max-width:600px; width:100%; text-align:center; box-sizing:border-box;">
+          <div style="font-size:11px; color:#4a8aff; margin-bottom:6px; font-family:var(--font-mono);">中継機関</div>
+          <div style="font-size:18px; font-weight:600; color:#fff; margin-bottom:8px;">
+            <a href="https://www.jbic.go.jp/ja/" target="_blank" style="color:#fff; text-decoration:underline; text-decoration-color:#4a8aff;">JBIC（国際協力銀行）↗</a>
+          </div>
+          <div style="font-size:13px; color:#aaa; line-height:1.7;">
+            日本戦略投資ファシリティ（R7補正で新設）<br>
+            <span style="color:#ffcc66; font-size:15px; font-weight:700;">受領計 R8: ¥4.42兆</span><br>
+            ドル建てで米国側へ融資・出資
+          </div>
+        </div>
+        
+        <div style="font-size:32px; color:#4a8aff; line-height:1; padding:8px 0;">↓</div>
+        
+        <div style="background:#0b1220; border:2px solid #ff6666; border-radius:8px; padding:18px 24px; max-width:700px; width:100%; box-sizing:border-box;">
+          <div style="font-size:11px; color:#ff6666; margin-bottom:6px; font-family:var(--font-mono); text-align:center;">米国側</div>
+          <div style="font-size:18px; font-weight:600; color:#fff; margin-bottom:8px; text-align:center;">
+            <a href="https://www.google.com/search?q=%E5%86%85%E9%96%A3%E5%AE%98%E6%88%BF+%E6%88%A6%E7%95%A5%E7%9A%84%E6%8A%95%E8%B3%87+%E4%BA%86%E8%A7%A3%E8%A6%9A%E6%9B%B8+%E4%BB%AE%E8%A8%B3" target="_blank" style="color:#fff; text-decoration:underline; text-decoration-color:#ff6666;">米国 SPV（特別目的会社）↗</a>
+          </div>
+          <div style="font-size:13px; color:#aaa; line-height:1.7; text-align:center;">
+            各投資ごとに新設・米国がゼネラルパートナー<br>
+            利益配分: みなし配分額まで <span style="color:#ffcc66;">50:50</span> → その後 <span style="color:#ff8888;">米90 : 日10</span><br>
+            投資先決定権: 米国大統領
+          </div>
+          
+          <details style="margin-top:14px; padding:10px 14px; background:#1a0a0a; border:1px solid #4a2a2a; border-radius:6px; cursor:pointer;">
+            <summary style="font-size:12px; color:#ff8888; font-weight:600; outline:none;">▶ 用語解説：SPV / ゼネラルパートナー / みなし配分額</summary>
+            <div style="margin-top:12px; font-size:12px; color:#ccc; line-height:1.8; text-align:left;">
+              <p style="margin:8px 0;"><strong style="color:#ff8888;">SPV（特別目的会社）とは：</strong><br>
+              特定のプロジェクトのためだけに新しく設立される会社。例: Westinghouse原発建設用、GE Vernova SMR用など、各案件ごとに別々に新設される。投資が完了すれば解散することも。今回のMOUでは「各投資に関連して新しい投資SPVを設立する」と明記（パラグラフ11）。</p>
+              
+              <p style="margin:8px 0;"><strong style="color:#ff8888;">ゼネラルパートナー（GP）とは：</strong><br>
+              SPV の管理・統治を担う主体。日々の意思決定権を持つ。今回のMOUでは <strong>米国またはその指名する者</strong> が必ず GP になる。日本側は資金を拠出するが、意思決定権を持たないリミテッドパートナー（LP）になる構造。</p>
+              
+              <p style="margin:8px 0;"><strong style="color:#ff8888;">「みなし配分額まで 50:50」とは：</strong><br>
+              利益配分の境界を決める計算式。「投資額にみなし金利を乗じた額」+「予想プロジェクト期間で割った値」+「繰越額」の合計（実質的に投資元本回収相当額）までは、日米が <strong>同額ずつ</strong>受け取る。それを超えた利益から、<strong style="color:#ff8888;">米国90% : 日本10%</strong> の二段階設計。</p>
+              
+              <div style="margin:14px 0; padding:14px; background:#0a0a14; border-radius:6px; border:1px solid #2a2a4a;">
+                <div style="font-size:12px; color:#7ec8ff; font-weight:600; margin-bottom:10px;">💡 具体例シミュレーション（仮定値）</div>
+                <div style="font-size:11px; color:#888; margin-bottom:10px; line-height:1.6;">
+                  以下は仮定値で計算した <strong>推測例</strong>（実際のMOU計算式はもっと複雑）：<br>
+                  ・投資元本 <strong>$100億</strong>　・みなし金利 5%　・予想期間 10年<br>
+                  → みなし配分額（元本回収相当）= <strong>$50億</strong>
+                </div>
+                
+                <table style="width:100%; border-collapse:collapse; font-size:11px;">
+                  <thead>
+                    <tr style="background:#1a1a2e;">
+                      <th style="padding:8px; text-align:left; color:#aaa;">プロジェクトの利益総額</th>
+                      <th style="padding:8px; text-align:right; color:#aaa;">日本受取</th>
+                      <th style="padding:8px; text-align:right; color:#aaa;">米国受取</th>
+                      <th style="padding:8px; text-align:right; color:#aaa;">日本比率</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr style="border-bottom:1px solid #1a2a4a;">
+                      <td style="padding:8px;">$40億（回収未満）</td>
+                      <td style="padding:8px; text-align:right; color:#4ae66e;">$20億</td>
+                      <td style="padding:8px; text-align:right; color:#aaa;">$20億</td>
+                      <td style="padding:8px; text-align:right; color:#4ae66e; font-weight:700;">50%</td>
+                    </tr>
+                    <tr style="border-bottom:1px solid #1a2a4a;">
+                      <td style="padding:8px;">$100億（回収+α）</td>
+                      <td style="padding:8px; text-align:right; color:#ffcc66;">$30億</td>
+                      <td style="padding:8px; text-align:right; color:#aaa;">$70億</td>
+                      <td style="padding:8px; text-align:right; color:#ffcc66; font-weight:700;">30%</td>
+                    </tr>
+                    <tr style="border-bottom:1px solid #1a2a4a;">
+                      <td style="padding:8px;">$200億（中成功）</td>
+                      <td style="padding:8px; text-align:right; color:#ffaa66;">$40億</td>
+                      <td style="padding:8px; text-align:right; color:#aaa;">$160億</td>
+                      <td style="padding:8px; text-align:right; color:#ffaa66; font-weight:700;">20%</td>
+                    </tr>
+                    <tr style="border-bottom:1px solid #1a2a4a;">
+                      <td style="padding:8px;">$500億（大成功）</td>
+                      <td style="padding:8px; text-align:right; color:#ff8888;">$70億</td>
+                      <td style="padding:8px; text-align:right; color:#aaa;">$430億</td>
+                      <td style="padding:8px; text-align:right; color:#ff8888; font-weight:700;">14%</td>
+                    </tr>
+                    <tr>
+                      <td style="padding:8px;">$1,000億（超大成功）</td>
+                      <td style="padding:8px; text-align:right; color:#ff6666;">$120億</td>
+                      <td style="padding:8px; text-align:right; color:#aaa;">$880億</td>
+                      <td style="padding:8px; text-align:right; color:#ff6666; font-weight:700;">12%</td>
+                    </tr>
+                  </tbody>
+                </table>
+                
+                <div style="margin-top:14px; padding-top:12px; border-top:1px solid #2a2a4a; font-size:11px; color:#ccc; line-height:1.8;">
+                  <strong style="color:#ff8888;">読み方：</strong><br>
+                  ・元本回収まで（みなし配分額以下）：日米 50:50<br>
+                  ・回収を超えた利益：米国90% / 日本10%<br>
+                  ・<strong style="color:#ff8888;">利益が大きくなるほど、日本の比率は下がる</strong>（成功すればするほど日本の取り分％が小さくなる構造）<br>
+                  ・赤字（投資失敗）の場合：MOU パラグラフ17で <strong style="color:#ff8888;">「米国・日本・投資委員会等は責任を負わない」</strong>と免責規定（→ 損失は誰のリスク負担か不明）
+                </div>
+                
+                <div style="margin-top:10px; padding-top:8px; border-top:1px solid #2a2a4a; font-size:10px; color:#666;">
+                  ⚠️ この表は MOU 仮訳の解釈に基づく <strong>推測の例示</strong> です。実際の「みなし金利」「予想プロジェクト期間」「繰越額」の定義は個別投資ごとに異なる可能性があります。
+                </div>
+              </div>
+              
+              <p style="margin:8px 0;"><strong style="color:#ff8888;">投資先決定権とは：</strong><br>
+              どこに投資するかを決めるのは <strong>米国大統領</strong>（MOU パラグラフ1）。投資委員会の議長は米国商務長官。日本側も「協議委員会」を通じてインプットは出せるが、最終決定権はあくまで米国側。投資実施期限は <strong>2029年1月19日</strong>（トランプ大統領任期終了日）まで。</p>
+              
+              <div style="margin-top:12px; padding-top:10px; border-top:1px solid #4a2a2a; font-size:11px; color:#888;">
+                出典: <a href="https://www.google.com/search?q=%E5%86%85%E9%96%A3%E5%AE%98%E6%88%BF+%E6%88%A6%E7%95%A5%E7%9A%84%E6%8A%95%E8%B3%87+%E4%BA%86%E8%A7%A3%E8%A6%9A%E6%9B%B8+%E4%BB%AE%E8%A8%B3" target="_blank" style="color:#ff8888;">内閣官房 戦略的投資に関する了解覚書（仮訳）↗</a>
+              </div>
+            </div>
+          </details>
+        </div>
+        
+        <div style="font-size:32px; color:#ff6666; line-height:1; padding:8px 0;">↓</div>
+        
+        <div style="background:#0b1220; border:1px solid #2a3a5a; border-radius:8px; padding:18px 24px; max-width:900px; width:100%; box-sizing:border-box;">
+          <div style="font-size:11px; color:#888; margin-bottom:6px; font-family:var(--font-mono); text-align:center;">投資先</div>
+          <div style="font-size:18px; font-weight:600; color:#fff; margin-bottom:14px; text-align:center;">21社（22企業）</div>
+          <div style="display:grid; grid-template-columns:repeat(auto-fit, minmax(180px, 1fr)); gap:12px;">
+            <div style="background:#0a0a14; padding:10px; border-radius:4px; border-left:3px solid #ffcc66;">
+              <div style="font-size:11px; color:#ffcc66;">エネルギー</div>
+              <div style="font-size:14px; color:#fff; font-weight:600;">$325B</div>
+              <div style="font-size:10px; color:#888;">原発・送電・ガス等</div>
+            </div>
+            <div style="background:#0a0a14; padding:10px; border-radius:4px; border-left:3px solid #7ec8ff;">
+              <div style="font-size:11px; color:#7ec8ff;">AI電源</div>
+              <div style="font-size:14px; color:#fff; font-weight:600;">未明示</div>
+              <div style="font-size:10px; color:#888;">NuScale/ENTRA1</div>
+            </div>
+            <div style="background:#0a0a14; padding:10px; border-radius:4px; border-left:3px solid #4ae66e;">
+              <div style="font-size:11px; color:#4ae66e;">AIインフラ</div>
+              <div style="font-size:14px; color:#fff; font-weight:600;">$60B+</div>
+              <div style="font-size:10px; color:#888;">7社・電子部品等</div>
+            </div>
+            <div style="background:#0a0a14; padding:10px; border-radius:4px; border-left:3px solid #ff8888;">
+              <div style="font-size:11px; color:#ff8888;">重要鉱物</div>
+              <div style="font-size:14px; color:#fff; font-weight:600;">$6.45B</div>
+              <div style="font-size:10px; color:#888;">5社・銅・肥料等</div>
+            </div>
+          </div>
+          <div style="margin-top:14px; padding-top:14px; border-top:1px solid #1a2a4a; text-align:center;">
+            <span style="font-size:13px; color:#aaa;">金額確定分合計: </span>
+            <span style="font-size:18px; color:#ffcc66; font-weight:700;">$393.45B</span>
+            <span style="font-size:13px; color:#aaa;">（80兆の <strong>約71%</strong>、約60兆円）</span>
+          </div>
+          
+          <details style="margin-top:14px; padding:10px 14px; background:#0a0a14; border:1px solid #1a2a4a; border-radius:6px; cursor:pointer;">
+            <summary style="font-size:12px; color:#7ec8ff; font-weight:600; outline:none;">▶ 全21社（22企業）の内訳を見る</summary>
+            <div style="margin-top:14px; font-size:12px; color:#ccc;">
+              
+              <div style="margin-bottom:18px;">
+                <div style="font-size:13px; color:#ffcc66; font-weight:600; margin-bottom:8px; padding-bottom:4px; border-bottom:1px solid #4a3a1a;">エネルギー（合計 約$325B / 約49兆円）</div>
+                <div style="display:grid; grid-template-columns:1fr; gap:6px; line-height:1.6;">
+                  <div><a href="https://www.westinghousenuclear.com/" target="_blank" style="color:#fff; text-decoration:underline; text-decoration-color:#4a8aff;">Westinghouse ↗</a> ($100B) — AP1000原子炉・SMR建設。三菱重工・東芝・IHI関与検討</div>
+                  <div><a href="https://www.hitachi-hgne.co.jp/" target="_blank" style="color:#fff; text-decoration:underline; text-decoration-color:#4a8aff;">GEベルノバ日立 ↗</a> ($100B) — SMR (BWRX-300) 建設。日立GEベルノバ等関与検討</div>
+                  <div><a href="https://www.bechtel.com/" target="_blank" style="color:#fff; text-decoration:underline; text-decoration-color:#4a8aff;">Bechtel ↗</a> ($25B) — 発電所・変電所・送電網。日本企業関与検討</div>
+                  <div><a href="https://www.kiewit.com/" target="_blank" style="color:#fff; text-decoration:underline; text-decoration-color:#4a8aff;">Kiewit ↗</a> ($25B) — エンジニアリング・調達・建設</div>
+                  <div><a href="https://www.gevernova.com/" target="_blank" style="color:#fff; text-decoration:underline; text-decoration-color:#4a8aff;">GE Vernova ↗</a> ($25B) — ガスタービン・蒸気タービン等の大型電力機器</div>
+                  <div><a href="https://group.softbank/" target="_blank" style="color:#fff; text-decoration:underline; text-decoration-color:#4a8aff;">SoftBank Group ↗</a> ($25B) — 大規模電力インフラの設計・開発・運用</div>
+                  <div><a href="https://www.corporate.carrier.com/" target="_blank" style="color:#fff; text-decoration:underline; text-decoration-color:#4a8aff;">Carrier ↗</a> ($20B) — 電力インフラ向け冷却システム</div>
+                  <div><a href="https://www.kindermorgan.com/" target="_blank" style="color:#fff; text-decoration:underline; text-decoration-color:#4a8aff;">Kinder Morgan ↗</a> ($7B) — 天然ガス送電・電力インフラ</div>
+                </div>
+              </div>
+              
+              <div style="margin-bottom:18px;">
+                <div style="font-size:13px; color:#7ec8ff; font-weight:600; margin-bottom:8px; padding-bottom:4px; border-bottom:1px solid #1a3a4a;">AI向け電源開発</div>
+                <div style="line-height:1.6;">
+                  <div><a href="https://www.nuscalepower.com/" target="_blank" style="color:#fff; text-decoration:underline; text-decoration-color:#4a8aff;">NuScale ↗</a> / <a href="https://www.google.com/search?q=ENTRA1+Energy" target="_blank" style="color:#fff; text-decoration:underline; text-decoration-color:#4a8aff;">ENTRA1 Energy 🔍</a> (金額未明示) — AI向け電源（ガス火力・原子力）検討</div>
+                </div>
+              </div>
+              
+              <div style="margin-bottom:18px;">
+                <div style="font-size:13px; color:#4ae66e; font-weight:600; margin-bottom:8px; padding-bottom:4px; border-bottom:1px solid #1a4a2a;">AIインフラ強化（金額明示分 $60B / 約9兆円）</div>
+                <div style="display:grid; grid-template-columns:1fr; gap:6px; line-height:1.6;">
+                  <div><a href="https://www.global.toshiba/jp/top.html" target="_blank" style="color:#fff; text-decoration:underline; text-decoration-color:#4a8aff;">東芝 ↗</a> (金額未明示) — 電力モジュール・データセンター用変圧器</div>
+                  <div><a href="https://www.hitachi.co.jp/" target="_blank" style="color:#fff; text-decoration:underline; text-decoration-color:#4a8aff;">日立製作所 ↗</a> (金額未明示) — HVDC送電・変電設備、データセンター向け</div>
+                  <div><a href="https://www.mitsubishielectric.co.jp/" target="_blank" style="color:#fff; text-decoration:underline; text-decoration-color:#4a8aff;">三菱電機 ↗</a> ($30B) — データセンター向け発電・電源システム</div>
+                  <div><a href="https://www.fujikura.co.jp/" target="_blank" style="color:#fff; text-decoration:underline; text-decoration-color:#4a8aff;">フジクラ ↗</a> (金額未明示) — 光ファイバーケーブル</div>
+                  <div><a href="https://www.tdk.com/ja/index.html" target="_blank" style="color:#fff; text-decoration:underline; text-decoration-color:#4a8aff;">TDK ↗</a> (金額未明示) — 先端電子部品・パワーモジュール</div>
+                  <div><a href="https://www.murata.com/ja-jp" target="_blank" style="color:#fff; text-decoration:underline; text-decoration-color:#4a8aff;">村田製作所 ↗</a> ($15B) — MLCC・電子部品・ESS関連</div>
+                  <div><a href="https://www.panasonic.com/jp/home.html" target="_blank" style="color:#fff; text-decoration:underline; text-decoration-color:#4a8aff;">パナソニック ↗</a> ($15B) — エネルギー貯蔵システム・電子機器</div>
+                </div>
+              </div>
+              
+              <div style="margin-bottom:8px;">
+                <div style="font-size:13px; color:#ff8888; font-weight:600; margin-bottom:8px; padding-bottom:4px; border-bottom:1px solid #4a1a1a;">重要鉱物等（合計 約$6.45B / 約9,700億円）</div>
+                <div style="display:grid; grid-template-columns:1fr; gap:6px; line-height:1.6;">
+                  <div><a href="https://www.google.com/search?q=Falcon+Copper+US+investment+Japan" target="_blank" style="color:#fff; text-decoration:underline; text-decoration-color:#4a8aff;">Falcon Copper 🔍</a> ($2B) — 米国西部の銅製錬・精錬施設</div>
+                  <div><a href="https://www.google.com/search?q=Carbon+Holdings+US+investment+ammonia+urea" target="_blank" style="color:#fff; text-decoration:underline; text-decoration-color:#4a8aff;">Carbon Holdings 🔍</a> ($3B) — アンモニア・尿素肥料施設</div>
+                  <div><a href="https://www.e6.com/" target="_blank" style="color:#fff; text-decoration:underline; text-decoration-color:#4a8aff;">Element Six ↗</a> ($0.5B) — 高圧高温ダイヤモンド砥粒製造</div>
+                  <div><a href="https://www.google.com/search?q=MaxEnergy+US+Japan+investment+oil+tanker" target="_blank" style="color:#fff; text-decoration:underline; text-decoration-color:#4a8aff;">MaxEnergy 🔍</a> ($0.6B) — 米国南部の原油タンカー航路改善</div>
+                  <div><a href="https://mitrachem.com/" target="_blank" style="color:#fff; text-decoration:underline; text-decoration-color:#4a8aff;">Mitra Chem ↗</a> ($0.35B) — リチウム鉄リン酸塩生産</div>
+                </div>
+              </div>
+              
+              <div style="margin-top:14px; padding-top:10px; border-top:1px solid #1a2a4a; font-size:11px; color:#888;">
+                出典: <a href="https://www.mof.go.jp/policy/international_policy/convention/dialogue/251028_fact_sheet_2.pdf" target="_blank" style="color:#7ec8ff;">日米間の投資に関する共同ファクトシート（仮訳）2025/10/28 ↗</a><br>
+                CSVデータ: <a href="datasets/companies_21.csv" target="_blank" style="color:#7ec8ff;">datasets/companies_21.csv ↗</a>
+              </div>
+            </div>
+          </details>
+        </div>
+        
+      </div>
+      
+      <div style="margin-top:14px; padding:12px 16px; background:#0a0a14; border-radius:6px; font-size:11px; color:#888; line-height:1.7;">
+        <strong style="color:#aaa;">凡例：</strong>
+        <span style="color:#4a8aff;">青枠</span> = 中核（財投特会・JBIC）／
+        <span style="color:#ff6666;">赤枠</span> = 米国側（SPV）／
+        矢印 = 資金の流れ
+      </div>
+      
+      <div style="font-size:12px; color:#888; padding:12px 14px; margin-top:6px;">
+        📖 詳細は記事「<a href="articles/80trillion.html" style="color:#4a8aff;">80兆円対米投資の財源を、財政投融資特別会計から追跡する</a>」の第4-6章を参照
+      </div>
+    </section>
+
+    <section id="section-timeline" style="margin-bottom:48px;">
+      <h2 style="font-size:18px; padding:14px 18px; background:#0b1220; border-left:4px solid #4a8aff; border-radius:4px; margin-bottom:14px; color:#fff;">
+        ② 時系列タイムライン
+      </h2>
+      
+      <p style="color:#aaa; font-size:13px; line-height:1.7; margin-bottom:24px;">
+        2025年7月22日のトランプ発表から、R7補正・R8予算成立まで。日米の発言の <span style="color:#ff8888;">食い違い</span> が浮き彫りになる経緯。
+      </p>
+      
+      <div style="background:#06090f; border:1px solid #1a2a4a; border-radius:8px; padding:24px;">
+        
+        <div style="display:flex; gap:16px; margin-bottom:16px; padding:14px 16px; background:#1a0a0a; border-radius:6px; border-left:3px solid #ff6666;">
+          <div style="min-width:130px; padding-right:14px; border-right:1px solid #2a2a4a;">
+            <div style="font-size:11px; color:#888; font-family:var(--font-mono);">2025/7/22 (火)</div>
+            <div style="font-size:22px; margin-top:4px;">🇺🇸</div>
+            <div style="font-size:10px; color:#ff8888; margin-top:4px;">米国側</div>
+          </div>
+          <div style="flex:1;">
+            <div style="font-size:14px; font-weight:600; color:#fff; margin-bottom:6px;">🔥 トランプ大統領 Truth Social 投稿</div>
+            <div style="font-size:12px; color:#ccc; line-height:1.7; margin-bottom:8px;">
+              「Japan will invest, <strong>at my direction</strong>, $550 Billion Dollars into the United States, which will receive <strong>90% of the Profits</strong>.」と一方的に発表。共同文書は不在のまま。
+            </div>
+            <a href="https://finance.yahoo.com/news/trump-says-550-billion-trade-223141701.html" target="_blank" style="font-size:11px; color:#7ec8ff;">Truth Social 原投稿 ↗</a>
+          </div>
+        </div>
+
+        <div style="display:flex; gap:16px; margin-bottom:16px; padding:14px 16px; background:#1a0a0a; border-radius:6px; border-left:3px solid #ff6666;">
+          <div style="min-width:130px; padding-right:14px; border-right:1px solid #2a2a4a;">
+            <div style="font-size:11px; color:#888; font-family:var(--font-mono);">2025/7/23 (水)</div>
+            <div style="font-size:22px; margin-top:4px;">🇺🇸</div>
+            <div style="font-size:10px; color:#ff8888; margin-top:4px;">米国側</div>
+          </div>
+          <div style="flex:1;">
+            <div style="font-size:14px; font-weight:600; color:#fff; margin-bottom:6px;">WH Fact Sheet 公表</div>
+            <div style="font-size:12px; color:#ccc; line-height:1.7; margin-bottom:8px;">
+              ホワイトハウスが公式ファクトシート発出。「Japan will invest $550 billion <strong>directed by the United States</strong> to rebuild and expand core American industries」と明記。
+            </div>
+            <a href="https://www.whitehouse.gov/fact-sheets/2025/07/fact-sheet-president-donald-j-trump-secures-unprecedented-u-s-japan-strategic-trade-and-investment-agreement/" target="_blank" style="font-size:11px; color:#7ec8ff;">White House Fact Sheet ↗</a>
+          </div>
+        </div>
+
+        <div style="display:flex; gap:16px; margin-bottom:16px; padding:14px 16px; background:#0a1a2a; border-radius:6px; border-left:3px solid #4a8aff;">
+          <div style="min-width:130px; padding-right:14px; border-right:1px solid #2a2a4a;">
+            <div style="font-size:11px; color:#888; font-family:var(--font-mono);">2025/7/23 (水)</div>
+            <div style="font-size:22px; margin-top:4px;">🇯🇵</div>
+            <div style="font-size:10px; color:#7ec8ff; margin-top:4px;">日本側（同日）</div>
+          </div>
+          <div style="flex:1;">
+            <div style="font-size:14px; font-weight:600; color:#fff; margin-bottom:6px;">石破総理 会見</div>
+            <div style="font-size:12px; color:#ccc; line-height:1.7; margin-bottom:8px;">
+              同日午後、石破総理が会見。<strong style="color:#ffcc66;">「政府系金融機関が最大5,500億ドル規模の出資、融資、融資保証を提供可能にする」</strong>と説明。<span style="color:#ff8888;">米国「投資」 vs 日本「融資保証の枠」の齟齬が初日から発生</span>。
+            </div>
+            <a href="https://www.kantei.go.jp/jp/103/statement/2025/0723bura2.html" target="_blank" style="font-size:11px; color:#7ec8ff;">首相官邸 会見記録 ↗</a>
+          </div>
+        </div>
+
+        <div style="display:flex; gap:16px; margin-bottom:16px; padding:14px 16px; background:#1a0a0a; border-radius:6px; border-left:3px solid #ff6666;">
+          <div style="min-width:130px; padding-right:14px; border-right:1px solid #2a2a4a;">
+            <div style="font-size:11px; color:#888; font-family:var(--font-mono);">2025/7/24 (木)</div>
+            <div style="font-size:22px; margin-top:4px;">🇺🇸</div>
+            <div style="font-size:10px; color:#ff8888; margin-top:4px;">米国側</div>
+          </div>
+          <div style="flex:1;">
+            <div style="font-size:14px; font-weight:600; color:#fff; margin-bottom:6px;">トランプ「seed money / signing bonus」発言</div>
+            <div style="font-size:12px; color:#ccc; line-height:1.7; margin-bottom:8px;">
+              トランプが会見で <strong style="color:#ff8888;">「It's not a loan or anything, it's a signing bonus（ローンではない、契約金だ）」</strong>と発言。日本側「融資保証の枠」とは性質が完全に異なる表現。
+            </div>
+            <a href="https://apnews.com/article/trump-japan-trade-tariffs-550-billion-investment-fund-79c27b3db1c22c513bcf487c00a5a627" target="_blank" style="font-size:11px; color:#7ec8ff;">AP via MarketBeat ↗</a>
+          </div>
+        </div>
+
+        <div style="display:flex; gap:16px; margin-bottom:16px; padding:14px 16px; background:#0a1a2a; border-radius:6px; border-left:3px solid #4a8aff;">
+          <div style="min-width:130px; padding-right:14px; border-right:1px solid #2a2a4a;">
+            <div style="font-size:11px; color:#888; font-family:var(--font-mono);">2025/7/30 (水)</div>
+            <div style="font-size:22px; margin-top:4px;">🇯🇵</div>
+            <div style="font-size:10px; color:#7ec8ff; margin-top:4px;">日本側</div>
+          </div>
+          <div style="flex:1;">
+            <div style="font-size:14px; font-weight:600; color:#fff; margin-bottom:6px;">⚠️ 外務報道官「共同文書は作成していない」</div>
+            <div style="font-size:12px; color:#ccc; line-height:1.7; margin-bottom:8px;">
+              外務省・北村外務報道官が会見で<strong style="color:#ff8888;">「共同文書は作成していない」</strong>と明言。合意発表から1週間、両国の理解を共通の文書で確認できない状態が露見。
+            </div>
+            <a href="https://www.mofa.go.jp/mofaj/press/kaiken/kaikenit_000001_00104.html" target="_blank" style="font-size:11px; color:#7ec8ff;">外務報道官 会見記録 ↗</a>
+          </div>
+        </div>
+
+        <div style="display:flex; gap:16px; margin-bottom:16px; padding:14px 16px; background:#0b1220; border-radius:6px; border-left:3px solid #ffcc66;">
+          <div style="min-width:130px; padding-right:14px; border-right:1px solid #2a2a4a;">
+            <div style="font-size:11px; color:#ffcc66; font-family:var(--font-mono); font-weight:700;">2025/9/4 (木)</div>
+            <div style="font-size:22px; margin-top:4px;">🇯🇵🇺🇸</div>
+            <div style="font-size:10px; color:#ffcc66; margin-top:4px;">★MOU署名</div>
+          </div>
+          <div style="flex:1;">
+            <div style="font-size:14px; font-weight:600; color:#fff; margin-bottom:6px;">★ 戦略的投資MOU 署名（ワシントンD.C.）</div>
+            <div style="font-size:12px; color:#ccc; line-height:1.7; margin-bottom:8px;">
+              赤澤大臣 × ラトニック商務長官が「日米戦略的投資MOU」に署名。同日、トランプ大統領令も発令。<strong style="color:#ffcc66;">日本側は仮訳を公開、米国側はMOU本文を非公開</strong>（Just Security指摘）。
+            </div>
+            <div style="display:flex; gap:12px; flex-wrap:wrap;">
+              <a href="https://www.google.com/search?q=%E5%86%85%E9%96%A3%E5%AE%98%E6%88%BF+%E6%88%A6%E7%95%A5%E7%9A%84%E6%8A%95%E8%B3%87+%E4%BA%86%E8%A7%A3%E8%A6%9A%E6%9B%B8+%E4%BB%AE%E8%A8%B3" target="_blank" style="font-size:11px; color:#7ec8ff;">内閣官房 MOU仮訳 ↗</a>
+              <a href="https://www.google.com/search?q=Trump+executive+order+Implementing+United+States+Japan+Agreement+September+4+2025" target="_blank" style="font-size:11px; color:#7ec8ff;">大統領令 🔍</a>
+              <a href="https://www.google.com/search?q=Just+Security+%22Trump%27s+Japan+Deal+and+the+Disappearing+Appropriations+Clause%22" target="_blank" style="font-size:11px; color:#7ec8ff;">Just Security 分析 🔍</a>
+            </div>
+          </div>
+        </div>
+
+        <div style="display:flex; gap:16px; margin-bottom:16px; padding:14px 16px; background:#0a1a2a; border-radius:6px; border-left:3px solid #4a8aff;">
+          <div style="min-width:130px; padding-right:14px; border-right:1px solid #2a2a4a;">
+            <div style="font-size:11px; color:#888; font-family:var(--font-mono);">2025/9/12 (金)</div>
+            <div style="font-size:22px; margin-top:4px;">🇯🇵</div>
+            <div style="font-size:10px; color:#7ec8ff; margin-top:4px;">日本側</div>
+          </div>
+          <div style="flex:1;">
+            <div style="font-size:14px; font-weight:600; color:#fff; margin-bottom:6px;">赤沢 ReHacQ 発言</div>
+            <div style="font-size:12px; color:#ccc; line-height:1.7; margin-bottom:8px;">
+              YouTube番組「ReHacQ」出演。<strong style="color:#ffcc66;">「JBICからの融資について、半分は外為特会の運用収入などで対応可能」</strong>と発言。米国債利子で米企業へ融資する構造が示唆される。
+            </div>
+            <a href="https://www.google.com/search?q=%E8%B5%A4%E6%B2%A2+ReHacQ+%E5%A4%96%E7%82%BA%E7%89%B9%E4%BC%9A+%E9%81%8B%E7%94%A8%E5%8F%8E%E5%85%A5+JBIC+%E5%8D%8A%E5%88%86" target="_blank" style="font-size:11px; color:#7ec8ff;">日本経済新聞 報道 🔍</a>
+          </div>
+        </div>
+
+        <div style="display:flex; gap:16px; margin-bottom:16px; padding:14px 16px; background:#0b1220; border-radius:6px; border-left:3px solid #ffcc66;">
+          <div style="min-width:130px; padding-right:14px; border-right:1px solid #2a2a4a;">
+            <div style="font-size:11px; color:#ffcc66; font-family:var(--font-mono); font-weight:700;">2025/10/28 (火)</div>
+            <div style="font-size:22px; margin-top:4px;">🇯🇵🇺🇸</div>
+            <div style="font-size:10px; color:#ffcc66; margin-top:4px;">★21社公表</div>
+          </div>
+          <div style="flex:1;">
+            <div style="font-size:14px; font-weight:600; color:#fff; margin-bottom:6px;">★ 21社（22企業）リスト公表</div>
+            <div style="font-size:12px; color:#ccc; line-height:1.7; margin-bottom:8px;">
+              トランプ訪日に合わせて日米共同ファクトシート発出。21社リスト公表（金額確定分 $393.45B）。<strong style="color:#ff8888;">米国「commitments の履行」 vs 日本「候補・種、MOUプロセスとは関わりなし」（赤澤会見）で再度の齟齬</strong>。
+            </div>
+            <div style="display:flex; gap:12px; flex-wrap:wrap;">
+              <a href="https://www.google.com/search?q=White+House+Fact+Sheet+Japan+investment+October+28+2025+companies" target="_blank" style="font-size:11px; color:#7ec8ff;">WH Fact Sheet 🔍</a>
+              <a href="https://www.mof.go.jp/policy/international_policy/convention/dialogue/251028_fact_sheet_2.pdf" target="_blank" style="font-size:11px; color:#7ec8ff;">共同ファクトシート（日本側仮訳）↗</a>
+              <a href="https://www.meti.go.jp/speeches/kaiken/2025/20251028001.html" target="_blank" style="font-size:11px; color:#7ec8ff;">赤澤大臣 会見 ↗</a>
+            </div>
+          </div>
+        </div>
+
+        <div style="display:flex; gap:16px; margin-bottom:16px; padding:14px 16px; background:#0b1220; border-radius:6px; border-left:3px solid #ffcc66;">
+          <div style="min-width:130px; padding-right:14px; border-right:1px solid #2a2a4a;">
+            <div style="font-size:11px; color:#ffcc66; font-family:var(--font-mono); font-weight:700;">2025/11/28 (金)</div>
+            <div style="font-size:22px; margin-top:4px;">🇯🇵</div>
+            <div style="font-size:10px; color:#ffcc66; margin-top:4px;">★財政化</div>
+          </div>
+          <div style="flex:1;">
+            <div style="font-size:14px; font-weight:600; color:#fff; margin-bottom:6px;">★ R7補正予算（特第1号）閣議決定</div>
+            <div style="font-size:12px; color:#ccc; line-height:1.7; margin-bottom:8px;">
+              財投特会の投資勘定補正説明書に<strong style="color:#ffcc66;">「米国関税に対応するため株式会社国際協力銀行が行う日本戦略投資ファシリティを通じた企業支援」</strong>と明記。<strong>財務省自身が「米国関税対応」と書いた</strong>初の公式文書。
+            </div>
+            <a href="https://www.mof.go.jp/about_mof/mof_budget/special_account/zaitou/2025budget.html" target="_blank" style="font-size:11px; color:#7ec8ff;">財務省 R7補正特第1号 PDF ↗</a>
+          </div>
+        </div>
+
+        <div style="display:flex; gap:16px; margin-bottom:16px; padding:14px 16px; background:#0a1a2a; border-radius:6px; border-left:3px solid #4a8aff;">
+          <div style="min-width:130px; padding-right:14px; border-right:1px solid #2a2a4a;">
+            <div style="font-size:11px; color:#888; font-family:var(--font-mono);">2025/12/16 (火)</div>
+            <div style="font-size:22px; margin-top:4px;">🇯🇵</div>
+            <div style="font-size:10px; color:#7ec8ff; margin-top:4px;">日本側</div>
+          </div>
+          <div style="flex:1;">
+            <div style="font-size:14px; font-weight:600; color:#fff; margin-bottom:6px;">R7補正予算 成立</div>
+            <div style="font-size:12px; color:#ccc; line-height:1.7; margin-bottom:8px;">
+              国会で補正予算成立。JBIC融資 ¥2兆6,600億、JBIC出資 ¥3,700億 が追加され、R7のJBIC受領計が <strong style="color:#ffcc66;">¥8,200億 → ¥3兆300億（3.7倍）</strong>に拡大。
+            </div>
+          </div>
+        </div>
+
+        <div style="display:flex; gap:16px; margin-bottom:0; padding:14px 16px; background:#0b1220; border-radius:6px; border-left:3px solid #ffcc66;">
+          <div style="min-width:130px; padding-right:14px; border-right:1px solid #2a2a4a;">
+            <div style="font-size:11px; color:#ffcc66; font-family:var(--font-mono); font-weight:700;">2026/3 (X日)</div>
+            <div style="font-size:22px; margin-top:4px;">🇯🇵</div>
+            <div style="font-size:10px; color:#ffcc66; margin-top:4px;">★本格化</div>
+          </div>
+          <div style="flex:1;">
+            <div style="font-size:14px; font-weight:600; color:#fff; margin-bottom:6px;">★ R8予算 成立</div>
+            <div style="font-size:12px; color:#ccc; line-height:1.7; margin-bottom:8px;">
+              JBIC融資 <strong style="color:#ffcc66;">¥4兆2,527億</strong>、JBIC出資 ¥1,650億 を計上。受領計 <strong style="color:#ffcc66;">¥4兆4,177億（R5比 4.2倍）</strong>。<strong>80兆対米投資の本格運用フェーズ開始</strong>。
+            </div>
+          </div>
+        </div>
+
+      </div>
+      
+      <div style="font-size:12px; color:#888; padding:12px 14px; margin-top:6px;">
+        📖 詳細は記事「<a href="articles/80trillion.html" style="color:#4a8aff;">80兆円対米投資の財源を、財政投融資特別会計から追跡する</a>」の第2-4章を参照
+      </div>
+    </section>
+
+    <section id="section-trend" style="margin-bottom:48px;">
+      <h2 style="font-size:18px; padding:14px 18px; background:#0b1220; border-left:4px solid #4a8aff; border-radius:4px; margin-bottom:14px; color:#fff;">
+        ③ JBIC受領計 5年推移（R5→R8で4.2倍）
+      </h2>
+      
+      <p style="color:#aaa; font-size:13px; line-height:1.7; margin-bottom:24px;">
+        財投特会から JBIC への資金注入。<strong style="color:#ffcc66;">R7補正</strong>で約3.7倍に急増、<strong style="color:#ffcc66;">R8予算</strong>でさらに拡大。財務省が予算書に <strong style="color:#ff8888;">「米国関税対応」</strong> と明記した時期と完全一致。
+      </p>
+      
+      <div style="background:#06090f; border:1px solid #1a2a4a; border-radius:8px; padding:24px;">
+        
+        <!-- 凡例 -->
+        <div style="display:flex; gap:24px; margin-bottom:24px; flex-wrap:wrap; font-size:12px; color:#aaa;">
+          <div><span style="display:inline-block; width:14px; height:14px; background:#4a8aff; border-radius:2px; vertical-align:middle; margin-right:6px;"></span>財政融資資金勘定 → JBIC融資</div>
+          <div><span style="display:inline-block; width:14px; height:14px; background:#4ae66e; border-radius:2px; vertical-align:middle; margin-right:6px;"></span>投資勘定 → JBIC出資</div>
+        </div>
+        
+        <!-- バーチャート -->
+        <div style="display:flex; flex-direction:column; gap:14px;">
+          
+          <!-- R5 -->
+          <div style="display:flex; align-items:center; gap:14px;">
+            <div style="min-width:110px; font-size:12px; color:#aaa; text-align:right;">
+              <div style="font-weight:600; color:#fff; font-size:13px;">R5</div>
+              <div style="font-size:10px; color:#888;">2023年度（決算）</div>
+            </div>
+            <div style="flex:1; height:36px; background:#0a0a14; border-radius:4px; position:relative; overflow:hidden; border:1px solid #1a2a4a;">
+              <div style="display:flex; height:100%;">
+                <div style="width:21.6%; background:#4a8aff; display:flex; align-items:center; justify-content:flex-start; padding-left:8px; font-size:10px; color:#fff; font-weight:600;">¥9,527億</div>
+                <div style="width:2.3%; background:#4ae66e;"></div>
+              </div>
+              <div style="position:absolute; left:calc(23.9% + 12px); top:50%; transform:translateY(-50%); font-size:13px; color:#fff; font-weight:700; white-space:nowrap;">¥1兆557億</div>
+            </div>
+          </div>
+          
+          <!-- R6 -->
+          <div style="display:flex; align-items:center; gap:14px;">
+            <div style="min-width:110px; font-size:12px; color:#aaa; text-align:right;">
+              <div style="font-weight:600; color:#fff; font-size:13px;">R6</div>
+              <div style="font-size:10px; color:#888;">2024年度（決算）</div>
+            </div>
+            <div style="flex:1; height:36px; background:#0a0a14; border-radius:4px; position:relative; overflow:hidden; border:1px solid #1a2a4a;">
+              <div style="display:flex; height:100%;">
+                <div style="width:3.5%; background:#4a8aff;"></div>
+                <div style="width:2.7%; background:#4ae66e;"></div>
+              </div>
+              <div style="position:absolute; left:calc(6.2% + 12px); top:50%; transform:translateY(-50%); font-size:13px; color:#fff; font-weight:700; white-space:nowrap;">¥2,750億 <span style="color:#888; font-size:10px; margin-left:6px;">前年比 -74%</span></div>
+            </div>
+          </div>
+          
+          <!-- R7当初 -->
+          <div style="display:flex; align-items:center; gap:14px;">
+            <div style="min-width:110px; font-size:12px; color:#aaa; text-align:right;">
+              <div style="font-weight:600; color:#fff; font-size:13px;">R7当初</div>
+              <div style="font-size:10px; color:#888;">2025年度予算</div>
+            </div>
+            <div style="flex:1; height:36px; background:#0a0a14; border-radius:4px; position:relative; overflow:hidden; border:1px solid #1a2a4a;">
+              <div style="display:flex; height:100%;">
+                <div style="width:16.3%; background:#4a8aff; display:flex; align-items:center; justify-content:flex-start; padding-left:8px; font-size:10px; color:#fff; font-weight:600;">¥7,200億</div>
+                <div style="width:2.3%; background:#4ae66e;"></div>
+              </div>
+              <div style="position:absolute; left:calc(18.6% + 12px); top:50%; transform:translateY(-50%); font-size:13px; color:#fff; font-weight:700; white-space:nowrap;">¥8,200億 <span style="color:#888; font-size:10px; margin-left:6px;">合意前の平常運転</span></div>
+            </div>
+          </div>
+          
+          <!-- R7補正後 ★急増 -->
+          <div style="display:flex; align-items:center; gap:14px;">
+            <div style="min-width:110px; font-size:12px; text-align:right;">
+              <div style="font-weight:700; color:#ffcc66; font-size:13px;">★ R7補正後</div>
+              <div style="font-size:10px; color:#ffcc66;">合意発効後</div>
+            </div>
+            <div style="flex:1; height:36px; background:#0a0a14; border-radius:4px; position:relative; overflow:hidden; border:1px solid #4a3a1a;">
+              <div style="display:flex; height:100%;">
+                <div style="width:60.2%; background:#4a8aff; display:flex; align-items:center; justify-content:flex-start; padding-left:8px; font-size:11px; color:#fff; font-weight:600;">¥2兆6,600億</div>
+                <div style="width:8.4%; background:#4ae66e; display:flex; align-items:center; justify-content:center; font-size:10px; color:#000; font-weight:600;">¥3,700億</div>
+              </div>
+              <div style="position:absolute; left:calc(68.6% + 12px); top:50%; transform:translateY(-50%); font-size:13px; color:#ffcc66; font-weight:700; white-space:nowrap;">¥3兆300億 <span style="color:#ff8888; font-size:11px; margin-left:6px;">↑ R7当初比 3.7倍</span></div>
+            </div>
+          </div>
+          
+          <!-- R8 ★さらに拡大 -->
+          <div style="display:flex; align-items:center; gap:14px;">
+            <div style="min-width:110px; font-size:12px; text-align:right;">
+              <div style="font-weight:700; color:#ff8888; font-size:13px;">★ R8予算</div>
+              <div style="font-size:10px; color:#ff8888;">本格運用</div>
+            </div>
+            <div style="flex:1; height:36px; background:#0a0a14; border-radius:4px; position:relative; overflow:hidden; border:1px solid #4a1a1a;">
+              <div style="display:flex; height:100%;">
+                <div style="width:96.3%; background:linear-gradient(90deg, #4a8aff 0%, #ff6666 100%); display:flex; align-items:center; justify-content:flex-start; padding-left:8px; font-size:12px; color:#fff; font-weight:700;">¥4兆2,527億</div>
+                <div style="width:3.7%; background:#4ae66e;"></div>
+              </div>
+              <div style="position:absolute; right:8px; top:50%; transform:translateY(-50%); font-size:13px; color:#ff8888; font-weight:700; white-space:nowrap; background:rgba(10,10,20,0.85); padding:2px 6px; border-radius:3px;">¥4兆4,177億</div>
+            </div>
+          </div>
+          
+        </div>
+        
+        <!-- 0% / 100% 軸目盛 -->
+        <div style="display:flex; margin-top:6px;">
+          <div style="min-width:110px;"></div>
+          <div style="flex:1; display:flex; justify-content:space-between; font-size:10px; color:#666; padding:0 4px;">
+            <span>¥0</span>
+            <span>¥1兆</span>
+            <span>¥2兆</span>
+            <span>¥3兆</span>
+            <span>¥4兆</span>
+          </div>
+        </div>
+        
+        <!-- 倍率の強調 -->
+        <div style="margin-top:24px; padding:14px 18px; background:linear-gradient(90deg, rgba(74,138,255,0.1) 0%, rgba(255,102,102,0.2) 100%); border-left:4px solid #ff8888; border-radius:6px;">
+          <div style="font-size:14px; color:#fff; line-height:1.7;">
+            <strong style="color:#ffcc66;">R5 ¥1兆557億</strong> 
+            <span style="font-size:18px; color:#ffcc66; margin:0 8px;">→</span>
+            <strong style="color:#ff8888;">R8 ¥4兆4,177億</strong>
+            <span style="color:#aaa; margin-left:14px;">= </span>
+            <strong style="color:#ff6666; font-size:18px;">4.18倍 に拡大</strong>
+          </div>
+          <div style="font-size:12px; color:#aaa; margin-top:8px; line-height:1.6;">
+            特に <strong style="color:#ffcc66;">R7当初→R7補正後</strong> で約3.7倍に急増。これは2025/11/28閣議決定のR7補正特第1号で、財投特会の投資勘定説明書に「米国関税に対応するため株式会社国際協力銀行が行う日本戦略投資ファシリティ」と明記された時期と一致。
+          </div>
+        </div>
+        
+      </div>
+      
+      <div style="margin-top:14px; padding:12px 16px; background:#0a0a14; border-radius:6px; font-size:11px; color:#888; line-height:1.7;">
+        <strong style="color:#aaa;">データソース：</strong>
+        財務省 財政投融資特別会計（R5/R6決算、R7/R8予算）<br>
+        <strong style="color:#aaa;">CSV：</strong>
+        <a href="datasets/jbic_5year.csv" target="_blank" style="color:#4a8aff;">datasets/jbic_5year.csv ↗</a>（CC0 1.0、機械可読データ）
+      </div>
+      
+      <div style="font-size:12px; color:#888; padding:12px 14px; margin-top:6px;">
+        📖 詳細は記事「<a href="articles/80trillion.html" style="color:#4a8aff;">80兆円対米投資の財源を、財政投融資特別会計から追跡する</a>」の第5章を参照
+      </div>
+    </section>
+
+    <section id="section-companies" style="margin-bottom:48px;">
+      <h2 style="font-size:18px; padding:14px 18px; background:#0b1220; border-left:4px solid #4a8aff; border-radius:4px; margin-bottom:14px; color:#fff;">
+        ④ 21社（22企業）リスト
+      </h2>
+      
+      <p style="color:#aaa; font-size:13px; line-height:1.7; margin-bottom:24px;">
+        2025年10月28日トランプ訪日に合わせて公表された投資先21社（22企業）。金額確定分合計 <strong style="color:#ffcc66;">$393.45B（約60兆円、80兆の71%）</strong>。米国側「commitments の履行」 vs 日本側「候補・種、MOUプロセスとは関わりなし」（赤澤発言）。
+      </p>
+      
+      <div style="background:#06090f; border:1px solid #1a2a4a; border-radius:8px; padding:20px;">
+        
+        <!-- カテゴリ別サマリ -->
+        <div style="display:grid; grid-template-columns:repeat(auto-fit, minmax(200px, 1fr)); gap:12px; margin-bottom:24px;">
+          <div style="background:#0b1220; padding:12px 14px; border-radius:6px; border-left:3px solid #ffcc66;">
+            <div style="font-size:11px; color:#ffcc66; font-weight:600;">エネルギー（8社）</div>
+            <div style="font-size:20px; color:#fff; font-weight:700; margin-top:4px;">$325B</div>
+            <div style="font-size:10px; color:#888;">原発・送電・ガス（約49兆円）</div>
+          </div>
+          <div style="background:#0b1220; padding:12px 14px; border-radius:6px; border-left:3px solid #7ec8ff;">
+            <div style="font-size:11px; color:#7ec8ff; font-weight:600;">AI電源（1社）</div>
+            <div style="font-size:20px; color:#fff; font-weight:700; margin-top:4px;">未明示</div>
+            <div style="font-size:10px; color:#888;">NuScale/ENTRA1</div>
+          </div>
+          <div style="background:#0b1220; padding:12px 14px; border-radius:6px; border-left:3px solid #4ae66e;">
+            <div style="font-size:11px; color:#4ae66e; font-weight:600;">AIインフラ（7社）</div>
+            <div style="font-size:20px; color:#fff; font-weight:700; margin-top:4px;">$60B+</div>
+            <div style="font-size:10px; color:#888;">電子部品・データセンター（約9兆円）</div>
+          </div>
+          <div style="background:#0b1220; padding:12px 14px; border-radius:6px; border-left:3px solid #ff8888;">
+            <div style="font-size:11px; color:#ff8888; font-weight:600;">重要鉱物等（5社）</div>
+            <div style="font-size:20px; color:#fff; font-weight:700; margin-top:4px;">$6.45B</div>
+            <div style="font-size:10px; color:#888;">銅・肥料・リチウム（約9,700億円）</div>
+          </div>
+        </div>
+        
+        <!-- 詳細テーブル -->
+        <div style="overflow-x:auto;">
+          <table style="width:100%; border-collapse:collapse; font-size:12px;">
+            <thead>
+              <tr style="background:#0b1220; border-bottom:2px solid #2a3a5a;">
+                <th style="padding:10px 12px; text-align:left; color:#aaa; font-weight:600;">カテゴリ</th>
+                <th style="padding:10px 12px; text-align:left; color:#aaa; font-weight:600;">企業</th>
+                <th style="padding:10px 12px; text-align:right; color:#aaa; font-weight:600;">金額</th>
+                <th style="padding:10px 12px; text-align:left; color:#aaa; font-weight:600;">事業内容</th>
+              </tr>
+            </thead>
+            <tbody>
+              
+              <!-- エネルギー -->
+              <tr style="border-bottom:1px solid #1a2a4a; background:rgba(255,204,102,0.04);">
+                <td style="padding:10px 12px; color:#ffcc66; font-size:11px; vertical-align:top;">エネルギー</td>
+                <td style="padding:10px 12px;"><a href="https://www.westinghousenuclear.com/" target="_blank" style="color:#fff; text-decoration:underline; text-decoration-color:#4a8aff;">Westinghouse ↗</a></td>
+                <td style="padding:10px 12px; text-align:right; color:#ffcc66; font-weight:600;">$100B</td>
+                <td style="padding:10px 12px; color:#ccc;">AP1000原子炉・SMR建設（三菱重工・東芝・IHI関与検討）</td>
+              </tr>
+              <tr style="border-bottom:1px solid #1a2a4a; background:rgba(255,204,102,0.04);">
+                <td style="padding:10px 12px; color:#ffcc66; font-size:11px; vertical-align:top;">エネルギー</td>
+                <td style="padding:10px 12px;"><a href="https://www.hitachi-hgne.co.jp/" target="_blank" style="color:#fff; text-decoration:underline; text-decoration-color:#4a8aff;">GEベルノバ日立 ↗</a></td>
+                <td style="padding:10px 12px; text-align:right; color:#ffcc66; font-weight:600;">$100B</td>
+                <td style="padding:10px 12px; color:#ccc;">SMR (BWRX-300) 建設</td>
+              </tr>
+              <tr style="border-bottom:1px solid #1a2a4a; background:rgba(255,204,102,0.04);">
+                <td style="padding:10px 12px; color:#ffcc66; font-size:11px; vertical-align:top;">エネルギー</td>
+                <td style="padding:10px 12px;"><a href="https://www.bechtel.com/" target="_blank" style="color:#fff; text-decoration:underline; text-decoration-color:#4a8aff;">Bechtel ↗</a></td>
+                <td style="padding:10px 12px; text-align:right; color:#ffcc66; font-weight:600;">$25B</td>
+                <td style="padding:10px 12px; color:#ccc;">発電所・変電所・送電網（日本企業関与検討）</td>
+              </tr>
+              <tr style="border-bottom:1px solid #1a2a4a; background:rgba(255,204,102,0.04);">
+                <td style="padding:10px 12px; color:#ffcc66; font-size:11px; vertical-align:top;">エネルギー</td>
+                <td style="padding:10px 12px;"><a href="https://www.kiewit.com/" target="_blank" style="color:#fff; text-decoration:underline; text-decoration-color:#4a8aff;">Kiewit ↗</a></td>
+                <td style="padding:10px 12px; text-align:right; color:#ffcc66; font-weight:600;">$25B</td>
+                <td style="padding:10px 12px; color:#ccc;">エンジニアリング・調達・建設</td>
+              </tr>
+              <tr style="border-bottom:1px solid #1a2a4a; background:rgba(255,204,102,0.04);">
+                <td style="padding:10px 12px; color:#ffcc66; font-size:11px; vertical-align:top;">エネルギー</td>
+                <td style="padding:10px 12px;"><a href="https://www.gevernova.com/" target="_blank" style="color:#fff; text-decoration:underline; text-decoration-color:#4a8aff;">GE Vernova ↗</a></td>
+                <td style="padding:10px 12px; text-align:right; color:#ffcc66; font-weight:600;">$25B</td>
+                <td style="padding:10px 12px; color:#ccc;">ガスタービン・蒸気タービン等</td>
+              </tr>
+              <tr style="border-bottom:1px solid #1a2a4a; background:rgba(255,204,102,0.04);">
+                <td style="padding:10px 12px; color:#ffcc66; font-size:11px; vertical-align:top;">エネルギー</td>
+                <td style="padding:10px 12px;"><a href="https://group.softbank/" target="_blank" style="color:#fff; text-decoration:underline; text-decoration-color:#4a8aff;">SoftBank Group ↗</a></td>
+                <td style="padding:10px 12px; text-align:right; color:#ffcc66; font-weight:600;">$25B</td>
+                <td style="padding:10px 12px; color:#ccc;">大規模電力インフラの設計・開発・運用</td>
+              </tr>
+              <tr style="border-bottom:1px solid #1a2a4a; background:rgba(255,204,102,0.04);">
+                <td style="padding:10px 12px; color:#ffcc66; font-size:11px; vertical-align:top;">エネルギー</td>
+                <td style="padding:10px 12px;"><a href="https://www.corporate.carrier.com/" target="_blank" style="color:#fff; text-decoration:underline; text-decoration-color:#4a8aff;">Carrier ↗</a></td>
+                <td style="padding:10px 12px; text-align:right; color:#ffcc66; font-weight:600;">$20B</td>
+                <td style="padding:10px 12px; color:#ccc;">電力インフラ向け冷却システム</td>
+              </tr>
+              <tr style="border-bottom:1px solid #1a2a4a; background:rgba(255,204,102,0.04);">
+                <td style="padding:10px 12px; color:#ffcc66; font-size:11px; vertical-align:top;">エネルギー</td>
+                <td style="padding:10px 12px;"><a href="https://www.kindermorgan.com/" target="_blank" style="color:#fff; text-decoration:underline; text-decoration-color:#4a8aff;">Kinder Morgan ↗</a></td>
+                <td style="padding:10px 12px; text-align:right; color:#ffcc66; font-weight:600;">$7B</td>
+                <td style="padding:10px 12px; color:#ccc;">天然ガス送電・電力インフラ</td>
+              </tr>
+              
+              <!-- AI電源 -->
+              <tr style="border-bottom:1px solid #1a2a4a; background:rgba(126,200,255,0.04);">
+                <td style="padding:10px 12px; color:#7ec8ff; font-size:11px; vertical-align:top;">AI電源</td>
+                <td style="padding:10px 12px;"><a href="https://www.nuscalepower.com/" target="_blank" style="color:#fff; text-decoration:underline; text-decoration-color:#4a8aff;">NuScale ↗</a> / <a href="https://www.google.com/search?q=ENTRA1+Energy" target="_blank" style="color:#fff; text-decoration:underline; text-decoration-color:#4a8aff;">ENTRA1 🔍</a></td>
+                <td style="padding:10px 12px; text-align:right; color:#888; font-style:italic;">未明示</td>
+                <td style="padding:10px 12px; color:#ccc;">AI向け電源（ガス火力・原子力）検討</td>
+              </tr>
+              
+              <!-- AIインフラ -->
+              <tr style="border-bottom:1px solid #1a2a4a; background:rgba(74,230,110,0.04);">
+                <td style="padding:10px 12px; color:#4ae66e; font-size:11px; vertical-align:top;">AIインフラ</td>
+                <td style="padding:10px 12px;"><a href="https://www.global.toshiba/jp/top.html" target="_blank" style="color:#fff; text-decoration:underline; text-decoration-color:#4a8aff;">東芝 ↗</a></td>
+                <td style="padding:10px 12px; text-align:right; color:#888; font-style:italic;">未明示</td>
+                <td style="padding:10px 12px; color:#ccc;">電力モジュール・データセンター用変圧器</td>
+              </tr>
+              <tr style="border-bottom:1px solid #1a2a4a; background:rgba(74,230,110,0.04);">
+                <td style="padding:10px 12px; color:#4ae66e; font-size:11px; vertical-align:top;">AIインフラ</td>
+                <td style="padding:10px 12px;"><a href="https://www.hitachi.co.jp/" target="_blank" style="color:#fff; text-decoration:underline; text-decoration-color:#4a8aff;">日立製作所 ↗</a></td>
+                <td style="padding:10px 12px; text-align:right; color:#888; font-style:italic;">未明示</td>
+                <td style="padding:10px 12px; color:#ccc;">HVDC送電・変電設備、データセンター向け</td>
+              </tr>
+              <tr style="border-bottom:1px solid #1a2a4a; background:rgba(74,230,110,0.04);">
+                <td style="padding:10px 12px; color:#4ae66e; font-size:11px; vertical-align:top;">AIインフラ</td>
+                <td style="padding:10px 12px;"><a href="https://www.mitsubishielectric.co.jp/" target="_blank" style="color:#fff; text-decoration:underline; text-decoration-color:#4a8aff;">三菱電機 ↗</a></td>
+                <td style="padding:10px 12px; text-align:right; color:#ffcc66; font-weight:600;">$30B</td>
+                <td style="padding:10px 12px; color:#ccc;">データセンター向け発電・電源システム</td>
+              </tr>
+              <tr style="border-bottom:1px solid #1a2a4a; background:rgba(74,230,110,0.04);">
+                <td style="padding:10px 12px; color:#4ae66e; font-size:11px; vertical-align:top;">AIインフラ</td>
+                <td style="padding:10px 12px;"><a href="https://www.fujikura.co.jp/" target="_blank" style="color:#fff; text-decoration:underline; text-decoration-color:#4a8aff;">フジクラ ↗</a></td>
+                <td style="padding:10px 12px; text-align:right; color:#888; font-style:italic;">未明示</td>
+                <td style="padding:10px 12px; color:#ccc;">光ファイバーケーブル</td>
+              </tr>
+              <tr style="border-bottom:1px solid #1a2a4a; background:rgba(74,230,110,0.04);">
+                <td style="padding:10px 12px; color:#4ae66e; font-size:11px; vertical-align:top;">AIインフラ</td>
+                <td style="padding:10px 12px;"><a href="https://www.tdk.com/ja/index.html" target="_blank" style="color:#fff; text-decoration:underline; text-decoration-color:#4a8aff;">TDK ↗</a></td>
+                <td style="padding:10px 12px; text-align:right; color:#888; font-style:italic;">未明示</td>
+                <td style="padding:10px 12px; color:#ccc;">先端電子部品・パワーモジュール</td>
+              </tr>
+              <tr style="border-bottom:1px solid #1a2a4a; background:rgba(74,230,110,0.04);">
+                <td style="padding:10px 12px; color:#4ae66e; font-size:11px; vertical-align:top;">AIインフラ</td>
+                <td style="padding:10px 12px;"><a href="https://www.murata.com/ja-jp" target="_blank" style="color:#fff; text-decoration:underline; text-decoration-color:#4a8aff;">村田製作所 ↗</a></td>
+                <td style="padding:10px 12px; text-align:right; color:#ffcc66; font-weight:600;">$15B</td>
+                <td style="padding:10px 12px; color:#ccc;">MLCC・電子部品・ESS関連</td>
+              </tr>
+              <tr style="border-bottom:1px solid #1a2a4a; background:rgba(74,230,110,0.04);">
+                <td style="padding:10px 12px; color:#4ae66e; font-size:11px; vertical-align:top;">AIインフラ</td>
+                <td style="padding:10px 12px;"><a href="https://www.panasonic.com/jp/home.html" target="_blank" style="color:#fff; text-decoration:underline; text-decoration-color:#4a8aff;">パナソニック ↗</a></td>
+                <td style="padding:10px 12px; text-align:right; color:#ffcc66; font-weight:600;">$15B</td>
+                <td style="padding:10px 12px; color:#ccc;">エネルギー貯蔵システム・電子機器</td>
+              </tr>
+              
+              <!-- 重要鉱物 -->
+              <tr style="border-bottom:1px solid #1a2a4a; background:rgba(255,136,136,0.04);">
+                <td style="padding:10px 12px; color:#ff8888; font-size:11px; vertical-align:top;">重要鉱物</td>
+                <td style="padding:10px 12px;"><a href="https://www.google.com/search?q=Falcon+Copper+US+investment+Japan" target="_blank" style="color:#fff; text-decoration:underline; text-decoration-color:#4a8aff;">Falcon Copper 🔍</a></td>
+                <td style="padding:10px 12px; text-align:right; color:#ffcc66; font-weight:600;">$2B</td>
+                <td style="padding:10px 12px; color:#ccc;">米国西部の銅製錬・精錬施設</td>
+              </tr>
+              <tr style="border-bottom:1px solid #1a2a4a; background:rgba(255,136,136,0.04);">
+                <td style="padding:10px 12px; color:#ff8888; font-size:11px; vertical-align:top;">重要鉱物</td>
+                <td style="padding:10px 12px;"><a href="https://www.google.com/search?q=Carbon+Holdings+US+investment+ammonia+urea" target="_blank" style="color:#fff; text-decoration:underline; text-decoration-color:#4a8aff;">Carbon Holdings 🔍</a></td>
+                <td style="padding:10px 12px; text-align:right; color:#ffcc66; font-weight:600;">$3B</td>
+                <td style="padding:10px 12px; color:#ccc;">アンモニア・尿素肥料施設</td>
+              </tr>
+              <tr style="border-bottom:1px solid #1a2a4a; background:rgba(255,136,136,0.04);">
+                <td style="padding:10px 12px; color:#ff8888; font-size:11px; vertical-align:top;">重要鉱物</td>
+                <td style="padding:10px 12px;"><a href="https://www.e6.com/" target="_blank" style="color:#fff; text-decoration:underline; text-decoration-color:#4a8aff;">Element Six ↗</a></td>
+                <td style="padding:10px 12px; text-align:right; color:#ffcc66; font-weight:600;">$0.5B</td>
+                <td style="padding:10px 12px; color:#ccc;">高圧高温ダイヤモンド砥粒製造</td>
+              </tr>
+              <tr style="border-bottom:1px solid #1a2a4a; background:rgba(255,136,136,0.04);">
+                <td style="padding:10px 12px; color:#ff8888; font-size:11px; vertical-align:top;">重要鉱物</td>
+                <td style="padding:10px 12px;"><a href="https://www.google.com/search?q=MaxEnergy+US+Japan+investment+oil+tanker" target="_blank" style="color:#fff; text-decoration:underline; text-decoration-color:#4a8aff;">MaxEnergy 🔍</a></td>
+                <td style="padding:10px 12px; text-align:right; color:#ffcc66; font-weight:600;">$0.6B</td>
+                <td style="padding:10px 12px; color:#ccc;">米国南部の原油タンカー航路改善</td>
+              </tr>
+              <tr style="background:rgba(255,136,136,0.04);">
+                <td style="padding:10px 12px; color:#ff8888; font-size:11px; vertical-align:top;">重要鉱物</td>
+                <td style="padding:10px 12px;"><a href="https://mitrachem.com/" target="_blank" style="color:#fff; text-decoration:underline; text-decoration-color:#4a8aff;">Mitra Chem ↗</a></td>
+                <td style="padding:10px 12px; text-align:right; color:#ffcc66; font-weight:600;">$0.35B</td>
+                <td style="padding:10px 12px; color:#ccc;">リチウム鉄リン酸塩生産</td>
+              </tr>
+              
+            </tbody>
+            <tfoot>
+              <tr style="background:#0b1220; border-top:2px solid #4a8aff;">
+                <td colspan="2" style="padding:12px; text-align:right; color:#fff; font-weight:700;">金額確定分合計:</td>
+                <td style="padding:12px; text-align:right; color:#ffcc66; font-weight:700; font-size:14px;">$393.45B</td>
+                <td style="padding:12px; color:#aaa; font-size:11px;">80兆の <strong>約71%</strong>（約60兆円）</td>
+              </tr>
+            </tfoot>
+          </table>
+        </div>
+        
+        <!-- 日米の見解の違い -->
+        <div style="margin-top:20px; padding:14px 18px; background:#0a0a14; border-radius:6px; border-left:4px solid #ff8888;">
+          <div style="font-size:13px; color:#ff8888; font-weight:600; margin-bottom:8px;">⚠️ 21社リストの位置づけ：日米で見解が異なる</div>
+          <div style="display:grid; grid-template-columns:repeat(auto-fit, minmax(280px, 1fr)); gap:14px; font-size:12px;">
+            <div style="background:#1a0a0a; padding:10px 12px; border-radius:4px; border-left:3px solid #ff6666;">
+              <div style="color:#ff8888; font-weight:600; margin-bottom:4px;">🇺🇸 米国側 (WH Fact Sheet 2025/10/28)</div>
+              <div style="color:#ccc; line-height:1.6;">「Japan and various Japanese companies have outlined their <strong>commitments</strong> to pursuing the following investments」<br>= <strong>「コミットメントの履行」</strong>として位置づけ</div>
+              <div style="margin-top:10px; padding-top:8px; border-top:1px solid #4a2a2a; font-size:11px;">
+                📄 出典: <a href="https://www.google.com/search?q=White+House+Fact+Sheet+Japan+investment+October+28+2025+companies" target="_blank" style="color:#ff8888;">White House Fact Sheet 2025/10/28 🔍</a>
+              </div>
+            </div>
+            <div style="background:#0a1a2a; padding:10px 12px; border-radius:4px; border-left:3px solid #4a8aff;">
+              <div style="color:#7ec8ff; font-weight:600; margin-bottom:4px;">🇯🇵 日本側 (赤澤大臣会見 10/28)</div>
+              <div style="color:#ccc; line-height:1.6;">「MOU、プロセスとはまだ全く何の関わりもないものでありますが、ただ、そのプロセスに乗せる、いわば<strong>候補とかね、種</strong>」<br>= <strong>「候補・種」</strong>として位置づけ</div>
+              <div style="margin-top:10px; padding-top:8px; border-top:1px solid #1a3a4a; font-size:11px;">
+                📄 出典: <a href="https://www.meti.go.jp/speeches/kaiken/2025/20251028001.html#:~:text=%E5%80%99%E8%A3%9C%E3%81%A8%E3%81%8B%E3%81%AD%E3%80%81%E7%A8%AE%E3%81%A8%E3%81%84%E3%81%86%E3%81%8B" target="_blank" style="color:#7ec8ff;">経済産業省 赤澤大臣 閣議後記者会見の概要（該当発言にジャンプ）↗</a>
+              </div>
+            </div>
+          </div>
+        </div>
+        
+      </div>
+      
+      <div style="margin-top:14px; padding:12px 16px; background:#0a0a14; border-radius:6px; font-size:11px; color:#888; line-height:1.7;">
+        <strong style="color:#aaa;">出典：</strong>
+        <a href="https://www.mof.go.jp/policy/international_policy/convention/dialogue/251028_fact_sheet_2.pdf" target="_blank" style="color:#7ec8ff;">日米間の投資に関する共同ファクトシート（仮訳）2025/10/28 ↗</a><br>
+        <strong style="color:#aaa;">CSV：</strong>
+        <a href="datasets/companies_21.csv" target="_blank" style="color:#4a8aff;">datasets/companies_21.csv ↗</a>（CC0 1.0）
+      </div>
+      
+      <div style="font-size:12px; color:#888; padding:12px 14px; margin-top:6px;">
+        📖 詳細は記事「<a href="articles/80trillion.html" style="color:#4a8aff;">80兆円対米投資の財源を、財政投融資特別会計から追跡する</a>」の第6章を参照
+      </div>
+    </section>
+
+    <section id="section-risk" style="margin-bottom:48px;">
+      <h2 style="font-size:18px; padding:14px 18px; background:#0b1220; border-left:4px solid #4a8aff; border-radius:4px; margin-bottom:14px; color:#fff;">
+        ⑤ 特会出所 + 焦げ付きリスクシナリオ
+      </h2>
+      
+      <p style="color:#aaa; font-size:13px; line-height:1.7; margin-bottom:24px;">
+        80兆対米投資の資金は <strong style="color:#ffcc66;">どの財布から</strong> 捻出されるのか、そして <strong style="color:#ff8888;">投資が焦げ付いた場合</strong> 何が起きるのか。5つのリスクシナリオを公開情報から推察。
+      </p>
+      
+      <!-- ━━━━━━━━━━━━━━━━━━━━━━━ -->
+      <!-- 前半: 特会出所の内訳 -->
+      <!-- ━━━━━━━━━━━━━━━━━━━━━━━ -->
+      
+      <div style="background:#06090f; border:1px solid #1a2a4a; border-radius:8px; padding:24px; margin-bottom:24px;">
+        <h3 style="font-size:15px; color:#fff; margin:0 0 16px 0; padding-bottom:10px; border-bottom:1px solid #2a3a5a;">📂 特会出所の内訳（R8 ¥4.42兆の内訳）</h3>
+        
+        <div style="display:grid; grid-template-columns:repeat(auto-fit, minmax(280px, 1fr)); gap:14px;">
+          
+          <div style="background:#0b1220; padding:14px 16px; border-radius:6px; border-left:4px solid #4a8aff;">
+            <div style="font-size:11px; color:#4a8aff; font-weight:600; margin-bottom:6px;">財政融資資金勘定 → JBIC融資</div>
+            <div style="font-size:22px; color:#fff; font-weight:700;">¥4兆2,527億</div>
+            <div style="font-size:11px; color:#aaa; margin-top:6px; line-height:1.6;">
+              財投特会の最大勘定。資金残高 約¥126兆（R6末）。<strong style="color:#7ec8ff;">米国債等の運用収入が原資の半分</strong>（赤沢発言）
+            </div>
+          </div>
+          
+          <div style="background:#0b1220; padding:14px 16px; border-radius:6px; border-left:4px solid #4ae66e;">
+            <div style="font-size:11px; color:#4ae66e; font-weight:600;">投資勘定 → JBIC出資</div>
+            <div style="font-size:22px; color:#fff; font-weight:700;">¥1,650億</div>
+            <div style="font-size:11px; color:#aaa; margin-top:6px; line-height:1.6;">
+              財投特会の投資勘定。R7補正で <strong style="color:#ffcc66;">「米国関税対応」</strong>と財務省が明記した補正説明書の対象勘定
+            </div>
+          </div>
+          
+          <div style="background:#0b1220; padding:14px 16px; border-radius:6px; border-left:4px solid #ffcc66;">
+            <div style="font-size:11px; color:#ffcc66; font-weight:600;">外為特会の運用収入</div>
+            <div style="font-size:22px; color:#fff; font-weight:700;">JBIC融資の<strong>半分</strong></div>
+            <div style="font-size:11px; color:#aaa; margin-top:6px; line-height:1.6;">
+              「米国債等の運用収入で対応可能」と赤沢経済再生担当相が明言。資金残高 約¥187兆。<strong style="color:#ff8888;">米国債利子で米企業へ融資する構造</strong>
+            </div>
+          </div>
+          
+          <div style="background:#0b1220; padding:14px 16px; border-radius:6px; border-left:4px solid #ff8888;">
+            <div style="font-size:11px; color:#ff8888; font-weight:600;">将来オプション（赤沢発言）</div>
+            <div style="font-size:14px; color:#fff; font-weight:700; line-height:1.5; padding:4px 0;">政府保証付ドル建て債券<br>+ 通貨スワップ</div>
+            <div style="font-size:11px; color:#aaa; margin-top:6px; line-height:1.6;">
+              「あとは政府保証付きのドル建ての債券の発行や通貨スワップで考えている」（赤沢、2025/9/12 ReHacQ）
+            </div>
+          </div>
+        </div>
+        
+        <div style="margin-top:18px; padding:12px 16px; background:#0a0a14; border-radius:6px; font-size:12px; color:#aaa; line-height:1.7;">
+          <strong style="color:#ffcc66;">📌 注目構造：</strong>
+          外為特会の <strong>米国債利子</strong> → JBIC融資 → 米企業へドル建て融資。事実上「<strong style="color:#ff8888;">米国の利子で米国に融資する</strong>」サイクル。元本（外為特会の米国債）は売却せずに維持できる（赤沢発言）。
+        </div>
+      </div>
+      
+      <!-- ━━━━━━━━━━━━━━━━━━━━━━━ -->
+      <!-- 後半: 焦げ付きリスク 5シナリオ -->
+      <!-- ━━━━━━━━━━━━━━━━━━━━━━━ -->
+      
+      <div style="background:#06090f; border:1px solid #4a1a1a; border-radius:8px; padding:24px;">
+        <h3 style="font-size:15px; color:#fff; margin:0 0 16px 0; padding-bottom:10px; border-bottom:1px solid #4a2a2a;">⚠️ 焦げ付きリスク 5シナリオ</h3>
+        
+        <div style="display:grid; grid-template-columns:1fr; gap:14px;">
+          
+          <!-- シナリオA -->
+          <div style="background:#1a0a0a; border-radius:6px; padding:16px 18px; border-left:4px solid #ff6666;">
+            <div style="display:flex; justify-content:space-between; align-items:start; flex-wrap:wrap; gap:8px; margin-bottom:8px;">
+              <div style="font-size:14px; font-weight:700; color:#ff8888;">🔴 シナリオA: トランプ任期終了後の継続性</div>
+              <div style="font-size:11px; color:#888;">深刻度: <strong style="color:#ff6666;">高</strong> / 確度: <strong style="color:#ffcc66;">中</strong></div>
+            </div>
+            <div style="font-size:12px; color:#ccc; line-height:1.7;">
+              <strong style="color:#fff;">発生条件：</strong>2029年1月19日（トランプ任期終了）後に民主党政権が誕生し、MOUの継続を拒否、または利益配分の再交渉を要求。
+              <br><br>
+              <strong style="color:#fff;">影響：</strong>未投資分の宙吊り、既投資分のガバナンス権限交代、SPV運営の混乱。MOU パラグラフ2は「2029年1月19日まで」と明記されているが、それ以降の枠組みは未定義。
+              <br><br>
+              <strong style="color:#fff;">日本側の打撃：</strong>すでに拠出済みの資金（R7補正+R8 で約¥7.4兆規模）は SPV 内に拘束されたまま、ガバナンス変更により条件改悪リスク。
+            </div>
+            <div style="margin-top:10px; padding-top:8px; border-top:1px solid #4a2a2a; font-size:11px;">
+              📄 出典: <a href="https://www.google.com/search?q=%E5%86%85%E9%96%A3%E5%AE%98%E6%88%BF+%E6%88%A6%E7%95%A5%E7%9A%84%E6%8A%95%E8%B3%87+%E4%BA%86%E8%A7%A3%E8%A6%9A%E6%9B%B8+%E4%BB%AE%E8%A8%B3" target="_blank" style="color:#ff8888;">MOU仮訳 パラグラフ2 🔍</a>
+            </div>
+          </div>
+          
+          <!-- シナリオB -->
+          <div style="background:#1a0a0a; border-radius:6px; padding:16px 18px; border-left:4px solid #ff6666;">
+            <div style="display:flex; justify-content:space-between; align-items:start; flex-wrap:wrap; gap:8px; margin-bottom:8px;">
+              <div style="font-size:14px; font-weight:700; color:#ff8888;">🔴 シナリオB: 投資先の事業失敗</div>
+              <div style="font-size:11px; color:#888;">深刻度: <strong style="color:#ff6666;">最高</strong> / 確度: <strong style="color:#ffcc66;">中</strong></div>
+            </div>
+            <div style="font-size:12px; color:#ccc; line-height:1.7;">
+              <strong style="color:#fff;">発生条件：</strong>Westinghouse の AP1000 や GE Vernova Hitachi の BWRX-300 SMR 等、原発建設プロジェクトが遅延・コスト超過・キャンセル。歴史的に米国原発建設は <strong style="color:#ff8888;">大幅遅延と巨額赤字</strong>の事例多数（Vogtle 3/4 号機等）。
+              <br><br>
+              <strong style="color:#fff;">影響：</strong>21社で公表された $325B のエネルギー投資（80兆の約60%）が損失リスク。
+              <br><br>
+              <strong style="color:#fff;">免責規定の存在：</strong>MOU パラグラフ17は <strong style="color:#ff8888;">「投資に関して行われた判断について、米国、日本、投資委員会等は責任を負わない」</strong>と明記。損失発生時、日本拠出資金は誰のリスクで保有されるか不明。
+            </div>
+            <div style="margin-top:10px; padding-top:8px; border-top:1px solid #4a2a2a; font-size:11px;">
+              📄 出典: <a href="https://www.google.com/search?q=Vogtle+nuclear+plant+cost+overrun+delay+Westinghouse" target="_blank" style="color:#ff8888;">Vogtle原発のコスト超過事例 🔍</a> ・ <a href="https://www.google.com/search?q=%E5%86%85%E9%96%A3%E5%AE%98%E6%88%BF+MOU+%E4%BB%AE%E8%A8%B3+%E3%83%91%E3%83%A9%E3%82%B0%E3%83%A9%E3%83%9517+%E5%85%8D%E8%B2%AC" target="_blank" style="color:#ff8888;">MOU仮訳 パラグラフ17 🔍</a>
+            </div>
+          </div>
+          
+          <!-- シナリオC -->
+          <div style="background:#1a0a0a; border-radius:6px; padding:16px 18px; border-left:4px solid #ffaa66;">
+            <div style="display:flex; justify-content:space-between; align-items:start; flex-wrap:wrap; gap:8px; margin-bottom:8px;">
+              <div style="font-size:14px; font-weight:700; color:#ffcc66;">🟡 シナリオC: 90:10利益配分の構造的不利益</div>
+              <div style="font-size:11px; color:#888;">深刻度: <strong style="color:#ffcc66;">中〜高</strong> / 確度: <strong style="color:#ff6666;">高</strong></div>
+            </div>
+            <div style="font-size:12px; color:#ccc; line-height:1.7;">
+              <strong style="color:#fff;">発生条件：</strong>投資が「成功」した場合、利益が大きくなるほど日本の取り分比率が下がる構造（みなし配分額を超えた利益は米90% : 日10%）。
+              <br><br>
+              <strong style="color:#fff;">想定値：</strong>利益$100億 → 日本30% / 利益$1,000億 → 日本12%。 <strong style="color:#ff8888;">大成功するほど日本の比率が下がる</strong>逆説的構造。詳細は <a href="#section-flow" style="color:#7ec8ff;">①資金フローマップの用語解説</a> を参照。
+              <br><br>
+              <strong style="color:#fff;">専門家見解：</strong>野村総研・木内登英「米国主導、米国優位の枠組みとの性格が強い。<strong>日本にとってはかなり不平等な取り決め</strong>になったとも言える」
+            </div>
+            <div style="margin-top:10px; padding-top:8px; border-top:1px solid #4a2a2a; font-size:11px;">
+              📄 出典: <a href="https://www.google.com/search?q=%E6%9C%A8%E5%86%85%E7%99%BB%E8%8B%B1+%E9%87%8E%E6%9D%91%E7%B7%8F%E7%A0%94+%E6%97%A5%E7%B1%B3%E5%90%88%E6%84%8F+%E8%A6%9A%E6%9B%B8+%E4%B8%8D%E5%B9%B3%E7%AD%89" target="_blank" style="color:#ffcc66;">木内登英「米国優位の不平等な取り決め」（野村総研）🔍</a>
+            </div>
+          </div>
+          
+          <!-- シナリオD -->
+          <div style="background:#1a0a0a; border-radius:6px; padding:16px 18px; border-left:4px solid #ffaa66;">
+            <div style="display:flex; justify-content:space-between; align-items:start; flex-wrap:wrap; gap:8px; margin-bottom:8px;">
+              <div style="font-size:14px; font-weight:700; color:#ffcc66;">🟡 シナリオD: 米国MOU非公開・情報非対称性</div>
+              <div style="font-size:11px; color:#888;">深刻度: <strong style="color:#ffcc66;">中</strong> / 確度: <strong style="color:#ff6666;">高（既発生）</strong></div>
+            </div>
+            <div style="font-size:12px; color:#ccc; line-height:1.7;">
+              <strong style="color:#fff;">既に発生：</strong>日本側は MOU 仮訳を公開、米国側は <strong style="color:#ff8888;">MOU 本文を非公開</strong>。Just Security が指摘。
+              <br><br>
+              <strong style="color:#fff;">影響：</strong>日本国民・国会のみが MOU 内容を把握可能、米国側は議会承認なしで運用（「$550 billion slush fund」=裏金庫、Just Security分析）。
+              <br><br>
+              <strong style="color:#fff;">外務省自身が認めている：</strong>北村外務報道官「共同文書は作成していない」（2025/7/30）。AP通信取材で日本側は「<strong>理解の違いを明確化する必要があるかもしれない</strong>」とコメント。
+            </div>
+            <div style="margin-top:10px; padding-top:8px; border-top:1px solid #4a2a2a; font-size:11px;">
+              📄 出典: <a href="https://www.google.com/search?q=Just+Security+%22Trump%27s+Japan+Deal+and+the+Disappearing+Appropriations+Clause%22" target="_blank" style="color:#ffcc66;">Just Security 分析 🔍</a> ・ <a href="https://www.mofa.go.jp/mofaj/press/kaiken/kaikenit_000001_00104.html" target="_blank" style="color:#ffcc66;">外務報道官 会見 ↗</a>
+            </div>
+          </div>
+          
+          <!-- シナリオE -->
+          <div style="background:#1a0a0a; border-radius:6px; padding:16px 18px; border-left:4px solid #ffaa66;">
+            <div style="display:flex; justify-content:space-between; align-items:start; flex-wrap:wrap; gap:8px; margin-bottom:8px;">
+              <div style="font-size:14px; font-weight:700; color:#ffcc66;">🟡 シナリオE: 円安・ドル建て元本毀損</div>
+              <div style="font-size:11px; color:#888;">深刻度: <strong style="color:#ffcc66;">中</strong> / 確度: <strong style="color:#ffcc66;">中</strong></div>
+            </div>
+            <div style="font-size:12px; color:#ccc; line-height:1.7;">
+              <strong style="color:#fff;">発生条件：</strong>JBIC は <strong>ドル建て</strong>で米企業へ融資・出資。円ベースで見れば、円高に振れた場合、回収時に元本毀損リスク。
+              <br><br>
+              <strong style="color:#fff;">影響規模：</strong>R8 JBIC受領計 ¥4.42兆 をドル換算すると約 $295億（1ドル=¥150換算）。円高1割で約 ¥4,400億 の評価損可能性。
+              <br><br>
+              <strong style="color:#fff;">注：</strong>外為特会の運用収入を原資にする場合、もともとドル建て資産なので為替リスクは限定的。しかし、政府保証付き債券発行や通貨スワップを使う場合、為替リスクは日本側が負担する設計になる可能性。
+            </div>
+            <div style="margin-top:10px; padding-top:8px; border-top:1px solid #4a2a2a; font-size:11px;">
+              📄 出典: <a href="https://www.mof.go.jp/about_mof/mof_budget/special_account/zaitou/2025budget.html" target="_blank" style="color:#ffcc66;">財務省 財投特会 R7予算 ↗</a>
+            </div>
+          </div>
+          
+        </div>
+      </div>
+      
+      <!-- 残された問い -->
+      <div style="margin-top:24px; padding:16px 20px; background:linear-gradient(135deg, rgba(255,204,102,0.08) 0%, rgba(255,102,102,0.08) 100%); border-radius:8px; border:1px solid #4a3a1a;">
+        <div style="font-size:14px; color:#ffcc66; font-weight:700; margin-bottom:10px;">💭 残された問い（記事1 第8章より）</div>
+        <ul style="margin:0; padding-left:20px; font-size:12px; color:#ccc; line-height:1.8;">
+          <li>21社の進捗：個別企業の有価証券報告書での開示状況</li>
+          <li>「みなし配分額」の正確な計算式の透明化</li>
+          <li>投資失敗時のリスク負担の明確化（MOU パラグラフ17の免責規定の解釈）</li>
+          <li>法的拘束力なし（パラグラフ21）と関税報復可能（パラグラフ8）の関係</li>
+          <li>外為特会の運用収入を巡る将来計画・透明化</li>
+        </ul>
+      </div>
+      
+      <div style="font-size:12px; color:#888; padding:12px 14px; margin-top:14px;">
+        📖 詳細は記事「<a href="articles/80trillion.html" style="color:#4a8aff;">80兆円対米投資の財源を、財政投融資特別会計から追跡する</a>」の第7-8章を参照
+      </div>
+    </section>
+
+
+</main>
+
+
+<footer>
+<div style="line-height:1.7;font-size:11px;color:#666;padding-bottom:8px;border-bottom:1px solid #1a1f2e;margin-bottom:8px;">
+<strong style="color:#888;">Fiscal OSINT Japan</strong> © 2026 · operated by SN0W8ALL LLC<br>
+<strong>記事本文:</strong> <a href="https://creativecommons.org/licenses/by/4.0/deed.ja" target="_blank" rel="license" style="color:#4a8aff;">CC BY 4.0</a> · 
+<strong>データセット:</strong> <a href="https://creativecommons.org/publicdomain/zero/1.0/deed.ja" target="_blank" rel="license" style="color:#4a8aff;">CC0 1.0</a> · 
+<a href="articles/80trillion.html" style="color:#4a8aff;">📝 記事</a> · 
+<a href="datasets/" style="color:#4a8aff;">📊 datasets</a> · 
+<a href="https://x.com/FiscalOSINT_JP" target="_blank" style="color:#4a8aff;">X (@FiscalOSINT_JP)</a>
+</div>
+
+※ 本データは会計検査院・財務省・衆議院の公開情報のみに基づきます。AI分析は参考情報です。
+<div style="margin-top:8px;line-height:1.8;color:#30363d">
+Fiscal OSINT Japan に掲載される情報は、各省庁・自治体・法人等が公開している一次情報をもとに構成されています。
+本サイトは公共支出および関連情報の可視化を目的としたOSINT（Open Source Intelligence）プロジェクトであり、特定の個人・法人・団体に対する違法性や不正行為を断定するものではありません。
+掲載情報については可能な限り正確性の確保に努めていますが、その完全性・最新性・正確性を保証するものではありません。
+本サイトの情報利用により生じた損害等について、運営者は責任を負いません。
+誤記・事実誤認・リンク切れ等を確認された場合は、<a href="https://x.com/FiscalOSINT_JP" target="_blank" style="color:#4a6a4a">@FiscalOSINT_JP</a> までご連絡ください。
+</div>
+
+<div style="margin-top:8px;font-size:10px;line-height:1.6;color:#30363d;border-top:1px solid #1a1f2e;padding-top:8px;">
+<strong style="color:#666;">AI Methodology:</strong> 記事は AI（Claude）と人間の協働で執筆。ファクトチェックは複数AI（Claude / GPT / DeepSeek / Gemini）で交差検証。AI使用を隠さず、方法論として公開する。最終的な編集判断と責任は人間が負う。
+</div>
+</footer>
+
+</body>
+</html>
