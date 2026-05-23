@@ -31,3 +31,4 @@ backups/
 data/master/contracts.jsonl
 data/master/contracts_pilot.jsonl
 *.bak
+docs/api_plan.md

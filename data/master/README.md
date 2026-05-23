@@ -81,6 +81,38 @@ jq -s 'sort_by(-.amount_jpy) | .[:5] | .[] | {name: .contractor.name, amount: .a
 サンプルデータは CC BY 4.0 で公開。引用時は以下を明記：
 > Fiscal OSINT Japan, SN0W8ALL LLC, https://nana6fu.github.io/fiscal-osint-japan/
 
+## 🚀 Coming Soon: Full API Access
+
+We are developing a **subscription-based API** for full dataset access with advanced features:
+
+- **Full contract search** — query all 2,785+ records (target: 5,000+ by 2026/Q3)
+- **Company tracking** — search across ministries by corporate number (97.9% coverage)
+- **Cross-ministry analytics** — award rates, single-source contracts, top contractors
+- **Time-series analysis** — track changes year-over-year (FY2022 → FY2025)
+- **AI-powered analysis** — anomaly detection, structural insights (Groq Llama3.3)
+- **Real-time alerts** — webhook notifications for new contracts
+- **CSV/JSON export** — bulk data download
+
+### Planned pricing tiers (subject to change)
+- **Basic** ¥3,000/mo — for individual journalists
+- **Pro** ¥15,000/mo — for investigative outlets
+- **Enterprise** ¥50,000/mo+ — for investors, PE funds, consultancies
+- **Academic / Journalist** ¥5,000/mo — 50% off Pro tier (proof required)
+
+### 📧 Express Interest
+
+Want early access? Send a brief email to **saitoukatsuhiko@me.com** with:
+- Your name and affiliation
+- Intended use case (research / journalism / commercial / academic)
+- Specific data needs (ministries, time periods, features)
+
+Early respondents will receive:
+- ✅ Priority access when API launches
+- ✅ Beta testing opportunity (free trial period)
+- ✅ Input into feature development
+
+---
+
 ## 連絡先
 
 - Website: https://nana6fu.github.io/fiscal-osint-japan/
