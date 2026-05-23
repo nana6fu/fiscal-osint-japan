@@ -1,0 +1,282 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>[記事タイトル] | Fiscal OSINT Japan</title>
+<meta name="description" content="[記事の要約 120-160字]">
+<meta property="og:title" content="[記事タイトル]">
+<meta property="og:description" content="[記事の要約]">
+<meta property="og:type" content="article">
+<meta property="og:url" content="https://nana6fu.github.io/fiscal-osint-japan/articles/[ファイル名].html">
+<meta name="twitter:card" content="summary_large_image">
+<style>
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+body {
+  font-family: -apple-system, BlinkMacSystemFont, "Hiragino Sans", "Yu Gothic UI", "Meiryo", sans-serif;
+  background: #0a0e1a; color: #e0e0e0; line-height: 1.85; font-size: 16px;
+  -webkit-font-smoothing: antialiased;
+}
+.container { max-width: 720px; margin: 0 auto; padding: 0 20px; }
+.nav {
+  background: rgba(10,14,26,.95); padding: 14px 0;
+  border-bottom: 1px solid #2a2f3e; position: sticky; top: 0; z-index: 100;
+  backdrop-filter: blur(8px);
+}
+.nav .container { display: flex; justify-content: space-between; align-items: center; }
+.nav-back { color: #4a8aff; text-decoration: none; font-size: 14px; }
+.nav-back:hover { text-decoration: underline; }
+.nav-site { font-weight: 700; font-size: 15px; letter-spacing: .3px; }
+.nav-site .accent { color: #ff6b6b; }
+
+.article-header { padding: 60px 0 30px; border-bottom: 1px solid #2a2f3e; margin-bottom: 40px; }
+h1.article-title { font-size: 30px; line-height: 1.4; margin-bottom: 14px; color: #fff; font-weight: 800; letter-spacing: .3px; }
+.article-subtitle { font-size: 17px; color: #aaa; margin-bottom: 28px; line-height: 1.7; font-weight: 400; }
+.article-meta { display: flex; flex-wrap: wrap; gap: 14px; font-size: 13px; color: #888; align-items: center; }
+.article-meta .tag { background: #1a1f2e; padding: 3px 10px; border-radius: 4px; color: #aaa; }
+
+.tldr {
+  background: #1a1f2e; border-left: 4px solid #ffd700;
+  padding: 22px 26px; margin: 32px 0; border-radius: 4px;
+}
+.tldr-label { font-size: 12px; color: #ffd700; font-weight: 700; letter-spacing: 1.5px; margin-bottom: 10px; }
+.tldr p { margin: 0; }
+
+article p { margin-bottom: 1.5em; }
+article section { margin-bottom: 56px; }
+
+h2 { font-size: 23px; margin: 56px 0 24px; padding-bottom: 14px; border-bottom: 2px solid #2a2f3e; color: #fff; font-weight: 700; line-height: 1.4; }
+h3 { font-size: 18px; margin: 32px 0 16px; color: #fff; font-weight: 600; }
+
+strong { color: #fff; }
+em.num { color: #ffd700; font-style: normal; font-weight: 700; }
+.highlight-fact { color: #ff6b6b; font-weight: 700; }
+
+blockquote {
+  background: #1a1f2e; border-left: 4px solid #ff6b6b;
+  padding: 20px 26px; margin: 26px 0; border-radius: 4px;
+  color: #ddd; font-size: 15px;
+}
+blockquote.jp { border-left-color: #4a8aff; }
+blockquote.us { border-left-color: #ff6b6b; }
+blockquote p { margin: 0; }
+blockquote p + p { margin-top: .8em; }
+blockquote .source { display: block; margin-top: 14px; font-size: 13px; color: #888; }
+blockquote .source a { color: #4a8aff; }
+blockquote .quote-label { display: inline-block; font-size: 11px; font-weight: 700; padding: 2px 8px; border-radius: 3px; margin-bottom: 8px; letter-spacing: 1px; }
+blockquote.jp .quote-label { background: #1a3a5a; color: #4a8aff; }
+blockquote.us .quote-label { background: #5a1a1a; color: #ff6b6b; }
+
+.compare-table { width: 100%; border-collapse: collapse; margin: 26px 0; font-size: 14px; }
+.compare-table th, .compare-table td { padding: 12px 14px; text-align: left; border: 1px solid #2a2f3e; vertical-align: top; line-height: 1.6; }
+.compare-table thead { background: #1a1f2e; }
+.compare-table thead th { font-weight: 700; }
+.compare-table th.jp { color: #4a8aff; }
+.compare-table th.us { color: #ff6b6b; }
+.compare-table .row-label { background: #151a26; font-weight: 600; width: 22%; color: #ccc; }
+.compare-table td a { color: #4a8aff; }
+
+.marker { display: inline-block; padding: 2px 9px; border-radius: 3px; font-size: 12px; margin-right: 6px; font-weight: 600; letter-spacing: .3px; }
+.marker-ai { background: #2a2f3e; color: #b0b0b0; }
+.marker-primary { background: #1a3a4a; color: #4a8aff; }
+.marker-warn { background: #4a2a1a; color: #ffaa00; }
+.marker-cross { background: #5a1a1a; color: #ff6b6b; }
+
+a { color: #4a8aff; text-decoration: none; }
+a:hover { text-decoration: underline; }
+
+.sources, .changelog {
+  background: #1a1f2e; padding: 24px 26px; border-radius: 8px; margin: 36px 0; font-size: 14px;
+}
+.sources h3, .changelog h3 { margin: 0 0 14px; color: #ffd700; font-size: 16px; border: none; padding: 0; }
+.sources ol { padding-left: 1.5em; }
+.sources li { margin-bottom: 10px; color: #ccc; line-height: 1.7; }
+.sources .policy { margin-top: 20px; padding-top: 16px; border-top: 1px solid #2a2f3e; }
+.sources .policy ul { padding-left: 1.5em; margin-top: 10px; }
+.sources .policy li { margin-bottom: 6px; }
+.changelog ul { padding-left: 1.5em; margin-top: 8px; }
+.changelog li { margin-bottom: 8px; color: #ccc; }
+.changelog li .date { color: #888; font-size: 13px; margin-right: 10px; }
+
+.next-article { background: #151a26; padding: 24px; border-radius: 8px; margin: 36px 0; border: 1px solid #2a2f3e; }
+.next-article h3 { margin: 0 0 12px; color: #fff; }
+.next-article p { margin-bottom: 0; color: #bbb; font-size: 14px; }
+
+footer { border-top: 1px solid #2a2f3e; padding: 30px 0; margin-top: 60px; text-align: center; font-size: 13px; color: #666; }
+footer a { color: #888; }
+footer p { margin-bottom: 6px; }
+
+@media (max-width: 768px) {
+  body { font-size: 15px; }
+  h1.article-title { font-size: 24px; }
+  h2 { font-size: 20px; }
+  h3 { font-size: 17px; }
+  .container { padding: 0 16px; }
+  .article-header { padding: 40px 0 24px; }
+  blockquote, .tldr { padding: 16px 20px; }
+  .compare-table { font-size: 13px; }
+  .compare-table th, .compare-table td { padding: 10px 12px; }
+}
+</style>
+</head>
+<body>
+
+<nav class="nav">
+  <div class="container">
+    <a href="../index.html" class="nav-back">← Fiscal OSINT Japan ダッシュボードへ</a>
+    <div class="nav-site"><span class="accent">Fiscal OSINT</span> Japan</div>
+  </div>
+</nav>
+
+<div class="container">
+
+  <header class="article-header">
+    <h1 class="article-title">[記事タイトル：H1 30文字以内推奨]</h1>
+    <p class="article-subtitle">[サブタイトル：数字や決定的な事実を含めると良い]</p>
+    
+    <div class="article-meta">
+      <span>📅 公開: 2026/MM/DD</span>
+      <span>🔄 更新: 2026/MM/DD</span>
+      <span class="tag">タグ1</span>
+      <span class="tag">タグ2</span>
+      <span>📝 約N,NNN字 / 読了 約N分</span>
+    </div>
+  </header>
+
+  <article>
+  
+    <!-- TL;DR -->
+    <div class="tldr">
+      <div class="tldr-label">TL;DR — 3行要約</div>
+      <p>[1行目：もっとも重要なファクト]<br>
+      [2行目：その規模感 or 構造]<br>
+      [3行目：時間軸・既に動いていること]</p>
+    </div>
+
+    <!-- 第1章 -->
+    <section>
+      <h2>1. [第1章タイトル]</h2>
+      
+      <p>[本文。段落ごとに <p> で区切る。<strong>強調</strong>や<em class="num">数字</em>は専用クラスで]</p>
+      
+      <p><span class="highlight-fact">[キーファクト]</span>を地の文で強調することも可能。</p>
+    </section>
+
+    <!-- 第2章 - 引用ブロックの例 -->
+    <section>
+      <h2>2. [第2章タイトル]</h2>
+      
+      <p>[米国側はこう説明している]：</p>
+      
+      <blockquote class="us">
+        <div class="quote-label">🇺🇸 米国側</div>
+        <p>"[米国側の引用文（英文の場合は原文 + 訳）]"</p>
+        <span class="source">— 出典：<a href="[URL]" target="_blank">[文書名]</a>（2025/MM/DD）</span>
+      </blockquote>
+      
+      <p>[一方、日本側はこう説明している]：</p>
+      
+      <blockquote class="jp">
+        <div class="quote-label">🇯🇵 日本側</div>
+        <p>「[日本側の引用文]」</p>
+        <span class="source">— 出典：<a href="[URL]" target="_blank">[文書名]</a>（2025/MM/DD）</span>
+      </blockquote>
+      
+      <p>[両者の違いを地の文で分析]</p>
+    </section>
+
+    <!-- 第3章 - 比較表の例 -->
+    <section>
+      <h2>3. [比較表を使う章]</h2>
+      
+      <p>[表の前置き]：</p>
+      
+      <table class="compare-table">
+        <thead>
+          <tr>
+            <th>項目</th>
+            <th class="jp">🇯🇵 日本側の説明</th>
+            <th class="us">🇺🇸 米国側の説明</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td class="row-label">性質</td>
+            <td>融資保証中心、出資1-2%</td>
+            <td>$550B investment commitment</td>
+          </tr>
+          <tr>
+            <td class="row-label">主体</td>
+            <td>政府系金融機関（JBIC/NEXI）</td>
+            <td>Japan committed to provide</td>
+          </tr>
+        </tbody>
+      </table>
+      
+      <p>[表の後の解説]</p>
+    </section>
+
+    <!-- マーカーの例 -->
+    <section>
+      <h2>4. [マーカー使用例]</h2>
+      
+      <p><span class="marker marker-primary">📄 一次資料</span> 財務省公式予算書（令和8年度当初予算）。</p>
+      
+      <p><span class="marker marker-ai">🤖 AI集計</span> この数字は公開Excelファイルから AI（Claude）による集計。</p>
+      
+      <p><span class="marker marker-warn">⚠️ 推測</span> この部分は一次資料から直接読み取れず、推測を含む。</p>
+      
+      <p><span class="marker marker-cross">🔥 重要</span> この発見は記事の中核。</p>
+    </section>
+
+    <!-- データソースと編集方針 -->
+    <section class="sources">
+      <h3>📚 データソースと編集方針</h3>
+      
+      <p><strong>本記事で参照した一次資料：</strong></p>
+      <ol>
+        <li>[文書名] — <a href="[URL]" target="_blank">[URL省略形]</a>（2025/MM/DD取得）</li>
+        <li>[文書名] — <a href="[URL]" target="_blank">[URL省略形]</a></li>
+      </ol>
+      
+      <div class="policy">
+        <p><strong>編集方針：</strong></p>
+        <ul>
+          <li>公開情報のみを使用</li>
+          <li>事実と推測を厳密に区別</li>
+          <li>AIによる集計・分析は明示</li>
+          <li>誤り発見時は即訂正、履歴を残す</li>
+          <li>両論併記を徹底（一方の主張だけで結論を急がない）</li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- 更新履歴 -->
+    <section class="changelog">
+      <h3>📝 更新履歴</h3>
+      <ul>
+        <li><span class="date">2026/MM/DD</span>初版公開</li>
+      </ul>
+    </section>
+
+    <!-- 関連記事 -->
+    <section class="next-article">
+      <h3>関連記事・次回予告</h3>
+      <p>[次の記事の予告]</p>
+    </section>
+    
+  </article>
+
+</div>
+
+<footer>
+  <p>Fiscal OSINT Japan © 2026</p>
+  <p>
+    <a href="https://x.com/FiscalOSINT_JP" target="_blank">X (@FiscalOSINT_JP)</a> ·
+    <a href="../index.html">ダッシュボードに戻る</a>
+  </p>
+  <p style="margin-top:12px; font-size:12px;">本記事の内容は2026/MM/DD時点の公開情報に基づきます。誤り・追加情報のご指摘歓迎。</p>
+</footer>
+
+</body>
+</html>

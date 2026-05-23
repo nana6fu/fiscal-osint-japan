@@ -1,0 +1,6 @@
+fiscal_year,year_label,fiscal_loan_to_jbic_oku,investment_account_to_jbic_oku,jbic_total_oku,budget_type,source_url
+R5,FY2023,9527,1030,10557,kessan,https://www.mof.go.jp/about_mof/mof_budget/special_account/zaitou/2023account.html
+R6,FY2024,1540,1210,2750,kessan,https://www.mof.go.jp/about_mof/mof_budget/special_account/zaitou/2024account.html
+R7_initial,FY2025_Initial,7200,1000,8200,initial_budget,https://www.mof.go.jp/about_mof/mof_budget/special_account/zaitou/2025budget.html
+R7_revised,FY2025_Supplementary,26600,3700,30300,supplementary_no1,https://www.mof.go.jp/about_mof/mof_budget/special_account/zaitou/2025budget.html
+R8_initial,FY2026_Initial,42527,1650,44177,initial_budget,https://www.mof.go.jp/about_mof/mof_budget/special_account/zaitou/2026budget.html

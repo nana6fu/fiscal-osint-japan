@@ -1,0 +1,6 @@
+fiscal_year,year_label,total_expenditure_oku,total_expenditure_trillion_yen,budget_type,source_url
+R5,FY2023,140200,14.02,kessan,https://www.mof.go.jp/about_mof/mof_budget/special_account/zaitou/2023account.html
+R6,FY2024,234300,23.43,kessan,https://www.mof.go.jp/about_mof/mof_budget/special_account/zaitou/2024account.html
+R7_initial,FY2025_Initial,225300,22.53,initial_budget,https://www.mof.go.jp/about_mof/mof_budget/special_account/zaitou/2025budget.html
+R7_revised,FY2025_Supplementary,244200,24.42,supplementary_no1,https://www.mof.go.jp/about_mof/mof_budget/special_account/zaitou/2025budget.html
+R8_initial,FY2026_Initial,274600,27.46,initial_budget,https://www.mof.go.jp/about_mof/mof_budget/special_account/zaitou/2026budget.html

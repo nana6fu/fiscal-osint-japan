@@ -1,0 +1,22 @@
+category,company_en,company_jp,country,project_summary,max_investment_usd_b,notes
+Energy,Westinghouse,ウェスチングハウス,US,AP1000 reactors and SMR construction,100,Mitsubishi Heavy/Toshiba/IHI considering involvement
+Energy,GE Vernova Hitachi,GEベルノバ日立,US/JP,SMR BWRX-300 construction,100,Hitachi GE Vernova considering involvement
+Energy,Bechtel,ベクテル,US,Power plants and substations and transmission network,25,Japanese companies considering involvement
+Energy,Kiewit,キーウィット,US,Engineering procurement and construction,25,Japanese companies considering involvement
+Energy,GE Vernova,GEベルノバ,US,Gas turbines and steam turbines,25,
+Energy,SoftBank Group,ソフトバンクグループ,JP,Large-scale power infrastructure design and operation,25,
+Energy,Carrier,キャリア,US,Power infrastructure cooling systems,20,
+Energy,Kinder Morgan,キンダー・モルガン,US,Natural gas transmission and power infrastructure,7,
+AI_Power,NuScale ENTRA1 Energy,NuScale ENTRA1エナジー,US,AI power generation (gas/nuclear) under consideration,,Amount not specified
+AI_Infrastructure,Toshiba,東芝,JP,Power modules and data center transformers,,Amount not specified
+AI_Infrastructure,Hitachi,日立製作所,JP,HVDC transmission and data center equipment,,Amount not specified
+AI_Infrastructure,Mitsubishi Electric,三菱電機,JP,Data center power systems,30,
+AI_Infrastructure,Fujikura,フジクラ,JP,Optical fiber cables,,Amount not specified
+AI_Infrastructure,TDK,TDK,JP,Advanced electronic components and power modules,,Amount not specified
+AI_Infrastructure,Murata Manufacturing,村田製作所,JP,MLCC electronic components ESS,15,
+AI_Infrastructure,Panasonic,パナソニック,JP,Energy storage systems and electronic devices,15,
+Critical_Minerals,Falcon Copper,ファルコン・カッパー,US,Copper smelting and refining in western US,2,
+Critical_Minerals,Carbon Holdings,カーボン・ホールディングス,US,Ammonia and urea fertilizer facilities,3,
+Critical_Minerals,Element Six,エレメントシックス,US,High-pressure HT diamond abrasive manufacturing,0.5,
+Critical_Minerals,MaxEnergy,マックスエナジー,US,Oil tanker route improvement southern US,0.6,
+Critical_Minerals,Mitra Chem,ミトラケム,US,Lithium iron phosphate production,0.35,

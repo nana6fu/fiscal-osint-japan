@@ -127,6 +127,7 @@ footer p { margin-bottom: 6px; }
     "@id": "https://nana6fu.github.io/fiscal-osint-japan/articles/80trillion.html"
   },
   "articleSection": "Investigative Journalism",
+  "license": "https://creativecommons.org/licenses/by/4.0/",
   "inLanguage": "ja-JP",
   "isAccessibleForFree": true
 }
@@ -161,7 +162,6 @@ footer p { margin-bottom: 6px; }
   <article>
   
     <div class="tldr">
-      <div class="tldr-label">TL;DR — 3行要約</div>
       <p>① 2025年7月に発表された5,500億ドル（約80兆円）の対米投資支援枠は、「絵に描いた餅」ではなく、財政投融資特別会計から国際協力銀行（JBIC）への融資・出資という具体的な財政上の経路で既に動いている。<br>
       ② JBICへの資金注入は <em class="num">R5(¥1兆557億)</em> から <em class="num">R8(¥4兆4,177億)</em> へ <strong class="highlight-fact">R5→R8で4.2倍に拡大</strong>。財務省自身がR7補正特第1号で「米国関税対応」と明記している。<br>
       ③ しかし、同じ合意に対する日米双方の説明には明確な齟齬があり、米国側の「投資」と日本側の「融資保証の枠」、利益配分の解釈、共同文書の有無まで食い違っている。</p>
@@ -494,7 +494,7 @@ footer p { margin-bottom: 6px; }
 
       <p><span class="marker marker-primary">📄 一次資料</span> 出典：<a href="https://www.mof.go.jp/policy/international_policy/convention/dialogue/251028_fact_sheet_2.pdf" target="_blank">財務省 日米間の投資に関する共同ファクトシート（仮訳）</a>（2025年10月28日）</p>
 
-      <p>金額が明示されている案件の合計は <strong>約$393B（約60兆円）</strong>。これは80兆（$550B）の <strong>約71%</strong> に相当する。米国側ファクトシートはこれを「nearly $490 billion in what it described as new investments」と表現している（Just Securityの引用）。</p>
+      <p>金額が明示されている案件の合計は <strong>約$393.45B（約60兆円）</strong>。これは80兆（$550B）の <strong>約71%</strong> に相当する。米国側ファクトシートはこれを「nearly $490 billion in what it described as new investments」と表現している（Just Securityの引用）。</p>
 
       <p>注目すべき構造的特徴がある。<strong>合計約49兆円のエネルギー分野のうち、Westinghouse と GEベルノバ日立だけで$200B（約30兆円）を占める</strong>。両方とも原子力発電所（AP1000・SMR）の建設である。「80兆対米投資」の最大の柱は、米国における原子力発電所の建設である、と読み取れる。</p>
     </section>
@@ -560,6 +560,24 @@ footer p { margin-bottom: 6px; }
       <p>本記事は構造の概観にとどまる。各問いに対しては、別途の追跡記事を準備する予定である。</p>
     </section>
 
+    <!-- データ公開セクション -->
+    <section class="sources" style="background:#1a2a4a; border-left:4px solid #4a8aff;">
+      <h3 style="color:#4a8aff;">📊 データ公開（Open Data）</h3>
+      
+      <p>本記事で使用したデータは、機械可読な形式（CSV）で公開しています。<strong>誰でも自由にダウンロード・再利用・検証可能</strong>です。</p>
+      
+      <p><strong>利用可能なデータセット：</strong></p>
+      <ol>
+        <li><a href="../datasets/jbic_5year.csv" target="_blank">jbic_5year.csv</a> — JBIC受領計の5年推移（R5→R8）</li>
+        <li><a href="../datasets/tokkai_zaitou_5year.csv" target="_blank">tokkai_zaitou_5year.csv</a> — 財政投融資特別会計 歳出総額 5年推移</li>
+        <li><a href="../datasets/companies_21.csv" target="_blank">companies_21.csv</a> — 80兆対米投資の21社（22企業）リスト</li>
+        <li><a href="../datasets/" target="_blank">datasets/ ディレクトリ全体</a> · <a href="../datasets/README.md" target="_blank">README</a></li>
+      </ol>
+      
+      <p style="margin-top:16px;"><strong>ライセンス：</strong><a href="https://creativecommons.org/publicdomain/zero/1.0/deed.ja" target="_blank">CC0 1.0 Universal</a>（パブリックドメイン）</p>
+      <p>出典明記は推奨されますが、法的義務はありません。学術研究・ジャーナリズム・政策研究・商用利用、すべて自由です。</p>
+    </section>
+
     <section class="sources">
       <h3>📚 データソースと編集方針</h3>
       
@@ -606,6 +624,15 @@ footer p { margin-bottom: 6px; }
           <li>両論併記を徹底（日米双方の引用を並列表記）</li>
           <li>引用は原文ベース。翻訳は明示</li>
         </ul>
+        
+        <p style="margin-top:20px;"><strong>AI使用方針（AI Methodology）：</strong></p>
+        <ul>
+          <li>本サイトの記事は、AI（Claude）と人間（編集者）の協働で執筆される</li>
+          <li>ファクトチェックには複数のAI（Claude / GPT / DeepSeek / Gemini）を交差使用</li>
+          <li>AI指摘による訂正は、その旨を更新履歴に明記</li>
+          <li>AI使用を隠さず、方法論として公開する</li>
+          <li>最終的な編集判断と責任は人間（編集者）が負う</li>
+        </ul>
       </div>
     </section>
 
@@ -615,6 +642,9 @@ footer p { margin-bottom: 6px; }
         <li><span class="date">2026/05/22</span>初版公開</li>
         <li><span class="date">2026/05/22</span>訂正：第4章「令和7年度補正予算（特第1号）」の閣議決定日を 2025年12月8日 → 2025年11月28日 に修正（DeepSeek分析による指摘）。成立日（12月16日）は変更なし。</li>
         <li><span class="date">2026/05/22</span>訂正：「5年で4.2倍」を「R5→R8で4.2倍」に修正（GPT分析による指摘）。R5(2023年度)→R8(2026年度)は4年度レンジであり、「5年で」は不正確だったため。倍率(4.2倍)は変更なし。</li>
+        <li><span class="date">2026/05/23</span>追記：21社合計の金額表記を「約$393B」→「約$393.45B」に修正（より正確な値に）。</li>
+        <li><span class="date">2026/05/23</span>追記：データセット（CSV）を <a href="../datasets/">datasets/</a> で公開開始（CC0 1.0）。</li>
+        <li><span class="date">2026/05/23</span>追記：記事本文に CC BY 4.0 ライセンスを明示。編集方針に「AI使用方針」を追加（方法論の透明性確保）。</li>
       </ul>
     </section>
 
@@ -629,10 +659,19 @@ footer p { margin-bottom: 6px; }
 </div>
 
 <footer>
-  <p>Fiscal OSINT Japan © 2026</p>
-  <p>
+  <p>Fiscal OSINT Japan © 2026 · operated by SN0W8ALL LLC</p>
+  <p style="margin-top:10px;">
+    <strong>記事本文：</strong><a href="https://creativecommons.org/licenses/by/4.0/deed.ja" target="_blank" rel="license">CC BY 4.0</a> · 
+    <strong>データセット：</strong><a href="https://creativecommons.org/publicdomain/zero/1.0/deed.ja" target="_blank" rel="license">CC0 1.0</a>
+  </p>
+  <p style="margin-top:10px; font-size:12px;">
+    引用は出典明記の上、自由に行えます。引用例：<br>
+    「Fiscal OSINT Japan「80兆円対米投資の財源を、財政投融資特別会計から追跡する」(2026/05/22)」
+  </p>
+  <p style="margin-top:14px;">
     <a href="https://x.com/FiscalOSINT_JP" target="_blank">X (@FiscalOSINT_JP)</a> ·
-    <a href="../index.html">ダッシュボードに戻る</a>
+    <a href="../index.html">ダッシュボードに戻る</a> ·
+    <a href="../datasets/" target="_blank">📊 datasets</a>
   </p>
   <p style="margin-top:12px; font-size:12px;">本記事の内容は2026年5月22日時点の公開情報に基づく。誤り・追加情報のご指摘歓迎。</p>
 </footer>

@@ -26,3 +26,7 @@ data/*
 
 # Local backup files (do not track, can be large)
 backups/
+
+# Large JSONL files (previously removed from history via filter-repo)
+data/master/contracts.jsonl
+data/master/contracts_pilot.jsonl
