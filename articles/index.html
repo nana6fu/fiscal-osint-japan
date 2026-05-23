@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>記事一覧 | Fiscal OSINT Japan</title>
+<meta name="description" content="Fiscal OSINT Japanの調査記事一覧。公開情報のみを使用し、日米双方の一次資料を照合して、公的資金の流れを追跡する。">
+<meta property="og:title" content="記事一覧 | Fiscal OSINT Japan">
+<meta property="og:description" content="公開情報のみを使用し、日米双方の一次資料を照合して、公的資金の流れを追跡する調査記事のアーカイブ。">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://nana6fu.github.io/fiscal-osint-japan/articles/">
+<style>
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+body {
+  font-family: -apple-system, BlinkMacSystemFont, "Hiragino Sans", "Yu Gothic UI", "Meiryo", sans-serif;
+  background: #0a0e1a; color: #e0e0e0; line-height: 1.85; font-size: 16px;
+  -webkit-font-smoothing: antialiased;
+}
+.container { max-width: 960px; margin: 0 auto; padding: 0 20px; }
+.nav { background: rgba(10,14,26,.95); padding: 14px 0; border-bottom: 1px solid #2a2f3e; position: sticky; top: 0; z-index: 100; backdrop-filter: blur(8px); }
+.nav .container { display: flex; justify-content: space-between; align-items: center; }
+.nav-back { color: #4a8aff; text-decoration: none; font-size: 14px; }
+.nav-back:hover { text-decoration: underline; }
+.nav-site { font-weight: 700; font-size: 15px; letter-spacing: .3px; }
+.nav-site .accent { color: #ff6b6b; }
+.page-header { padding: 60px 0 40px; border-bottom: 1px solid #2a2f3e; margin-bottom: 50px; }
+h1.page-title { font-size: 32px; line-height: 1.4; margin-bottom: 14px; color: #fff; font-weight: 800; letter-spacing: .3px; }
+.page-subtitle { font-size: 17px; color: #aaa; margin-bottom: 24px; line-height: 1.7; font-weight: 400; }
+.page-intro { font-size: 15px; color: #bbb; line-height: 1.9; max-width: 720px; }
+.page-intro p { margin-bottom: 0.8em; }
+.page-intro p:last-child { margin-bottom: 0; }
+
+.category-section { margin-bottom: 60px; }
+.category-title { font-size: 14px; color: #ffd700; font-weight: 700; letter-spacing: 1.5px; margin-bottom: 20px; padding-bottom: 12px; border-bottom: 1px solid #2a2f3e; }
+
+.article-cards { display: grid; grid-template-columns: 1fr; gap: 24px; }
+.article-card { background: #1a1f2e; border: 1px solid #2a2f3e; border-radius: 10px; padding: 28px 30px; transition: border-color 0.2s, transform 0.2s; }
+.article-card:hover { border-color: #4a8aff; transform: translateY(-2px); }
+.card-number { font-size: 12px; color: #ff6b6b; font-weight: 700; letter-spacing: 2px; margin-bottom: 12px; }
+.card-title { font-size: 22px; line-height: 1.5; color: #fff; font-weight: 700; margin-bottom: 12px; }
+.card-title a { color: #fff; text-decoration: none; }
+.card-title a:hover { color: #4a8aff; text-decoration: underline; }
+.card-subtitle { font-size: 15px; color: #bbb; line-height: 1.7; margin-bottom: 18px; }
+.card-meta { display: flex; flex-wrap: wrap; gap: 10px; font-size: 12px; color: #888; margin-bottom: 18px; align-items: center; }
+.card-meta .tag { background: #0f1424; padding: 3px 9px; border-radius: 3px; color: #aaa; }
+.card-tldr { background: #0f1424; border-left: 3px solid #ffd700; padding: 14px 18px; margin: 16px 0 20px; border-radius: 3px; font-size: 13px; color: #ccc; line-height: 1.8; }
+.card-tldr p { margin: 0; }
+.card-cta { display: inline-block; color: #4a8aff; font-size: 14px; font-weight: 600; padding: 8px 0; border-bottom: 1px solid transparent; transition: border-color 0.2s; }
+.card-cta:hover { border-bottom-color: #4a8aff; text-decoration: none; }
+.card-stats { display: flex; gap: 16px; font-size: 12px; color: #888; margin-top: 14px; padding-top: 14px; border-top: 1px solid #2a2f3e; }
+.card-stats .stat-item { color: #aaa; }
+.card-stats .stat-item .label { color: #666; margin-right: 4px; }
+
+.coming-soon { background: #151a26; border: 1px dashed #2a2f3e; border-radius: 10px; padding: 28px 30px; text-align: center; }
+.coming-soon h3 { color: #888; font-size: 16px; margin-bottom: 10px; font-weight: 600; }
+.coming-soon p { color: #666; font-size: 14px; line-height: 1.7; }
+
+.about-section { background: #1a1f2e; padding: 30px 32px; border-radius: 10px; margin-top: 50px; }
+.about-section h2 { color: #ffd700; font-size: 18px; margin-bottom: 16px; font-weight: 700; }
+.about-section p { color: #ccc; font-size: 14px; line-height: 1.9; margin-bottom: 12px; }
+.about-section p:last-child { margin-bottom: 0; }
+.about-section ul { padding-left: 1.5em; color: #ccc; font-size: 14px; line-height: 1.9; }
+.about-section ul li { margin-bottom: 6px; }
+.about-section a { color: #4a8aff; }
+
+footer { border-top: 1px solid #2a2f3e; padding: 30px 0; margin-top: 80px; text-align: center; font-size: 13px; color: #666; }
+footer a { color: #888; }
+footer p { margin-bottom: 6px; }
+
+@media (max-width: 768px) {
+  body { font-size: 15px; }
+  h1.page-title { font-size: 24px; }
+  .page-header { padding: 40px 0 28px; }
+  .article-card { padding: 22px 22px; }
+  .card-title { font-size: 18px; }
+  .card-subtitle { font-size: 14px; }
+  .container { padding: 0 16px; }
+}
+</style>
+</head>
+<body>
+
+<nav class="nav">
+  <div class="container">
+    <a href="../index.html" class="nav-back">← Fiscal OSINT Japan ダッシュボードへ</a>
+    <div class="nav-site"><span class="accent">Fiscal OSINT</span> Japan</div>
+  </div>
+</nav>
+
+<div class="container">
+
+  <header class="page-header">
+    <h1 class="page-title">📝 記事一覧</h1>
+    <p class="page-subtitle">公開情報のみを使用し、日米双方の一次資料を照合して、公的資金の流れを追跡する</p>
+    <div class="page-intro">
+      <p>Fiscal OSINT Japanの調査記事は、財務省・各省庁・国会・会計検査院・米国政府機関などが公開している<strong>一次資料の照合と再構成</strong>を中核としている。情報公開請求による未公開資料は使用せず、誰もが追跡可能な公開ソースから「資金の流れの構造」を可視化することを目指す。</p>
+      <p>記事本文は <strong>CC BY 4.0</strong>、関連データセット（CSV）は <strong>CC0 1.0</strong> で公開している。学術研究・ジャーナリズム・政策分析、すべて自由に利用できる。</p>
+    </div>
+  </header>
+
+  <!-- シリーズ1：対米資金フロー -->
+  <section class="category-section">
+    <h2 class="category-title">シリーズ｜対米資金フロー</h2>
+    
+    <div class="article-cards">
+      
+      <!-- 第2号記事（新しい順） -->
+      <article class="article-card">
+        <div class="card-number">第2号 · 2026/05/23</div>
+        <h3 class="card-title"><a href="special-account-defense.html">防衛費財源の単発スキーム — 特会¥1.84兆を抜く特別法と、米海軍の2倍で買うトマホーク</a></h3>
+        <p class="card-subtitle">2022年5月の日米首脳会談から始まる「金額が先、財源は後」の構造。防衛財源確保法という新法で特会から¥1.84兆を抜き、その8割をFMSで米国製兵器に直行させた。日米双方の一次資料から追跡する。</p>
+        
+        <div class="card-meta">
+          <span class="tag">特別会計</span>
+          <span class="tag">防衛費</span>
+          <span class="tag">FMS</span>
+          <span class="tag">防衛財源確保法</span>
+          <span class="tag">トマホーク</span>
+        </div>
+        
+        <div class="card-tldr">
+          <p>① 令和5年度に外為特会・財投特会から計¥1.84兆円が単発で一般会計に繰り入れられた。根拠は防衛財源確保法（令和5年法律第69号）。<br>
+          ② 防衛財源確保法第14条で「防衛費に充てる」と用途固定。一般会計内に防衛力強化資金（準・防衛特会）が新設された。<br>
+          ③ R5予算のFMS調達額は前年比約4倍の¥1兆4,768億円。10年で13倍に拡大。トマホーク単価は米海軍国内価格の約1.9〜2.3倍。<br>
+          ④ FMS前払金は米国財務省のFMS信託基金で米国財務省証券等により運用される。会計検査院は1997年から「未納・未精算」を繰り返し指摘し、直近では¥1.14兆円が5年以上未納と報告。</p>
+        </div>
+        
+        <a href="special-account-defense.html" class="card-cta">→ 続きを読む</a>
+        
+        <div class="card-stats">
+          <span class="stat-item"><span class="label">📝</span>約12,000字</span>
+          <span class="stat-item"><span class="label">⏱</span>読了 約25分</span>
+          <span class="stat-item"><span class="label">📚</span>一次資料 30+</span>
+          <span class="stat-item"><span class="label">📊</span><a href="../datasets/">関連CSV 4ファイル</a></span>
+        </div>
+      </article>
+      
+      <!-- 第1号記事 -->
+      <article class="article-card">
+        <div class="card-number">第1号 · 2026/05/22</div>
+        <h3 class="card-title"><a href="80trillion.html">80兆円対米投資の財源を、財政投融資特別会計から追跡する</a></h3>
+        <p class="card-subtitle">JBIC受領計はR5→R8で4.2倍に拡大。財務省自身がR7補正で「米国関税対応」と明記。日米双方の一次資料から構造を追跡する。</p>
+        
+        <div class="card-meta">
+          <span class="tag">80兆対米投資</span>
+          <span class="tag">財投特会</span>
+          <span class="tag">JBIC</span>
+          <span class="tag">MOU</span>
+          <span class="tag">OSINT</span>
+        </div>
+        
+        <div class="card-tldr">
+          <p>① 2025年7月に発表された5,500億ドル（約80兆円）の対米投資支援枠は、「絵に描いた餅」ではなく、財政投融資特別会計から国際協力銀行（JBIC）への融資・出資という具体的な財政上の経路で既に動いている。<br>
+          ② JBICへの資金注入はR5(¥1兆557億)からR8(¥4兆4,177億)へ4.2倍に拡大。財務省自身がR7補正特第1号で「米国関税対応」と明記している。<br>
+          ③ しかし、同じ合意に対する日米双方の説明には明確な齟齬があり、米国側の「投資」と日本側の「融資保証の枠」、利益配分の解釈、共同文書の有無まで食い違っている。</p>
+        </div>
+        
+        <a href="80trillion.html" class="card-cta">→ 続きを読む</a>
+        
+        <div class="card-stats">
+          <span class="stat-item"><span class="label">📝</span>約4,500字</span>
+          <span class="stat-item"><span class="label">⏱</span>読了 約15分</span>
+          <span class="stat-item"><span class="label">📚</span>一次資料 14点</span>
+          <span class="stat-item"><span class="label">📊</span><a href="../datasets/">関連CSV 3ファイル</a></span>
+        </div>
+      </article>
+      
+      <!-- 次回予告 -->
+      <div class="coming-soon">
+        <h3>🔄 次号執筆中</h3>
+        <p>第3号：FMS信託基金における日本帰属分の未精算累計、防衛力強化資金の年度別残高推移を追跡予定</p>
+      </div>
+      
+    </div>
+  </section>
+
+  <!-- About section -->
+  <section class="about-section">
+    <h2>📋 Fiscal OSINT Japanについて</h2>
+    <p><strong>編集方針：</strong></p>
+    <ul>
+      <li>公開情報のみを使用（情報公開請求による未公開資料は含まない）</li>
+      <li>事実と推測を厳密に区別（⚠️ 推察マーカーで明示）</li>
+      <li>AIによる集計・分析は明示（🤖 AI集計マーカー）</li>
+      <li>誤り発見時は即訂正、各記事末尾の更新履歴に残す</li>
+      <li>両論併記を徹底（日米双方の引用を並列表記）</li>
+      <li>引用は原文ベース。翻訳は明示</li>
+      <li>一次資料リンクは可能な限り Text Fragments URL（#:~:text=...）で該当箇所に直接ジャンプ</li>
+    </ul>
+    <p style="margin-top:16px;"><strong>AI使用方針（AI Methodology）：</strong></p>
+    <ul>
+      <li>本サイトの記事は、AI（Claude）と人間（編集者）の協働で執筆される</li>
+      <li>ファクトチェックには複数のAI（Claude / GPT / DeepSeek / Gemini）を交差使用</li>
+      <li>AI指摘による訂正は、その旨を更新履歴に明記</li>
+      <li>AI使用を隠さず、方法論として公開する</li>
+      <li>最終的な編集判断と責任は人間（編集者）が負う</li>
+    </ul>
+    <p style="margin-top:16px;"><strong>ライセンス：</strong>記事本文 <a href="https://creativecommons.org/licenses/by/4.0/deed.ja" target="_blank">CC BY 4.0</a> · データセット <a href="https://creativecommons.org/publicdomain/zero/1.0/deed.ja" target="_blank">CC0 1.0</a></p>
+  </section>
+
+</div>
+
+<footer>
+  <p>Fiscal OSINT Japan © 2026 · operated by SN0W8ALL LLC</p>
+  <p style="margin-top:14px;">
+    <a href="https://x.com/FiscalOSINT_JP" target="_blank">X (@FiscalOSINT_JP)</a> ·
+    <a href="../index.html">ダッシュボードに戻る</a> ·
+    <a href="../datasets/" target="_blank">📊 datasets</a>
+  </p>
+  <p style="margin-top:12px; font-size:12px;">誤り・追加情報のご指摘歓迎</p>
+</footer>
+
+</body>
+</html>
