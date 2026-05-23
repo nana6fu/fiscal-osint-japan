@@ -1,0 +1,5 @@
+fiscal_year_jp,fiscal_year_ad,defense_budget_oku,defense_budget_yen,yoy_change_oku,yoy_change_pct,note,primary_source
+R4,2022,54005,5400500000000,—,—,反撃能力保有決定前の最後の年度,防衛白書R5
+R5,2023,68219,6821900000000,14214,26.3,防衛力整備計画初年度／特会繰入¥1.84兆を含む,防衛白書R5（mod.go.jp/j/press/wp/wp2023/pdf/R05020403.pdf）
+R6,2024,79496,7949600000000,11277,16.5,防衛力整備計画2年目／防衛力強化資金取崩1.2兆,防衛白書R6（mod.go.jp/j/press/wp/wp2024/pdf/R06020302.pdf）
+R7,2025,84748,8474800000000,5252,6.6,防衛力整備計画3年目,防衛省R7予算概要（mod.go.jp/j/budget/yosan_gaiyo/fy2025/yosan_20250402_summary.pdf）
