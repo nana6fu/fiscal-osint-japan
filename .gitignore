@@ -30,3 +30,4 @@ backups/
 # Large JSONL files (previously removed from history via filter-repo)
 data/master/contracts.jsonl
 data/master/contracts_pilot.jsonl
+*.bak
