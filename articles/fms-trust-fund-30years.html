@@ -1,0 +1,948 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>武器は届かず、金は米国債で運用される — FMS信託基金 およそ30年の構造を一次資料で解く | Fiscal OSINT Japan</title>
+<meta name="description" content="日本のFMS（有償援助）累計は1950-2024年でおよそ11兆円（米国DSCA公表）。会計検査院は1997年からおよそ30年、未精算額が常態化していると指摘し続けている。武器代金の前払金は米国財務省で米国財務省証券（米国債）で運用され、利息は米国側に滞留。令和5年度1年だけで為替差損1,239億円。一次資料で構造を解く。">
+<meta property="og:title" content="武器は届かず、金は米国債で運用される — FMS信託基金 およそ30年の構造を一次資料で解く">
+<meta property="og:description" content="日本のFMS累計およそ11兆円、未精算はおよそ30年常態化、前払金は米国財務省証券で運用、為替差損1,239億円/年。会計検査院・米国GAO・DSCAの一次資料から解析。">
+<meta property="og:type" content="article">
+<meta property="og:url" content="https://nana6fu.github.io/fiscal-osint-japan/articles/fms-trust-fund-30years.html">
+
+<link rel="alternate" hreflang="ja" href="https://nana6fu.github.io/fiscal-osint-japan/articles/fms-trust-fund-30years.html">
+<link rel="canonical" href="https://nana6fu.github.io/fiscal-osint-japan/articles/fms-trust-fund-30years.html">
+
+<style>
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+body {
+  font-family: -apple-system, BlinkMacSystemFont, "Helvetica Neue", "Hiragino Kaku Gothic ProN", "ヒラギノ角ゴ ProN W3", "Yu Gothic", "メイリオ", sans-serif;
+  background: #0a0e1a; color: #e0e0e0; line-height: 1.85; font-size: 16px;
+  -webkit-font-smoothing: antialiased;
+}
+.container { max-width: 720px; margin: 0 auto; padding: 0 20px; }
+.nav { background: rgba(10,14,26,.95); padding: 14px 0; border-bottom: 1px solid #2a2f3e; position: sticky; top: 0; z-index: 100; backdrop-filter: blur(8px); }
+.nav .container { display: flex; justify-content: space-between; align-items: center; }
+.nav-back { color: #4a8aff; text-decoration: none; font-size: 14px; }
+.nav-back:hover { text-decoration: underline; }
+.nav-site { font-weight: 700; font-size: 15px; letter-spacing: .3px; }
+.nav-site .accent { color: #ff6b6b; }
+.lang-switch { display: inline-flex; align-items: center; gap: 6px; background: #1a1f2e; padding: 5px 12px; border-radius: 4px; font-size: 13px; color: #aaa; border: 1px solid #2a2f3e; margin-left: 12px; }
+.lang-switch a { color: #aaa; text-decoration: none; padding: 0 4px; }
+.lang-switch a.active { color: #ffd700; font-weight: 700; }
+.lang-switch a:hover { color: #4a8aff; }
+
+.article-header { padding: 60px 0 30px; border-bottom: 1px solid #2a2f3e; margin-bottom: 40px; }
+h1.article-title { font-size: 27px; line-height: 1.4; margin-bottom: 14px; color: #fff; font-weight: 800; letter-spacing: .2px; }
+.article-subtitle { font-size: 17px; color: #aaa; margin-bottom: 28px; line-height: 1.7; font-weight: 400; }
+.article-meta { display: flex; flex-wrap: wrap; gap: 14px; font-size: 13px; color: #888; align-items: center; }
+.article-meta .tag { background: #1a1f2e; padding: 3px 10px; border-radius: 4px; color: #aaa; }
+
+.tldr { background: #1a1f2e; border-left: 4px solid #ffd700; padding: 22px 26px; margin: 32px 0; border-radius: 4px; }
+.tldr-label { font-size: 12px; color: #ffd700; font-weight: 700; letter-spacing: 1.5px; margin-bottom: 10px; }
+.tldr p { margin: 0; }
+
+article p { margin-bottom: 1.5em; }
+article section { margin-bottom: 56px; }
+h2 { font-size: 22px; margin: 56px 0 24px; padding-bottom: 14px; border-bottom: 2px solid #2a2f3e; color: #fff; font-weight: 700; line-height: 1.4; }
+h3 { font-size: 17px; margin: 32px 0 16px; color: #fff; font-weight: 600; }
+strong { color: #fff; }
+em.num { color: #ffd700; font-style: normal; font-weight: 700; }
+.highlight-fact { color: #ff6b6b; font-weight: 700; }
+
+blockquote { background: #1a1f2e; border-left: 4px solid #ff6b6b; padding: 20px 26px; margin: 26px 0; border-radius: 4px; color: #ddd; font-size: 15px; }
+blockquote.jp { border-left-color: #4a8aff; }
+blockquote.us { border-left-color: #ff8c42; }
+blockquote.industry { border-left-color: #4ade80; }
+blockquote p { margin: 0; }
+blockquote p + p { margin-top: .8em; }
+blockquote .source { display: block; margin-top: 14px; font-size: 13px; color: #888; }
+blockquote .source a { color: #4a8aff; text-decoration: none; }
+blockquote .source a:hover { text-decoration: underline; }
+blockquote .quote-label { display: inline-block; font-size: 11px; font-weight: 700; padding: 2px 8px; border-radius: 3px; margin-bottom: 8px; letter-spacing: 1px; }
+blockquote.jp .quote-label { background: #1a3a5a; color: #4a8aff; }
+blockquote.us .quote-label { background: #4a2a1a; color: #ff8c42; }
+blockquote.industry .quote-label { background: #1a4a2a; color: #4ade80; }
+.source .highlight-link { color: #ffd700 !important; font-weight: 600; }
+
+.compare-table { width: 100%; border-collapse: collapse; margin: 26px 0; font-size: 14px; }
+.compare-table th, .compare-table td { padding: 12px 14px; text-align: left; border: 1px solid #2a2f3e; vertical-align: top; line-height: 1.6; }
+.compare-table thead { background: #1a1f2e; }
+.compare-table thead th { font-weight: 700; }
+.compare-table .row-label { background: #151a26; font-weight: 600; width: 22%; color: #ccc; }
+
+.trend-table { width: 100%; border-collapse: collapse; margin: 26px 0; font-size: 14px; }
+.trend-table th, .trend-table td { padding: 10px 12px; text-align: right; border: 1px solid #2a2f3e; line-height: 1.6; }
+.trend-table th { background: #1a1f2e; font-weight: 700; text-align: center; color: #fff; }
+.trend-table td:first-child { text-align: left; background: #151a26; font-weight: 600; color: #ccc; }
+.trend-table .highlight { color: #ffd700; font-weight: 700; }
+.trend-table .danger { color: #ff6b6b; font-weight: 700; }
+.trend-table .good { color: #4ade80; font-weight: 700; }
+
+.marker { display: inline-block; padding: 2px 9px; border-radius: 3px; font-size: 12px; margin-right: 6px; font-weight: 600; letter-spacing: .3px; }
+.marker-ai { background: #2a2f3e; color: #b0b0b0; }
+.marker-primary { background: #1a3a4a; color: #4a8aff; }
+.marker-warn { background: #4a2a1a; color: #ffaa00; }
+
+a { color: #4a8aff; text-decoration: none; }
+a:hover { text-decoration: underline; }
+
+.flow-diagram {
+  background: #151a26;
+  border: 1px solid #2a2f3e;
+  border-radius: 8px;
+  padding: 28px 24px;
+  margin: 32px 0;
+  font-size: 13px;
+}
+.flow-diagram h4 {
+  color: #ffd700;
+  margin-bottom: 20px;
+  font-size: 14px;
+  text-align: center;
+  font-weight: 700;
+}
+.flow-svg-wrapper { overflow-x: auto; }
+.flow-svg-wrapper svg { display: block; margin: 0 auto; max-width: 100%; height: auto; }
+
+.analogy-card {
+  background: linear-gradient(135deg, #1a1f2e 0%, #15293a 100%);
+  border: 1px solid #2a4a6a;
+  border-radius: 8px;
+  padding: 24px;
+  margin: 28px 0;
+}
+.analogy-card h4 {
+  color: #4a8aff;
+  font-size: 15px;
+  margin-bottom: 16px;
+  border: none;
+  padding: 0;
+  font-weight: 700;
+}
+.analogy-table { font-size: 13px; }
+.analogy-table th, .analogy-table td { padding: 10px 12px; border: 1px solid #2a4a6a; vertical-align: top; line-height: 1.6; }
+.analogy-table th { background: #1a3a5a; color: #fff; font-weight: 700; text-align: center; }
+.analogy-table .stage { background: #15293a; color: #ffd700; font-weight: 600; width: 18%; }
+.analogy-table .fms-real { width: 41%; color: #e0e0e0; }
+.analogy-table .private-eq { width: 41%; color: #bbb; }
+
+.en-source-card {
+  background: #1a1f2e;
+  border: 1px solid #ff8c42;
+  border-radius: 8px;
+  padding: 22px;
+  margin: 24px 0;
+}
+.en-source-card .src-header {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 14px;
+}
+.en-source-card .src-flag { font-size: 28px; }
+.en-source-card .src-title { color: #fff; font-weight: 700; font-size: 15px; line-height: 1.4; }
+.en-source-card .src-meta { color: #888; font-size: 12px; margin-bottom: 14px; }
+.en-source-card .src-key { background: #15293a; padding: 12px 16px; border-radius: 4px; margin-bottom: 16px; color: #fff; font-size: 14px; line-height: 1.6; }
+.en-source-card .src-key strong { color: #ffd700; }
+.en-source-card .src-actions { display: flex; flex-wrap: wrap; gap: 10px; }
+.btn-original, .btn-ai-summary {
+  display: inline-block;
+  padding: 8px 16px;
+  border-radius: 4px;
+  font-size: 13px;
+  font-weight: 600;
+  text-decoration: none;
+  cursor: pointer;
+  border: none;
+  font-family: inherit;
+  transition: all .15s;
+}
+.btn-original { background: #2a3548; color: #4a8aff; border: 1px solid #4a8aff; }
+.btn-original:hover { background: #4a8aff; color: #fff; text-decoration: none; }
+.btn-ai-summary { background: #1a4a2a; color: #4ade80; border: 1px solid #4ade80; }
+.btn-ai-summary:hover { background: #4ade80; color: #0a0e1a; }
+.btn-ai-summary:disabled { opacity: 0.6; cursor: wait; }
+
+.ai-modal-bg {
+  display: none;
+  position: fixed; top: 0; left: 0; right: 0; bottom: 0;
+  background: rgba(0,0,0,.85);
+  z-index: 1000;
+  backdrop-filter: blur(4px);
+}
+.ai-modal-bg.show { display: flex; align-items: center; justify-content: center; padding: 20px; }
+.ai-modal {
+  background: #15293a;
+  border: 1px solid #4ade80;
+  border-radius: 8px;
+  max-width: 640px;
+  width: 100%;
+  max-height: 80vh;
+  overflow-y: auto;
+  padding: 24px;
+  color: #fff;
+}
+.ai-modal h3 { color: #4ade80; margin-bottom: 16px; font-size: 17px; border: none; padding: 0; }
+.ai-modal .ai-body { font-size: 14px; line-height: 1.8; margin-bottom: 16px; color: #e0e0e0; white-space: pre-wrap; }
+.ai-modal .ai-footer { font-size: 12px; color: #888; border-top: 1px solid #2a2f3e; padding-top: 12px; }
+.ai-modal .ai-close { background: #2a3548; color: #fff; border: none; padding: 8px 16px; border-radius: 4px; font-size: 13px; cursor: pointer; margin-top: 12px; font-family: inherit; }
+.ai-modal .ai-close:hover { background: #4a8aff; }
+
+.sources, .changelog { background: #1a1f2e; padding: 24px 26px; border-radius: 8px; margin: 36px 0; font-size: 14px; }
+.sources h3, .changelog h3 { margin: 0 0 14px; color: #ffd700; font-size: 16px; border: none; padding: 0; }
+.sources ol { padding-left: 1.5em; }
+.sources li { margin-bottom: 10px; color: #ccc; line-height: 1.7; }
+.sources .policy { margin-top: 20px; padding-top: 16px; border-top: 1px solid #2a2f3e; }
+.sources .policy ul { padding-left: 1.5em; margin-top: 10px; }
+.sources .policy li { margin-bottom: 6px; }
+.changelog ul { padding-left: 1.5em; margin-top: 8px; }
+.changelog li { margin-bottom: 8px; color: #ccc; }
+.changelog li .date { color: #888; font-size: 13px; margin-right: 10px; }
+
+.next-article { background: #151a26; padding: 24px; border-radius: 8px; margin: 36px 0; border: 1px solid #2a2f3e; }
+.next-article h3 { margin: 0 0 12px; color: #fff; border: none; padding: 0; }
+.next-article p { margin-bottom: 0; color: #bbb; font-size: 14px; }
+
+footer { border-top: 1px solid #2a2f3e; padding: 30px 0; margin-top: 60px; text-align: center; font-size: 13px; color: #666; }
+footer a { color: #888; }
+footer p { margin-bottom: 6px; }
+
+@media (max-width: 768px) {
+  body { font-size: 15px; }
+  h1.article-title { font-size: 21px; }
+  h2 { font-size: 19px; }
+  h3 { font-size: 16px; }
+  .container { padding: 0 16px; }
+  .article-header { padding: 40px 0 24px; }
+  blockquote, .tldr { padding: 16px 20px; }
+  .compare-table, .trend-table, .analogy-table { font-size: 12px; }
+  .compare-table th, .compare-table td, .trend-table th, .trend-table td, .analogy-table th, .analogy-table td { padding: 8px 10px; }
+  .lang-switch { margin-left: 0; }
+  .nav .container { flex-wrap: wrap; gap: 8px; }
+  .flow-diagram { padding: 18px 14px; }
+  .en-source-card .src-actions { flex-direction: column; }
+  .btn-original, .btn-ai-summary { width: 100%; text-align: center; }
+}
+</style>
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "NewsArticle",
+  "headline": "武器は届かず、金は米国債で運用される — FMS信託基金 およそ30年の構造を一次資料で解く",
+  "datePublished": "2026-05-25T09:00:00+09:00",
+  "dateModified": "2026-05-25T09:00:00+09:00",
+  "author": { "@type": "Organization", "name": "Fiscal OSINT Japan", "url": "https://nana6fu.github.io/fiscal-osint-japan/" },
+  "publisher": { "@type": "Organization", "name": "Fiscal OSINT Japan", "url": "https://nana6fu.github.io/fiscal-osint-japan/" },
+  "description": "日本のFMS累計は1950-2024年でおよそ11兆円。会計検査院は1997年からおよそ30年、未精算額の常態化を指摘し続けている。前払金は米国財務省で米国財務省証券で運用、令和5年度1年で為替差損1,239億円。",
+  "keywords": "FMS, 有償援助, 信託基金, 会計検査院, DSCA, 防衛省, 為替差損, 米国財務省証券, 米国債, 後年度負担, 防衛費, OSINT",
+  "mainEntityOfPage": { "@type": "WebPage", "@id": "https://nana6fu.github.io/fiscal-osint-japan/articles/fms-trust-fund-30years.html" },
+  "articleSection": "Investigative Journalism",
+  "license": "https://creativecommons.org/licenses/by/4.0/",
+  "inLanguage": "ja",
+  "isAccessibleForFree": true
+}
+</script>
+</head>
+<body>
+
+<nav class="nav">
+  <div class="container">
+    <a href="../index.html" class="nav-back">← Fiscal OSINT Japan ダッシュボードへ</a>
+    <div>
+      <span class="nav-site"><span class="accent">Fiscal OSINT</span> Japan</span>
+      <span class="lang-switch">
+        🌐
+        <a href="fms-trust-fund-30years.html" class="active">JP</a>
+        <span style="color:#555;">/</span>
+        <span style="color:#555;">EN (近日)</span>
+      </span>
+    </div>
+  </div>
+</nav>
+
+<div class="container">
+
+  <header class="article-header">
+    <h1 class="article-title">武器は届かず、金は米国債で運用される — FMS信託基金 およそ30年の構造を一次資料で解く</h1>
+    <p class="article-subtitle">日本のFMS（有償援助）累計は1950〜2024年で <strong>約696億ドル（約10.93兆円）</strong>（米国DSCA公表、1ドル=157円換算）。会計検査院は<strong>1997年からおよそ30年（執筆時点で29年）</strong>、未精算額の常態化を指摘し続けている。前払金は米国財務省で<strong>米国財務省証券（米国債）で運用</strong>され、令和5年度1年だけで為替差損は <strong>1,239億円</strong>。</p>
+    
+    <div class="article-meta">
+      <span>📅 公開：2026/05/25</span>
+      <span>🔄 更新：2026/05/25</span>
+      <span class="tag">第3号</span>
+      <span class="tag">シリーズ｜対米資金フロー</span>
+      <span class="tag">FMS</span>
+      <span class="tag">会計検査院</span>
+      <span class="tag">米国財務省</span>
+      <span class="tag">米国債</span>
+      <span class="tag">為替差損</span>
+      <span class="tag">OSINT</span>
+      <span>📝 約6,000字 / 読了 約20分</span>
+    </div>
+  </header>
+
+  <article>
+  
+    <div class="tldr">
+      <div class="tldr-label">TL;DR</div>
+      <p>① 日本のFMS（有償援助）累計は1950〜2024年で <em class="num">約696億ドル（約10.93兆円）</em>。米国DSCA公表データから確定（為替は1ドル=157円換算、2026年5月時点、参考値）。<br>
+      ② 会計検査院は <em class="num">平成9年（1997年）</em> から<strong>およそ30年</strong>、FMSの未精算額が多額に上る状況を指摘し続けている。<strong>1997年は日本が「新精算方式」（最終計算書受領目標を2年とする方式）に参加した年</strong>でもある。平成25〜29年度の<strong>未精算額は年900〜1,200億円</strong>で常態化（会計検査院 別図表2）。<br>
+      ③ 前払金は米国財務省内のニューヨーク連邦準備銀行口座に入り、武器製造に必要な分だけ「FMS信託基金」に繰り入れられ、<span class="highlight-fact">残りは米国財務省証券（米国債）等で運用される</span>。発生した利息は0QQ勘定で米国側に滞留する。<br>
+      ④ 令和5年度1年だけで為替差損は <em class="num">1,239億円</em>、後年度負担額は5年で約2倍に膨張（4.7兆→9.45兆円）。米国会計検査院（GAO）も<strong>1979年からFMS信託基金の残高把握問題を指摘</strong>している。</p>
+    </div>
+
+    <section>
+      <h2>1. はじめに — 第1号・第2号で書ききれなかった「お金の行方」</h2>
+      
+      <p>本サイトの第1号「<a href="80trillion.html">80兆円対米投資の財源を、財政投融資特別会計から追跡する</a>」と第2号「<a href="special-account-defense.html">防衛費財源の単発スキーム — 特会¥1.84兆を抜く特別法と、米海軍の2倍で買うトマホーク</a>」は、いずれも<strong>これから流れる、あるいは今まさに流れている</strong>日本の公的資金を扱った。財政投融資特別会計から JBIC を経て米国企業へ、外為特会・財投特会から FMS を経て米国財務省へ ── 経路と法的根拠は一次資料で確認できる。</p>
+
+      <p>では、<strong>すでに渡したお金</strong>はどうなっているのか。FMS（Foreign Military Sales：有償援助）の場合、武器の引渡しは契約から数年〜十数年遅れることが珍しくない。日本は前払いで全額を米国側へ送金している。その間、お金はどこにあり、何に使われているのか。武器は本当に届いているのか。届いていないお金は、誰のものとして扱われているのか。</p>
+
+      <p>結論を先に書く。日本側の会計検査院は <strong>1997年（平成9年）からおよそ30年（執筆時点で29年）</strong>、繰り返し同じ問題を指摘してきた。「未精算額が多額に上っている」「最終計算書の受領まで時間を要している」「日本に返還可能な資金の返済請求を行っていない」── 改善の言葉はあるが、構造は変わらない。本記事では、その構造を一次資料だけで解いていく。</p>
+    </section>
+
+    <section>
+      <h2>2. FMS信託基金の構造 — 武器代金は3つの場所に流れる</h2>
+
+      <p>FMSは、米国の武器輸出管理法（Arms Export Control Act）に基づき、<strong>米国政府が他国政府に対して防衛装備品・役務・訓練を有償提供する制度</strong>である。「政府間取引」が建前で、商取引ではなく「合衆国政府が利益を得ない」原則がある。ただし、後述するように、その原則の運用には独特の構造がある。</p>
+
+      <p>日本のFMS調達では、防衛装備品の引渡しや役務の提供が完了した後に支払いを行うのではなく、<strong>契約締結時に「見積調達価格」全額を前払いで送金する</strong>。送金されたドルは、ニューヨーク連邦準備銀行（NY Fed）内に設けられた「利子付き口座」にプールされる。会計検査院 平成30年検査要請報告書は、ここから先の構造をこう記述している。</p>
+
+      <blockquote class="jp">
+        <div class="quote-label">🇯🇵 会計検査院 平成30年検査要請報告書（令和元年10月18日公表）</div>
+        <p>「<strong>信託基金</strong>とは、購入国から防衛装備品等の代金として支払われた前払金等のうち、合衆国政府が防衛装備品等の取得のために必要な分を一定の手続を経て連邦準備銀行内の利子付き口座から繰り入れ、保管しておく勘定であり、保管勘定とも呼ばれる」</p>
+        <p>「<strong>信託基金に繰り入れられなかった利子付き口座内の資金については、連邦準備銀行においてアメリカ合衆国財務省証券等により運用が行われており、発生した利子は0QQと呼ばれる勘定で管理される</strong>」</p>
+        <span class="source">— 出典：会計検査院 平成30年検査要請報告書 第2章「FMSの仕組み」<br>
+        🔗 <a href="https://report.jbaudit.go.jp/org/h30/YOUSEI2/2018-h30-Y2010-0.htm#:~:text=信託基金に繰り入れられなかった利子付き口座内の資金については" target="_blank" class="highlight-link">📍 該当箇所を表示（ハイライト付き）</a></span>
+      </blockquote>
+
+      <p>つまり、日本が前払いしたドルは「武器の製造資金」と「米国財務省証券（米国債）の運用資金」の<strong>二重の役割</strong>を果たしている。武器の納入と精算が長引けば長引くほど、米国財務省は日本のお金で米国債を保有し続ける構造になる。</p>
+
+      <div class="flow-diagram">
+        <h4>図1 — FMS前払金の流れ（一次資料から再構成）</h4>
+        <div class="flow-svg-wrapper">
+          <svg viewBox="0 0 660 460" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="FMS前払金の流れの図解">
+            <defs>
+              <marker id="arr" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+                <path d="M 0 0 L 10 5 L 0 10 z" fill="#888"/>
+              </marker>
+              <marker id="arr-y" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+                <path d="M 0 0 L 10 5 L 0 10 z" fill="#ffd700"/>
+              </marker>
+              <marker id="arr-r" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+                <path d="M 0 0 L 10 5 L 0 10 z" fill="#ff6b6b"/>
+              </marker>
+            </defs>
+
+            <rect x="240" y="10" width="180" height="50" rx="6" fill="#1a3a5a" stroke="#4a8aff" stroke-width="2"/>
+            <text x="330" y="35" text-anchor="middle" fill="#fff" font-size="14" font-weight="700">🇯🇵 日本（防衛省）</text>
+            <text x="330" y="52" text-anchor="middle" fill="#aaa" font-size="11">見積調達価格を前払送金</text>
+
+            <path d="M 330 60 L 330 95" stroke="#888" stroke-width="2" marker-end="url(#arr)"/>
+            <text x="345" y="82" fill="#aaa" font-size="11">全額（米ドル建）</text>
+
+            <rect x="180" y="100" width="300" height="55" rx="6" fill="#2a2f3e" stroke="#ff8c42" stroke-width="2"/>
+            <text x="330" y="123" text-anchor="middle" fill="#fff" font-size="13" font-weight="700">NY Fed 利子付き口座</text>
+            <text x="330" y="141" text-anchor="middle" fill="#aaa" font-size="11">（ニューヨーク連邦準備銀行内）</text>
+
+            <path d="M 270 160 L 170 200" stroke="#4ade80" stroke-width="2" marker-end="url(#arr)"/>
+            <text x="195" y="190" fill="#4ade80" font-size="11" font-weight="600">必要分のみ</text>
+            <text x="195" y="205" fill="#888" font-size="10">（月平均2か月分）</text>
+
+            <path d="M 390 160 L 490 200" stroke="#ff6b6b" stroke-width="2" marker-end="url(#arr-r)"/>
+            <text x="455" y="190" fill="#ff6b6b" font-size="11" font-weight="600">残り全額</text>
+
+            <rect x="40" y="205" width="240" height="60" rx="6" fill="#1a3a5a" stroke="#4ade80" stroke-width="2"/>
+            <text x="160" y="228" text-anchor="middle" fill="#fff" font-size="13" font-weight="700">FMS信託基金（保管勘定）</text>
+            <text x="160" y="247" text-anchor="middle" fill="#aaa" font-size="10">武器製造に必要な額を保管</text>
+
+            <rect x="380" y="205" width="240" height="60" rx="6" fill="#3a1a1a" stroke="#ff6b6b" stroke-width="2"/>
+            <text x="500" y="228" text-anchor="middle" fill="#ff6b6b" font-size="13" font-weight="700">米国財務省証券で運用</text>
+            <text x="500" y="247" text-anchor="middle" fill="#aaa" font-size="10">＝ 日本のお金が米国債に</text>
+
+            <path d="M 160 270 L 160 310" stroke="#888" stroke-width="2" marker-end="url(#arr)"/>
+            <rect x="40" y="315" width="240" height="50" rx="6" fill="#1a2a1a" stroke="#4ade80" stroke-width="1.5"/>
+            <text x="160" y="340" text-anchor="middle" fill="#fff" font-size="12" font-weight="700">武器メーカーへ段階支払</text>
+            <text x="160" y="355" text-anchor="middle" fill="#aaa" font-size="10">（Lockheed, Boeing, Raytheon 等）</text>
+
+            <path d="M 500 270 L 500 310" stroke="#ff6b6b" stroke-width="2" marker-end="url(#arr-r)"/>
+            <rect x="380" y="315" width="240" height="50" rx="6" fill="#2a1a1a" stroke="#ffd700" stroke-width="1.5"/>
+            <text x="500" y="335" text-anchor="middle" fill="#ffd700" font-size="12" font-weight="700">0QQ勘定（利息）</text>
+            <text x="500" y="352" text-anchor="middle" fill="#aaa" font-size="10">日本が請求しないと戻らない</text>
+
+            <path d="M 160 365 L 160 405" stroke="#888" stroke-width="2" marker-end="url(#arr)"/>
+            <rect x="40" y="410" width="240" height="40" rx="6" fill="#1a2a1a" stroke="#4ade80" stroke-width="1.5"/>
+            <text x="160" y="435" text-anchor="middle" fill="#fff" font-size="12">日本へ武器納入（数年〜十数年）</text>
+
+            <path d="M 500 365 L 500 405" stroke="#ffd700" stroke-width="2" stroke-dasharray="4,3" marker-end="url(#arr-y)"/>
+            <rect x="380" y="410" width="240" height="40" rx="6" fill="#2a2010" stroke="#ffd700" stroke-width="1.5" stroke-dasharray="4,3"/>
+            <text x="500" y="435" text-anchor="middle" fill="#ffd700" font-size="12">請求すれば日本へ返還</text>
+          </svg>
+        </div>
+        <p style="text-align:center; color:#888; font-size:12px; margin-top:14px;">※ 会計検査院 平成30年検査要請報告書「第2章 FMSの仕組み」を基に編集部作成。</p>
+      </div>
+
+      <h3>民間取引で例えると ── 「1機100億円」のカスタム機械の購入</h3>
+      
+      <p>この構造を、民間の商取引で例えてみる。1機100億円のカスタム機械を米国の業者に発注するとしよう。事務手数料込みで <em class="num">104.4億円</em>（一般管理費3.2% + 契約管理費1.2%相当）。日本は契約時に <strong>全額を即金で業者の銀行口座に振り込む</strong>。</p>
+
+      <div class="analogy-card">
+        <h4>💡 民間取引で例えると：FMSと商取引の対応関係</h4>
+        <table class="analogy-table">
+          <thead>
+            <tr>
+              <th>段階</th>
+              <th>FMS（実態）</th>
+              <th>民間取引で例えると</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td class="stage">契約</td>
+              <td class="fms-real">見積100億円 + 一般管理費3.2% + 契約管理費1.2% ≒ 104.4億円</td>
+              <td class="private-eq">「100億円相当のカスタム機械、事務手数料込み104.4億円で発注します」</td>
+            </tr>
+            <tr>
+              <td class="stage">支払</td>
+              <td class="fms-real">即金で全額をNY Fed利子付き口座へ送金</td>
+              <td class="private-eq">即金104.4億円を業者の銀行口座に振り込み</td>
+            </tr>
+            <tr>
+              <td class="stage">運用</td>
+              <td class="fms-real">武器製造に必要な月平均2か月分だけ信託基金へ、残り全額は米国財務省証券で運用</td>
+              <td class="private-eq">業者は最初に月5億円分の部品しか発注せず、<strong>残り99億円は別口座で運用</strong>、利息は業者のもの</td>
+            </tr>
+            <tr>
+              <td class="stage">納入</td>
+              <td class="fms-real">数年〜十数年の遅延あり</td>
+              <td class="private-eq">「製品は5年後に届きます。他の客の分も終わらないと出荷できません」</td>
+            </tr>
+            <tr>
+              <td class="stage">精算</td>
+              <td class="fms-real">最終計算書の送付を待ち、余剰金は日本側から「請求」して返還</td>
+              <td class="private-eq">「業者から自動的に余りは返ってきません。御社から請求してください」</td>
+            </tr>
+            <tr>
+              <td class="stage">利息</td>
+              <td class="fms-real">0QQ勘定に積み上がる、請求しないと返ってこない</td>
+              <td class="private-eq">運用で得た利息も「請求しないと業者のもの」</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <p>民間の商取引でこんな契約条件を出されたら、誰も応じない。<strong>FMSは「政府間取引で合衆国政府が利益を得ない」と謳いながら、お金の運用構造は商業金融と変わらない</strong> ── そう読まれてもおかしくない構造を、会計検査院は一次資料で明らかにしている。</p>
+
+      <p><span class="marker marker-warn">⚠️ 注</span> ただし、この比喩はFMSの仕組みを直感的に理解するためのものであり、すべての契約が完全にこの通りに動いているわけではない。一般管理費等は実費補填の性質もあり、信託基金への繰入比率や運用益の処理は契約・年度ごとに異なる。詳細は次章以降で個別事例を示す。</p>
+    </section>
+
+    <section>
+      <h2>3. 1997年 — 日本が新精算方式に参加した年、会計検査院が初めて指摘した年</h2>
+
+      <p>日本がFMS調達を始めたのは1954年「日本国とアメリカ合衆国との間の相互防衛援助協定（MDA協定）」の締結まで遡る。それから40年以上、未精算額の問題は表面化していなかった。流れが変わったのは <strong>平成9年（1997年）</strong> である。</p>
+
+      <p>この年、米国は「<strong>新精算方式</strong>（Accelerated Case Closure Procedures：ACCP）」を導入していた。提供完了から2年以内に最終計算書を送付することを目標とする方式で、日本も同年これに参加した。同時に、会計検査院は同年の決算検査報告で初めて、FMS未精算問題を「特に掲記を要すると認めた事項」として取り上げた。</p>
+
+      <blockquote class="jp">
+        <div class="quote-label">🇯🇵 会計検査院 平成30年検査要請報告書 第3章「検査の結果に対する所見」</div>
+        <p>「会計検査院は、<strong>平成9年度決算検査報告</strong>において、防衛庁におけるFMS中央調達において調達品等の未納入等により未精算額が多額に上っていたり、見積価格が高めに見積もられたことなどにより前払金が過大となっていたりしている事態等について、『特に掲記を要すると認めた事項』として掲記している」</p>
+        <p>「平成14年度決算検査報告においては、防衛省はFMS調達の改善に努めているが、<strong>なお未精算額が多額に上っている</strong>事態等について、『特に掲記を要すると認めた事項』として掲記している」</p>
+        <span class="source">— 出典：会計検査院 平成30年検査要請報告書 第3章<br>
+        🔗 <a href="https://report.jbaudit.go.jp/org/h30/YOUSEI2/2018-h30-Y2087-0.htm#:~:text=平成14年度決算検査報告において" target="_blank" class="highlight-link">📍 該当箇所を表示</a></span>
+      </blockquote>
+
+      <p>その後、平成25年度、28年度、30年度（参議院からの検査要請による包括的報告）と、会計検査院は<strong>累次にわたり同じ問題を指摘し続けている</strong>。改善の取り組みは行われているが、未精算額の絶対水準は減らない。</p>
+
+      <p><span class="highlight-fact">1997年に日本が新精算方式に参加した年と、会計検査院が未精算を初めて指摘した年は同じ年</span>である。これは偶然ではなく、新精算方式の運用に伴って未精算の構造が顕在化したことを示唆している。</p>
+    </section>
+
+    <section>
+      <h2>4. 未精算1,000億円の常態化 — 平成25〜29年度の経年データ</h2>
+
+      <p>平成30年検査要請報告書は、平成25〜29年度の5年間の未精算ケースを詳細に集計している。装備品ケース（モノの納入が伴うもの）と役務ケース（部品供給協定 CLSSA など）に分けて、件数と金額を示している。</p>
+
+      <table class="trend-table">
+        <thead>
+          <tr>
+            <th>年度</th>
+            <th>装備品ケース（億円）</th>
+            <th>役務ケース（億円）</th>
+            <th>合計（億円）</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr><td>平成25年度</td><td>557</td><td>585</td><td class="danger">1,142</td></tr>
+          <tr><td>平成26年度</td><td>349</td><td>550</td><td>899</td></tr>
+          <tr><td>平成27年度</td><td>529</td><td>567</td><td>1,097</td></tr>
+          <tr><td>平成28年度</td><td>585</td><td>635</td><td class="danger">1,220</td></tr>
+          <tr><td>平成29年度</td><td>425</td><td>642</td><td>1,068</td></tr>
+          <tr style="background:#15293a;"><td><strong>5年計</strong></td><td><strong>2,445</strong></td><td><strong>2,979</strong></td><td class="highlight"><strong>5,424</strong></td></tr>
+        </tbody>
+      </table>
+      <p style="font-size:13px; color:#888; margin-top:-10px;">出典：会計検査院 平成30年検査要請報告書 別図表2「FMS中央調達及びFMS地方調達における精算未完了ケースの件数及び未精算額の推移」<br>
+      🔗 <a href="https://report.jbaudit.go.jp/org/h30/YOUSEI2/2018-h30-Y2107-2.htm" target="_blank" class="highlight-link">📍 別図表2 原典を表示</a></p>
+
+      <p>5年連続で年900〜1,200億円の未精算が継続。<strong>5年合計で約5,424億円</strong>のFMS前払金が、納入未了または計算書未到着のまま米国側に滞留していたことになる。これは「制度上一時的に発生する事務的遅延」の規模を超えており、構造化された滞留と読むのが自然である。</p>
+
+      <p>会計検査院自身、平成30年報告書の所見でこう書く。</p>
+
+      <blockquote class="jp">
+        <div class="quote-label">🇯🇵 会計検査院 所見</div>
+        <p>「FMS調達の特性等を考慮しても、<strong>未精算ケースの件数及び未精算額は依然として多額に上っている</strong>」</p>
+        <p>「<strong>新精算方式が採用されているにもかかわらず</strong>、提供の完了後2年以内に最終の計算書を受領していないものが多数見受けられた」</p>
+        <span class="source">— 出典：会計検査院 平成30年検査要請報告書 第3章<br>
+        🔗 <a href="https://report.jbaudit.go.jp/org/h30/YOUSEI2/2018-h30-Y2087-0.htm" target="_blank" class="highlight-link">📍 第3章を表示</a></span>
+      </blockquote>
+
+      <p>「2年以内に精算」を目標として導入された新精算方式が、現実には機能していない ── これが会計検査院の到達点である。</p>
+    </section>
+
+    <section>
+      <h2>5. F-35Aの謎の価格差 — 同じ機体が日米で1機あたり40〜56億円違う</h2>
+
+      <p>未精算問題と並んで、会計検査院が指摘してきたのが <strong>価格の透明性</strong> である。同じ装備品が、日米で異なる価格で取引されている事例が、F-35A戦闘機で確認されている。</p>
+
+      <blockquote class="jp">
+        <div class="quote-label">🇯🇵 会計検査院 平成30年検査要請報告書 第2章</div>
+        <p>「F-35Aの<strong>ロット9</strong>においては、日本価格とアメリカ国防総省（DoD）公表価格との差が <strong>5,610万米ドル</strong>（1機当たり）」</p>
+        <p>「F-35Aの<strong>ロット10以降</strong>においては、日本価格とアメリカDoD公表価格との差が <strong>約4,000万米ドル</strong>（1機当たり）」</p>
+        <span class="source">— 出典：会計検査院 平成30年検査要請報告書 図表2-2-8関連<br>
+        🔗 <a href="https://report.jbaudit.go.jp/org/h30/YOUSEI2/2018-h30-Y2010-0.htm" target="_blank" class="highlight-link">📍 第2章を表示</a></span>
+      </blockquote>
+
+      <p><strong>1ドル=157円</strong>（2026年5月時点）で換算すると、ロット9では <em class="num">1機あたり約88億円</em>、ロット10以降でも <em class="num">約62.8億円</em> の差額がある。日本は同じF-35Aに対して、米国国防総省が公表する自国調達価格より <strong>1機あたり60〜90億円規模で高く購入していた</strong> ことになる。</p>
+
+      <p>米国側 DSCA（国防安全保障協力庁）は、この価格差について「仕様の差異（日本仕様の追加装備）」「開発分担金（FACO=最終組立検査の費用）」「為替変動」を理由として挙げている。会計検査院もこれらの説明の一部は是としているが、同時にこうも書く。</p>
+
+      <blockquote class="jp">
+        <div class="quote-label">🇯🇵 会計検査院 所見</div>
+        <p>「<strong>価格交渉による差額の可能性</strong>も完全には排除できず、引き続き、合衆国政府に対してLOA（Letter of Offer and Acceptance）の記載内容が一層詳細なものとなるよう働きかけ、価格等の透明性を確保するよう努めることが望まれる」</p>
+        <span class="source">— 出典：会計検査院 平成30年検査要請報告書 第3章<br>
+        🔗 <a href="https://report.jbaudit.go.jp/org/h30/YOUSEI2/2018-h30-Y2087-0.htm" target="_blank" class="highlight-link">📍 第3章を表示</a></span>
+      </blockquote>
+
+      <p>つまり、「<strong>説明はあるが、それが妥当な差額かは検証できていない</strong>」というのが、検査院の実質的な評価である。第2号記事で扱ったトマホークの価格差（米海軍国内価格の1.9〜2.3倍）と同じ構造が、F-35Aでも観察されている。なお、これらの円換算額は契約当時の為替レートではなく、2026年5月時点（1ドル=157円）での参考換算値であり、当時の支出額そのものではない点に注意。</p>
+    </section>
+
+    <section>
+      <h2>6. 「日米二国間取引」のはずが多国間まとめ調達</h2>
+
+      <p>未精算が長引くもうひとつの構造的理由が、調達契約の <strong>多国間まとめ方式</strong> である。FMSの建前は「米国政府と購入国政府の二国間取引」だが、米国政府が武器メーカーと結ぶ実際の購入契約は、複数国の発注分をひとまとめにすることがある。会計検査院は明示している。</p>
+
+      <blockquote class="jp">
+        <div class="quote-label">🇯🇵 会計検査院 平成30年検査要請報告書 第2章</div>
+        <p>「<strong>合衆国政府がFMSにより複数の購入国に対して提供する防衛装備品等を一つの購入契約にまとめて調達しているような場合</strong>には、通常、一部の購入国が防衛装備品等の全ての提供を受けたとしても、<strong>最終計算書の送付を受けることができず、長期にわたり余剰金の返還を受けられない状況となる</strong>」</p>
+        <span class="source">— 出典：会計検査院 平成30年検査要請報告書 第2章<br>
+        🔗 <a href="https://report.jbaudit.go.jp/org/h30/YOUSEI2/2018-h30-Y2010-0.htm#:~:text=合衆国政府がFMSにより複数の購入国" target="_blank" class="highlight-link">📍 該当箇所を表示</a></span>
+      </blockquote>
+
+      <p>F-35Aを例にすれば分かりやすい。米国政府は Lockheed Martin と「ロット○○のF-35A 全○○機」という購入契約を結ぶが、この契約には日本・オーストラリア・英国・イスラエル・ノルウェーなど複数のFMS購入国分が含まれている。日本分が全機納入された後でも、<strong>他国分の納入が終わらないと米国政府と Lockheed Martin の契約全体が精算されない</strong>。結果として、日本にも最終計算書が送られず、余剰金（過大払い分）も戻ってこない。</p>
+
+      <p>1954年の相互防衛援助協定（MDA協定）は二国間の枠組みだが、<strong>2020年代のFMS運用は実態として多国間まとめ調達</strong>になっている。建前と実態の乖離が、未精算の常態化を支える構造要因のひとつになっている。</p>
+    </section>
+
+    <section>
+      <h2>7. 令和5年度の異常事態 — 1年で為替差損1,239億円</h2>
+
+      <p>令和5年度（2023年度）決算検査報告は、FMSにまつわるもうひとつの問題を可視化した。<strong>為替差損</strong>である。FMSは米ドル建て契約のため、契約時のレートと支払時のレートのずれが直接コストに跳ね返る。円安が進めば、同じドル建て契約に対して、より多くの円を払うことになる。</p>
+
+      <p>会計検査院は令和5年度決算検査報告で、防衛省のFMS中央調達における5年間の差額を試算している。</p>
+
+      <table class="trend-table">
+        <thead>
+          <tr>
+            <th>年度</th>
+            <th>米ドル建て支払額</th>
+            <th>契約年度レート換算（試算）</th>
+            <th>支払年度レート換算（実際）</th>
+            <th>差額</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr><td>令和元年度</td><td>39.6億ドル</td><td>4,533億円</td><td>4,362億円</td><td class="good">▲171億円</td></tr>
+          <tr><td>令和2年度</td><td>26.1億ドル</td><td>2,895億円</td><td>2,868億円</td><td class="good">▲27億円</td></tr>
+          <tr><td>令和3年度</td><td>43.0億ドル</td><td>4,768億円</td><td>4,647億円</td><td class="good">▲121億円</td></tr>
+          <tr><td>令和4年度</td><td>37.8億ドル</td><td>4,161億円</td><td>4,077億円</td><td class="good">▲83億円</td></tr>
+          <tr style="background:#3a1a1a;"><td><strong>令和5年度</strong></td><td><strong>57.9億ドル</strong></td><td><strong>6,688億円</strong></td><td><strong>7,928億円</strong></td><td class="danger"><strong>+1,239億円</strong></td></tr>
+        </tbody>
+      </table>
+      <p style="font-size:13px; color:#888; margin-top:-10px;">出典：会計検査院 令和5年度決算検査報告 第6 防衛予算の執行状況等。<br>
+      🔗 <a href="https://www.jbaudit.go.jp/report/new/index_r5.html" target="_blank" class="highlight-link">📍 令和5年度決算検査報告 目次</a></p>
+
+      <p>令和元年〜4年度は、契約時より支払時の方が円高（=ドル安）方向に動いたため、結果として日本は予算より<strong>少ない</strong>円支出で済んでいた（▲171億円〜▲27億円の差益）。ところが令和5年度は、円安が一気に進行し、<strong>支払年度レート（1ドル≒137円）が契約年度レート（1ドル≒108円）を大きく上回った</strong>。</p>
+
+      <p>会計検査院はこう記述する。</p>
+
+      <blockquote class="jp">
+        <div class="quote-label">🇯🇵 会計検査院 令和5年度決算検査報告 第6</div>
+        <p>「5年度に支払対象となった額は約57億8692万米ドルであるが、この額に対して5年度の支出官レートを用いて防衛省が支出決定した額は計7928億余円である。一方、この額について、仮に、それぞれの契約年度の支出官レートを用いて試算すると計6688億余円となり、<strong>差額である計1239億余円が為替変動によって生じた差損であるという見方ができる</strong>」</p>
+        <span class="source">— 出典：会計検査院 令和5年度決算検査報告 第6<br>
+        🔗 <a href="https://www.jbaudit.go.jp/report/new/index_r5.html" target="_blank" class="highlight-link">📍 令和5年度決算検査報告 目次</a></span>
+      </blockquote>
+
+      <p>「為替変動によって生じた差損」── つまり、<strong>令和5年度の1年だけで、円安進行によって追加で1,239億円が必要になった</strong>。これは前払いを行うFMSの構造に直接由来する。契約から支払・納入まで数年の時間差がある以上、為替リスクは日本側が一方的に負う。</p>
+
+      <p><span class="marker marker-warn">⚠️ 注</span> 防衛省も為替リスクへの対応として、一部の調達には<strong>為替先物予約</strong>を導入している。しかし、FMSの場合は米国政府側の請求スケジュールが流動的（多国間まとめ調達による精算遅延、納入時期の変動等）であるため、<strong>全契約額に先物予約を適用することが構造的に難しい</strong>。結果として、令和5年度のような円安進行局面では、先物予約でヘッジしきれない部分から大規模な為替差損が発生する。為替リスクの所在は「日本側が一方的に負う」という単純な構図ではないが、<strong>FMSの構造（前払い+納入遅延+多国間まとめ調達）が為替ヘッジを困難にしている</strong>点は変わらない。</p>
+
+      <p>同じ報告書は、防衛装備品調達の <strong>後年度負担額</strong>（将来の年度に支払う約束をしている額）も示している。</p>
+
+      <table class="trend-table">
+        <thead>
+          <tr>
+            <th>年度末</th>
+            <th>国庫債務負担行為（億円）</th>
+            <th>継続費（億円）</th>
+            <th>合計（億円）</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr><td>令和元年度末</td><td>—</td><td>—</td><td>約47,000</td></tr>
+          <tr><td>令和4年度末</td><td>47,596</td><td>4,317</td><td>51,913</td></tr>
+          <tr style="background:#3a1a1a;"><td><strong>令和5年度末</strong></td><td><strong>90,360</strong></td><td><strong>4,198</strong></td><td class="danger"><strong>94,558</strong></td></tr>
+        </tbody>
+      </table>
+      <p style="font-size:13px; color:#888; margin-top:-10px;">出典：会計検査院 令和5年度決算検査報告 第6 図表19関連。</p>
+
+      <p>令和元年度末の <em class="num">約4.7兆円</em> から、令和5年度末は <em class="num">約9.46兆円</em> へ。<strong>5年で約2倍</strong> に膨張した。第2号記事で扱った「単発スキーム」（防衛財源確保法による特会から¥1.84兆の一時繰入）は単発でも、その背景にある防衛装備品調達自体は <strong>後年度負担という形で恒常的に膨らみ続けている</strong>。</p>
+    </section>
+
+    <section>
+      <h2>8. 米国側でも残高は不明 — GAOが1979年から指摘していた</h2>
+
+      <p>日本側だけでなく、米国側でも同じ問題は認識されてきた。<strong>米国会計検査院（GAO：Government Accountability Office）</strong> は、米国議会の調査機関であり、日本の会計検査院に相当する立場で連邦政府の支出を監査する。GAOは <strong>1979年</strong> 時点で、海軍のFMS信託基金について「正確な残高が不明」と議会に報告していた。</p>
+
+      <p>以下は、米国側の英語公的資料を、AI（Groq Llama3.3）で日本語要約できる機能を本サイトに実装した。海外資料へのアクセス障壁を下げ、一次資料に基づく検証を読者自身が行えるようにする試みである。</p>
+
+      <div class="en-source-card">
+        <div class="src-header">
+          <span class="src-flag">🇺🇸</span>
+          <div>
+            <div class="src-title">DSCA Historical Sales Book FY2024</div>
+            <div class="src-meta">米国国防安全保障協力庁（DSCA）公表 / 2025年7月1日</div>
+          </div>
+        </div>
+        <div class="src-key">
+          📊 日本のFMS累計：<strong>$69,638,676,605</strong>（FY1950〜FY2024）<br>
+          約 <strong>10.93兆円</strong>（1ドル=157円換算、2026年5月時点、参考値）
+        </div>
+        <div class="src-actions">
+          <a href="https://media.defense.gov/2025/Jul/01/2003746467/-1/-1/1/FY_2024_HISTORICAL_SALES_BOOK_COMPLETE.PDF" target="_blank" class="btn-original">🔗 原典PDF</a>
+          <button id="ai-btn-dsca_fy2024" onclick="summarizeEnglishSource('dsca_fy2024')" class="btn-ai-summary">🤖 AI日本語要約</button>
+        </div>
+      </div>
+
+      <div class="en-source-card">
+        <div class="src-header">
+          <span class="src-flag">🇺🇸</span>
+          <div>
+            <div class="src-title">GAO Report FGMSD-79-2: Correct Balance of Navy's Foreign Military Sales Trust Fund Unknown</div>
+            <div class="src-meta">米国会計検査院（GAO） / 1979年公表</div>
+          </div>
+        </div>
+        <div class="src-key">
+          📊 タイトル直訳：「海軍のFMS信託基金の正確な残高は不明」<br>
+          1979年時点で、米国会計検査機関が <strong>残高把握問題を米国議会に報告</strong>。
+        </div>
+        <div class="src-actions">
+          <a href="https://www.gao.gov/products/fgmsd-79-2" target="_blank" class="btn-original">🔗 原典 (GAO)</a>
+          <button id="ai-btn-gao_1979" onclick="summarizeEnglishSource('gao_1979')" class="btn-ai-summary">🤖 AI日本語要約</button>
+        </div>
+      </div>
+
+      <div class="en-source-card">
+        <div class="src-header">
+          <span class="src-flag">🇺🇸</span>
+          <div>
+            <div class="src-title">Treasury Bulletin Trust Fund Reports</div>
+            <div class="src-meta">米国財務省 Fiscal Service データセット</div>
+          </div>
+        </div>
+        <div class="src-key">
+          📊 米国財務省公開データセット。各信託基金の受取・支出・残高をCSV取得可能。<br>
+          ※ FMS Trust Fund の最新残高把握の有力ソース。
+        </div>
+        <div class="src-actions">
+          <a href="https://fiscaldata.treasury.gov/datasets/treasury-bulletin-trust-funds/" target="_blank" class="btn-original">🔗 原典 (Treasury)</a>
+          <button id="ai-btn-treasury_bulletin" onclick="summarizeEnglishSource('treasury_bulletin')" class="btn-ai-summary">🤖 AI日本語要約</button>
+        </div>
+      </div>
+
+      <p>GAOの1979年指摘から、日本側の1997年初指摘まで <strong>18年</strong>。日本側の1997年初指摘から、本記事執筆時点（2026年）まで <strong>29年</strong>。<span class="highlight-fact">日米両国の検査機関が問題視しても、構造は変わらない</span> ── これは個別の管理失敗ではなく、FMSという制度自体が両国の検査指摘を受け流せる設計になっている、と読むのが自然である。</p>
+    </section>
+
+    <section>
+      <h2>9. 何が分かり、何が分からないか</h2>
+
+      <p>本記事で使用した一次資料 ── 会計検査院 検査要請報告書、決算検査報告、米国DSCA Historical Sales Book、米国GAO報告書 ── から、以下のことが <strong>確認できる</strong>。</p>
+
+      <ul style="margin-left:1.5em; margin-bottom:1.5em;">
+        <li style="margin-bottom:8px;">日本のFMS累計（1950〜2024）は696億ドル、2026年5月時点換算でおよそ11兆円規模であること</li>
+        <li style="margin-bottom:8px;">1997年からおよそ30年（執筆時点で29年）、未精算問題が会計検査院により継続指摘されていること</li>
+        <li style="margin-bottom:8px;">平成25〜29年度の未精算額が年900〜1,200億円で常態化していたこと</li>
+        <li style="margin-bottom:8px;">前払金の一部は米国財務省証券（米国債）で運用される構造にあること</li>
+        <li style="margin-bottom:8px;">利息は0QQ勘定で米国側に管理され、日本が請求しないと返還されないこと</li>
+        <li style="margin-bottom:8px;">多国間まとめ調達のため、日米二国間取引でも他国の納入完了を待たないと精算できないこと</li>
+        <li style="margin-bottom:8px;">F-35Aは1機あたり40〜80億円規模の日米価格差があること</li>
+        <li style="margin-bottom:8px;">令和5年度1年で為替差損1,239億円が発生したこと</li>
+        <li style="margin-bottom:8px;">後年度負担額が5年で約2倍に膨張したこと</li>
+      </ul>
+
+      <p>一方、公開一次資料のみでは <strong>確認できない</strong> ことも多い。</p>
+
+      <ul style="margin-left:1.5em; margin-bottom:1.5em;">
+        <li style="margin-bottom:8px;">0QQ勘定の年度別残高と利息発生額の詳細（米国財務省内部データ）</li>
+        <li style="margin-bottom:8px;">7QQ勘定（精算完了後の残余資金管理）の年度別動向</li>
+        <li style="margin-bottom:8px;">個別ケース別の未精算理由の内訳（防衛省内部資料）</li>
+        <li style="margin-bottom:8px;">米国側との価格交渉の具体的経緯（外交文書）</li>
+        <li style="margin-bottom:8px;">日米SCCM（Security Cooperation Case Management）合同会議の議事録（一部公開のみ）</li>
+      </ul>
+
+      <p>これらは情報公開請求の対象となる。本記事の続報として、防衛省・外務省・財務省への情報公開請求を順次行う予定である。</p>
+    </section>
+
+    <section>
+      <h2>10. 結論</h2>
+
+      <p>第1号記事（80兆対米投資）と第2号記事（防衛費1.84兆）は、<strong>これから流れる、あるいは制度として組み込まれていく</strong> 公的資金のスキームを扱った。本記事はその前提となる「<strong>すでに渡したお金が、どうなっているか</strong>」を扱った。</p>
+
+      <p>結論を3点に絞る。</p>
+
+      <p><strong>第一に、構造は四半世紀以上変わっていない</strong>。1997年に日本が新精算方式に参加し、同年に会計検査院が初めて未精算を指摘して以降、今日まで同じ問題が指摘され続けている。途中、平成20年に防衛省はプロジェクトチーム報告書をまとめ、改善目標を設定した。SCCM会議で米国側と協議もしている。しかし未精算ケースの絶対水準は減らず、為替差損は新たに加わり、後年度負担は膨張している。<strong>個別の事務改善ではなく、制度自体が指摘を受け流せる設計</strong> になっている、と読むのが自然である。</p>
+
+      <p><strong>第二に、お金は単に流れているだけでなく、運用されている</strong>。日本が前払いしたドルは、武器の製造資金であると同時に、米国財務省証券（米国債）の運用資金でもある。利息は0QQ勘定に積み上がり、日本側が能動的に請求しないと返ってこない。これは「合衆国政府が利益を得ない」というFMSの建前と、実際の運用構造との間に乖離があることを示している。民間取引で例えれば、「即金で全額を業者の口座に振り込み、業者は最初に必要な部品分だけを使い、残りは別口座で運用して利息を得る」状態に近い。</p>
+
+      <p><strong>第三に、日米両国の検査機関が指摘しても、構造は止まらない</strong>。米国GAOは1979年からFMS信託基金の残高問題を指摘してきた。日本の会計検査院は1997年から未精算と価格透明性の問題を指摘してきた。両国の検査機関が並行して問題視しても、FMSの根本的な仕組み ── 全額前払い、米国財務省内での運用、多国間まとめ調達、納入と精算の長期遅延 ── は維持されたままである。これは <strong>制度の設計そのものが、検査指摘を制度外の問題として処理できる強度を持っている</strong> ということでもある。</p>
+
+      <p>本記事は、その構造を一次資料だけで再構成した。読者は、本記事に示した検査院報告書・DSCA公表データ・GAO報告書を <strong>すべて無料で直接参照できる</strong>。引用箇所には、可能な限り該当文へ直接ジャンプするリンクを付した。Saitoまでが書き起こした文章を信用してもらう必要はない。<strong>原典に当たって、自分で構造を読み解いてほしい</strong>。それが本サイトの目的である。</p>
+    </section>
+
+    <section class="sources">
+      <h3>📚 一次資料一覧</h3>
+      
+      <p><strong>日本側 — 会計検査院</strong>：</p>
+      <ol>
+        <li><a href="https://www.jbaudit.go.jp/pr/kensa/result/31/r011018.html" target="_blank">会計検査院「有償援助（FMS）による防衛装備品等の調達についての検査要請事項に関する報告」</a>（令和元年10月18日公表）</li>
+        <li><a href="https://report.jbaudit.go.jp/org/h30/YOUSEI2/2018-h30-Y2001-0.htm" target="_blank">同 第1章「検査の背景及び実施状況」</a></li>
+        <li><a href="https://report.jbaudit.go.jp/org/h30/YOUSEI2/2018-h30-Y2010-0.htm" target="_blank">同 第2章「FMSの仕組み」</a>（信託基金・0QQ勘定・米国財務省証券運用の記述）</li>
+        <li><a href="https://report.jbaudit.go.jp/org/h30/YOUSEI2/2018-h30-Y2087-0.htm" target="_blank">同 第3章「検査の結果に対する所見」</a>（平成9年・14年の指摘経緯）</li>
+        <li><a href="https://report.jbaudit.go.jp/org/h30/YOUSEI2/2018-h30-Y2107-2.htm" target="_blank">同 別図表2「精算未完了ケースの件数及び未精算額の推移」</a></li>
+        <li><a href="https://report.jbaudit.go.jp/org/h30/YOUSEI2/2018-h30-Y2108-0.htm" target="_blank">同 別図表3「目標時期経過ケースの件数及び未精算額の推移」</a></li>
+        <li><a href="https://report.jbaudit.go.jp/org/h30/YOUSEI2/2018-h30-Y2109-0.htm" target="_blank">同 参考「用語集」</a>（CLSSA、DFAS等）</li>
+        <li><a href="https://www.jbaudit.go.jp/report/new/characteristic30/fy30_kanshin_ch03_p1.html" target="_blank">会計検査院「平成30年度決算検査報告の特色」FMSサマリー</a></li>
+        <li><a href="https://report.jbaudit.go.jp/org/h30/2018-h30-0755-0.htm" target="_blank">同 第4章 第2節「有償援助(FMS)による防衛装備品等の調達について」</a></li>
+        <li><a href="https://www.jbaudit.go.jp/report/new/index_r5.html" target="_blank">会計検査院 令和5年度決算検査報告 目次</a></li>
+        <li>令和5年度決算検査報告 第6「防衛予算の執行状況等」（為替差損1,239億円、後年度負担9.45兆円のデータ）</li>
+      </ol>
+
+      <p style="margin-top:20px;"><strong>米国側 — DSCA・GAO・財務省</strong>：</p>
+      <ol start="12">
+        <li><a href="https://media.defense.gov/2025/Jul/01/2003746467/-1/-1/1/FY_2024_HISTORICAL_SALES_BOOK_COMPLETE.PDF" target="_blank">DSCA Historical Sales Book Fiscal Years 1950-2024</a>（2025年7月公表）</li>
+        <li><a href="https://www.dsca.mil/Resources/Publications/Publication/Article/4049946/dsca-historical-sales-book" target="_blank">DSCA Historical Sales Book (FY2023版 参考)</a></li>
+        <li><a href="https://www.gao.gov/products/fgmsd-79-2" target="_blank">GAO Report FGMSD-79-2「Correct Balance of Navy's Foreign Military Sales Trust Fund Unknown」</a>（1979年）</li>
+        <li><a href="https://fiscaldata.treasury.gov/datasets/treasury-bulletin-trust-funds/" target="_blank">US Treasury Bulletin Trust Fund Reports（米国財務省データセット）</a></li>
+        <li><a href="https://samm.dsca.mil/" target="_blank">DSCA Security Assistance Management Manual (SAMM)</a></li>
+        <li><a href="https://samm.dsca.mil/policy-memoranda/dsca-23-38" target="_blank">DSCA 23-38: Contract Administration Services Waiver for Japan</a>（2023年4月17日、日本向けQA&I手数料免除）</li>
+      </ol>
+
+      <p style="margin-top:20px;"><strong>制度資料・先行調査</strong>：</p>
+      <ol start="18">
+        <li><a href="https://www.stimson.org/2024/bad-and-getting-worse/" target="_blank">Stimson Center「Bad and Getting Worse」DSCA Historical Sales Book の方法論的批判</a></li>
+        <li><a href="https://www.sipri.org/databases/national-reports/United%20States%20of%20America" target="_blank">SIPRI 米国 National Reports</a></li>
+      </ol>
+      
+      <div class="policy">
+        <p><strong>編集方針：</strong></p>
+        <ul>
+          <li>公開情報のみを使用（情報公開請求による非公開資料は本記事では未使用）</li>
+          <li>事実と推論を厳密に分離（<span class="marker marker-warn">⚠️ 注</span>または<span class="marker marker-warn">⚠️ 推察</span>マーカーで明示）</li>
+          <li>一次資料リンクには可能な限り Text Fragments による該当箇所ハイライトを付与</li>
+          <li>米国側英語資料には AI日本語要約（Groq Llama3.3）を併設、原典確認を促す</li>
+          <li>発見した誤りは即時訂正し、本記事の更新履歴に明示</li>
+        </ul>
+        
+        <p style="margin-top:20px;"><strong>AI活用方針：</strong></p>
+        <ul>
+          <li>本サイトの記事は AI（Claude）と人間編集者の共著</li>
+          <li>事実確認は複数のAI（Claude / GPT / DeepSeek / Gemini）でクロスチェック</li>
+          <li>AI分析による訂正は更新履歴に明示</li>
+          <li>米国側英語資料の AI日本語要約は Groq Llama3.3 によるもので、編集部の検証を経たうえで原典確認を促す位置づけ</li>
+          <li>最終的な編集判断と責任は人間編集者にある</li>
+        </ul>
+      </div>
+    </section>
+
+    <section class="changelog">
+      <h3>📝 更新履歴</h3>
+      <ul>
+        <li><span class="date">2026/05/25</span>初出公開（日本語版）</li>
+      </ul>
+    </section>
+
+    <section class="next-article">
+      <h3>関連記事・次回予告</h3>
+      <p>本記事の続報として、防衛省・外務省・財務省への情報公開請求を順次実施する予定。具体的には、(1) 0QQ・7QQ勘定の日本帰属分の年度別動向、(2) 個別ケース別の未精算理由の内訳、(3) 日米SCCM合同会議の議事録、(4) F-35A価格交渉の具体的経緯 などを請求する。回答が揃い次第、続報を公開する。</p>
+      <p style="margin-top:12px;">また、本記事は本サイト「対米資金フロー」シリーズの第3号である。第1号「<a href="80trillion.html">80兆円対米投資の財源を、財政投融資特別会計から追跡する</a>」、第2号「<a href="special-account-defense.html">防衛費財源の単発スキーム — 特会¥1.84兆を抜く特別法と、米海軍の2倍で買うトマホーク</a>」と合わせて読むと、日本から米国への公的資金フローの全体像が見えてくる。</p>
+      <p style="margin-top:12px;"><a href="../index.html">→ ダッシュボードに戻る</a></p>
+    </section>
+    
+  </article>
+
+</div>
+
+<div class="ai-modal-bg" id="aiModalBg">
+  <div class="ai-modal">
+    <h3 id="aiModalTitle">🤖 AI日本語要約</h3>
+    <div class="ai-body" id="aiModalBody">読み込み中...</div>
+    <div class="ai-footer" id="aiModalFooter"></div>
+    <button class="ai-close" onclick="closeAiModal()">閉じる</button>
+  </div>
+</div>
+
+<footer>
+  <p>Fiscal OSINT Japan © 2026 · operated by SN0W8ALL LLC</p>
+  <p style="margin-top:10px;">
+    <strong>記事本文：</strong><a href="https://creativecommons.org/licenses/by/4.0/" target="_blank" rel="license">CC BY 4.0</a> · 
+    <strong>データセット：</strong><a href="https://creativecommons.org/publicdomain/zero/1.0/" target="_blank" rel="license">CC0 1.0</a>
+  </p>
+  <p style="margin-top:10px; font-size:12px;">
+    引用は出典明記の上、自由に行えます。引用例：<br>
+    「Fiscal OSINT Japan「武器は届かず、金は米国債で運用される — FMS信託基金 およそ30年の構造を一次資料で解く」(2026/05/25)」
+  </p>
+  <p style="margin-top:14px;">
+    <a href="https://x.com/FiscalOSINT_JP" target="_blank">X (@FiscalOSINT_JP)</a> ·
+    <a href="../index.html">ダッシュボードに戻る</a> ·
+    <a href="../datasets/" target="_blank">📊 datasets</a>
+  </p>
+  <p style="margin-top:12px; font-size:12px;">本記事は2026年5月25日時点の公開情報に基づく。誤り・追加情報のご指摘歓迎。</p>
+</footer>
+
+<script>
+const englishSources = {
+  'dsca_fy2024': {
+    title: 'DSCA Historical Sales Book FY2024',
+    url: 'https://media.defense.gov/2025/Jul/01/2003746467/-1/-1/1/FY_2024_HISTORICAL_SALES_BOOK_COMPLETE.PDF',
+    excerpt: `Fiscal Year 2024 Edition - Historical Sales Book Fiscal Years 1950 – 2024
+
+The fiscal year (FY) 2024 edition of the Historical Sales Book (HSB) provides a by-country and international organization summarization of the authorized value of implemented transfers of defense articles and services. This includes Foreign Military Sales (FMS) and FMS cases funded with Foreign Military Financing (FMF) implemented through the FMS system from FY 1950 through FY 2024.
+
+FMS, authorized by the Arms Export Control Act, is the system through which eligible foreign governments and international organizations may purchase defense articles, services, and training from the U.S. Government.
+
+【日本 Japan INDOPACOM EAP Asia の累計データ】
+- Fiscal Years 1950 to 2019: $47,168,383,579
+- Fiscal Year 2020: $1,982,589,385
+- Fiscal Year 2021: $3,903,517,656
+- Fiscal Year 2022: $2,803,481,408
+- Fiscal Year 2023: $5,883,608,149
+- Fiscal Year 2024: $7,897,096,428
+- Total FY 1950-2024: $69,638,676,605`
+  },
+  'gao_1979': {
+    title: 'GAO Report FGMSD-79-2',
+    url: 'https://www.gao.gov/products/fgmsd-79-2',
+    excerpt: `GAO Report FGMSD-79-2: "Correct Balance of Navy's Foreign Military Sales Trust Fund Unknown" (1979)
+
+The Navy's foreign military sales (FMS) trust fund account is used to hold and account for cash collected from foreign countries until it is disbursed. The Department of the Treasury maintains trust fund records, but balances on those records result from data reported to it by the services.
+
+Cash collections and disbursements are accounted for in detailed sales case accounting records which are maintained by the Defense Department's Security Assistance Accounting Center. The Center is also responsible for managing the trust fund.
+
+This report identified that the correct balance of the Navy's FMS Trust Fund was unknown due to discrepancies between Treasury records, service-reported data, and the actual case-level accounting maintained by the Security Assistance Accounting Center.`
+  },
+  'treasury_bulletin': {
+    title: 'US Treasury Bulletin Trust Fund Reports',
+    url: 'https://fiscaldata.treasury.gov/datasets/treasury-bulletin-trust-funds/',
+    excerpt: `Treasury Bulletin Trust Fund Reports - U.S. Treasury Fiscal Data
+
+The Treasury Bulletin dataset contains a mix of narrative, charts, and tables regarding U.S. Treasury financial operations and special reports. A portion of which is the Trust Fund Reports.
+
+This dataset contains the receipts, taxes, offsets, expenses, refunds, transfers, outlays, and balances for the Trust Fund Reports contained in the Treasury Bulletin.
+
+Each trust fund's data includes:
+- Receipts (collections from foreign countries via FMS)
+- Outlays (disbursements to defense contractors)
+- Transfers (between accounts)
+- Balances (remaining funds at period end)
+
+The dataset is updated quarterly and available in CSV, JSON, and XML formats.`
+  }
+};
+
+async function summarizeEnglishSource(sourceId) {
+  const source = englishSources[sourceId];
+  if (!source) return;
+
+  const button = document.getElementById('ai-btn-' + sourceId);
+  const originalText = button.textContent;
+  button.textContent = '🤖 分析中...';
+  button.disabled = true;
+
+  showAiModal({
+    title: '🤖 AI日本語要約：' + source.title,
+    body: '読み込み中... Groq Llama3.3で日本語要約を生成しています。',
+    footer: '原典：' + source.url
+  });
+
+  try {
+    const prompt = '以下は米国側の英語公的資料です。\n\n' +
+      'タイトル：' + source.title + '\n' +
+      'URL：' + source.url + '\n\n' +
+      '【英語原文抜粋】\n' + source.excerpt + '\n\n' +
+      '【依頼】\n' +
+      'この資料を、日本人ジャーナリスト向けに日本語で要約してください。\n' +
+      '- 400〜600字程度\n' +
+      '- 重要な数字は【】で囲んで強調\n' +
+      '- 構造的な問題点があれば指摘\n' +
+      '- 客観的なトーンで（推測は「と考えられる」「とみられる」で明示）\n' +
+      '- 結論を冒頭に置く';
+
+    const response = await fetch('https://133-18-167-199.nip.io/analyze', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ prompt: prompt })
+    });
+
+    if (!response.ok) throw new Error('API応答エラー: ' + response.status);
+
+    const data = await response.json();
+    const summary = data.response || data.result || data.text || JSON.stringify(data);
+
+    showAiModal({
+      title: '🤖 AI日本語要約：' + source.title,
+      body: summary,
+      footer: '分析：Groq Llama3.3 ｜ 原典：<a href="' + source.url + '" target="_blank" style="color:#4a8aff;">' + source.url + '</a>'
+    });
+  } catch (error) {
+    showAiModal({
+      title: '⚠️ AI要約に失敗しました',
+      body: 'AI分析サービスへの接続に失敗しました。原典をご確認ください。\n\nエラー：' + error.message,
+      footer: '原典：<a href="' + source.url + '" target="_blank" style="color:#4a8aff;">' + source.url + '</a>'
+    });
+  } finally {
+    button.textContent = originalText;
+    button.disabled = false;
+  }
+}
+
+function showAiModal({ title, body, footer }) {
+  document.getElementById('aiModalTitle').textContent = title;
+  document.getElementById('aiModalBody').textContent = body;
+  document.getElementById('aiModalFooter').innerHTML = footer;
+  document.getElementById('aiModalBg').classList.add('show');
+}
+
+function closeAiModal() {
+  document.getElementById('aiModalBg').classList.remove('show');
+}
+
+document.getElementById('aiModalBg').addEventListener('click', function(e) {
+  if (e.target === this) closeAiModal();
+});
+
+document.addEventListener('keydown', function(e) {
+  if (e.key === 'Escape') closeAiModal();
+});
+</script>
+
+</body>
+</html>

@@ -1,0 +1,785 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Weapons Don't Arrive, but the Money Funds U.S. Treasury Securities — Decoding Roughly 30 Years of Japan's FMS Trust Fund Through Primary Sources | Fiscal OSINT Japan</title>
+<meta name="description" content="Japan's cumulative FMS (Foreign Military Sales) purchases from 1950 to 2024 total approximately $69.6 billion (about ¥10.93 trillion at JPY 157/USD as of May 2026), per DSCA's official record. Japan's Board of Audit has flagged unresolved settlement balances continuously since 1997 — for roughly 30 years (29 years at time of writing). The prepayments are managed in U.S. Treasury securities at the Federal Reserve Bank of New York; in FY2023 alone, foreign exchange losses reached ¥123.9 billion. We decode the structure entirely through primary sources.">
+<meta property="og:title" content="Weapons Don't Arrive, but the Money Funds U.S. Treasury Securities — Decoding Roughly 30 Years of Japan's FMS Trust Fund">
+<meta property="og:description" content="Japan's cumulative FMS purchases ≈ $69.6B (¥10.93T). Board of Audit has flagged the issue for ~30 years. Prepayments invested in U.S. Treasury securities. FY2023 forex loss alone: ¥123.9B.">
+<meta property="og:type" content="article">
+<meta property="og:url" content="https://nana6fu.github.io/fiscal-osint-japan/articles/en/fms-trust-fund-30years.html">
+<meta name="twitter:card" content="summary_large_image">
+
+<link rel="alternate" hreflang="en" href="https://nana6fu.github.io/fiscal-osint-japan/articles/en/fms-trust-fund-30years.html">
+<link rel="alternate" hreflang="ja" href="https://nana6fu.github.io/fiscal-osint-japan/articles/fms-trust-fund-30years.html">
+<link rel="alternate" hreflang="x-default" href="https://nana6fu.github.io/fiscal-osint-japan/articles/fms-trust-fund-30years.html">
+<link rel="canonical" href="https://nana6fu.github.io/fiscal-osint-japan/articles/en/fms-trust-fund-30years.html">
+
+<style>
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+body {
+  font-family: -apple-system, BlinkMacSystemFont, "Helvetica Neue", Arial, sans-serif;
+  background: #0a0e1a; color: #e0e0e0; line-height: 1.85; font-size: 16px;
+  -webkit-font-smoothing: antialiased;
+}
+.container { max-width: 720px; margin: 0 auto; padding: 0 20px; }
+.nav { background: rgba(10,14,26,.95); padding: 14px 0; border-bottom: 1px solid #2a2f3e; position: sticky; top: 0; z-index: 100; backdrop-filter: blur(8px); }
+.nav .container { display: flex; justify-content: space-between; align-items: center; }
+.nav-back { color: #4a8aff; text-decoration: none; font-size: 14px; }
+.nav-back:hover { text-decoration: underline; }
+.nav-site { font-weight: 700; font-size: 15px; letter-spacing: .3px; }
+.nav-site .accent { color: #ff6b6b; }
+.lang-switch { display: inline-flex; align-items: center; gap: 6px; background: #1a1f2e; padding: 5px 12px; border-radius: 4px; font-size: 13px; color: #aaa; border: 1px solid #2a2f3e; margin-left: 12px; }
+.lang-switch a { color: #aaa; text-decoration: none; padding: 0 4px; }
+.lang-switch a.active { color: #ffd700; font-weight: 700; }
+.lang-switch a:hover { color: #4a8aff; }
+
+.article-header { padding: 60px 0 30px; border-bottom: 1px solid #2a2f3e; margin-bottom: 40px; }
+h1.article-title { font-size: 26px; line-height: 1.4; margin-bottom: 14px; color: #fff; font-weight: 800; letter-spacing: .2px; }
+.article-subtitle { font-size: 17px; color: #aaa; margin-bottom: 28px; line-height: 1.7; font-weight: 400; }
+.article-meta { display: flex; flex-wrap: wrap; gap: 14px; font-size: 13px; color: #888; align-items: center; }
+.article-meta .tag { background: #1a1f2e; padding: 3px 10px; border-radius: 4px; color: #aaa; }
+
+.tldr { background: #1a1f2e; border-left: 4px solid #ffd700; padding: 22px 26px; margin: 32px 0; border-radius: 4px; }
+.tldr-label { font-size: 12px; color: #ffd700; font-weight: 700; letter-spacing: 1.5px; margin-bottom: 10px; }
+.tldr p { margin: 0; }
+
+article p { margin-bottom: 1.5em; }
+article section { margin-bottom: 56px; }
+h2 { font-size: 22px; margin: 56px 0 24px; padding-bottom: 14px; border-bottom: 2px solid #2a2f3e; color: #fff; font-weight: 700; line-height: 1.4; }
+h3 { font-size: 17px; margin: 32px 0 16px; color: #fff; font-weight: 600; }
+strong { color: #fff; }
+em.num { color: #ffd700; font-style: normal; font-weight: 700; }
+.highlight-fact { color: #ff6b6b; font-weight: 700; }
+
+blockquote { background: #1a1f2e; border-left: 4px solid #ff6b6b; padding: 20px 26px; margin: 26px 0; border-radius: 4px; color: #ddd; font-size: 15px; }
+blockquote.jp { border-left-color: #4a8aff; }
+blockquote.us { border-left-color: #ff8c42; }
+blockquote.industry { border-left-color: #4ade80; }
+blockquote p { margin: 0; }
+blockquote p + p { margin-top: .8em; }
+blockquote .source { display: block; margin-top: 14px; font-size: 13px; color: #888; }
+blockquote .source a { color: #4a8aff; text-decoration: none; }
+blockquote .source a:hover { text-decoration: underline; }
+blockquote .quote-label { display: inline-block; font-size: 11px; font-weight: 700; padding: 2px 8px; border-radius: 3px; margin-bottom: 8px; letter-spacing: 1px; }
+blockquote.jp .quote-label { background: #1a3a5a; color: #4a8aff; }
+blockquote.us .quote-label { background: #4a2a1a; color: #ff8c42; }
+blockquote.industry .quote-label { background: #1a4a2a; color: #4ade80; }
+.source .highlight-link { color: #ffd700 !important; font-weight: 600; }
+
+.compare-table { width: 100%; border-collapse: collapse; margin: 26px 0; font-size: 14px; }
+.compare-table th, .compare-table td { padding: 12px 14px; text-align: left; border: 1px solid #2a2f3e; vertical-align: top; line-height: 1.6; }
+.compare-table thead { background: #1a1f2e; }
+.compare-table thead th { font-weight: 700; }
+.compare-table .row-label { background: #151a26; font-weight: 600; width: 22%; color: #ccc; }
+
+.trend-table { width: 100%; border-collapse: collapse; margin: 26px 0; font-size: 14px; }
+.trend-table th, .trend-table td { padding: 10px 12px; text-align: right; border: 1px solid #2a2f3e; line-height: 1.6; }
+.trend-table th { background: #1a1f2e; font-weight: 700; text-align: center; color: #fff; }
+.trend-table td:first-child { text-align: left; background: #151a26; font-weight: 600; color: #ccc; }
+.trend-table .highlight { color: #ffd700; font-weight: 700; }
+.trend-table .danger { color: #ff6b6b; font-weight: 700; }
+.trend-table .good { color: #4ade80; font-weight: 700; }
+
+.marker { display: inline-block; padding: 2px 9px; border-radius: 3px; font-size: 12px; margin-right: 6px; font-weight: 600; letter-spacing: .3px; }
+.marker-ai { background: #2a2f3e; color: #b0b0b0; }
+.marker-primary { background: #1a3a4a; color: #4a8aff; }
+.marker-warn { background: #4a2a1a; color: #ffaa00; }
+
+a { color: #4a8aff; text-decoration: none; }
+a:hover { text-decoration: underline; }
+
+.flow-diagram {
+  background: #151a26;
+  border: 1px solid #2a2f3e;
+  border-radius: 8px;
+  padding: 28px 24px;
+  margin: 32px 0;
+  font-size: 13px;
+}
+.flow-diagram h4 {
+  color: #ffd700;
+  margin-bottom: 20px;
+  font-size: 14px;
+  text-align: center;
+  font-weight: 700;
+}
+.flow-svg-wrapper { overflow-x: auto; }
+.flow-svg-wrapper svg { display: block; margin: 0 auto; max-width: 100%; height: auto; }
+
+.analogy-card {
+  background: linear-gradient(135deg, #1a1f2e 0%, #15293a 100%);
+  border: 1px solid #2a4a6a;
+  border-radius: 8px;
+  padding: 24px;
+  margin: 28px 0;
+}
+.analogy-card h4 {
+  color: #4a8aff;
+  font-size: 15px;
+  margin-bottom: 16px;
+  border: none;
+  padding: 0;
+  font-weight: 700;
+}
+.analogy-table { font-size: 13px; }
+.analogy-table th, .analogy-table td { padding: 10px 12px; border: 1px solid #2a4a6a; vertical-align: top; line-height: 1.6; }
+.analogy-table th { background: #1a3a5a; color: #fff; font-weight: 700; text-align: center; }
+.analogy-table .stage { background: #15293a; color: #ffd700; font-weight: 600; width: 18%; }
+.analogy-table .fms-real { width: 41%; color: #e0e0e0; }
+.analogy-table .private-eq { width: 41%; color: #bbb; }
+
+.en-source-card {
+  background: #1a1f2e;
+  border: 1px solid #ff8c42;
+  border-radius: 8px;
+  padding: 22px;
+  margin: 24px 0;
+}
+.en-source-card .src-header {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 14px;
+}
+.en-source-card .src-flag { font-size: 28px; }
+.en-source-card .src-title { color: #fff; font-weight: 700; font-size: 15px; line-height: 1.4; }
+.en-source-card .src-meta { color: #888; font-size: 12px; margin-bottom: 14px; }
+.en-source-card .src-key { background: #15293a; padding: 12px 16px; border-radius: 4px; margin-bottom: 16px; color: #fff; font-size: 14px; line-height: 1.6; }
+.en-source-card .src-key strong { color: #ffd700; }
+.en-source-card .src-actions { display: flex; flex-wrap: wrap; gap: 10px; }
+.btn-original {
+  display: inline-block;
+  padding: 8px 16px;
+  border-radius: 4px;
+  font-size: 13px;
+  font-weight: 600;
+  text-decoration: none;
+  cursor: pointer;
+  border: none;
+  font-family: inherit;
+  background: #2a3548;
+  color: #4a8aff;
+  border: 1px solid #4a8aff;
+}
+.btn-original:hover { background: #4a8aff; color: #fff; text-decoration: none; }
+
+.sources, .changelog { background: #1a1f2e; padding: 24px 26px; border-radius: 8px; margin: 36px 0; font-size: 14px; }
+.sources h3, .changelog h3 { margin: 0 0 14px; color: #ffd700; font-size: 16px; border: none; padding: 0; }
+.sources ol { padding-left: 1.5em; }
+.sources li { margin-bottom: 10px; color: #ccc; line-height: 1.7; }
+.sources .policy { margin-top: 20px; padding-top: 16px; border-top: 1px solid #2a2f3e; }
+.sources .policy ul { padding-left: 1.5em; margin-top: 10px; }
+.sources .policy li { margin-bottom: 6px; }
+.changelog ul { padding-left: 1.5em; margin-top: 8px; }
+.changelog li { margin-bottom: 8px; color: #ccc; }
+.changelog li .date { color: #888; font-size: 13px; margin-right: 10px; }
+
+.next-article { background: #151a26; padding: 24px; border-radius: 8px; margin: 36px 0; border: 1px solid #2a2f3e; }
+.next-article h3 { margin: 0 0 12px; color: #fff; border: none; padding: 0; }
+.next-article p { margin-bottom: 0; color: #bbb; font-size: 14px; }
+
+footer { border-top: 1px solid #2a2f3e; padding: 30px 0; margin-top: 60px; text-align: center; font-size: 13px; color: #666; }
+footer a { color: #888; }
+footer p { margin-bottom: 6px; }
+
+@media (max-width: 768px) {
+  body { font-size: 15px; }
+  h1.article-title { font-size: 20px; }
+  h2 { font-size: 19px; }
+  h3 { font-size: 16px; }
+  .container { padding: 0 16px; }
+  .article-header { padding: 40px 0 24px; }
+  blockquote, .tldr { padding: 16px 20px; }
+  .compare-table, .trend-table, .analogy-table { font-size: 12px; }
+  .compare-table th, .compare-table td, .trend-table th, .trend-table td, .analogy-table th, .analogy-table td { padding: 8px 10px; }
+  .lang-switch { margin-left: 0; }
+  .nav .container { flex-wrap: wrap; gap: 8px; }
+  .flow-diagram { padding: 18px 14px; }
+  .en-source-card .src-actions { flex-direction: column; }
+  .btn-original { width: 100%; text-align: center; }
+}
+</style>
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "NewsArticle",
+  "headline": "Weapons Don't Arrive, but the Money Funds U.S. Treasury Securities — Decoding Roughly 30 Years of Japan's FMS Trust Fund Through Primary Sources",
+  "datePublished": "2026-05-25T09:00:00+09:00",
+  "dateModified": "2026-05-25T09:00:00+09:00",
+  "author": { "@type": "Organization", "name": "Fiscal OSINT Japan", "url": "https://nana6fu.github.io/fiscal-osint-japan/" },
+  "publisher": { "@type": "Organization", "name": "Fiscal OSINT Japan", "url": "https://nana6fu.github.io/fiscal-osint-japan/" },
+  "description": "Japan's cumulative FMS purchases from 1950 to 2024 total approximately $69.6 billion. Japan's Board of Audit has flagged unresolved settlement balances continuously since 1997. Prepayments are invested in U.S. Treasury securities; FY2023 forex losses alone reached ¥123.9 billion.",
+  "keywords": "FMS, Foreign Military Sales, Trust Fund, Board of Audit, DSCA, GAO, Japan defense procurement, U.S. Treasury securities, Tomahawk, F-35, OSINT",
+  "mainEntityOfPage": { "@type": "WebPage", "@id": "https://nana6fu.github.io/fiscal-osint-japan/articles/en/fms-trust-fund-30years.html" },
+  "articleSection": "Investigative Journalism",
+  "license": "https://creativecommons.org/licenses/by/4.0/",
+  "inLanguage": "en",
+  "isAccessibleForFree": true
+}
+</script>
+</head>
+<body>
+
+<nav class="nav">
+  <div class="container">
+    <a href="../../index.html" class="nav-back">← Dashboard (Japanese)</a>
+    <div>
+      <span class="nav-site"><span class="accent">Fiscal OSINT</span> Japan</span>
+      <span class="lang-switch">
+        🌐
+        <a href="../fms-trust-fund-30years.html">JP</a>
+        <span style="color:#555;">/</span>
+        <a href="fms-trust-fund-30years.html" class="active">EN</a>
+      </span>
+    </div>
+  </div>
+</nav>
+
+<div class="container">
+
+  <header class="article-header">
+    <h1 class="article-title">Weapons Don't Arrive, but the Money Funds U.S. Treasury Securities — Decoding Roughly 30 Years of Japan's FMS Trust Fund Through Primary Sources</h1>
+    <p class="article-subtitle">Japan's cumulative FMS (Foreign Military Sales) purchases from 1950 to 2024 total approximately <strong>$69.6 billion (about ¥10.93 trillion</strong>, at JPY 157/USD as of May 2026), according to U.S. DSCA's official record. Japan's Board of Audit has flagged unresolved settlement balances continuously since <strong>1997 — for roughly 30 years</strong>. Prepayments are managed in <strong>U.S. Treasury securities</strong> at the Federal Reserve Bank of New York; in FY2023 alone, foreign exchange losses reached <strong>¥123.9 billion</strong>.</p>
+    
+    <div class="article-meta">
+      <span>📅 Published: 2026/05/25</span>
+      <span>🔄 Updated: 2026/05/25</span>
+      <span class="tag">Article #3</span>
+      <span class="tag">Series 1: US-Bound Public Capital Flows</span>
+      <span class="tag">FMS</span>
+      <span class="tag">Board of Audit</span>
+      <span class="tag">U.S. Treasury</span>
+      <span class="tag">Forex Loss</span>
+      <span class="tag">OSINT</span>
+      <span>📝 ~6,500 words / ~25 min read</span>
+    </div>
+  </header>
+
+  <article>
+  
+    <div class="tldr">
+      <div class="tldr-label">TL;DR</div>
+      <p>① Japan's cumulative FMS purchases (FY1950–FY2024): <em class="num">$69.6 billion (about ¥10.93 trillion)</em>, per U.S. DSCA's official Historical Sales Book. Yen conversion uses JPY 157/USD as of May 2026; reference value.<br>
+      ② Japan's Board of Audit has flagged FMS-related unresolved settlements continuously since <em class="num">FY1997 (Heisei 9)</em> — for roughly 30 years (29 years at time of writing). <strong>FY1997 is also the year Japan joined the "Accelerated Case Closure Procedures" (ACCP)</strong>, the U.S. system targeting final case closure within 2 years of delivery. Over FY2013–FY2017, unresolved balances stayed in the <strong>¥90–122 billion range annually</strong> (Board of Audit Reference Chart 2).<br>
+      ③ Prepayments are deposited in an interest-bearing account at the Federal Reserve Bank of New York. Only what's needed for manufacturing flows into the "FMS Trust Fund." <span class="highlight-fact">The remainder is invested in U.S. Treasury securities and similar instruments.</span> Interest accrues in the "0QQ Account" on the U.S. side.<br>
+      ④ In FY2023 alone, foreign exchange losses totaled <em class="num">¥123.9 billion</em>. Japan's outstanding future-year liability for defense procurement doubled in 5 years (¥4.7T → ¥9.46T). The <strong>U.S. Government Accountability Office (GAO) flagged the same Trust Fund balance problem in 1979</strong>.</p>
+    </div>
+
+    <section>
+      <h2>1. Introduction — The "Where Does the Money Actually Go" Question</h2>
+      
+      <p>The previous two articles in this series — "<a href="80trillion.html">Tracing the ¥80 Trillion US Investment Pledge Through Japan's FILP Special Account</a>" (Article #1) and "<a href="special-account-defense.html">Japan's One-Time Defense Funding Scheme — The Special Law That Extracted ¥1.84 Trillion from Special Accounts, and the Tomahawks Bought at Twice the US Navy Price</a>" (Article #2) — both addressed <strong>public capital that is about to flow, or is currently flowing</strong>, from Japan to the United States. The routes and legal foundations can be verified through primary sources: from the FILP Special Account through JBIC to U.S. companies; from the Foreign Exchange Fund and FILP Special Accounts through the general account to FMS and the U.S. Treasury.</p>
+
+      <p>This article asks a different question: <strong>what happens to money that has already been transferred?</strong> Under FMS (Foreign Military Sales), weapon deliveries are often delayed by several to over ten years. Japan transfers the full estimated procurement price in advance. During the intervening period, where is the money, and what is being done with it? Are the weapons actually being delivered? For payments not yet matched to delivered weapons, who is treating that money as theirs?</p>
+
+      <p>Here is the conclusion up front. On the Japanese side, the Board of Audit has been flagging the same problem <strong>continuously since FY1997 (Heisei 9) — for roughly 30 years</strong>. There are words of improvement, but the structure does not change. "Unresolved settlement amounts are at high levels," "Final settlement statements take considerable time to arrive," "Japan has not been requesting the return of refundable funds." This article reconstructs that structure using only primary sources.</p>
+
+      <p style="background:#151a26; padding:14px 18px; border-radius:4px; border-left:3px solid #4a8aff; font-size:14px; color:#bbb;"><strong style="color:#4a8aff;">Context for international readers:</strong> FMS is a U.S. system through which eligible foreign governments may purchase defense articles, services, and training from the U.S. Government, authorized by the Arms Export Control Act. Japan has been an FMS purchaser since 1954, when both countries signed the U.S.-Japan Mutual Defense Assistance (MDA) Agreement. As Japan's defense spending expands sharply under the FY2023–FY2027 Defense Buildup Program, FMS procurement has become a central conduit of U.S.-bound defense expenditure. Japan's Board of Audit — equivalent to the U.S. GAO — has independent audit authority and reports directly to the Diet (Parliament).</p>
+    </section>
+
+    <section>
+      <h2>2. The Structure of the FMS Trust Fund — Weapon Payments Flow to Three Places</h2>
+
+      <p>FMS, authorized by the U.S. Arms Export Control Act, is a system under which the U.S. Government provides defense articles, services, and training to foreign governments for a fee. The official framing is "government-to-government, not commercial transaction," and the principle is that "the U.S. Government does not profit from the transaction." However, as we will see, the operational structure of this principle has its own particularities.</p>
+
+      <p>In Japanese FMS procurement, payment is not made after the defense article or service is delivered. Instead, <strong>the entire "estimated procurement price" is paid in advance at the time of contract signing</strong>. The remitted dollars are pooled in an "interest-bearing account" inside the Federal Reserve Bank of New York. Japan's Board of Audit's FY2018 Diet-requested investigation report describes what happens next:</p>
+
+      <blockquote class="jp">
+        <div class="quote-label">🇯🇵 Board of Audit FY2018 Diet-Requested Report (published October 18, 2019)</div>
+        <p>"The <strong>Trust Fund</strong> is an account into which the U.S. Government deposits, through a prescribed procedure from the interest-bearing account at the Federal Reserve Bank, the portion necessary for acquiring defense articles or services for the purchasing country — also called the 'holding account.'"</p>
+        <p>"<strong>The funds in the interest-bearing account that are not deposited into the Trust Fund are invested in U.S. Treasury securities and similar instruments at the Federal Reserve Bank, and the interest generated is managed in an account called '0QQ.'</strong>"</p>
+        <span class="source">— Source: Japan's Board of Audit, FY2018 Diet-Requested Report, Chapter 2 "The FMS Mechanism"<br>
+        🔗 <a href="https://report.jbaudit.go.jp/org/h30/YOUSEI2/2018-h30-Y2010-0.htm" target="_blank" class="highlight-link">📍 View original (Japanese)</a></span>
+      </blockquote>
+
+      <p>In other words, the dollars Japan transfers as prepayment serve a <strong>dual role</strong>: weapon manufacturing funds, and U.S. Treasury securities investment funds. The longer weapon delivery and settlement are delayed, the longer the U.S. Treasury retains Japanese money to hold U.S. government debt.</p>
+
+      <div class="flow-diagram">
+        <h4>Figure 1 — Flow of FMS Prepayments (reconstructed from primary sources)</h4>
+        <div class="flow-svg-wrapper">
+          <svg viewBox="0 0 660 460" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Flow diagram of FMS prepayments">
+            <defs>
+              <marker id="arr" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+                <path d="M 0 0 L 10 5 L 0 10 z" fill="#888"/>
+              </marker>
+              <marker id="arr-y" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+                <path d="M 0 0 L 10 5 L 0 10 z" fill="#ffd700"/>
+              </marker>
+              <marker id="arr-r" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+                <path d="M 0 0 L 10 5 L 0 10 z" fill="#ff6b6b"/>
+              </marker>
+            </defs>
+
+            <rect x="240" y="10" width="180" height="50" rx="6" fill="#1a3a5a" stroke="#4a8aff" stroke-width="2"/>
+            <text x="330" y="35" text-anchor="middle" fill="#fff" font-size="14" font-weight="700">🇯🇵 Japan (Ministry of Defense)</text>
+            <text x="330" y="52" text-anchor="middle" fill="#aaa" font-size="10">Full estimated price prepaid</text>
+
+            <path d="M 330 60 L 330 95" stroke="#888" stroke-width="2" marker-end="url(#arr)"/>
+            <text x="345" y="82" fill="#aaa" font-size="11">Full amount (USD)</text>
+
+            <rect x="180" y="100" width="300" height="55" rx="6" fill="#2a2f3e" stroke="#ff8c42" stroke-width="2"/>
+            <text x="330" y="123" text-anchor="middle" fill="#fff" font-size="13" font-weight="700">NY Fed Interest-Bearing Account</text>
+            <text x="330" y="141" text-anchor="middle" fill="#aaa" font-size="11">(at Federal Reserve Bank of New York)</text>
+
+            <path d="M 270 160 L 170 200" stroke="#4ade80" stroke-width="2" marker-end="url(#arr)"/>
+            <text x="180" y="190" fill="#4ade80" font-size="11" font-weight="600">Only what's needed</text>
+            <text x="180" y="205" fill="#888" font-size="10">(~2 months of avg. payment)</text>
+
+            <path d="M 390 160 L 490 200" stroke="#ff6b6b" stroke-width="2" marker-end="url(#arr-r)"/>
+            <text x="455" y="190" fill="#ff6b6b" font-size="11" font-weight="600">Remainder</text>
+
+            <rect x="40" y="205" width="240" height="60" rx="6" fill="#1a3a5a" stroke="#4ade80" stroke-width="2"/>
+            <text x="160" y="228" text-anchor="middle" fill="#fff" font-size="13" font-weight="700">FMS Trust Fund (Holding)</text>
+            <text x="160" y="247" text-anchor="middle" fill="#aaa" font-size="10">Held for weapon manufacturing</text>
+
+            <rect x="380" y="205" width="240" height="60" rx="6" fill="#3a1a1a" stroke="#ff6b6b" stroke-width="2"/>
+            <text x="500" y="228" text-anchor="middle" fill="#ff6b6b" font-size="13" font-weight="700">Invested in U.S. Treasury Securities</text>
+            <text x="500" y="247" text-anchor="middle" fill="#aaa" font-size="10">= Japan's money funds U.S. govt debt</text>
+
+            <path d="M 160 270 L 160 310" stroke="#888" stroke-width="2" marker-end="url(#arr)"/>
+            <rect x="40" y="315" width="240" height="50" rx="6" fill="#1a2a1a" stroke="#4ade80" stroke-width="1.5"/>
+            <text x="160" y="340" text-anchor="middle" fill="#fff" font-size="12" font-weight="700">Payments to U.S. Manufacturers</text>
+            <text x="160" y="355" text-anchor="middle" fill="#aaa" font-size="10">(Lockheed, Boeing, Raytheon, etc.)</text>
+
+            <path d="M 500 270 L 500 310" stroke="#ff6b6b" stroke-width="2" marker-end="url(#arr-r)"/>
+            <rect x="380" y="315" width="240" height="50" rx="6" fill="#2a1a1a" stroke="#ffd700" stroke-width="1.5"/>
+            <text x="500" y="335" text-anchor="middle" fill="#ffd700" font-size="12" font-weight="700">0QQ Account (Interest)</text>
+            <text x="500" y="352" text-anchor="middle" fill="#aaa" font-size="10">Returns to Japan only on request</text>
+
+            <path d="M 160 365 L 160 405" stroke="#888" stroke-width="2" marker-end="url(#arr)"/>
+            <rect x="40" y="410" width="240" height="40" rx="6" fill="#1a2a1a" stroke="#4ade80" stroke-width="1.5"/>
+            <text x="160" y="435" text-anchor="middle" fill="#fff" font-size="11">Weapons delivered to Japan (years later)</text>
+
+            <path d="M 500 365 L 500 405" stroke="#ffd700" stroke-width="2" stroke-dasharray="4,3" marker-end="url(#arr-y)"/>
+            <rect x="380" y="410" width="240" height="40" rx="6" fill="#2a2010" stroke="#ffd700" stroke-width="1.5" stroke-dasharray="4,3"/>
+            <text x="500" y="435" text-anchor="middle" fill="#ffd700" font-size="11">Returned to Japan if requested</text>
+          </svg>
+        </div>
+        <p style="text-align:center; color:#888; font-size:12px; margin-top:14px;">Source: Composed by the editorial team based on Japan's Board of Audit FY2018 Diet-Requested Report, Chapter 2 "The FMS Mechanism."</p>
+      </div>
+
+      <h3>A Private-Sector Analogy — Buying a $100 Million Custom Machine</h3>
+      
+      <p>To understand this structure intuitively, consider a private-sector analogy: you place an order with a U.S. vendor for a custom machine listed at $100 million. With administrative surcharges (general administration 3.2% + contract administration 1.2%), the total comes to roughly <em class="num">$104.4 million</em>. You wire <strong>the full $104.4 million up front to the vendor's bank account at the time of contract signing</strong>.</p>
+
+      <div class="analogy-card">
+        <h4>💡 Private-Sector Analogy: FMS vs. Standard Commercial Practice</h4>
+        <table class="analogy-table">
+          <thead>
+            <tr>
+              <th>Stage</th>
+              <th>FMS (Actual Practice)</th>
+              <th>Private-Sector Equivalent</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td class="stage">Contract</td>
+              <td class="fms-real">Estimated $100M + G&A 3.2% + Contract Mgmt 1.2% ≈ $104.4M</td>
+              <td class="private-eq">"I'll buy your custom machine for $104.4M including handling fees."</td>
+            </tr>
+            <tr>
+              <td class="stage">Payment</td>
+              <td class="fms-real">Full amount wired to NY Fed interest-bearing account up front</td>
+              <td class="private-eq">Full $104.4M wired in cash to vendor's account</td>
+            </tr>
+            <tr>
+              <td class="stage">Operation</td>
+              <td class="fms-real">Only ~2 months of avg. payment goes to Trust Fund; remainder invested in U.S. Treasury securities</td>
+              <td class="private-eq">Vendor orders only $5M worth of parts initially; <strong>parks the remaining $99M elsewhere and keeps the interest</strong></td>
+            </tr>
+            <tr>
+              <td class="stage">Delivery</td>
+              <td class="fms-real">Several to over ten years of delay</td>
+              <td class="private-eq">"Your machine will be delivered in 5 years. We need to wait for other customers' orders to finish too."</td>
+            </tr>
+            <tr>
+              <td class="stage">Settlement</td>
+              <td class="fms-real">Wait for final settlement statement; refunds require Japan's active request</td>
+              <td class="private-eq">"We won't automatically refund any overpayment. Please send us a written claim."</td>
+            </tr>
+            <tr>
+              <td class="stage">Interest</td>
+              <td class="fms-real">Accumulates in 0QQ account on U.S. side; not returned unless requested</td>
+              <td class="private-eq">Investment interest also "ours unless you ask for it back"</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <p>No one would agree to these terms in a normal commercial transaction. <strong>FMS is presented as government-to-government with "the U.S. Government does not profit" — but its cash-management structure is functionally indistinguishable from commercial financing</strong>. That reading is not the editorial's invention; it is what Japan's Board of Audit makes evident through its primary-source documentation.</p>
+
+      <p><span class="marker marker-warn">⚠️ Note</span> This analogy is for intuitive understanding and not every contract operates exactly this way. Administrative surcharges include legitimate cost-recovery components, and the Trust Fund deposit ratio and interest treatment vary by contract and year. Individual cases are examined in subsequent chapters.</p>
+    </section>
+
+    <section>
+      <h2>3. FY1997 — The Year Japan Joined ACCP, and the Year the Board of Audit First Raised the Alarm</h2>
+
+      <p>Japan has been an FMS purchaser since the 1954 U.S.-Japan Mutual Defense Assistance (MDA) Agreement. For over 40 years, the unresolved-settlements problem did not surface publicly. The turning point came in <strong>FY1997 (Heisei 9)</strong>.</p>
+
+      <p>That year, the United States had introduced the "<strong>Accelerated Case Closure Procedures (ACCP)</strong>" — a system targeting final settlement statement issuance within 2 years of delivery completion. Japan joined ACCP the same year. Simultaneously, Japan's Board of Audit, for the first time, addressed FMS unresolved-settlement problems in its FY1997 settlement audit report as a "matter requiring special note."</p>
+
+      <blockquote class="jp">
+        <div class="quote-label">🇯🇵 Board of Audit FY2018 Diet-Requested Report, Chapter 3 "Audit Findings and Opinions"</div>
+        <p>"In its FY1997 settlement audit report, the Board of Audit included as a 'matter requiring special note' the situation in which, regarding FMS central procurement by the (then) Japan Defense Agency, <strong>unresolved settlement amounts had reached high levels due to non-delivery of procured items, and prepayments had become excessive due to overestimated quotations</strong>."</p>
+        <p>"In its FY2002 settlement audit report, the Board noted that despite the Ministry of Defense's efforts to improve FMS procurement, <strong>unresolved settlement amounts remained at high levels</strong>, and again addressed this as a 'matter requiring special note.'"</p>
+        <span class="source">— Source: Board of Audit FY2018 Diet-Requested Report, Chapter 3<br>
+        🔗 <a href="https://report.jbaudit.go.jp/org/h30/YOUSEI2/2018-h30-Y2087-0.htm" target="_blank" class="highlight-link">📍 View original (Japanese)</a></span>
+      </blockquote>
+
+      <p>Subsequent years — FY2013, FY2016, and FY2018 (the comprehensive Diet-requested investigation) — saw the Board of Audit continue to flag the same fundamental problem. Reform efforts have been undertaken, but the absolute level of unresolved settlements has not declined.</p>
+
+      <p><span class="highlight-fact">The year Japan joined ACCP (1997) and the year the Board of Audit first flagged the unresolved-settlement problem (1997) are the same year</span>. This is not coincidence; it suggests that operating ACCP made the unresolved-settlement structure visible.</p>
+    </section>
+
+    <section>
+      <h2>4. ¥100 Billion Per Year as the New Normal — FY2013–FY2017 Data</h2>
+
+      <p>The FY2018 Diet-requested investigation report tabulates unresolved-settlement cases over the FY2013–FY2017 period in detail, separating equipment cases (involving physical delivery) from service cases (such as the Cooperative Logistics Supply Support Arrangement / CLSSA).</p>
+
+      <table class="trend-table">
+        <thead>
+          <tr>
+            <th>FY</th>
+            <th>Equipment Cases (¥B)</th>
+            <th>Service Cases (¥B)</th>
+            <th>Total (¥B)</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr><td>FY2013</td><td>55.7</td><td>58.5</td><td class="danger">114.2</td></tr>
+          <tr><td>FY2014</td><td>34.9</td><td>55.0</td><td>89.9</td></tr>
+          <tr><td>FY2015</td><td>52.9</td><td>56.7</td><td>109.7</td></tr>
+          <tr><td>FY2016</td><td>58.5</td><td>63.5</td><td class="danger">122.0</td></tr>
+          <tr><td>FY2017</td><td>42.5</td><td>64.2</td><td>106.8</td></tr>
+          <tr style="background:#15293a;"><td><strong>5-yr total</strong></td><td><strong>244.5</strong></td><td><strong>297.9</strong></td><td class="highlight"><strong>542.4</strong></td></tr>
+        </tbody>
+      </table>
+      <p style="font-size:13px; color:#888; margin-top:-10px;">Source: Board of Audit FY2018 Diet-Requested Report, Reference Chart 2 "Trends in number of cases and unresolved settlement amounts at FMS Central and Local Procurement."<br>
+      🔗 <a href="https://report.jbaudit.go.jp/org/h30/YOUSEI2/2018-h30-Y2107-2.htm" target="_blank" class="highlight-link">📍 View Reference Chart 2 (Japanese)</a></p>
+
+      <p>For five consecutive years, unresolved settlements stayed in the ¥90–122 billion range annually. <strong>Over the 5-year period, approximately ¥542.4 billion in FMS prepayments accumulated</strong> as either undelivered items or items without completed settlement statements on the U.S. side. This exceeds the scale of "temporary administrative delays" and is more naturally read as structural accumulation.</p>
+
+      <p>The Board of Audit itself wrote in its findings:</p>
+
+      <blockquote class="jp">
+        <div class="quote-label">🇯🇵 Board of Audit Findings</div>
+        <p>"Even taking into account the characteristics of FMS procurement, <strong>the number of unresolved cases and the unresolved settlement amounts remain at high levels</strong>."</p>
+        <p>"<strong>Despite the adoption of the Accelerated Case Closure Procedures</strong>, many cases had not received final settlement statements within 2 years after delivery completion."</p>
+        <span class="source">— Source: Board of Audit FY2018 Diet-Requested Report, Chapter 3<br>
+        🔗 <a href="https://report.jbaudit.go.jp/org/h30/YOUSEI2/2018-h30-Y2087-0.htm" target="_blank" class="highlight-link">📍 View Chapter 3 (Japanese)</a></span>
+      </blockquote>
+
+      <p>"Settlement within 2 years" — the target that ACCP was designed to achieve — is not, in reality, being delivered. That is the Board of Audit's bottom line.</p>
+    </section>
+
+    <section>
+      <h2>5. The F-35A Price Puzzle — Same Aircraft, $40–56M Per Unit Difference</h2>
+
+      <p>Alongside the unresolved-settlement problem, the Board of Audit has flagged <strong>price transparency</strong>. The F-35A fighter jet provides a documented example of identical equipment being procured at different prices between Japan and the United States.</p>
+
+      <blockquote class="jp">
+        <div class="quote-label">🇯🇵 Board of Audit FY2018 Diet-Requested Report, Chapter 2</div>
+        <p>"For F-35A <strong>Lot 9</strong>, the difference between Japan's price and the U.S. DoD's published price was <strong>$56.1 million</strong> per aircraft."</p>
+        <p>"For F-35A <strong>Lot 10 and later</strong>, the difference between Japan's price and the U.S. DoD's published price was <strong>approximately $40 million</strong> per aircraft."</p>
+        <span class="source">— Source: Board of Audit FY2018 Diet-Requested Report, Figure 2-2-8 area<br>
+        🔗 <a href="https://report.jbaudit.go.jp/org/h30/YOUSEI2/2018-h30-Y2010-0.htm" target="_blank" class="highlight-link">📍 View Chapter 2 (Japanese)</a></span>
+      </blockquote>
+
+      <p>At <strong>JPY 157/USD (May 2026 reference)</strong>, Lot 9 was about <em class="num">¥8.8 billion per aircraft</em> in difference, and Lot 10 and later about <em class="num">¥6.3 billion per aircraft</em>. <strong>Japan was procuring identical F-35As at $40–56 million more per unit than the U.S. DoD's own published procurement price.</strong></p>
+
+      <p>The U.S. DSCA (Defense Security Cooperation Agency) explains this price differential through "specification differences (Japan-specific additional equipment)," "development cost-sharing (FACO / Final Assembly and Check-Out facility costs)," and "exchange-rate variation." The Board of Audit accepts parts of these explanations as legitimate. But it also writes:</p>
+
+      <blockquote class="jp">
+        <div class="quote-label">🇯🇵 Board of Audit Findings</div>
+        <p>"The <strong>possibility of differences arising from price negotiations cannot be completely ruled out</strong>. Continued effort is needed to encourage the U.S. Government to make LOA (Letter of Offer and Acceptance) descriptions more detailed, to ensure price transparency."</p>
+        <span class="source">— Source: Board of Audit FY2018 Diet-Requested Report, Chapter 3<br>
+        🔗 <a href="https://report.jbaudit.go.jp/org/h30/YOUSEI2/2018-h30-Y2087-0.htm" target="_blank" class="highlight-link">📍 View Chapter 3 (Japanese)</a></span>
+      </blockquote>
+
+      <p>In other words, "<strong>there is an explanation, but whether the differential is justified cannot be verified</strong>." This is the Board of Audit's effective position. Note: yen-converted figures above use May 2026 rates as a reference; they do not represent the actual yen amounts spent at the time of contract.</p>
+
+      <p>The same structure observed in Article #2's Tomahawk pricing (1.9–2.3× the U.S. Navy's domestic price) recurs here in F-35A procurement.</p>
+    </section>
+
+    <section>
+      <h2>6. Bilateral on Paper, Multilateral Bundled Procurement in Practice</h2>
+
+      <p>Another structural reason settlements take so long is <strong>multilateral bundled procurement</strong>. While the official framing of FMS is "bilateral, between the U.S. Government and the purchasing country government," the actual purchase contracts the U.S. Government concludes with weapon manufacturers often bundle orders from multiple countries. The Board of Audit makes this explicit:</p>
+
+      <blockquote class="jp">
+        <div class="quote-label">🇯🇵 Board of Audit FY2018 Diet-Requested Report, Chapter 2</div>
+        <p>"In cases where <strong>the U.S. Government bundles the procurement of defense articles to be provided to multiple purchasing countries under FMS into a single purchase contract</strong>, even if one purchasing country has received full delivery of its defense articles, <strong>that country cannot receive the final settlement statement and is unable to receive the return of surplus funds for an extended period</strong>."</p>
+        <span class="source">— Source: Board of Audit FY2018 Diet-Requested Report, Chapter 2<br>
+        🔗 <a href="https://report.jbaudit.go.jp/org/h30/YOUSEI2/2018-h30-Y2010-0.htm" target="_blank" class="highlight-link">📍 View Chapter 2 (Japanese)</a></span>
+      </blockquote>
+
+      <p>The F-35A illustrates the point. The U.S. Government's contract with Lockheed Martin for "Lot XX, X aircraft of F-35A" bundles orders from Japan, Australia, the U.K., Israel, Norway, and others. Even after Japan's allocation is fully delivered, <strong>the overall U.S.-Lockheed contract cannot be settled until other countries' allocations are completed</strong>. As a result, Japan never receives its final settlement statement, and any overpayment is not refunded.</p>
+
+      <p>The 1954 U.S.-Japan MDA Agreement is, on paper, a bilateral framework. But <strong>2020s FMS practice has effectively become multilateral bundled procurement</strong>. The gap between formal structure and operational reality is one of the structural factors that supports the unresolved-settlement problem.</p>
+    </section>
+
+    <section>
+      <h2>7. FY2023 — A Single Year of ¥123.9 Billion in Foreign Exchange Losses</h2>
+
+      <p>The Board of Audit's FY2023 Settlement Audit Report visualized another FMS-related problem: <strong>foreign exchange losses</strong>. Because FMS contracts are denominated in U.S. dollars, the gap between the exchange rate at contract signing and at payment translates directly into cost. As the yen weakens, the same dollar-denominated contract requires more yen.</p>
+
+      <p>The Board of Audit's FY2023 report estimates the 5-year differential for the Ministry of Defense's FMS Central Procurement:</p>
+
+      <table class="trend-table">
+        <thead>
+          <tr>
+            <th>FY</th>
+            <th>USD Paid</th>
+            <th>At Contract Rate (Est.)</th>
+            <th>At Payment Rate (Actual)</th>
+            <th>Difference</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr><td>FY2019</td><td>$3.96B</td><td>¥453.3B</td><td>¥436.2B</td><td class="good">▲17.1B</td></tr>
+          <tr><td>FY2020</td><td>$2.61B</td><td>¥289.5B</td><td>¥286.8B</td><td class="good">▲2.7B</td></tr>
+          <tr><td>FY2021</td><td>$4.30B</td><td>¥476.8B</td><td>¥464.7B</td><td class="good">▲12.1B</td></tr>
+          <tr><td>FY2022</td><td>$3.78B</td><td>¥416.1B</td><td>¥407.7B</td><td class="good">▲8.3B</td></tr>
+          <tr style="background:#3a1a1a;"><td><strong>FY2023</strong></td><td><strong>$5.79B</strong></td><td><strong>¥668.8B</strong></td><td><strong>¥792.8B</strong></td><td class="danger"><strong>+¥123.9B</strong></td></tr>
+        </tbody>
+      </table>
+      <p style="font-size:13px; color:#888; margin-top:-10px;">Source: Board of Audit FY2023 Settlement Audit Report, Section 6 "Status of Defense Budget Execution."<br>
+      🔗 <a href="https://www.jbaudit.go.jp/report/new/index_r5.html" target="_blank" class="highlight-link">📍 FY2023 Settlement Audit Report TOC</a></p>
+
+      <p>Between FY2019 and FY2022, the yen actually strengthened from contract to payment, so Japan paid <strong>less</strong> in yen than budgeted (savings of ¥2.7B–17.1B per year). In FY2023, rapid yen depreciation reversed this: <strong>the payment-period rate (around JPY 137/USD) was significantly higher than the contract-period rate (around JPY 108/USD)</strong>.</p>
+
+      <p>The Board of Audit wrote:</p>
+
+      <blockquote class="jp">
+        <div class="quote-label">🇯🇵 Board of Audit FY2023 Settlement Audit Report, Section 6</div>
+        <p>"The amount subject to payment in FY2023 was approximately $5.787 billion. The amount the Ministry of Defense decided to disburse for this, using the FY2023 disbursement officer's rate, was a total of ¥792.8 billion. By contrast, if this amount had been calculated using the disbursement officer's rates of the respective contract years, it would have been ¥668.8 billion. <strong>The difference of ¥123.9 billion can be seen as a loss arising from exchange-rate variation</strong>."</p>
+        <span class="source">— Source: Board of Audit FY2023 Settlement Audit Report, Section 6<br>
+        🔗 <a href="https://www.jbaudit.go.jp/report/new/index_r5.html" target="_blank" class="highlight-link">📍 FY2023 Audit Report TOC</a></span>
+      </blockquote>
+
+      <p>"A loss arising from exchange-rate variation" — meaning that <strong>FY2023 alone required an additional ¥123.9 billion due to yen depreciation</strong>. This stems directly from FMS's prepayment structure. With years between contract and payment/delivery, exchange-rate risk is unilaterally borne by Japan.</p>
+
+      <p><span class="marker marker-warn">⚠️ Note</span> Japan's Ministry of Defense has introduced <strong>forward exchange contracts</strong> for some procurement to hedge against currency risk. However, in the case of FMS, the U.S. Government's billing schedule is fluid (settlement delays due to multilateral bundled procurement, variability in delivery timing, etc.), making it <strong>structurally difficult to apply forward contracts to the full contract amount</strong>. As a result, in periods of rapid yen depreciation like FY2023, large foreign exchange losses arise from amounts not covered by hedging. Exchange-rate risk allocation is not simply "Japan bears all of it unilaterally," but <strong>FMS's structure (prepayment + delivery delay + multilateral bundled procurement) makes exchange-rate hedging structurally difficult</strong>.</p>
+
+      <p>The same report also documents the trend in defense procurement <strong>future-year liability</strong> (amounts the government has committed to pay in future fiscal years):</p>
+
+      <table class="trend-table">
+        <thead>
+          <tr>
+            <th>Year-end</th>
+            <th>Multi-year Obligations (¥B)</th>
+            <th>Continuing Costs (¥B)</th>
+            <th>Total (¥B)</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr><td>FY2019 end</td><td>—</td><td>—</td><td>~¥4,700</td></tr>
+          <tr><td>FY2022 end</td><td>4,759.6</td><td>431.7</td><td>5,191.3</td></tr>
+          <tr style="background:#3a1a1a;"><td><strong>FY2023 end</strong></td><td><strong>9,036.0</strong></td><td><strong>419.8</strong></td><td class="danger"><strong>9,455.8</strong></td></tr>
+        </tbody>
+      </table>
+      <p style="font-size:13px; color:#888; margin-top:-10px;">Source: Board of Audit FY2023 Settlement Audit Report, Section 6, Figure 19 area.</p>
+
+      <p>From <em class="num">about ¥4.7 trillion</em> at FY2019 year-end to <em class="num">about ¥9.46 trillion</em> at FY2023 year-end — <strong>roughly doubled in 5 years</strong>. While Article #2's "one-time scheme" (the ¥1.84 trillion transfer from special accounts via the Defense Funding Securing Act) was indeed one-time, the underlying defense procurement is <strong>continuously expanding through the future-year liability mechanism</strong>.</p>
+    </section>
+
+    <section>
+      <h2>8. Even the U.S. Side Doesn't Know — GAO Has Been Flagging This Since 1979</h2>
+
+      <p>The same problem has been recognized on the U.S. side as well. The <strong>U.S. Government Accountability Office (GAO)</strong> is the investigative arm of the U.S. Congress, equivalent in standing to Japan's Board of Audit. In <strong>1979</strong>, the GAO reported to Congress that the Navy's FMS Trust Fund balance was "unknown."</p>
+
+      <div class="en-source-card">
+        <div class="src-header">
+          <span class="src-flag">🇺🇸</span>
+          <div>
+            <div class="src-title">DSCA Historical Sales Book FY2024</div>
+            <div class="src-meta">Defense Security Cooperation Agency / Published July 1, 2025</div>
+          </div>
+        </div>
+        <div class="src-key">
+          📊 Japan's cumulative FMS purchases: <strong>$69,638,676,605</strong> (FY1950–FY2024)<br>
+          ≈ <strong>¥10.93 trillion</strong> (at JPY 157/USD as of May 2026, reference)
+        </div>
+        <div class="src-actions">
+          <a href="https://media.defense.gov/2025/Jul/01/2003746467/-1/-1/1/FY_2024_HISTORICAL_SALES_BOOK_COMPLETE.PDF" target="_blank" class="btn-original">🔗 Original PDF</a>
+        </div>
+      </div>
+
+      <div class="en-source-card">
+        <div class="src-header">
+          <span class="src-flag">🇺🇸</span>
+          <div>
+            <div class="src-title">GAO Report FGMSD-79-2: Correct Balance of Navy's Foreign Military Sales Trust Fund Unknown</div>
+            <div class="src-meta">Government Accountability Office / Published 1979</div>
+          </div>
+        </div>
+        <div class="src-key">
+          📊 1979 finding: The Navy's FMS Trust Fund correct balance was <strong>unknown</strong> due to discrepancies between Treasury records, service-reported data, and case-level accounting at the Security Assistance Accounting Center.
+        </div>
+        <div class="src-actions">
+          <a href="https://www.gao.gov/products/fgmsd-79-2" target="_blank" class="btn-original">🔗 Original (GAO)</a>
+        </div>
+      </div>
+
+      <div class="en-source-card">
+        <div class="src-header">
+          <span class="src-flag">🇺🇸</span>
+          <div>
+            <div class="src-title">Treasury Bulletin Trust Fund Reports</div>
+            <div class="src-meta">U.S. Treasury, Fiscal Service Dataset</div>
+          </div>
+        </div>
+        <div class="src-key">
+          📊 U.S. Treasury's public dataset. Trust fund receipts, outlays, transfers, and balances available in CSV/JSON/XML formats. Updated quarterly. <strong>Primary source for current FMS Trust Fund balance verification</strong>.
+        </div>
+        <div class="src-actions">
+          <a href="https://fiscaldata.treasury.gov/datasets/treasury-bulletin-trust-funds/" target="_blank" class="btn-original">🔗 Treasury Data</a>
+        </div>
+      </div>
+
+      <p>From GAO's 1979 finding to Japan's Board of Audit's first FMS flag in 1997: <strong>18 years</strong>. From Japan's 1997 finding to the publication of this article in 2026: <strong>29 years</strong>. <span class="highlight-fact">Both countries' audit institutions have flagged the problem, yet the structure does not change</span>. This is not a failure of individual case management; it is the more natural reading that the FMS system itself is designed in a way that can absorb audit findings from both nations without structural reform.</p>
+    </section>
+
+    <section>
+      <h2>9. What Can and Cannot Be Confirmed from Public Sources</h2>
+
+      <p>The primary sources used in this article — Japan's Board of Audit reports, the U.S. DSCA Historical Sales Book, the U.S. GAO report — are all publicly accessible. From them, the following <strong>can be confirmed</strong>:</p>
+
+      <ul style="margin-left:1.5em; margin-bottom:1.5em;">
+        <li style="margin-bottom:8px;">Japan's cumulative FMS (FY1950–FY2024) is approximately $69.6 billion, ≈ ¥10.93 trillion at May 2026 reference rate</li>
+        <li style="margin-bottom:8px;">For roughly 30 years (29 years at writing) since FY1997, unresolved-settlement issues have been continuously flagged by the Board of Audit</li>
+        <li style="margin-bottom:8px;">FY2013–FY2017 unresolved settlements stayed in the ¥90–122 billion range annually</li>
+        <li style="margin-bottom:8px;">Prepayments are partially invested in U.S. Treasury securities</li>
+        <li style="margin-bottom:8px;">Interest accrues in the 0QQ account on the U.S. side; refund requires Japanese-side action</li>
+        <li style="margin-bottom:8px;">Multilateral bundled procurement means even bilateral transactions cannot settle until other countries' deliveries are complete</li>
+        <li style="margin-bottom:8px;">F-35A unit-price differences between Japan and the U.S. were in the $40–56 million range</li>
+        <li style="margin-bottom:8px;">In FY2023 alone, foreign exchange losses reached ¥123.9 billion</li>
+        <li style="margin-bottom:8px;">Future-year defense liabilities roughly doubled in 5 years</li>
+      </ul>
+
+      <p>However, the following <strong>cannot be confirmed</strong> from public sources alone:</p>
+
+      <ul style="margin-left:1.5em; margin-bottom:1.5em;">
+        <li style="margin-bottom:8px;">Annual balance and interest details of the 0QQ account (U.S. Treasury internal data)</li>
+        <li style="margin-bottom:8px;">Annual movements in the 7QQ account (post-settlement residual fund management)</li>
+        <li style="margin-bottom:8px;">Case-by-case breakdown of reasons for unresolved status (Japan's Ministry of Defense internal records)</li>
+        <li style="margin-bottom:8px;">Specifics of price negotiation history with the U.S. side (diplomatic documents)</li>
+        <li style="margin-bottom:8px;">Detailed minutes of U.S.-Japan SCCM (Security Cooperation Case Management) joint meetings (only summaries are public)</li>
+      </ul>
+
+      <p>These are subject to disclosure requests. As a follow-up to this article, we plan to file freedom-of-information requests to Japan's Ministry of Defense, Ministry of Foreign Affairs, and Ministry of Finance sequentially.</p>
+    </section>
+
+    <section>
+      <h2>10. Conclusion</h2>
+
+      <p>Article #1 (¥80 trillion U.S. investment) and Article #2 (the ¥1.84 trillion defense funding scheme) addressed <strong>public capital that is about to flow, or is being structurally incorporated</strong>, from Japan to the United States. This article addressed the prior question: <strong>what has happened to the money already transferred?</strong></p>
+
+      <p>The conclusions, in three points:</p>
+
+      <p><strong>First, the structure has not changed for over a quarter of a century.</strong> Since Japan joined the Accelerated Case Closure Procedures in 1997, and the Board of Audit's first FMS flag in the same year, the same problem has been raised again and again. The Ministry of Defense compiled a Project Team report in 2008 and set improvement targets. SCCM working-level meetings with the U.S. side have been held. But the absolute level of unresolved settlements has not declined, foreign exchange losses have newly emerged, and future-year liabilities have expanded. <strong>This is not individual administrative failure; it is more naturally read as a system designed to absorb audit findings without structural reform</strong>.</p>
+
+      <p><strong>Second, the money is not merely flowing — it is being managed and invested.</strong> Dollars that Japan prepays serve simultaneously as weapon-manufacturing funds and as U.S. Treasury securities investment funds. Interest accrues in the 0QQ account and is not returned unless Japan actively requests it. There is a gap between the official FMS framing ("the U.S. Government does not profit") and the operational reality. In private-sector terms, this is closer to: "Wire the full amount up front to the vendor's account; the vendor uses only what's needed for parts initially and parks the rest elsewhere, keeping the investment interest."</p>
+
+      <p><strong>Third, audit findings from both countries have not stopped the structure.</strong> The U.S. GAO has flagged the FMS Trust Fund balance problem since 1979. Japan's Board of Audit has flagged unresolved-settlement and price-transparency issues since 1997. Both nations' audit institutions have raised these issues in parallel, yet FMS's fundamental machinery — full prepayment, management inside the U.S. Treasury, multilateral bundled procurement, multi-year delays in delivery and settlement — remains intact. <strong>This indicates that the system's design has the structural strength to treat audit findings as processable externalities</strong>.</p>
+
+      <p>This article reconstructs that structure using only primary sources. Readers can directly consult all of the cited Board of Audit reports, DSCA publications, and GAO reports — all freely accessible. The text above need not be taken on the editorial's authority. <strong>Go to the original sources and decode the structure for yourself</strong>. That is this site's purpose.</p>
+    </section>
+
+    <section class="sources">
+      <h3>📚 Primary Sources</h3>
+      
+      <p><strong>Japan — Board of Audit</strong>:</p>
+      <ol>
+        <li><a href="https://www.jbaudit.go.jp/pr/kensa/result/31/r011018.html" target="_blank">Board of Audit, "Report on Audit Regarding Foreign Military Sales (FMS) Procurement of Defense Articles, etc."</a> (Published October 18, 2019)</li>
+        <li><a href="https://report.jbaudit.go.jp/org/h30/YOUSEI2/2018-h30-Y2001-0.htm" target="_blank">FY2018 Diet-Requested Report, Chapter 1 "Background and Implementation of the Audit"</a></li>
+        <li><a href="https://report.jbaudit.go.jp/org/h30/YOUSEI2/2018-h30-Y2010-0.htm" target="_blank">FY2018 Diet-Requested Report, Chapter 2 "The FMS Mechanism"</a> (Source for Trust Fund, 0QQ account, U.S. Treasury securities investment description)</li>
+        <li><a href="https://report.jbaudit.go.jp/org/h30/YOUSEI2/2018-h30-Y2087-0.htm" target="_blank">FY2018 Diet-Requested Report, Chapter 3 "Audit Findings and Opinions"</a> (Source for FY1997, FY2002 prior findings)</li>
+        <li><a href="https://report.jbaudit.go.jp/org/h30/YOUSEI2/2018-h30-Y2107-2.htm" target="_blank">FY2018 Diet-Requested Report, Reference Chart 2 "Trends in Unresolved Settlement Cases"</a></li>
+        <li><a href="https://report.jbaudit.go.jp/org/h30/YOUSEI2/2018-h30-Y2108-0.htm" target="_blank">FY2018 Diet-Requested Report, Reference Chart 3 "Trends in Cases Past the Target Date"</a></li>
+        <li><a href="https://report.jbaudit.go.jp/org/h30/YOUSEI2/2018-h30-Y2109-0.htm" target="_blank">FY2018 Diet-Requested Report, Glossary</a> (CLSSA, DFAS, etc.)</li>
+        <li><a href="https://www.jbaudit.go.jp/report/new/characteristic30/fy30_kanshin_ch03_p1.html" target="_blank">Board of Audit, "FY2018 Settlement Audit Report Features" FMS Summary</a></li>
+        <li><a href="https://report.jbaudit.go.jp/org/h30/2018-h30-0755-0.htm" target="_blank">FY2018 Settlement Audit Report, Chapter 4, Section 2 "Foreign Military Sales (FMS) Procurement"</a></li>
+        <li><a href="https://www.jbaudit.go.jp/report/new/index_r5.html" target="_blank">Board of Audit, FY2023 Settlement Audit Report — Table of Contents</a></li>
+        <li>FY2023 Settlement Audit Report, Section 6 "Status of Defense Budget Execution" (Source for ¥123.9B forex loss and ¥9.46T future-year liability data)</li>
+      </ol>
+
+      <p style="margin-top:20px;"><strong>United States — DSCA, GAO, Treasury</strong>:</p>
+      <ol start="12">
+        <li><a href="https://media.defense.gov/2025/Jul/01/2003746467/-1/-1/1/FY_2024_HISTORICAL_SALES_BOOK_COMPLETE.PDF" target="_blank">DSCA Historical Sales Book Fiscal Years 1950–2024</a> (Published July 2025)</li>
+        <li><a href="https://www.dsca.mil/Resources/Publications/Publication/Article/4049946/dsca-historical-sales-book" target="_blank">DSCA Historical Sales Book (FY2023 reference)</a></li>
+        <li><a href="https://www.gao.gov/products/fgmsd-79-2" target="_blank">GAO Report FGMSD-79-2: "Correct Balance of Navy's Foreign Military Sales Trust Fund Unknown"</a> (1979)</li>
+        <li><a href="https://fiscaldata.treasury.gov/datasets/treasury-bulletin-trust-funds/" target="_blank">U.S. Treasury Bulletin Trust Fund Reports (Fiscal Service dataset)</a></li>
+        <li><a href="https://samm.dsca.mil/" target="_blank">DSCA Security Assistance Management Manual (SAMM)</a></li>
+        <li><a href="https://samm.dsca.mil/policy-memoranda/dsca-23-38" target="_blank">DSCA 23-38: Contract Administration Services Waiver for Japan</a> (April 17, 2023 — QA&I surcharge waiver for Japan)</li>
+      </ol>
+
+      <p style="margin-top:20px;"><strong>Institutional Context / Prior Research</strong>:</p>
+      <ol start="18">
+        <li><a href="https://www.stimson.org/2024/bad-and-getting-worse/" target="_blank">Stimson Center, "Bad and Getting Worse" — Methodological critique of the DSCA Historical Sales Book</a></li>
+        <li><a href="https://www.sipri.org/databases/national-reports/United%20States%20of%20America" target="_blank">SIPRI National Reports — United States</a></li>
+      </ol>
+      
+      <div class="policy">
+        <p><strong>Editorial Policy:</strong></p>
+        <ul>
+          <li>Only publicly accessible sources used (no information from disclosure requests in this article)</li>
+          <li>Facts and inferences strictly separated (<span class="marker marker-warn">⚠️ Note</span> markers indicate inference)</li>
+          <li>Primary source links provided wherever possible; some links use Text Fragments to highlight specific passages</li>
+          <li>Discovered errors are corrected immediately and noted in this article's revision history</li>
+        </ul>
+        
+        <p style="margin-top:20px;"><strong>AI Methodology:</strong></p>
+        <ul>
+          <li>Articles on this site are co-authored by AI (Claude) and a human editor</li>
+          <li>Fact-checking uses multiple AI systems (Claude / GPT / DeepSeek / Gemini) cross-referencing</li>
+          <li>AI-triggered corrections are noted in the revision history</li>
+          <li>AI use is disclosed, not hidden, as part of the methodology</li>
+          <li>Final editorial judgment and responsibility rest with the human editor</li>
+        </ul>
+      </div>
+    </section>
+
+    <section class="changelog">
+      <h3>📝 Revision History</h3>
+      <ul>
+        <li><span class="date">2026/05/25</span>First published (Japanese version)</li>
+        <li><span class="date">2026/05/25</span>English translation published at this URL</li>
+      </ul>
+    </section>
+
+    <section class="next-article">
+      <h3>Related Articles · Next Up</h3>
+      <p>As a follow-up to this article, we plan to file disclosure requests with Japan's Ministry of Defense, Ministry of Foreign Affairs, and Ministry of Finance for: (1) Japan-attributable annual movements in the 0QQ and 7QQ accounts, (2) Case-by-case breakdown of unresolved-status reasons, (3) Minutes of U.S.-Japan SCCM joint meetings, (4) Specifics of F-35A price negotiation history.</p>
+      <p style="margin-top:12px;">This article is the third in this site's "U.S.-Bound Public Capital Flows" series. When read together with Article #1 "<a href="80trillion.html">Tracing the ¥80 Trillion US Investment Pledge Through Japan's FILP Special Account</a>" and Article #2 "<a href="special-account-defense.html">Japan's One-Time Defense Funding Scheme</a>", the full picture of public-capital flows from Japan to the United States becomes visible.</p>
+      <p style="margin-top:12px;"><a href="../../index.html">→ Return to Dashboard (Japanese)</a></p>
+    </section>
+    
+  </article>
+
+</div>
+
+<footer>
+  <p>Fiscal OSINT Japan © 2026 · operated by SN0W8ALL LLC</p>
+  <p style="margin-top:10px;">
+    <strong>Articles:</strong> <a href="https://creativecommons.org/licenses/by/4.0/" target="_blank" rel="license">CC BY 4.0</a> · 
+    <strong>Datasets:</strong> <a href="https://creativecommons.org/publicdomain/zero/1.0/" target="_blank" rel="license">CC0 1.0</a>
+  </p>
+  <p style="margin-top:10px; font-size:12px;">
+    Citation with source attribution is freely permitted. Example:<br>
+    "Fiscal OSINT Japan, 'Weapons Don't Arrive, but the Money Funds U.S. Treasury Securities — Decoding Roughly 30 Years of Japan's FMS Trust Fund' (May 25, 2026)"
+  </p>
+  <p style="margin-top:14px;">
+    <a href="https://x.com/FiscalOSINT_JP" target="_blank">X (@FiscalOSINT_JP)</a> ·
+    <a href="../../index.html">Dashboard (JP)</a> ·
+    <a href="../../datasets/" target="_blank">📊 datasets</a>
+  </p>
+  <p style="margin-top:12px; font-size:12px;">This article is based on publicly available information as of May 25, 2026. Corrections and additional information welcome.</p>
+</footer>
+
+</body>
+</html>

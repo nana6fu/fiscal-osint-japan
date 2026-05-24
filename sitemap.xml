@@ -69,6 +69,16 @@
     <xhtml:link rel="alternate" hreflang="x-default" href="https://nana6fu.github.io/fiscal-osint-japan/articles/special-account-defense.html"/>
   </url>
   <url>
+    <loc>https://nana6fu.github.io/fiscal-osint-japan/articles/fms-trust-fund-30years.html</loc>
+    <lastmod>2026-05-25</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://nana6fu.github.io/fiscal-osint-japan/articles/fms-trust-fund-30years.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://nana6fu.github.io/fiscal-osint-japan/articles/en/fms-trust-fund-30years.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://nana6fu.github.io/fiscal-osint-japan/articles/fms-trust-fund-30years.html"/>
+  </url>
+
+  <url>
     <loc>https://nana6fu.github.io/fiscal-osint-japan/articles/en/special-account-defense.html</loc>
     <lastmod>2026-05-23</lastmod>
     <changefreq>monthly</changefreq>
@@ -77,6 +87,16 @@
     <xhtml:link rel="alternate" hreflang="en" href="https://nana6fu.github.io/fiscal-osint-japan/articles/en/special-account-defense.html"/>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://nana6fu.github.io/fiscal-osint-japan/articles/special-account-defense.html"/>
   </url>
+  <url>
+    <loc>https://nana6fu.github.io/fiscal-osint-japan/articles/en/fms-trust-fund-30years.html</loc>
+    <lastmod>2026-05-25</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://nana6fu.github.io/fiscal-osint-japan/articles/fms-trust-fund-30years.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://nana6fu.github.io/fiscal-osint-japan/articles/en/fms-trust-fund-30years.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://nana6fu.github.io/fiscal-osint-japan/articles/fms-trust-fund-30years.html"/>
+  </url>
+
 
   <!-- Datasets directory -->
   <url>
