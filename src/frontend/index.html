@@ -1111,6 +1111,381 @@ body { padding-top: 60px !important; }
   </div>
 </div>
 
+<!-- ===== 随意契約クロス分析（v22 2026/05/24） ===== -->
+<div id="nav-discretionary" style="position:relative;top:-70px;"></div>
+<section id="discretionary-cross-section" style="max-width:1400px;margin:32px auto 0;padding:0 20px;color:#c9d1d9;font-family:-apple-system,BlinkMacSystemFont,'Hiragino Sans','Noto Sans JP',sans-serif;">
+  
+  <div style="background:linear-gradient(135deg,#1a1f2e 0%,#2a1a15 100%);border:2px solid #ffd700;border-radius:10px;padding:24px 26px;margin-bottom:24px;">
+    
+    <div style="display:flex;align-items:center;gap:12px;margin-bottom:8px;flex-wrap:wrap;">
+      <h2 style="margin:0;font-size:22px;color:#ffd700;font-weight:800;letter-spacing:.3px;">⚠️ 随意契約クロス分析</h2>
+      <span style="font-size:11px;color:#0a0e1a;background:#ffd700;padding:3px 10px;border-radius:4px;font-weight:700;letter-spacing:1px;">NEW</span>
+    </div>
+    <p style="margin:0 0 18px;color:#aaa;font-size:14px;line-height:1.7;">省庁別の随意契約率を会計検査院公表データから計算。<strong style="color:#fff;">随契率が高い＝悪ではなく</strong>、監視対象としての密度を示す指標。</p>
+
+    <!-- サマリー -->
+    <div style="background:#0a0e1a;border-radius:6px;padding:16px 20px;margin-bottom:20px;border-left:4px solid #ffd700;">
+      <div style="font-size:12px;color:#ffd700;font-weight:700;letter-spacing:1px;margin-bottom:8px;">📊 全省庁サマリー（R7・データ取り込み済み3省庁）</div>
+      <div style="display:flex;flex-wrap:wrap;gap:20px;font-size:14px;line-height:1.6;">
+        <div><span style="color:#888;">総契約件数：</span><strong style="color:#fff;font-size:16px;">2,785</strong>件</div>
+        <div><span style="color:#888;">随意契約：</span><strong style="color:#ff8c42;font-size:16px;">1,113</strong>件</div>
+        <div><span style="color:#888;">随契率：</span><strong style="color:#ffd700;font-size:18px;">40.0%</strong></div>
+      </div>
+    </div>
+
+    <!-- ランキング表 -->
+    <div style="margin-bottom:20px;">
+      <h3 style="font-size:15px;color:#fff;margin:0 0 14px;font-weight:700;">省庁別 随意契約率ランキング</h3>
+      
+      <!-- 1位：デジタル庁 -->
+      <div style="background:#15293a;border:1px solid #ff6b6b;border-radius:8px;padding:16px 18px;margin-bottom:10px;">
+        <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:10px;flex-wrap:wrap;gap:8px;">
+          <div style="display:flex;align-items:center;gap:10px;">
+            <span style="font-size:18px;font-weight:700;color:#ff6b6b;">🚨 1位</span>
+            <span style="font-size:18px;font-weight:700;color:#fff;">デジタル庁</span>
+          </div>
+          <div style="display:flex;align-items:center;gap:14px;font-size:13px;">
+            <span style="color:#aaa;">200 / 335件</span>
+            <span style="font-size:22px;font-weight:800;color:#ff6b6b;">59.7%</span>
+          </div>
+        </div>
+        <div style="background:#0a0e1a;height:10px;border-radius:5px;overflow:hidden;margin-bottom:8px;">
+          <div style="background:linear-gradient(90deg,#ff4444,#ff6b6b);height:100%;width:59.7%;border-radius:5px;"></div>
+        </div>
+        <div style="font-size:12px;color:#888;line-height:1.6;">GSS統合年・NEC一強構造。「企画競争」「公募」が96+18件で大半を占める。</div>
+      </div>
+
+      <!-- 2位：厚労省 -->
+      <div style="background:#15293a;border:1px solid #ffaa00;border-radius:8px;padding:16px 18px;margin-bottom:10px;">
+        <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:10px;flex-wrap:wrap;gap:8px;">
+          <div style="display:flex;align-items:center;gap:10px;">
+            <span style="font-size:18px;font-weight:700;color:#ffaa00;">⚠️ 2位</span>
+            <span style="font-size:18px;font-weight:700;color:#fff;">厚生労働省</span>
+          </div>
+          <div style="display:flex;align-items:center;gap:14px;font-size:13px;">
+            <span style="color:#aaa;">723 / 1,921件</span>
+            <span style="font-size:22px;font-weight:800;color:#ffaa00;">37.6%</span>
+          </div>
+        </div>
+        <div style="background:#0a0e1a;height:10px;border-radius:5px;overflow:hidden;margin-bottom:8px;">
+          <div style="background:linear-gradient(90deg,#ff8800,#ffaa00);height:100%;width:37.6%;border-radius:5px;"></div>
+        </div>
+        <div style="font-size:12px;color:#888;line-height:1.6;">29条3項4項「競争不存在」が309件、29条3項5項「少額・不落」が約414件。</div>
+      </div>
+
+      <!-- 3位：財務省 -->
+      <div style="background:#15293a;border:1px solid #ffaa00;border-radius:8px;padding:16px 18px;margin-bottom:10px;">
+        <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:10px;flex-wrap:wrap;gap:8px;">
+          <div style="display:flex;align-items:center;gap:10px;">
+            <span style="font-size:18px;font-weight:700;color:#ffaa00;">⚠️ 3位</span>
+            <span style="font-size:18px;font-weight:700;color:#fff;">財務省</span>
+          </div>
+          <div style="display:flex;align-items:center;gap:14px;font-size:13px;">
+            <span style="color:#aaa;">190 / 529件</span>
+            <span style="font-size:22px;font-weight:800;color:#ffaa00;">35.9%</span>
+          </div>
+        </div>
+        <div style="background:#0a0e1a;height:10px;border-radius:5px;overflow:hidden;margin-bottom:8px;">
+          <div style="background:linear-gradient(90deg,#ff8800,#ffaa00);height:100%;width:35.9%;border-radius:5px;"></div>
+        </div>
+        <div style="font-size:12px;color:#888;line-height:1.6;">「29条3項4項に該当（競争不存在）」が中心。長文の個別根拠記載が特徴。</div>
+      </div>
+
+      <!-- 未取り込み -->
+      <div style="background:#0a0e1a;border:1px dashed #555;border-radius:8px;padding:14px 18px;margin-bottom:10px;">
+        <div style="display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:8px;">
+          <div style="display:flex;align-items:center;gap:10px;color:#888;">
+            <span>📋 整理中</span>
+            <span>総務省・防衛省（全国地方防衛局）</span>
+          </div>
+          <div style="font-size:12px;color:#888;">データ取り込み次フェーズで反映予定</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- 詳細：法令根拠の内訳 -->
+    <details style="background:#0a0e1a;border-radius:6px;padding:0;border:1px solid #2a2f3e;">
+      <summary style="cursor:pointer;padding:14px 18px;color:#ffd700;font-weight:600;font-size:13px;outline:none;user-select:none;">
+        ▼ 法令根拠の内訳を見る（クリックで展開）
+      </summary>
+      <div style="padding:0 18px 16px;border-top:1px solid #2a2f3e;">
+        
+        <div style="margin-top:14px;font-size:13px;line-height:1.8;color:#c9d1d9;">
+          <p style="margin:0 0 12px;color:#aaa;">日本の会計法・予算決算及び会計令による随意契約の主な根拠条文：</p>
+          
+          <table style="width:100%;border-collapse:collapse;font-size:12px;margin-bottom:14px;">
+            <thead style="background:#1a1f2e;">
+              <tr>
+                <th style="padding:8px 10px;text-align:left;border:1px solid #2a2f3e;color:#fff;">条文</th>
+                <th style="padding:8px 10px;text-align:left;border:1px solid #2a2f3e;color:#fff;">適用ケース</th>
+                <th style="padding:8px 10px;text-align:right;border:1px solid #2a2f3e;color:#fff;">3省庁計</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td style="padding:8px 10px;border:1px solid #2a2f3e;color:#ffd700;font-weight:600;">会計法29条3項4項</td>
+                <td style="padding:8px 10px;border:1px solid #2a2f3e;">契約の性質又は目的が競争を許さない（独自技術、唯一の供給者、企画競争、公募等）</td>
+                <td style="padding:8px 10px;text-align:right;border:1px solid #2a2f3e;color:#ff6b6b;font-weight:700;">534件</td>
+              </tr>
+              <tr>
+                <td style="padding:8px 10px;border:1px solid #2a2f3e;color:#ffd700;font-weight:600;">会計法29条3項5項</td>
+                <td style="padding:8px 10px;border:1px solid #2a2f3e;">少額（製造等の物品役務）、または不落随契</td>
+                <td style="padding:8px 10px;text-align:right;border:1px solid #2a2f3e;color:#ffaa00;font-weight:700;">約414件</td>
+              </tr>
+              <tr>
+                <td style="padding:8px 10px;border:1px solid #2a2f3e;color:#888;">不落随契</td>
+                <td style="padding:8px 10px;border:1px solid #2a2f3e;">予決令99条の2（再入札しても落札者なし）</td>
+                <td style="padding:8px 10px;text-align:right;border:1px solid #2a2f3e;color:#888;">少数</td>
+              </tr>
+              <tr>
+                <td style="padding:8px 10px;border:1px solid #2a2f3e;color:#888;">その他</td>
+                <td style="padding:8px 10px;border:1px solid #2a2f3e;">予決令99条第7号（少額・その他）等</td>
+                <td style="padding:8px 10px;text-align:right;border:1px solid #2a2f3e;color:#888;">少数</td>
+              </tr>
+            </tbody>
+          </table>
+
+          <div style="background:#1a1f2e;border-left:3px solid #4a8aff;padding:12px 14px;font-size:12px;color:#aaa;line-height:1.7;border-radius:0 4px 4px 0;">
+            <strong style="color:#4a8aff;">参考：</strong>会計法29条3項4項の「企画競争」「公募」は形式上は競争を経ているが、応募者が事実上1者しかいない場合、結果として随意契約と同等になる。「ベンダーロックの検出指標」として注目される条文。
+          </div>
+        </div>
+      </div>
+    </details>
+
+        <!-- AI読み解きセクション v3（既存sanitizeAIOutput使用） -->
+    <div style="margin-top:24px;background:linear-gradient(135deg,#0d1f2d 0%,#1a2a1a 100%);border:1px solid #4ade80;border-radius:8px;padding:20px 22px;">
+      
+      <div style="display:flex;align-items:center;gap:10px;margin-bottom:12px;flex-wrap:wrap;">
+        <h3 style="margin:0;font-size:15px;color:#4ade80;font-weight:700;">🤖 このデータをAIに読み解いてもらう</h3>
+        <span style="font-size:11px;color:#888;padding:2px 8px;background:#0a0e1a;border-radius:3px;">Groq Llama3.3 / 公開情報のみ使用</span>
+      </div>
+      <p style="margin:0 0 16px;font-size:13px;color:#aaa;line-height:1.7;">気になる観点を選んでください。AIが公開データを基に分析を生成します（編集者の見解ではありません）。</p>
+
+      <div style="display:flex;flex-wrap:wrap;gap:8px;margin-bottom:14px;">
+        <button onclick="askDiscAI('overall')" id="disc-ai-btn-overall" 
+          style="background:#1a3a2a;color:#4ade80;border:1px solid #4ade80;padding:9px 14px;border-radius:5px;font-size:13px;font-weight:600;cursor:pointer;font-family:inherit;transition:all .15s;">
+          📊 全体傾向と異常値
+        </button>
+        <button onclick="askDiscAI('digital59')" id="disc-ai-btn-digital59"
+          style="background:#1a3a2a;color:#4ade80;border:1px solid #4ade80;padding:9px 14px;border-radius:5px;font-size:13px;font-weight:600;cursor:pointer;font-family:inherit;transition:all .15s;">
+          🔍 デジタル庁59.7%は何を示唆するか
+        </button>
+        <button onclick="askDiscAI('mhlw37')" id="disc-ai-btn-mhlw37"
+          style="background:#1a3a2a;color:#4ade80;border:1px solid #4ade80;padding:9px 14px;border-radius:5px;font-size:13px;font-weight:600;cursor:pointer;font-family:inherit;transition:all .15s;">
+          🔍 厚労省37.6%の中身を分析
+        </button>
+        <button onclick="askDiscAI('next')" id="disc-ai-btn-next"
+          style="background:#1a3a2a;color:#4ade80;border:1px solid #4ade80;padding:9px 14px;border-radius:5px;font-size:13px;font-weight:600;cursor:pointer;font-family:inherit;transition:all .15s;">
+          ➡️ 次に調べるべき問い
+        </button>
+      </div>
+
+      <!-- AI回答表示エリア -->
+      <div id="disc-ai-result" style="display:none;background:#0a0e1a;border-radius:6px;padding:18px 20px;margin-top:8px;">
+        <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:12px;padding-bottom:10px;border-bottom:1px solid #2a2f3e;">
+          <strong id="disc-ai-result-title" style="color:#4ade80;font-size:14px;">AI読み解き</strong>
+          <button onclick="closeDiscAI()" style="background:transparent;color:#888;border:none;cursor:pointer;font-size:18px;line-height:1;font-family:inherit;padding:0 6px;">×</button>
+        </div>
+        <div id="disc-ai-result-loading" style="display:none;color:#888;font-size:13px;padding:20px 0;text-align:center;">
+          🤖 Groq Llama3.3 で分析を生成しています...<br>
+          <span style="font-size:11px;color:#666;">通常10-20秒。無料枠のため、応答が遅い場合があります。</span>
+        </div>
+        <div id="disc-ai-result-body" style="font-size:14px;line-height:1.8;color:#e0e0e0;white-space:pre-wrap;word-wrap:break-word;"></div>
+        <div style="margin-top:14px;padding:12px 14px;border-top:1px solid #2a2f3e;border-radius:0 0 6px 6px;background:#1a1410;font-size:11px;color:#aaa;line-height:1.7;">
+          <strong style="color:#ffaa00;">⚠️ AI出力の注意事項</strong><br>
+          ・AIが生成した<strong style="color:#fff;">仮説</strong>です。事実として扱わないでください<br>
+          ・編集者・サイト運営の見解とは<strong style="color:#fff;">独立</strong>した解釈です<br>
+          ・「と考えられる」「とみられる」は仮説の提示であり、<strong style="color:#fff;">断定ではありません</strong><br>
+          ・出力には<strong style="color:#fff;">事実誤認や偏った解釈</strong>が含まれることがあります<br>
+          ・必ず<strong style="color:#fff;">一次資料で検証</strong>してください
+        </div>
+      </div>
+
+    </div>
+
+<script>
+(function(){
+  const discPrompts = {
+    'overall': {
+      title: '📊 全体傾向と異常値',
+      prompt: `以下は日本の中央省庁・公開入札データ（R7年度・2025年度）から計算した随意契約率です。
+
+【データ】
+- 取り込み済み3省庁の総契約: 2,785件
+- うち随意契約: 1,113件（40.0%）
+- デジタル庁: 200/335件（59.7%）
+- 厚労省: 723/1,921件（37.6%）
+- 財務省: 190/529件（35.9%）
+
+【参考】行政管理研究センター等の過去調査では、政府全体の随意契約率は概ね25-30%程度とされてきた。
+
+このデータから読み取れる傾向を、構造的観点で読み解いてください。
+
+設問：
+1. 上記3省庁の平均40.0%は、過去の参考値と比べてどう評価できるか
+2. 3省庁の中で特に注目すべき省庁とその理由
+3. このデータから抽出すべき構造的論点を2つ
+
+形式：400-600字、断定を避け「と考えられる」「とみられる」を用い、データから読み取れる仮説の提示。最後に「次の問い」を1つ提示。`
+    },
+    'digital59': {
+      title: '🔍 デジタル庁59.7%は何を示唆するか',
+      prompt: `デジタル庁の随意契約状況（R7年度・公開入札データ）：
+- 随意契約: 200件 / 全契約335件（59.7%）
+- 内訳: 「企画競争」96件、「契約の性質又は目的が競争を許さない」78件、「公募」18件、「不落随契」6件、その他2件
+- 他省庁との比較: 厚労省37.6%、財務省35.9%
+
+【背景情報】
+- デジタル庁はR7に「GSS（ガバメントソリューションサービス）」統合を推進
+- 億円超契約TOP10のうち7件をNECが占めるとの報告あり
+
+設問：
+1. 「企画競争」「公募」が大半を占めることが、調達構造に何を示唆するか
+2. デジタル庁の59.7%は他省庁との単純比較で評価すべきか
+3. 次に確認すべき情報は何か
+
+形式：400-600字、断定を避け「と考えられる」を用いる。「企画競争」「公募」の制度設計上の特徴に触れる。`
+    },
+    'mhlw37': {
+      title: '🔍 厚労省37.6%の中身を分析',
+      prompt: `厚生労働省の随意契約状況（R7年度・公開入札データ）：
+- 随意契約: 723件 / 全契約1,921件（37.6%）
+- 内訳: 会計法29条3項4項（競争不存在）約309件、29条3項5項（少額・不落）約414件
+- 他省庁との比較: デジタル庁59.7%、財務省35.9%
+
+【背景情報】
+- 厚労省はR7総契約数1,921件で取り込み済み3省庁中最多
+- 主要案件に「厚労省LAN ¥481.61億」（東芝デジタルソリューションズ）等
+
+設問：
+1. 「29条3項5項（少額・不落）」が414件を占めることは何を意味するか
+2. 厚労省37.6%は、契約件数の絶対数が多い省庁特有の問題か、それとも構造的問題か
+3. 414件のうち、どの分類が問題視されやすいか
+
+形式：400-600字、断定を避ける。少額契約の合理性と件数の多さの問題性、両面を扱う。`
+    },
+    'next': {
+      title: '➡️ 次に調べるべき問い',
+      prompt: `中央省庁の公開入札データ（R7年度）から判明した事実：
+- 3省庁の総契約: 2,785件、随意契約率40.0%
+- デジタル庁59.7%、厚労省37.6%、財務省35.9%
+- 法令根拠の集計データあり
+
+このデータを起点に、次に調査すべき問いを5つ提案してください。
+
+各問いについて：
+1. 何を調べるか（具体的に）
+2. なぜそれが重要か
+3. どのような一次資料・データソースで調査可能か
+
+形式：500-700字。問いは具体的・検証可能なものに。優先順位を付ける（最重要から）。「企業別」「OB再就職」「他省庁データ拡充」「過去年度比較」「個別契約の深堀り」などの方向性を含めること。`
+    }
+  };
+
+  // HTMLエスケープ（既存のescapeRegionHtmlがあればそれを使い、なければ独自実装）
+  function escapeDiscHtml(text) {
+    if (typeof escapeRegionHtml === 'function') {
+      return escapeRegionHtml(text);
+    }
+    return String(text)
+      .replace(/&/g, '&amp;')
+      .replace(/</g, '&lt;')
+      .replace(/>/g, '&gt;')
+      .replace(/"/g, '&quot;')
+      .replace(/'/g, '&#039;');
+  }
+
+  // メイン関数
+  window.askDiscAI = async function(type) {
+    const config = discPrompts[type];
+    if (!config) return;
+
+    const button = document.getElementById('disc-ai-btn-' + type);
+    const originalText = button.textContent;
+    button.textContent = '🤖 分析中...';
+    button.disabled = true;
+    button.style.opacity = '0.6';
+
+    const resultDiv = document.getElementById('disc-ai-result');
+    const titleEl = document.getElementById('disc-ai-result-title');
+    const bodyEl = document.getElementById('disc-ai-result-body');
+    const loadingEl = document.getElementById('disc-ai-result-loading');
+    
+    titleEl.textContent = config.title;
+    bodyEl.innerHTML = '';
+    loadingEl.style.display = 'block';
+    resultDiv.style.display = 'block';
+    
+    // スムーズスクロール
+    setTimeout(() => resultDiv.scrollIntoView({behavior: 'smooth', block: 'center'}), 100);
+
+    try {
+      const res = await fetch('https://133-18-167-199.nip.io/analyze', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          prompt: '思考過程は出力しないでください。日本語だけで、簡潔に出力してください。\n\n' + config.prompt
+        })
+      });
+
+      if (!res.ok) throw new Error('API応答エラー: ' + res.status);
+
+      const data = await res.json();
+      console.log('Disc AI response:', data);
+
+      loadingEl.style.display = 'none';
+
+      if (data.result) {
+        // 既存のsanitizeAIOutputがあれば使う
+        const sanitized = (typeof sanitizeAIOutput === 'function') 
+          ? sanitizeAIOutput(String(data.result).trim()) 
+          : String(data.result).trim();
+        bodyEl.innerHTML = escapeDiscHtml(sanitized).replace(/\n/g, '<br>');
+      } else if (data.error) {
+        bodyEl.innerHTML = '<span style="color:#ff6b6b;">⚠️ AI応答エラー：' + escapeDiscHtml(data.error) + '</span><br><br>時間をおいて再度お試しください。';
+      } else {
+        bodyEl.innerHTML = '<span style="color:#ffaa00;">AI応答が空でした。Groqの無料枠制限の可能性があります。少し時間をおいてから再度お試しください。</span>';
+      }
+    } catch (error) {
+      loadingEl.style.display = 'none';
+      bodyEl.innerHTML = '<span style="color:#ff6b6b;">⚠️ 通信エラー：' + escapeDiscHtml(error.message) + '</span><br><br>' +
+        'サービスが一時的に応答していない可能性があります。<br>' +
+        '時間をおいて再度お試しください。';
+    } finally {
+      button.textContent = originalText;
+      button.disabled = false;
+      button.style.opacity = '1';
+    }
+  };
+
+  window.closeDiscAI = function() {
+    document.getElementById('disc-ai-result').style.display = 'none';
+  };
+})();
+</script>
+
+
+    <!-- 注意書き・スタンス -->
+    <div style="margin-top:20px;padding:14px 18px;background:#15293a;border-left:3px solid #4ade80;border-radius:0 4px 4px 0;font-size:12px;color:#aaa;line-height:1.8;">
+      <div style="color:#4ade80;font-weight:700;margin-bottom:6px;">📌 この指標の見方</div>
+      <ul style="margin:0;padding-left:1.4em;">
+        <li>随意契約率は<strong style="color:#fff;">監視対象としての密度</strong>を示す指標であり、率が高い＝悪ではない</li>
+        <li>少額契約・緊急対応・特殊な技術や知見が必要な場合の随契は法令上認められている</li>
+        <li>ただし「企画競争」「公募」が形式競争に終わっていないか、応募者数の公表が望ましい</li>
+        <li>本サイトは個別契約の妥当性を判定するものではなく、<strong style="color:#fff;">構造を可視化する</strong>立場</li>
+      </ul>
+    </div>
+
+    <!-- 出典・関連記事 -->
+    <div style="margin-top:18px;padding:12px 18px;background:#0a0e1a;border-radius:6px;font-size:12px;color:#888;line-height:1.7;">
+      <div style="margin-bottom:6px;"><strong style="color:#ffd700;">📚 出典：</strong>各省庁公開の入札情報・公共調達適正化情報（R7、master.jsonl 2,785件、2026/05/24時点）</div>
+      <div><strong style="color:#ffd700;">📖 関連記事：</strong><a href="articles/special-account-defense.html" style="color:#4a8aff;text-decoration:none;">第2号「防衛費財源の単発スキーム」</a>（防衛省FMS調達は別途分析、ECI方式の随契構造を含む）</div>
+    </div>
+
+  </div>
+</section>
+<!-- ===== /随意契約クロス分析 ===== -->
+
 <div id="nav-defense" style="position:relative;top:-60px;"></div>
 <!-- ===== 再就職データセクション（自動生成・独立ブロック） ===== -->
 <script src="data/reemployment_data.js"></script>
