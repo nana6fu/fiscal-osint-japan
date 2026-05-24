@@ -989,12 +989,69 @@ footer{font-size:10px;color:#30363d;padding:5px 24px;border-top:1px solid #0d111
 }
 </style>
 
+
+<style id="nav-body-padding">
+html { scroll-behavior: smooth; }
+body { padding-top: 60px !important; }
+
+/* ナビアンカーへのスクロール時、固定ナビバー分のオフセットを確保 */
+#nav-overview, #nav-ministries, #nav-discretionary, #nav-defense, #nav-companies, #nav-ob {
+  scroll-margin-top: 70px;
+}
+
+@media (max-width: 768px) {
+  body { padding-top: 90px !important; }
+  #page-nav > div { padding: 0 12px !important; gap: 4px !important; }
+  #page-nav a { font-size: 11px !important; padding: 4px 8px !important; }
+  #nav-overview, #nav-ministries, #nav-discretionary, #nav-defense, #nav-companies, #nav-ob {
+    scroll-margin-top: 100px;
+  }
+}
+</style>
 </head>
 <body>
 <header>
   <div class="header-left">
     <h1>Fiscal OSINT <span>Japan</span></h1>
-    <p id="headerSrc">公的資金の流れを、公開情報から検証する ｜ 特別会計・公共調達・政治資金・情報公開請求</p>
+    <!-- ===== ページ内ナビバー（v22 2026/05/24） ===== -->
+<nav id="page-nav" style="
+  position:fixed;
+  top:0;
+  left:0;
+  right:0;
+  background:rgba(10,14,26,.97);
+  backdrop-filter:blur(10px);
+  border-bottom:1px solid #30363d;
+  z-index:1000;
+  padding:10px 0;
+">
+  <div style="max-width:1400px;margin:0 auto;padding:0 20px;display:flex;flex-wrap:wrap;gap:6px;align-items:center;font-family:-apple-system,BlinkMacSystemFont,'Hiragino Sans','Noto Sans JP',sans-serif;">
+    <a href="#" onclick="window.scrollTo({top:0,behavior:'smooth'});return false;" style="color:#ff6b6b;font-weight:900;font-size:13px;margin-right:8px;letter-spacing:.5px;text-decoration:none;cursor:pointer;">Fiscal OSINT ↑</a>
+    <a href="#nav-ministries" style="color:#c9d1d9;text-decoration:none;font-size:12px;padding:5px 10px;border-radius:4px;background:#1a1f2e;border:1px solid #30363d;white-space:nowrap;transition:all .15s;">📋 省庁別</a>
+    <a href="#nav-discretionary" style="color:#ffd700;text-decoration:none;font-size:12px;padding:5px 10px;border-radius:4px;background:#2a2510;border:1px solid #ffd700;white-space:nowrap;font-weight:600;transition:all .15s;">⚠️ 随契分析 NEW</a>
+    <a href="#nav-defense" style="color:#c9d1d9;text-decoration:none;font-size:12px;padding:5px 10px;border-radius:4px;background:#1a1f2e;border:1px solid #30363d;white-space:nowrap;transition:all .15s;">🎯 防衛省深堀り</a>
+    <a href="#nav-companies" style="color:#c9d1d9;text-decoration:none;font-size:12px;padding:5px 10px;border-radius:4px;background:#1a1f2e;border:1px solid #30363d;white-space:nowrap;transition:all .15s;">🏢 企業ランキング</a>
+    <a href="#nav-ob" style="color:#c9d1d9;text-decoration:none;font-size:12px;padding:5px 10px;border-radius:4px;background:#1a1f2e;border:1px solid #30363d;white-space:nowrap;transition:all .15s;">👥 OB受注推移</a>
+    <a href="articles/" style="color:#4a8aff;text-decoration:none;font-size:12px;padding:5px 10px;border-radius:4px;background:#1a3a5a;border:1px solid #4a8aff;white-space:nowrap;transition:all .15s;">📝 記事</a>
+    <span style="flex:1"></span>
+    <span style="color:#8b949e;font-size:11px;">v22 / 2026.05.24</span>
+  </div>
+</nav>
+<style>
+#page-nav a:hover {
+  background:#2a3548 !important;
+  color:#fff !important;
+}
+#page-nav a[href="#nav-discretionary"]:hover {
+  background:#4a3010 !important;
+  color:#fff !important;
+}
+</style>
+
+<!-- 概況セクションのアンカー -->
+<div id="nav-overview" style="position:relative;top:-60px;"></div>
+
+<p id="headerSrc">公的資金の流れを、公開情報から検証する ｜ 特別会計・公共調達・政治資金・情報公開請求</p>
   </div>
   <div class="badges">
     <select class="year-sel" id="yearSel">
@@ -1044,7 +1101,8 @@ footer{font-size:10px;color:#30363d;padding:5px 24px;border-top:1px solid #0d111
 </div>
 
 <div class="layout">
-  <div class="ministry-list" id="ministryList"></div>
+  <div id="nav-ministries" style="position:relative;top:-60px;"></div>
+<div class="ministry-list" id="ministryList"></div>
   <div class="account-area" id="accountArea"></div>
   <div class="dpanel" id="dpanel">
     <div class="dpanel-inner" id="dpanelInner">
@@ -1053,6 +1111,7 @@ footer{font-size:10px;color:#30363d;padding:5px 24px;border-top:1px solid #0d111
   </div>
 </div>
 
+<div id="nav-defense" style="position:relative;top:-60px;"></div>
 <!-- ===== 再就職データセクション（自動生成・独立ブロック） ===== -->
 <script src="data/reemployment_data.js"></script>
 <style>
@@ -5786,6 +5845,7 @@ const MOD_S_KANTO_ALL_CASES = [{"level": "🔴 要確認度 高", "score": 12, "
 
 
 
+<div id="nav-companies" style="position:relative;top:-60px;"></div>
 <section id="cross-companies-section" style="max-width:1400px;margin:0 auto;padding:0 20px;"></section>
 
 <!-- ===== D案 v18: 企業横串ランキング R7 ===== -->
@@ -5929,6 +5989,7 @@ document.addEventListener('DOMContentLoaded', function(){
 <!-- ===== D案 v18 end ===== -->
 
 
+<div id="nav-ob" style="position:relative;top:-60px;"></div>
 <section id="stage2-ob-revenue-section" style="max-width:1400px;margin:0 auto;padding:0 20px;"></section>
 
 <!-- ===== Stage 2 Phase 1: OB配置×受注推移 ===== -->
