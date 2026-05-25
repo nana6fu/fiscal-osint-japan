@@ -22,10 +22,11 @@ header{padding:14px 24px;border-bottom:1px solid var(--border);display:flex;alig
 .header-left h1 span{color:var(--red)}
 .header-left p{font-size:10px;color:var(--text-dim);margin-top:2px;font-family:var(--font-mono)}
 .badges{display:flex;gap:6px;align-items:center;flex-wrap:wrap}
-.badge{font-size:10px;padding:3px 8px;border-radius:3px;font-family:var(--font-mono);border:1px solid}
-.badge-red{color:var(--red);border-color:var(--red-dim);background:#1a0508}
-.badge-blue{color:var(--blue);border-color:#1a3a6e;background:#060e1a}
-.badge-green{color:var(--green);border-color:#1a3a2a;background:#060e0a}
+.badge{font-size:12px;padding:5px 10px;border-radius:4px;font-family:-apple-system,BlinkMacSystemFont,'Hiragino Sans','Noto Sans JP',sans-serif;border:1px solid;white-space:nowrap;transition:all .15s;display:inline-flex;align-items:center;line-height:1.4}
+.badge-red{color:#ff6b6b;border-color:#ff6b6b;background:#2a1010}
+.badge-blue{color:#4a8aff;border-color:#4a8aff;background:#1a3a5a}
+.badge-green{color:#4ade80;border-color:#4ade80;background:#0d2a1a}
+a.badge:hover{background:#2a3548;color:#fff !important;cursor:pointer}
 .year-sel{background:#0d1117;color:var(--text-bright);border:1px solid #30363d;border-radius:4px;padding:4px 10px;font-size:13px;font-weight:700;cursor:pointer}
 
 /* SUMMARY */
@@ -992,7 +993,7 @@ footer{font-size:10px;color:#30363d;padding:5px 24px;border-top:1px solid #0d111
 
 <style id="nav-body-padding">
 html { scroll-behavior: smooth; }
-body { padding-top: 60px !important; }
+body { padding-top: 150px !important; }
 
 /* ナビアンカーへのスクロール時、固定ナビバー分のオフセットを確保 */
 #nav-overview, #nav-ministries, #nav-discretionary, #nav-defense, #nav-companies, #nav-ob {
@@ -1012,7 +1013,7 @@ body { padding-top: 60px !important; }
 <body>
 <header>
   <div class="header-left">
-    <h1>Fiscal OSINT <span>Japan</span></h1>
+    <h1 style="display:none">Fiscal OSINT Japan</h1>
     <!-- ===== ページ内ナビバー（v22 2026/05/24） ===== -->
 <nav id="page-nav" style="
   position:fixed;
@@ -1025,8 +1026,14 @@ body { padding-top: 60px !important; }
   z-index:1000;
   padding:10px 0;
 ">
-  <div style="max-width:1400px;margin:0 auto;padding:0 20px;display:flex;flex-wrap:wrap;gap:6px;align-items:center;font-family:-apple-system,BlinkMacSystemFont,'Hiragino Sans','Noto Sans JP',sans-serif;">
-    <a href="#" onclick="window.scrollTo({top:0,behavior:'smooth'});return false;" style="color:#ff6b6b;font-weight:900;font-size:13px;margin-right:8px;letter-spacing:.5px;text-decoration:none;cursor:pointer;">Fiscal OSINT ↑</a>
+  <div style="max-width:1400px;margin:0 auto;padding:0 20px;font-family:-apple-system,BlinkMacSystemFont,'Hiragino Sans','Noto Sans JP',sans-serif;">
+    <!-- 上段：メディア名＋サブタイトル -->
+    <div style="padding:4px 0 8px;border-bottom:1px solid #1f2937;margin-bottom:8px;">
+      <a href="#" onclick="window.scrollTo({top:0,behavior:'smooth'});return false;" style="display:inline-block;color:#fff;font-weight:900;font-size:18px;letter-spacing:.3px;text-decoration:none;cursor:pointer;line-height:1.2;">Fiscal OSINT <span style="color:#ff6b6b;">Japan</span></a>
+      <div style="color:#8b949e;font-size:11px;margin-top:2px;line-height:1.4;">公的資金の流れを、公開情報から検証する ｜ 特別会計・公共調達・政治資金・情報公開請求</div>
+    </div>
+    <!-- 下段：ナビゲーション -->
+    <div style="display:flex;flex-wrap:wrap;gap:6px;align-items:center;">
     <a href="#nav-ministries" style="color:#c9d1d9;text-decoration:none;font-size:12px;padding:5px 10px;border-radius:4px;background:#1a1f2e;border:1px solid #30363d;white-space:nowrap;transition:all .15s;">📋 省庁別</a>
     <a href="#nav-discretionary" style="color:#ffd700;text-decoration:none;font-size:12px;padding:5px 10px;border-radius:4px;background:#2a2510;border:1px solid #ffd700;white-space:nowrap;font-weight:600;transition:all .15s;">⚠️ 随契分析 NEW</a>
     <a href="#nav-defense" style="color:#c9d1d9;text-decoration:none;font-size:12px;padding:5px 10px;border-radius:4px;background:#1a1f2e;border:1px solid #30363d;white-space:nowrap;transition:all .15s;">🎯 防衛省深堀り</a>
@@ -1036,6 +1043,22 @@ body { padding-top: 60px !important; }
     <a href="articles/en/index.html" style="color:#86efac;text-decoration:none;font-size:12px;padding:5px 10px;border-radius:4px;background:#0d3a1f;border:1px solid #4ade80;white-space:nowrap;transition:all .15s;">🌐 EN</a>
     <span style="flex:1"></span>
     <span style="color:#8b949e;font-size:11px;">v22 / 2026.05.24</span>
+    </div>
+    <!-- 3段目：年度切替＋機能ボタン群（スティッキー） -->
+    <div style="display:flex;flex-wrap:wrap;gap:6px;align-items:center;margin-top:6px;padding-top:8px;border-top:1px solid #1f2937;">
+      <select id="yearSel" style="background:#0d1117;color:#c9d1d9;border:1px solid #30363d;border-radius:4px;padding:4px 10px;font-size:12px;font-weight:600;cursor:pointer;">
+        <option value="2006">2006年度（平成18年度）</option>
+        <option value="2025">2025年度（令和7年度）</option>
+        <option value="2024">2024年度（令和6年度）</option>
+        <option value="2023">2023年度（令和5年度）</option>
+        <option value="2005" disabled>2005年度（整備中）</option>
+      </select>
+      <span style="color:#ff6b6b;font-size:12px;padding:5px 10px;border-radius:4px;background:#2a1010;border:1px solid #ff6b6b;white-space:nowrap;">⚠ OB再就職・随意契約 要確認</span>
+      <span style="color:#4ade80;font-size:12px;padding:5px 10px;border-radius:4px;background:#0d2a1a;border:1px solid #4ade80;white-space:nowrap;">🤖 AI: Groq Llama3.3</span>
+      <span style="color:#86b9ff;font-size:12px;padding:5px 10px;border-radius:4px;background:#1a2a3a;border:1px solid #3a5a8a;white-space:nowrap;">公開情報のみ使用</span>
+      <a href="us-investment.html" style="color:#4a8aff;font-size:12px;padding:5px 10px;border-radius:4px;background:#1a3a5a;border:1px solid #4a8aff;white-space:nowrap;text-decoration:none;transition:all .15s;">→ 80兆対米投資</a>
+      <a href="datasets/" style="color:#4a8aff;font-size:12px;padding:5px 10px;border-radius:4px;background:#1a3a5a;border:1px solid #4a8aff;white-space:nowrap;text-decoration:none;transition:all .15s;">📊 datasets</a>
+    </div>
   </div>
 </nav>
 <style>
@@ -1052,22 +1075,9 @@ body { padding-top: 60px !important; }
 <!-- 概況セクションのアンカー -->
 <div id="nav-overview" style="position:relative;top:-60px;"></div>
 
-<p id="headerSrc">公的資金の流れを、公開情報から検証する ｜ 特別会計・公共調達・政治資金・情報公開請求</p>
+<p id="headerSrc" style="display:none">公的資金の流れを、公開情報から検証する ｜ 特別会計・公共調達・政治資金・情報公開請求</p>
   </div>
-  <div class="badges">
-    <select class="year-sel" id="yearSel">
-      <option value="2006">2006年度（平成18年度）</option>
-      <option value="2025">2025年度（令和7年度）</option>
-      <option value="2024">2024年度（令和6年度）</option>
-      <option value="2023">2023年度（令和5年度）</option>
-      <option value="2005" disabled>2005年度（整備中）</option>
-    </select>
-    <div class="badge badge-red">⚠ OB再就職・随意契約 要確認</div>
-    <div class="badge badge-green">🤖 AI: Groq Llama3.3</div>
-    <div class="badge badge-blue">公開情報のみ使用</div>
-    <a href="us-investment.html" class="badge badge-blue nav-link" style="text-decoration:none;">→ 80兆対米投資</a>
-    <a href="datasets/" class="badge badge-blue nav-link" style="text-decoration:none;">📊 datasets</a>
-  </div>
+
 </header>
 
 
