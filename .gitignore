@@ -32,3 +32,7 @@ data/master/contracts.jsonl
 data/master/contracts_pilot.jsonl
 *.bak
 docs/api_plan.md
+articles/_draft/
+
+# 有償API候補データ（git管理外）
+data/api_premium/
