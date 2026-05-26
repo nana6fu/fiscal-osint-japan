@@ -2124,6 +2124,14 @@ var SOURCES = {
   denpa_partner: {label:"📄 総務省 PARTNER民間競争入札実施状況報告", url:"https://www.soumu.go.jp/main_content/000802507.pdf"},
   denpa_futangaku: {label:"📄 総務省 令和6年度主な無線局免許人の電波利用料負担額", url:"https://www.tele.soumu.go.jp/j/sys/fees/account/change/r06_futangaku/index.htm"},
   yomiuri_2006: {label:"📰 読売新聞 2006年3月19日報道（🤖数字は一次資料未確認）", url:""},
+  meti_r7: {label:"📄 経済産業省 R7本省 入札結果・契約結果（公共調達適正化情報公表）", url:"https://www.meti.go.jp/information_2/publicoffer/R_00_bid_news_list.html"},
+  meti_r6: {label:"📄 経済産業省 R6本省 入札結果・契約結果（公共調達適正化情報公表）", url:"https://www.meti.go.jp/information_2/publicoffer/R_00_bid_news_list.html"},
+  meti_r5: {label:"📄 経済産業省 R5本省 入札結果・契約結果（公共調達適正化情報公表）", url:"https://www.meti.go.jp/information_2/publicoffer/R_00_bid_news_list.html"},
+  meti_r5_r6_r7: {label:"📄 経済産業省 R5-R7本省 入札結果統合（18ファイル統合集計）", url:"https://www.meti.go.jp/information_2/publicoffer/R_00_bid_news_list.html"},
+  meti_consul: {label:"📄 経済産業省 R5-R7本省（コンサル集中分析）", url:"https://www.meti.go.jp/information_2/publicoffer/R_00_bid_news_list.html"},
+  meti_register: {label:"📄 経済産業省 R5-R7本省（レジ・POS・キャッシュレス関連検索）", url:"https://www.meti.go.jp/information_2/publicoffer/R_00_bid_news_list.html"},
+  meti_ob: {label:"📄 内閣官房内閣人事局 国家公務員再就職状況の公表（令和5年度）", url:"https://www.cas.go.jp/jp/gaiyou/jimu/jinjikyoku/106-25-2/r06/kouhyou_0924.html"},
+  meti_next: {label:"📄 経済産業省 入札結果・契約結果ページ", url:"https://www.meti.go.jp/information_2/publicoffer/R_00_bid_news_list.html"},
 };
 
 function srcLink(key){
@@ -3878,7 +3886,49 @@ var MINISTRIES_2025 = [
        note:"R7当初予算¥22.53兆＋補正特第1号¥1.89兆=¥24.42兆。⚡R7補正で『米国関税対応・JBIC日本戦略投資ファシリティ』への出資¥2,700億追加を財務省自身が明記。JBIC受領計はR7補正後¥3兆300億（融資¥2.66兆+出資¥3,700億）。R6¥2,750億から11倍に。新規項目『先端半導体・人工知能関連技術対策エネ特会繰入』¥2,037億も登場。",
        contract:"全勘定合計（補正後予算ベース）",
        src_key:"mof_zuii_r7",src_url:"https://www.mof.go.jp/about_mof/mof_budget/special_account/zaitou/2025budget.html"}]
+  },
+{
+    id:'meti', name:'経済産業省', alert:true, tag:'本省R5-R7 計¥2489億・2438件・コンサル集中（野村総研/BCG/三菱総研）',
+    note:'令和5・6・7年度の経産省本省（外局・地方経産局除く）の調達契約データを18ファイル統合。3年合計¥2489億・2438件（≥¥1M案件・公共調達適正化情報公表ベース）。R5(¥970億)→R6(¥802億)→R7(¥717億)と年度ごとに微減傾向。最大の構造的特徴は委託契約の比重（R7で全体¥717億のうち¥624億・約87%）と、コンサル9社による集中受注（¥318億規模）。R7主要受注：公益社団法人2025万博協会¥239.94億、エネ金属鉱物資源機構¥115.79億、野村総研¥97.88億(68件)、BCG¥96.56億(62件)、三菱総研¥71.28億(51件)、アクセンチュア¥52.13億。<strong>注目発見：レジ・POS・キャッシュレス関連は全11件・約¥2億のみ</strong>。「商業動態統計POSデータ集計」はGfKに3年連続随契、「キャッシュレス政策調査」はコンサル委託。<strong>レジメーカー大手（東芝テック・カシオ・シャープ・OKI・NEC・富士通フロンテック）への直接調達は0件</strong>——「レジ改修1年」を主張する大手の名前は経産省本省の調達には現れない。出典：経済産業省 入札結果・契約結果ページ（公共調達適正化情報公表）。',
+    primary_facts:[
+      {text:'📄 <strong>R7経産省本省 合計¥717億・752件</strong>（≥¥1M、随契+競争入札の全18ファイル統合）。物品役務等¥51億+¥40億、委託契約¥474億+¥150億、公共工事¥0億+¥2億。出典：<a href=\'https://www.meti.go.jp/information_2/publicoffer/R_00_bid_news_list.html\' target=\'_blank\' style=\'color:#4a8aff\'>経済産業省 入札結果・契約結果</a>', src:'meti_r7'},
+      {text:'📄 <strong>R5+R6+R7 経産省本省 計¥2489億・2438件</strong>。R5:¥970億(864件)・R6:¥802億(822件)・R7:¥717億(752件)。年度ごとに微減傾向（R5→R7で約¥250億減）。', src:'meti_r5_r6_r7'},
+      {text:'🏛 <strong>【構造的問題】経産省はコンサルティング天国 ¥318億規模</strong>：野村総研¥97.88億(68件)・BCG¥96.56億(62件)・三菱総研¥71.28億(51件)・アクセンチュア¥52.13億(16件)・PwCコンサル¥25.14億(61件)・みずほR&T¥23.51億(70件)・三菱UFJ R&C¥22.55億(41件)・デロイトトーマツコンサル¥25.98億(38件)・日本総研¥16.56億(16件)。R5-R7で<strong>主要コンサル9社だけで¥318億超</strong>。', src:'meti_consul'},
+      {text:'📄 <strong>レジ・POS・キャッシュレス関連 全11件・約¥2億</strong>：①「商業動態統計POSデータ等組替集計」をジーエフケーマーケティングサービスジャパンへR5-R7連続随契（¥22.8M→22.6M→23.1M）。②「キャッシュレス政策調査」はデロイト・野村総研・NTTデータ経営研などコンサルに委託（¥0.8M〜34M）。③「人事給与関係支援業務」を沖電気工業に3年連続発注（¥22.3M→25.7M→32.8M、年20%増ペース）。<strong>レジメーカー大手（東芝テック・カシオ・シャープ・OKI・NEC・富士通フロンテック）への直接調達は0件</strong>。', src:'meti_register'},
+      {text:'📋 <strong>経産省OB再就職クロス（R5公表）</strong>：経産審議官×2→NEC・日立、経産事務次官→デロイト、エネ庁次長→IHI、官房付→川崎重工、中企業庁→日立建機。R7本省契約での受注：日本電気¥21.43億（14件・R5-R7）、デロイトトーマツコンサル¥25.98億（38件）。OB再就職先 vs 経産省本省受注のクロス検証は次フェーズで詳細実施予定。', src:'meti_ob'},
+      {text:'🚩 <strong>R7次フェーズの優先課題</strong>：①中小企業庁の調達データ取得（レジ補助金・IT導入補助金の交付先構造）。②地方経産局8局の調達データ。③特許庁・資源エネルギー庁のデータ。④経産省OB→受注先企業の直接クロス分析（NEC・日立・川崎重工・IHI等への発注実績の経年検証）。⑤野村総研・BCG・三菱総研の重複案件パターン分析（同じテーマを並行委託していないか）。', src:'meti_next'},
+    ],
+    houjin:[
+      {name:'公益社団法人', region:'本省（R5-R7）', gyomu:'R5-R7 計6件・¥254.76億（競争入札・随意契約）', amount_oku:254.76, tensyakuri:'🤖 未確認（R5-R7で6件継続受注）'},
+      {name:'公益社団法人２０２５年日本国際博覧会協会', region:'本省（R5-R7）', gyomu:'R5-R7 計6件・¥239.94億（随意契約）', amount_oku:239.94, tensyakuri:'🤖 未確認（R5-R7で6件継続受注）'},
+      {name:'独立行政法人エネルギー・金属鉱物資源機構', region:'本省（R5-R7）', gyomu:'R5-R7 計8件・¥115.79億（随意契約）', amount_oku:115.79, tensyakuri:'🤖 経産省所管独法（エネルギー安全保障）'},
+      {name:'株式会社野村総合研究所', region:'本省（R5-R7）', gyomu:'R5-R7 計68件・¥97.88億（競争入札・随意契約）', amount_oku:97.88, tensyakuri:'🏛 コンサル天国の主役・R5,R6,R7年連続受注'},
+      {name:'ボストン・コンサルティング・グループ合同会社', region:'本省（R5-R7）', gyomu:'R5-R7 計62件・¥96.56億（競争入札・随意契約）', amount_oku:96.56, tensyakuri:'🏛 コンサル天国の主役・R5,R6,R7年連続受注'},
+      {name:'株式会社三菱総合研究所', region:'本省（R5-R7）', gyomu:'R5-R7 計51件・¥71.28億（競争入札・随意契約）', amount_oku:71.28, tensyakuri:'🏛 コンサル天国の主役・R5,R6,R7年連続受注'},
+      {name:'（株）シービーエス', region:'本省（R5-R7）', gyomu:'R5-R7 計2件・¥67.47億（競争入札）', amount_oku:67.47, tensyakuri:'🤖 未確認（R5-R7で2件継続受注）'},
+      {name:'一般財団法人', region:'本省（R5-R7）', gyomu:'R5-R7 計24件・¥58.03億（競争入札・随意契約）', amount_oku:58.03, tensyakuri:'🤖 未確認（R5-R7で24件継続受注）'},
+      {name:'アクセンチュア株式会社', region:'本省（R5-R7）', gyomu:'R5-R7 計16件・¥52.13億（競争入札・随意契約）', amount_oku:52.13, tensyakuri:'🏛 コンサル天国の主役・R5,R6,R7年連続受注'},
+      {name:'独立行政法人日本貿易振興機構', region:'本省（R5-R7）', gyomu:'R5-R7 計5件・¥37.43億（随意契約）', amount_oku:37.43, tensyakuri:'🤖 経産省所管独法（JETRO）'},
+      {name:'一般財団法人日本規格協会', region:'本省（R5-R7）', gyomu:'R5-R7 計8件・¥37.36億（随意契約）', amount_oku:37.36, tensyakuri:'🤖 未確認（R5-R7で8件継続受注）'},
+      {name:'一般財団法人宇宙システム開発利用推進機構', region:'本省（R5-R7）', gyomu:'R5-R7 計6件・¥33.24億（随意契約）', amount_oku:33.24, tensyakuri:'🤖 未確認（R5-R7で6件継続受注）'},
+    ],
+    houjin_note:'令和5・6・7年度・経産省本省 入札結果Excel18ファイル（随意契約9・競争入札9）を統合集計、≥¥1M案件のみ採録、計2438件・¥2489億。📋OB再就職クロス（R5公表内閣人事局）：経産審議官×2→NEC・日立、経産事務次官→デロイト、エネ庁次長→IHI、官房付→川崎重工、中企業庁→日立建機。経産省本省契約への直接クロスは次フェーズで実施予定。出典：経済産業省 入札結果・契約結果（令和5・6・7年度契約分）',
+    accounts:[
+      {name:'R7（令和7年度）本省', amount_oku:716.98, alert:true,
+       note:'令和7年度・本省 計¥716.98億・752件（≥¥1M）。物品役務等¥51.09億(随)+¥39.57億(競)、委託契約¥473.94億(随)+¥150.19億(競)、公共工事¥0.48億(随)+¥1.71億(競)。委託契約が圧倒的（¥624億・全体の87.0%）。',
+       contract:'随意契約281件+競争入札471件',
+       src_key:'meti_r7', src_url:'https://www.meti.go.jp/information_2/publicoffer/R_00_bid_news_list.html'},
+      {name:'R6（令和6年度）本省', amount_oku:801.85, alert:true,
+       note:'令和6年度・本省 計¥801.85億・822件。物品役務等¥35.65億(随)+¥123.64億(競)、委託契約¥524.40億(随)+¥116.43億(競)。R7と比べてやや多い。',
+       contract:'随意契約309件+競争入札513件',
+       src_key:'meti_r6', src_url:'https://www.meti.go.jp/information_2/publicoffer/R_00_bid_news_list.html'},
+      {name:'R5（令和5年度）本省', amount_oku:970.02, alert:true,
+       note:'令和5年度・本省 計¥970.02億・864件。物品役務等¥32.01億(随)+¥54.01億(競)、委託契約¥699.79億(随)+¥151.89億(競)。3年間で最大規模（コロナ後の補正予算反映）。',
+       contract:'随意契約343件+競争入札521件',
+       src_key:'meti_r5', src_url:'https://www.meti.go.jp/information_2/publicoffer/R_00_bid_news_list.html'},
+    ],
   }
+
 ];
 
 document.getElementById("yearSel").addEventListener("change", function(){
