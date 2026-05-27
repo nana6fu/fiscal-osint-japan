@@ -1081,6 +1081,46 @@ body { padding-top: 150px !important; }
 </header>
 
 
+<!-- 👋 初めての方へカード（localStorageで非表示制御） -->
+<style>
+.welcome-card{background:#0a0e1a;border:1px solid #2a2f3e;border-left:4px solid #ffd700;border-radius:8px;padding:20px 24px;margin:20px;position:relative;color:#e0e0e0;line-height:1.7;max-width:1200px}
+.welcome-card h2{margin:0 0 12px;font-size:16px;color:#ffd700;font-weight:600}
+.welcome-card p{margin:0 0 14px;font-size:14px;color:#c9d1d9}
+.welcome-card ul{margin:0;padding-left:0;list-style:none}
+.welcome-card li{font-size:13px;padding:5px 0;color:#c0c0c0}
+.welcome-card strong{color:#fff}
+.welcome-card a{color:#4a8aff;text-decoration:none}
+.welcome-card a:hover{text-decoration:underline}
+.welcome-close{position:absolute;top:12px;right:12px;background:none;border:none;color:#888;font-size:20px;cursor:pointer;padding:4px 10px;line-height:1;border-radius:4px;transition:all .15s}
+.welcome-close:hover{color:#fff;background:#2a2f3e}
+</style>
+<div id="welcome-card" class="welcome-card" style="display:none">
+  <button class="welcome-close" onclick="closeWelcomeCard()" aria-label="閉じる">×</button>
+  <h2>👋 初めての方へ（一般の方も）</h2>
+  <p>Fiscal OSINT Japan は、政府の公開情報のみを使って、特別会計・公共調達・天下り構造を可視化する独立OSINTプロジェクトです。</p>
+  <ul>
+    <li>▶ <strong>ジャーナリストの方</strong>: 全データに一次資料リンク。引用自由（CC BY 4.0）</li>
+    <li>▶ <strong>研究者の方</strong>: データセットはCC0、自由利用可</li>
+    <li>▶ <strong>議員・秘書の方</strong>: 国会質問の参考資料としてご活用ください</li>
+    <li>▶ <strong>大量データ利用</strong>: API（準備中）、<a href="https://x.com/FiscalOSINT_JP" target="_blank">X（@FiscalOSINT_JP）</a>からご連絡を</li>
+  </ul>
+</div>
+<script>
+(function(){
+  try {
+    if (localStorage.getItem('welcome_dismissed') !== 'true') {
+      var el = document.getElementById('welcome-card');
+      if (el) el.style.display = 'block';
+    }
+  } catch(e) { /* localStorage使えない環境では非表示のまま */ }
+})();
+function closeWelcomeCard(){
+  var el = document.getElementById('welcome-card');
+  if (el) el.style.display = 'none';
+  try { localStorage.setItem('welcome_dismissed', 'true'); } catch(e) {}
+}
+</script>
+
 <div class="summary">
   <div class="sum-item">
     <div class="sum-label">特別会計 歳出総額</div>
