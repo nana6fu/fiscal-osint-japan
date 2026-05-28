@@ -1646,7 +1646,8 @@ function closeWelcomeCard(){
 
     var cos=Object.keys(r.companies).sort(function(a,b){return r.companies[b].oku-r.companies[a].oku;});
     var html='<div style="padding:14px 16px;background:#0d1729;border:1px solid #1a3a2a;border-radius:8px;">';
-    html+='<div style="font-size:13px;color:#4ade80;font-weight:700;margin-bottom:10px;">「'+escHtml(kw)+'」の検索結果：'+r.coCount+'社 / 単純合計 ¥'+r1(r.grand)+'億</div>';
+    html+='<div style="font-size:13px;color:#4ade80;font-weight:700;margin-bottom:4px;">「'+escHtml(kw)+'」の検索結果：'+r.coCount+'社 / 単純合計 ¥'+r1(r.grand)+'億</div>';
+    html+='<div style="font-size:11px;color:#ffaa00;margin-bottom:10px;">📅 R5〜R7（2023〜2025年度）の合算値です</div>';
     cos.forEach(function(co){
       var c=r.companies[co];
       var minStr=Object.keys(c.mins).sort(function(a,b){return c.mins[b]-c.mins[a];}).map(function(m){
@@ -1662,7 +1663,8 @@ function closeWelcomeCard(){
     html+='<div style="margin-top:8px;font-size:11px;color:#888;line-height:1.7;">'+
       '※ 数字はサイト内収録データの単純合計です（AI非使用）。<br>'+
       (r.hasJV?'※ <span style="color:#ffaa00;">JV</span>＝共同企業体での受注。単独受注とは性質が異なります。<br>':'')+
-      '※ 同名・類似名は元データの表記のまま分けて表示しています。名寄せ（表記統一）は行っていません。</div>';
+      '※ 同名・類似名は元データの表記のまま分けて表示しています。名寄せ（表記統一）は行っていません。<br>'+
+      '※ 金額はR5〜R7各年度の受注を合算したものです（年度別・複数企業比較は今後対応予定）。</div>';
 
     box.innerHTML=html;
     setTimeout(function(){ box.scrollIntoView({behavior:'smooth',block:'nearest'}); },80);
