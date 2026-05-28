@@ -1011,6 +1011,46 @@ body { padding-top: 150px !important; }
 </style>
 </head>
 <body>
+
+<!-- ▼ フローティング企業横断検索ボット -->
+<div id="cross-fab" onclick="toggleCrossBot()" title="企業横断検索"
+  style="position:fixed;right:20px;bottom:20px;width:56px;height:56px;border-radius:50%;background:#1a3a2a;border:2px solid #4ade80;color:#4ade80;font-size:24px;display:flex;align-items:center;justify-content:center;cursor:pointer;z-index:9998;box-shadow:0 4px 16px rgba(0,0,0,0.5);transition:transform .15s;">🔍</div>
+
+<div id="cross-panel" style="display:none;position:fixed;right:20px;bottom:20px;width:360px;max-width:calc(100vw - 40px);max-height:min(560px,calc(100vh - 40px));background:#0a0e1a;border:1px solid #1a3a2a;border-radius:12px;z-index:9999;box-shadow:0 8px 32px rgba(0,0,0,0.6);display:flex;flex-direction:column;overflow:hidden;">
+  <div style="display:flex;justify-content:space-between;align-items:center;padding:14px 16px;border-bottom:1px solid #1a2a1a;background:#0d1729;">
+    <div>
+      <div style="font-size:14px;color:#4ade80;font-weight:700;">🔍 企業横断検索</div>
+      <div style="font-size:11px;color:#888;margin-top:2px;">全省庁・全年度を横断して集計</div>
+    </div>
+    <button onclick="toggleCrossBot()" style="background:transparent;color:#888;border:none;cursor:pointer;font-size:20px;line-height:1;font-family:inherit;padding:0 4px;">×</button>
+  </div>
+  <div style="padding:14px 16px;overflow-y:auto;flex:1;">
+    <div style="display:flex;gap:6px;">
+      <input type="text" id="cross-q" maxlength="40" placeholder="例：NEC、富士通、東洋建設"
+        style="flex:1;min-width:0;background:#060e06;border:1px solid #30363d;border-radius:5px;padding:9px 11px;color:#e0e0e0;font-size:13px;font-family:inherit;"
+        onkeydown="if(event.key==='Enter'){event.preventDefault();runCrossSearch();}">
+      <button onclick="runCrossSearch()" id="cross-btn"
+        style="background:#1a3a2a;color:#4ade80;border:1px solid #4ade80;padding:9px 14px;border-radius:5px;font-size:13px;font-weight:600;cursor:pointer;font-family:inherit;white-space:nowrap;">集計</button>
+    </div>
+    <div style="margin-top:8px;font-size:11px;color:#666;line-height:1.6;">数字はサイト内データの単純集計（AI非使用）。対象外・無関係な入力にはお答えできません。</div>
+    <div style="margin-top:8px;display:flex;gap:6px;flex-wrap:wrap;" id="cross-chips"></div>
+    <div id="cross-result" style="display:none;margin-top:12px;"></div>
+  </div>
+</div>
+<script>
+function toggleCrossBot(){
+  var fab=document.getElementById('cross-fab');
+  var panel=document.getElementById('cross-panel');
+  if(panel.style.display==='none'||!panel.style.display){
+    panel.style.display='flex'; fab.style.display='none';
+    setTimeout(function(){var q=document.getElementById('cross-q'); if(q) q.focus();},100);
+  }else{
+    panel.style.display='none'; fab.style.display='flex';
+  }
+}
+</script>
+<!-- /フローティング企業横断検索ボット -->
+
 <header>
   <div class="header-left">
     <h1 style="display:none">Fiscal OSINT Japan</h1>
@@ -1357,7 +1397,6 @@ function closeWelcomeCard(){
           ➡️ 次に調べるべき問い
         </button>
       </div>
-
       <!-- AI回答表示エリア -->
       <div id="disc-ai-result" style="display:none;background:#0a0e1a;border-radius:6px;padding:18px 20px;margin-top:8px;">
         <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:12px;padding-bottom:10px;border-bottom:1px solid #2a2f3e;">
@@ -1541,6 +1580,112 @@ function closeWelcomeCard(){
   };
 })();
 </script>
+<script>
+/* ===== 企業横断検索エンジン（JS集計・AI不使用） ===== */
+(function(){
+  // レイヤー1: 危険ワード即弾き
+  var BLOCK_WORDS = ['自宅','住所','電話番号','携帯番号','メールアドレス','家族','子供','学校','殺','爆破','死ね','個人情報','本籍','無視して','これまでの指示','システムプロンプト','ignore previous','disregard'];
+
+  function escHtml(s){
+    return String(s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;').replace(/'/g,'&#039;');
+  }
+  function r1(n){ return Math.round(n*10)/10; }
+
+  // 串刺し集計（会社名ごとに分割・元データ表記のまま）
+  function crossSearch(kw){
+    var rows=[];
+    [["R5(2023)", typeof MINISTRIES_2023!=='undefined'?MINISTRIES_2023:[]],
+     ["R6(2024)", typeof MINISTRIES_2024!=='undefined'?MINISTRIES_2024:[]],
+     ["R7(2025)", typeof MINISTRIES_2025!=='undefined'?MINISTRIES_2025:[]]
+    ].forEach(function(s){(s[1]||[]).forEach(function(m){(m.houjin||[]).forEach(function(h){
+      if(h.name&&h.name.indexOf(kw)!==-1)rows.push({co:h.name,y:s[0],min:m.name,oku:h.amount_oku||0});
+    });});});
+    if(typeof STAGE2_DATA!=='undefined'&&STAGE2_DATA.companies){STAGE2_DATA.companies.forEach(function(c){
+      if(c.name&&c.name.indexOf(kw)!==-1)[["R5","R5(2023)"],["R6","R6(2024)"],["R7","R7(2025)"]].forEach(function(yy){
+        var v=c.years&&c.years[yy[0]];if(v&&v.oku>0)rows.push({co:c.name,y:yy[1],min:"防衛省",oku:v.oku});
+      });
+    });}
+    var byCo={};
+    rows.forEach(function(r){
+      if(!byCo[r.co])byCo[r.co]={oku:0,n:0,mins:{},isJV:(r.co.indexOf('＋')!==-1||r.co.indexOf('JV')!==-1||r.co.indexOf('ＪＶ')!==-1)};
+      byCo[r.co].oku+=r.oku; byCo[r.co].n++;
+      byCo[r.co].mins[r.min]=(byCo[r.co].mins[r.min]||0)+r.oku;
+    });
+    var grand=rows.reduce(function(a,r){return a+r.oku;},0);
+    return {kw:kw, companies:byCo, grand:Math.round(grand*100)/100, coCount:Object.keys(byCo).length, hasJV:Object.keys(byCo).some(function(k){return byCo[k].isJV;})};
+  }
+  window._crossSearch = crossSearch;
+
+  // 結果描画
+  window.runCrossSearch = function(){
+    var input=document.getElementById('cross-q');
+    var box=document.getElementById('cross-result');
+    if(!input||!box) return;
+    var kw=(input.value||'').trim();
+
+    if(kw.length<1){ box.style.display='block'; box.innerHTML='<div style="color:#888;font-size:13px;">企業名を入力してください。</div>'; return; }
+    // レイヤー1ガード
+    var low=kw.toLowerCase();
+    for(var i=0;i<BLOCK_WORDS.length;i++){
+      if(kw.indexOf(BLOCK_WORDS[i])!==-1||low.indexOf(BLOCK_WORDS[i].toLowerCase())!==-1){
+        box.style.display='block';
+        box.innerHTML='<div style="padding:12px 14px;background:#1a1010;border:1px solid #5a2a2a;border-radius:6px;color:#e0a0a0;font-size:13px;line-height:1.7;">本サイトは公共調達データの集計を目的としており、その内容にはお答えできません。企業名・省庁名で受注データを検索してください。</div>';
+        return;
+      }
+    }
+
+    var r=crossSearch(kw);
+    box.style.display='block';
+
+    if(r.coCount===0){
+      box.innerHTML='<div style="padding:12px 14px;background:#0d1729;border:1px solid #2a2f3e;border-radius:6px;color:#bbb;font-size:13px;line-height:1.7;">'+
+        '「'+escHtml(kw)+'」に一致する企業は、本サイト収録データ内で見つかりませんでした。<br>'+
+        '<span style="color:#888;font-size:12px;">※ 本サイトは現在、経産省・財務省・厚労省・デジタル庁・防衛省（地方防衛局）等の一部データを収録しています。表記の一部（例：正式社名の一部）でお試しください。</span></div>';
+      return;
+    }
+
+    var cos=Object.keys(r.companies).sort(function(a,b){return r.companies[b].oku-r.companies[a].oku;});
+    var html='<div style="padding:14px 16px;background:#0d1729;border:1px solid #1a3a2a;border-radius:8px;">';
+    html+='<div style="font-size:13px;color:#4ade80;font-weight:700;margin-bottom:10px;">「'+escHtml(kw)+'」の検索結果：'+r.coCount+'社 / 単純合計 ¥'+r1(r.grand)+'億</div>';
+    cos.forEach(function(co){
+      var c=r.companies[co];
+      var minStr=Object.keys(c.mins).sort(function(a,b){return c.mins[b]-c.mins[a];}).map(function(m){
+        return '<span style="color:#9fb670;">'+escHtml(m)+'</span> ¥'+r1(c.mins[m])+'億';
+      }).join(' ・ ');
+      html+='<div style="padding:10px 0;border-top:1px solid #1a2030;">'+
+        '<div style="font-size:13px;color:#fff;font-weight:600;">'+escHtml(co)+(c.isJV?' <span style="font-size:10px;color:#ffaa00;background:#2a1f10;padding:1px 6px;border-radius:3px;">JV</span>':'')+
+        ' <span style="color:#7ec8ff;font-weight:700;">¥'+r1(c.oku)+'億</span> <span style="color:#888;font-size:11px;">('+c.n+'件)</span></div>'+
+        '<div style="font-size:11px;color:#aaa;margin-top:3px;line-height:1.7;">'+minStr+'</div></div>';
+    });
+    html+='</div>';
+    // 注記
+    html+='<div style="margin-top:8px;font-size:11px;color:#888;line-height:1.7;">'+
+      '※ 数字はサイト内収録データの単純合計です（AI非使用）。<br>'+
+      (r.hasJV?'※ <span style="color:#ffaa00;">JV</span>＝共同企業体での受注。単独受注とは性質が異なります。<br>':'')+
+      '※ 同名・類似名は元データの表記のまま分けて表示しています。名寄せ（表記統一）は行っていません。</div>';
+
+    box.innerHTML=html;
+    setTimeout(function(){ box.scrollIntoView({behavior:'smooth',block:'nearest'}); },80);
+  };
+
+  // 例示チップ生成
+  function buildChips(){
+    var wrap=document.getElementById('cross-chips');
+    if(!wrap) return;
+    var examples=['NEC','富士通','NTTデータ','東洋建設','いであ','大成建設'];
+    examples.forEach(function(ex){
+      var b=document.createElement('button');
+      b.textContent=ex;
+      b.style.cssText='background:#11161f;color:#9fb670;border:1px solid #2a3a2a;padding:4px 10px;border-radius:12px;font-size:11px;cursor:pointer;font-family:inherit;';
+      b.onclick=function(){ var inp=document.getElementById('cross-q'); inp.value=ex; window.runCrossSearch(); };
+      wrap.appendChild(b);
+    });
+  }
+  if(document.readyState!=='loading') buildChips();
+  else document.addEventListener('DOMContentLoaded', buildChips);
+})();
+</script>
+
 
 
     <!-- 注意書き・スタンス -->
