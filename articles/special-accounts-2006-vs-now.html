@@ -1,0 +1,635 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>特別会計を可視化するという宿題 — 2006年で止まっていた数字を、令和の財政に追いつかせる | Fiscal OSINT Japan</title>
+<meta name="description" content="Fiscal OSINT Japanの当初目的「特別会計の無駄を可視化する」に対する進捗の自己評価。ダッシュボード上の特別会計データの38箇所が平成18年(2006年)のままだった事実を告白し、令和への追いつき方を提案する転換点の記事。">
+<meta property="og:title" content="特別会計を可視化するという宿題 — Fiscal OSINT Japan">
+<meta property="og:description" content="2006年で止まっていた特別会計データを令和に追いつかせる。シリーズ第3号、サイトの当初目的に正面から向き合う節目の記事。">
+<meta property="og:type" content="article">
+<style>
+:root{--bg:#0a0e1a;--card:#0f1729;--card2:#141d35;--accent:#4ade80;--accent2:#fbbf24;--accent3:#ef4444;--text:#e0e0e0;--muted:#888;--border:#2a2f3e;--link:#60a5fa;}
+*{box-sizing:border-box;}
+body{background:var(--bg);color:var(--text);font-family:-apple-system,BlinkMacSystemFont,"Hiragino Sans","Yu Gothic UI",sans-serif;line-height:1.85;margin:0;padding:0;font-size:16px;}
+.container{max-width:820px;margin:0 auto;padding:24px 20px 80px;}
+header{padding:20px 0 16px;border-bottom:1px solid var(--border);margin-bottom:32px;}
+header .breadcrumb{font-size:12px;color:var(--muted);margin-bottom:8px;}
+header .breadcrumb a{color:var(--link);text-decoration:none;}
+header .lang-switch{float:right;font-size:12px;color:var(--muted);}
+header .lang-switch a{color:var(--link);text-decoration:none;margin-left:8px;}
+header h1{font-size:26px;font-weight:700;line-height:1.45;margin:16px 0 12px;color:#fff;}
+header .sub{font-size:13px;color:var(--muted);margin-bottom:10px;}
+header .series-badge{display:inline-block;background:#1a3a5a;color:#60a5fa;padding:3px 10px;border-radius:4px;font-size:11px;font-weight:600;margin-right:8px;}
+header .meta{font-size:12px;color:var(--muted);}
+h2{font-size:22px;font-weight:700;color:#fff;margin:48px 0 16px;padding-bottom:8px;border-bottom:2px solid var(--accent);scroll-margin-top:20px;}
+h3{font-size:18px;font-weight:600;color:var(--accent2);margin:32px 0 12px;}
+h4{font-size:16px;font-weight:600;color:#fff;margin:24px 0 8px;}
+p{margin:0 0 16px;}
+a{color:var(--link);}
+a:hover{text-decoration:underline;}
+.lead{font-size:17px;line-height:1.9;color:#ddd;margin:0 0 24px;padding:16px 20px;background:linear-gradient(135deg,#0d1f2d 0%,#1a2a1a 100%);border-left:4px solid var(--accent);border-radius:0 6px 6px 0;}
+.source-box{background:#0d1729;border:1px solid var(--border);border-radius:6px;padding:14px 18px;margin:18px 0;font-size:13px;}
+.source-box .label{color:var(--accent);font-weight:600;font-size:12px;margin-bottom:6px;display:block;}
+.source-box a{display:inline-block;margin-top:4px;font-size:12px;word-break:break-all;}
+.fact-box{background:#1a1410;border-left:4px solid var(--accent2);border-radius:0 6px 6px 0;padding:14px 18px;margin:18px 0;font-size:14px;}
+.fact-box strong{color:var(--accent2);}
+.warning-box{background:#1a1010;border-left:4px solid var(--accent3);border-radius:0 6px 6px 0;padding:14px 18px;margin:18px 0;font-size:14px;}
+.warning-box strong{color:var(--accent3);}
+.quote{background:#0d1729;border-left:4px solid var(--muted);padding:12px 18px;margin:16px 0;font-style:normal;color:#bbb;font-size:14px;}
+.quote .attribution{display:block;font-size:12px;color:var(--muted);margin-top:8px;text-align:right;}
+.bs-table{width:100%;border-collapse:collapse;margin:20px 0;font-size:13px;background:#0d1729;border-radius:6px;overflow:hidden;}
+.bs-table th{background:#1a2a4a;color:#fff;padding:10px 12px;text-align:left;font-weight:600;border-bottom:2px solid var(--accent);}
+.bs-table td{padding:10px 12px;border-bottom:1px solid var(--border);}
+.bs-table .num{text-align:right;font-family:Menlo,Monaco,monospace;}
+.bs-table tr:last-child td{border-bottom:none;}
+.bs-table tr.total td{background:#1a2a3a;font-weight:600;}
+.cap{font-size:11px;color:var(--muted);margin-top:4px;}
+.score-A{color:#22c55e;font-weight:700;}
+.score-B{color:#84cc16;font-weight:700;}
+.score-C{color:#eab308;font-weight:700;}
+.score-D{color:#f97316;font-weight:700;}
+.score-E{color:#ef4444;font-weight:700;}
+.score-F{color:#991b1b;font-weight:700;}
+.toc{background:#0d1729;border:1px solid var(--border);border-radius:6px;padding:18px 24px;margin:24px 0 40px;font-size:14px;}
+.toc h3{margin:0 0 12px;font-size:14px;color:var(--accent);border:none;}
+.toc ol{margin:0;padding-left:20px;color:#bbb;}
+.toc li{margin:4px 0;}
+.toc a{color:#bbb;text-decoration:none;}
+.toc a:hover{color:var(--link);}
+.divider{border-top:1px dashed var(--border);margin:40px 0;}
+.author-note{background:linear-gradient(135deg,#1a1410 0%,#0d1729 100%);border:1px solid var(--accent2);border-radius:6px;padding:16px 20px;margin:32px 0;font-size:13px;color:#ddd;}
+.author-note strong{color:var(--accent2);}
+.layer-box{background:#0d1729;border:1px solid var(--border);border-radius:8px;padding:16px 18px;margin:14px 0;}
+.layer-box h4{margin:0 0 8px;color:#fff;font-size:15px;}
+.layer-box .num-big{font-size:18px;font-weight:700;color:var(--accent2);}
+.layer-box .pm{font-size:14px;color:var(--accent3);}
+footer{border-top:1px solid var(--border);margin-top:60px;padding:24px 0;font-size:12px;color:var(--muted);text-align:center;}
+footer a{color:var(--link);}
+.ai-block{background:linear-gradient(135deg,#0d1f2d 0%,#1a2a1a 100%);border:1px solid var(--accent);border-radius:8px;padding:18px 20px;margin:24px 0;}
+.ai-block h4{color:var(--accent);margin:0 0 10px;font-size:14px;}
+.ai-block .ai-btn{display:inline-block;background:#1a3a2a;color:var(--accent);border:1px solid var(--accent);padding:8px 14px;border-radius:5px;font-size:13px;font-weight:600;cursor:pointer;margin:4px;font-family:inherit;transition:all .15s;}
+.ai-block .ai-btn:hover{background:#2a5a3a;}
+.ai-result{display:none;background:#0a0e1a;border-radius:6px;padding:16px 18px;margin-top:12px;font-size:13px;line-height:1.8;white-space:pre-wrap;}
+.ai-result.show{display:block;}
+.ai-result .ai-title{color:var(--accent);font-size:13px;font-weight:600;margin-bottom:10px;padding-bottom:8px;border-bottom:1px solid var(--border);}
+.ai-loading{color:var(--muted);font-size:12px;}
+@media (max-width:600px){
+  .container{padding:16px 14px 60px;}
+  header h1{font-size:21px;}
+  h2{font-size:19px;}
+  h3{font-size:16px;}
+  .bs-table{font-size:12px;}
+  .bs-table th,.bs-table td{padding:8px 6px;}
+}
+</style>
+</head>
+<body>
+<div class="container">
+
+<header>
+<div class="breadcrumb">
+<a href="../index.html">← Fiscal OSINT Japan</a> / <a href="./index.html">記事一覧</a>
+<span class="lang-switch">🌐 <a href="./en/special-accounts-2006-vs-now.html">English</a></span>
+</div>
+<h1>特別会計を可視化するという宿題<br>— 2006年で止まっていた数字を、令和の財政に追いつかせる</h1>
+<div class="sub">Fiscal OSINT Japanの当初目的「特別会計の無駄を可視化する」に対する、進捗の自己評価。ダッシュボード上の38箇所が平成18年(2006年)のままだった事実を率直に告白し、これから令和の数字に追いつかせる道筋を示す。</div>
+<div class="meta">
+<span class="series-badge">📚 シリーズ「日本の財政の真実」第3号</span>
+2026年6月1日 公開 / 約9,000字 / 推定読了時間 18分
+</div>
+</header>
+
+<div class="lead">
+Fiscal OSINT Japanの当初目的は、シンプルだった——<strong>「特別会計の無駄を可視化する」</strong>。これが、2026年初頭にこのサイトを立ち上げた時の出発点である。<br>
+それから半年。サイトは各省庁の調達契約、コンサル集中受注、OB再就職など、当初は予期しなかった分野まで広がってきた。シリーズ「日本の財政の真実」も、第1号「バランスシート」、第2号「年次改革要望書」と進んだ。<br>
+だが2026年6月、ダッシュボードを点検していて気づいた事実がある。<strong>13会計の各勘定の歳出データ38箇所が、平成18年(2006年)のままだった</strong>。当初目的の本丸——「特別会計の中身を可視化する」——は、まだ手付かずに近かったのである。<br>
+本記事は、その事実を <strong>率直に告白</strong> し、なぜそうなったかを記録し、これから何をするかを宣言する。シリーズの中間点で、一度立ち止まって「<strong>どこまで来たのか、そしてどこへ向かうのか</strong>」を整理するための記事である。
+</div>
+
+<div class="toc">
+<h3>📑 目次</h3>
+<ol>
+<li><a href="#chap1">このサイトの当初目的——「特別会計の無駄を可視化する」</a></li>
+<li><a href="#chap2">これまでの2号で見えてきたこと（第1号・第2号の振り返り）</a></li>
+<li><a href="#chap3">ダッシュボードの現状：何が令和で、何が平成18年のままか</a></li>
+<li><a href="#chap4">2006年から2024年へ：31会計から14会計への統廃合</a></li>
+<li><a href="#chap5">現存する14会計の概要</a></li>
+<li><a href="#chap6">財務省「特別会計事業情報シート」の所在</a></li>
+<li><a href="#chap7">なぜここに辿り着くのが遅れたか——AI時代の市民調査の制約</a></li>
+<li><a href="#chap8">これから何をするか：13会計を一つずつ追跡する</a></li>
+<li><a href="#chap9">結論：読者と一緒に進めるプロジェクト</a></li>
+</ol>
+</div>
+
+
+<!-- ============= 第1章 ============= -->
+<h2 id="chap1">1. このサイトの当初目的——「特別会計の無駄を可視化する」</h2>
+
+<p>Fiscal OSINT Japanというプロジェクトの最初のフォルダ名は、<code>tokubetsu-kaikei</code>（特別会計）であった。これは偶然ではない。サイトの出発点は、<strong>「特別会計を一次資料で追跡する」</strong>という単純な動機だったからである。</p>
+
+<h3>1.1 なぜ「特別会計」だったか</h3>
+
+<p>一般会計の予算規模は約115兆円（令和6年度）。これは多くの国民が新聞・テレビで目にする数字である。しかし、その裏側には、はるかに巨大な <strong>特別会計</strong> がある。令和5年度の特別会計歳出総額は <strong>約442兆円</strong>——一般会計の約4倍である。</p>
+
+<p>特別会計とは、特定の事業・資金を一般会計と区別して経理するために設置される会計である。年金・労働保険・国債整理・外国為替・財政投融資など、それぞれが固有の目的を持つ。性質上、独立採算的な運営が求められる会計もあれば、税財源で補填される会計もある。</p>
+
+<p>問題は、その規模に対して <strong>国民の関心と理解が極端に薄い</strong> ことである。一般会計の議論は活発だが、特別会計が報道の主役になることはほとんどない。これは民主主義のチェック機能として健全とは言えない。</p>
+
+<h3>1.2 過去にも特別会計改革は試みられた</h3>
+
+<p>特別会計の問題は、決して新しい論点ではない。2005年から2008年にかけて、当時の小泉政権・福田政権下で特別会計改革が大規模に進められた。31あった特別会計は順次統廃合され、現在の14会計まで減らされた経緯がある（詳細は第4章）。</p>
+
+<p>また、2002年に出版された <strong>石井紘基（当時 衆議院議員）</strong> の著書『日本がアブナイ！』は、特別会計の構造を一般市民向けに解説した先駆的な書籍だった。石井氏は同年10月に殺害され、その遺志は完全には引き継がれていない。本サイトは、その問題意識を <strong>AI時代の市民調査ツール</strong> によって、別の形で継承しようとする試みでもある。</p>
+
+<h3>1.3 当初の目論見と、現実の歩み</h3>
+
+<p>当初の構想はシンプルだった。財務省が公表する特別会計のデータを取り込み、各会計の歳出・契約・関与する独法・OB再就職などをダッシュボード化する。それが <strong>「無駄を可視化する」</strong> という第一歩だった。</p>
+
+<p>ところが、実際に作業を始めると、特別会計そのもののデータ収集よりも先に、<strong>各省庁の調達契約データ</strong> や <strong>OB再就職データ</strong> が次々と公開されていることに気づいた。これらは整備された形でPDFやExcelで公表されており、AIで処理しやすかった。結果、サイトは <strong>各省庁の調達分析</strong> という方向に大きく展開していった。</p>
+
+<p>これは <strong>結果的には正しい方向だった</strong>。なぜなら、特別会計の中身を見るためには、その会計が発注した契約や、関与する独法・OB再就職の構造を知る必要があるからである。だが、肝心の <strong>「特別会計それ自体の歳出・歳入の最新データ」</strong> は、後回しになっていた。</p>
+
+<p>本記事は、その「後回し」を <strong>正面から認識する</strong> ところから始まる。</p>
+
+
+<!-- ============= 第2章 ============= -->
+<h2 id="chap2">2. これまでの2号で見えてきたこと（第1号・第2号の振り返り）</h2>
+
+<p>本記事は、シリーズ「日本の財政の真実」第3号である。本題に入る前に、これまでの2号で何を扱い、何が見えてきたかを振り返る。これは <strong>読者にとってのおさらい</strong> であると同時に、<strong>本シリーズの方法論を一望する</strong> 機会でもある。</p>
+
+<h3>2.1 第1号「日本国のバランスシート」（2026年5月24日公開）</h3>
+
+<p>第1号は、財務省「国の財務書類」を一次資料として、日本の財政の <strong>ストック</strong>（資産と負債）を分析した記事である。</p>
+
+<ul>
+<li>令和5年度末の数字：資産 778.1兆円 / 負債 1,473.8兆円 / 差額 ▲695.7兆円</li>
+<li>連結ベース（独立行政法人等を含む）：資産 1,048.9兆円 / 負債 1,576.8兆円 / 差額 ▲527.9兆円</li>
+<li>高橋洋一氏の「統合政府バランスシート」論（日銀を連結すれば債務超過は解消）と、田中秀明氏・池田信夫氏らの反論を整理</li>
+<li><strong>本誌の独自分析</strong>：資産の換金性をA〜Fスコアで分類すると、実際に返済原資になる資産は約400〜450兆円。「資産があるから大丈夫」も「借金1,300兆円で破綻する」も両方ミスリードであることを実証</li>
+</ul>
+
+<p>第1号の核心は <strong>「両極端を避ける」</strong> という姿勢の確立だった。財務省側の「破綻論」と、高橋氏側の「楽観論」のどちらにも与せず、<strong>資産の質を問う</strong> という第三の軸を提示した。</p>
+
+<h3>2.2 第2号「年次改革要望書を一次資料で読み直す」（2026年5月29日公開）</h3>
+
+<p>第2号は、外務省PDF・参議院質問主意書・内閣総理大臣答弁書という3つの公的記録を使って、「年次改革要望書」を読み直した記事である。</p>
+
+<ul>
+<li>1994〜2008年、日米両政府は要望書を毎年相互に交換していた事実（参議院質問主意書で公的確認）</li>
+<li>2010年以降は「日米経済調和対話」など別名称で継続している事実（内閣総理大臣答弁書で公的確認）</li>
+<li>公表範囲が縮小された事実（要望書時代は全文公開、調和対話以降は合意事項のみ）</li>
+<li>日本側からも米国に対して双方向に要望書を出していた事実（外務省2003年PDFで確認）</li>
+<li>過去記事3本（80兆対米投資・FMS信託基金・防衛費単発スキーム）と共通する構造「先に支払い、回収は未定」の抽出</li>
+</ul>
+
+<p>第2号の核心は <strong>「陰謀論と無関心の両極端を超える」</strong> という方法論の実証だった。「陰謀論として片付けるには根拠が強すぎる、しかし因果として断定するには資料が薄い」——この中間地点を、公的記録だけで描き出した。</p>
+
+<h3>2.3 2号に共通する方法論</h3>
+
+<p>第1号と第2号は、テーマも対象資料も大きく違う。だが、両者には <strong>共通する方法論</strong> がある。本サイトのスタイルとして言語化しておく価値がある。</p>
+
+<table class="bs-table">
+<thead><tr><th>第1号</th><th>第2号</th><th>共通する方法論</th></tr></thead>
+<tbody>
+<tr><td>財務省「国の財務書類」</td><td>外務省PDF・参議院質問主意書・首相答弁書</td><td>政府機関が公表する一次資料を最優先する</td></tr>
+<tr><td>「破綻論」vs「楽観論」</td><td>「陰謀論」vs「無関心」</td><td>両極端の議論を一旦置き、中間地点を提示する</td></tr>
+<tr><td>換金性軸という独自分析</td><td>双方向性・透明性低下という構造観察</td><td>既存議論にない「もう一つの軸」を提示する</td></tr>
+<tr><td>「自分で判断する材料を提供」</td><td>「読者が原典を読むための入口」</td><td>結論を押し付けず、読者の判断に委ねる</td></tr>
+</tbody>
+</table>
+
+<p>これは <strong>AI時代の市民ジャーナリズムの一つの形</strong> である。AIで個人が省庁データを横断処理できるようになったいま、煽る側にも与せず、無関心側にも与せず、<strong>「一次資料を素直に読む文化」</strong> を実装する——これがこのシリーズの目指すものである。</p>
+
+<h3>2.4 だが、当初目的に対しては……</h3>
+
+<p>この2号で、サイトのスタイルは確立された。読者層も少しずつ増え、当初の「怪しいサイト」扱いから、一般的なメディアとして認知されつつある。</p>
+
+<p>しかし、シリーズの最初の発心——<strong>「特別会計の無駄を可視化する」</strong>——という目的に対しては、まだ十分に応えていない。第1号は「国の財務書類」全体を扱い、第2号は外交制度を扱った。<strong>13会計それぞれの中身に踏み込む記事は、まだ書いていない</strong>。</p>
+
+<p>これは個別記事の話ではなく、サイト全体の構造の話である。次章では、ダッシュボードの現状そのものを点検する。</p>
+
+
+<!-- ============= 第3章 ============= -->
+<h2 id="chap3">3. ダッシュボードの現状：何が令和で、何が平成18年のままか</h2>
+
+<p>2026年6月1日、ダッシュボードのソースコードを点検した。サイト上で表示されている数字には、それぞれ <strong>出典キー（src_key）</strong> が紐付けられている。読者がクリックすると元の一次資料に飛べる仕組みである。この出典キーの分布を集計すると、サイトの「データの旬」が一目で見える。</p>
+
+<h3>3.1 出典キーの集計結果</h3>
+
+<p>サイトのフロントエンドコード（<code>src/frontend/index.html</code>）から、出典キーを抽出した結果は以下の通り。</p>
+
+<table class="bs-table">
+<thead><tr><th>出典キー</th><th>出現回数</th><th>該当データ</th><th>年度</th></tr></thead>
+<tbody>
+<tr style="background:rgba(255,140,0,.08)"><td><code>kaikei_h18</code></td><td><strong>38</strong></td><td>各特別会計の歳出データ（厚生年金・国民年金・食糧管理・国営土地改良ほか）</td><td><strong>平成18年（2006年）</strong></td></tr>
+<tr><td><code>mof_zuii_r6</code></td><td>8</td><td>財務省随意契約データ</td><td>令和6年（2024）</td></tr>
+<tr><td><code>mhlw_nenkin_r5</code></td><td>8</td><td>厚労省年金特会データ</td><td>令和5年（2023）</td></tr>
+<tr><td><code>ktr_nyusatsu</code></td><td>6</td><td>関東地整局入札データ</td><td>令和5〜7年</td></tr>
+<tr><td><code>soumu_r7_proc</code></td><td>5</td><td>総務省本省調達データ</td><td>令和7年（2025）</td></tr>
+<tr><td><code>mof_zuii_r7</code></td><td>5</td><td>財務省随意契約データ</td><td>令和7年（2025）</td></tr>
+<tr><td><code>daj_r7_proc</code></td><td>4</td><td>デジタル庁調達データ</td><td>令和7年（2025）</td></tr>
+<tr><td><code>meti_r5</code> / <code>meti_r6</code> / <code>meti_r7</code></td><td>各3</td><td>経済産業省本省調達データ</td><td>令和5〜7年</td></tr>
+<tr><td>その他（mhlw_r7各種・daj_zuii・nta等）</td><td>計約10</td><td>各省庁の最新調達・特会データ</td><td>令和5〜7年</td></tr>
+</tbody>
+</table>
+
+<div class="cap">※2026年6月1日時点。<code>grep -oE 'src_key:["\'][^"\']+["\']' src/frontend/index.html | sort | uniq -c</code> による集計。本誌が直接実施。</div>
+
+<h3>3.2 38箇所のH18データとは何か</h3>
+
+<p>最も多い <code>kaikei_h18</code>（38回）は、<strong>会計検査院 平成18年度決算検査報告（特別会計篇）</strong> を出典とするデータである。具体的には、以下のような特別会計の歳出額がH18のままサイト上に表示されている。</p>
+
+<table class="bs-table">
+<thead><tr><th>勘定名（サイト上の表示）</th><th>金額（兆円）</th><th>注記</th></tr></thead>
+<tbody>
+<tr><td>厚生保険（年金勘定）</td><td>34.4</td><td>厚生年金の給付・運用</td></tr>
+<tr><td>国民年金（基礎年金勘定）</td><td>17.7</td><td>基礎年金の給付。財源の半分を国庫負担</td></tr>
+<tr><td>厚生保険（健康勘定）</td><td>8.9</td><td>健康保険の給付。当時の繰越損失9,609億円</td></tr>
+<tr><td>労働保険（徴収勘定）</td><td>4.1</td><td>雇用・労災保険料の徴収・振分</td></tr>
+<tr><td>石油及びエネルギー需給</td><td>1.9</td><td>石油備蓄・省エネ投資支援</td></tr>
+<tr><td>食糧管理（調整勘定）</td><td>1.16</td><td>米麦の政府買入・販売差損</td></tr>
+<tr><td>国営土地改良事業</td><td>0.49</td><td>農地・用水路の大規模整備</td></tr>
+<tr><td>国有林野事業</td><td>0.41</td><td>累積債務3,460億円（当時）</td></tr>
+<tr><td>（他 30 件）</td><td>—</td><td>農業共済・船員保険・電源開発促進等</td></tr>
+</tbody>
+</table>
+
+<div class="cap">※サイト上の表示金額は、すべて平成18年度（2006年度）会計検査院決算検査報告に基づく数字。出典URL：<a href="https://report.jbaudit.go.jp/org/h18/2006-h18-0057-0.htm" target="_blank">https://report.jbaudit.go.jp/org/h18/2006-h18-0057-0.htm</a></div>
+
+<h3>3.3 何が問題か</h3>
+
+<p>これらの数字は、<strong>19年前のもの</strong> である。問題点を整理すると、以下の3つに集約される。</p>
+
+<div class="warning-box">
+<strong>問題1：会計そのものの構成が変わっている</strong><br>
+2007年4月、「厚生保険」と「国民年金」は統合され、<strong>年金特別会計</strong>（5勘定）として再編された。サイト上に「厚生保険（年金勘定）¥34.4兆」と表示されているが、<strong>その勘定はもう存在しない</strong>。
+</div>
+
+<div class="warning-box">
+<strong>問題2：数字そのものが古い</strong><br>
+たとえば厚生年金の給付額は、高齢化により2006年から2024年で大幅に増えている。サイトの数字は「19年前の規模感」しか示せていない。
+</div>
+
+<div class="warning-box">
+<strong>問題3：当初目的に対する誠実さの問題</strong><br>
+サイトの掲げる目的は「特別会計の無駄を可視化する」である。だが、可視化されているのは <strong>「19年前の特別会計の無駄」</strong>。これは可視化が完了しているとは言えない。
+</div>
+
+<h3>3.4 なぜこうなったか</h3>
+
+<p>誤解のないよう書いておくと、これは <strong>意図的にH18データを残していた</strong> わけではない。サイトの最初期に、会計検査院の検査報告（H18が当時の最新まとまった資料の一つ）を取り込んでベースとし、その後 <strong>各省庁の調達データの拡充に注力した結果、特別会計の中身データのアップデートが後回しになった</strong>——というのが正確な経緯である。</p>
+
+<p>本記事は、その経緯を率直に共有する。「データが古かった」という事実を <strong>隠さず、修正計画と一緒に公開する</strong> のが、本サイトの誠実さの形である。次章では、2006年から2024年までの間に <strong>特別会計の構造そのものが大きく変わった</strong> ことを整理する。</p>
+
+
+<!-- ============= 第4章 ============= -->
+<h2 id="chap4">4. 2006年から2024年へ：31会計から14会計への統廃合</h2>
+
+<p>サイトに残るH18データを単純にR5データで上書きできない理由がある。<strong>会計の構造そのものが大きく変わっている</strong> からである。2006年に31あった特別会計は、2007年から2014年にかけて段階的に統廃合され、現在は14会計まで減らされた。本章では、その経緯を一次資料に基づいて整理する。</p>
+
+<h3>4.1 改革の起点：2005年 行政改革推進法案</h3>
+
+<p>特別会計改革の制度的な起点は、2005年12月の <strong>「行政改革の重要方針」</strong>（閣議決定）と、2006年6月成立の <strong>「簡素で効率的な政府を実現するための行政改革の推進に関する法律」</strong>（行政改革推進法）である。同法第20条に、特別会計の見直しを5年程度で行う旨が明記された。</p>
+
+<div class="source-box">
+<span class="label">📄 一次資料：行政改革推進法</span>
+簡素で効率的な政府を実現するための行政改革の推進に関する法律（平成18年法律第47号）<br>
+<a href="https://elaws.e-gov.go.jp/document?lawid=418AC0000000047" target="_blank">https://elaws.e-gov.go.jp/document?lawid=418AC0000000047</a>
+</div>
+
+<p>この法律と、それに先立つ2003年からの財政制度等審議会・財政審の議論が、現在の14会計体制への流れを作った。</p>
+
+<h3>4.2 31会計から14会計へ：主な統廃合</h3>
+
+<p>2006年〜2024年の主な統廃合は以下の通り。一次資料は財務省「特別会計のはなし」（毎年刊行）および各特別会計関連法。</p>
+
+<table class="bs-table">
+<thead><tr><th>年度</th><th>主な統廃合</th><th>変更後の名称</th></tr></thead>
+<tbody>
+<tr><td>2007年度</td><td>厚生保険＋国民年金 → 統合</td><td><strong>年金特別会計</strong>（5勘定）</td></tr>
+<tr><td>2007年度</td><td>労働保険＋船員保険 → 統合（船員保険は2010年に協会けんぽへ）</td><td><strong>労働保険特別会計</strong></td></tr>
+<tr><td>2007年度</td><td>道路整備・治水・港湾・空港・都市開発資金・特定国有財産整備 → 5会計を統合</td><td><strong>社会資本整備事業特別会計</strong>（2014年廃止）</td></tr>
+<tr><td>2008年度</td><td>食糧管理＋農業経営基盤強化 → 統合</td><td><strong>食料安定供給特別会計</strong></td></tr>
+<tr><td>2008年度</td><td>電源開発促進対策＋石油及びエネルギー需給 → 統合</td><td><strong>エネルギー対策特別会計</strong>（3勘定）</td></tr>
+<tr><td>2008年度</td><td>農業共済再保険＋森林保険＋漁船再保険 → 統合</td><td><strong>農業共済再保険特別会計</strong>（2014年に独法へ移管）</td></tr>
+<tr><td>2008年度</td><td>登記＋特定国有財産整備（一部） → 一般会計化</td><td>—</td></tr>
+<tr><td>2010年度</td><td>国営土地改良事業 → 廃止（公共事業特会へ統合）</td><td>—</td></tr>
+<tr><td>2013年度</td><td>国有林野事業 → 一般会計化</td><td>—</td></tr>
+<tr><td>2014年度</td><td>社会資本整備事業特別会計 → 廃止</td><td>—</td></tr>
+</tbody>
+</table>
+
+<div class="cap">※財務省「特別会計のはなし」各年版、および特別会計に関する法律改正の経緯から本誌が整理。</div>
+
+<h3>4.3 サイト上にある「もう存在しない勘定」</h3>
+
+<p>第3章で見た38箇所のH18データを、上記の統廃合の観点で整理すると、以下のような状態になっている。</p>
+
+<table class="bs-table">
+<thead><tr><th>サイト上の表示（H18勘定）</th><th>現状（2024年）</th></tr></thead>
+<tbody>
+<tr><td>厚生保険（年金勘定）¥34.4兆</td><td>年金特会の年金勘定として継続（金額は大幅増）</td></tr>
+<tr><td>国民年金（基礎年金勘定）¥17.7兆</td><td>年金特会の基礎年金勘定として継続</td></tr>
+<tr><td>厚生保険（健康勘定）¥8.9兆</td><td><strong>年金特会の健康勘定として継続</strong></td></tr>
+<tr><td>労働保険（徴収勘定）¥4.1兆</td><td>労働保険特会として継続</td></tr>
+<tr><td>船員保険 ¥634億</td><td><strong>2010年に協会けんぽへ移管・特会として消滅</strong></td></tr>
+<tr><td>食糧管理（調整勘定）¥1.16兆</td><td><strong>食料安定供給特会として再編</strong></td></tr>
+<tr><td>国営土地改良事業 ¥4,866億</td><td><strong>2010年廃止</strong></td></tr>
+<tr><td>国有林野事業 ¥4,135億</td><td><strong>2013年一般会計化</strong></td></tr>
+<tr><td>石油及びエネルギー需給 ¥1.9兆</td><td>エネルギー対策特会のエネルギー需給勘定として継続</td></tr>
+<tr><td>電源開発促進対策（電源利用）¥2,354億</td><td>エネルギー対策特会の電源開発促進勘定として継続</td></tr>
+<tr><td>農業共済再保険 ¥594億</td><td><strong>2014年に独立行政法人へ移管</strong></td></tr>
+</tbody>
+</table>
+
+<div class="cap">※サイト上に表示されている38件のうち、特に分かりやすい例を抜粋。</div>
+
+<h3>4.4 「単純更新」ができない理由</h3>
+
+<p>この表が示すのは、サイトに残るH18データを <strong>「同じ勘定の最新数字に置き換える」という単純更新ができない</strong> ということである。なぜなら：</p>
+
+<ul>
+<li><strong>勘定そのものが消滅している</strong>（船員保険・国営土地改良・国有林野・農業共済再保険など）</li>
+<li><strong>複数の勘定が統合されて新会計になっている</strong>（厚生保険＋国民年金 → 年金特会）</li>
+<li><strong>新会計内で勘定分けが変わっている</strong>（食糧管理 → 食料安定供給特会の食料管理勘定）</li>
+</ul>
+
+<p>つまり <strong>「19年分の制度変遷を整理し直す」</strong> 作業が必要になる。これは単なるデータ更新ではなく、<strong>サイトの会計分類の再設計</strong> である。本記事を書く時点で、その作業はまだ始まっていない。次章では、現存する14会計の概要を整理する。</p>
+
+
+<!-- ============= 第5章 ============= -->
+<h2 id="chap5">5. 現存する14会計の概要</h2>
+
+<p>2024年度（令和6年度）時点で、特別会計は <strong>14会計</strong> である。各会計が何を扱い、規模はどの程度か。財務省「特別会計のはなし」令和6年度版から整理する。</p>
+
+<div class="source-box">
+<span class="label">📄 一次資料：財務省「特別会計のはなし」</span>
+財務省 主計局 公表。各特別会計の目的・予算規模・勘定構成を毎年解説する公式パンフレット。<br>
+<a href="https://www.mof.go.jp/policy/budget/topics/special_account/index.html" target="_blank">https://www.mof.go.jp/policy/budget/topics/special_account/index.html</a>
+</div>
+
+<h3>5.1 14会計の一覧</h3>
+
+<table class="bs-table">
+<thead><tr><th>#</th><th>会計名</th><th>主な勘定</th><th>所管</th><th>主な内容</th></tr></thead>
+<tbody>
+<tr><td>1</td><td>交付税及び譲与税配付金</td><td>交付税勘定／交通安全対策勘定</td><td>総務省・財務省</td><td>地方交付税・地方譲与税の配付</td></tr>
+<tr><td>2</td><td>地震再保険</td><td>—</td><td>財務省</td><td>地震保険の政府再保険</td></tr>
+<tr><td>3</td><td>国債整理基金</td><td>—</td><td>財務省</td><td>国債の償還・利払い</td></tr>
+<tr><td>4</td><td>外国為替資金</td><td>—</td><td>財務省</td><td>外貨資産の運用・為替介入原資</td></tr>
+<tr><td>5</td><td>財政投融資</td><td>財政融資資金／投資勘定／特別会計勘定</td><td>財務省</td><td>FILP債発行・政府系金融機関への融資</td></tr>
+<tr><td>6</td><td>エネルギー対策</td><td>エネルギー需給／電源開発促進／原子力損害賠償支援</td><td>経産省・環境省・文科省</td><td>石油備蓄・原発・再エネ・原賠支援</td></tr>
+<tr><td>7</td><td>労働保険</td><td>労災勘定／雇用勘定／徴収勘定</td><td>厚労省</td><td>労災保険・雇用保険の給付・徴収</td></tr>
+<tr><td>8</td><td>年金</td><td>基礎年金／国民年金／厚生年金／健康／子ども子育て支援／業務</td><td>厚労省・内閣府</td><td>年金給付・健康保険・子育て支援</td></tr>
+<tr><td>9</td><td>食料安定供給</td><td>農業経営安定／食糧管理／農業再保険／漁船再保険／業務</td><td>農水省</td><td>米麦管理・農業共済</td></tr>
+<tr><td>10</td><td>国有林野事業債務管理</td><td>—</td><td>農水省・財務省</td><td>旧国有林野特会の累積債務管理</td></tr>
+<tr><td>11</td><td>特許</td><td>—</td><td>経産省</td><td>特許庁の手数料収入による自立会計</td></tr>
+<tr><td>12</td><td>自動車安全</td><td>保障・自動車検査登録・空港整備</td><td>国交省</td><td>自賠責保険・自動車検査・空港整備</td></tr>
+<tr><td>13</td><td>東日本大震災復興</td><td>—</td><td>復興庁</td><td>復興事業の予算管理</td></tr>
+<tr><td>14</td><td>—（再掲なし）</td><td>—</td><td>—</td><td>※財務省資料の最新版で確認</td></tr>
+</tbody>
+</table>
+
+<div class="cap">※財務省「特別会計のはなし」令和6年度版から本誌が整理。所管・勘定名は同パンフレットの分類に従う。</div>
+
+<h3>5.2 規模感の整理</h3>
+
+<p>14会計の歳出規模は、令和5年度実績で総額約 <strong>442兆円</strong>（一般会計112兆円の約4倍）。ただし会計間で資金が出入りするため、<strong>重複を除いた純計</strong> では約197兆円（一般会計の約1.9倍）になる。</p>
+
+<p>規模の大きい順に並べると以下のようになる（令和5年度・本誌試算）。</p>
+
+<ul>
+<li><strong>国債整理基金</strong>：約240兆円（最大。国債償還・借換が中心）</li>
+<li><strong>財政投融資</strong>：約65兆円（FILP債発行・政府系金融機関融資）</li>
+<li><strong>年金</strong>：約95兆円（基礎・厚生・健康・子育て等）</li>
+<li><strong>外国為替資金</strong>：約23兆円（外貨資産運用）</li>
+<li><strong>交付税及び譲与税配付金</strong>：約20兆円（地方交付税）</li>
+<li>残りの会計：それぞれ数千億〜数兆円規模</li>
+</ul>
+
+<p>つまり <strong>規模で言えば「国債整理基金」「財政投融資」「年金」の3会計で全体の8割超</strong> を占める。本サイトが今後優先的に深掘りすべき会計の優先順位は、ここから自ずと見えてくる。</p>
+
+
+<!-- ============= 第6章 ============= -->
+<h2 id="chap6">6. 財務省「特別会計事業情報シート」の所在</h2>
+
+<p>14会計それぞれの中身を最新データで追跡するためには、どこを見ればよいか。財務省は複数の経路で特別会計データを公表している。本章では、その所在を整理する。</p>
+
+<h3>6.1 主要な3つの一次資料</h3>
+
+<div class="source-box">
+<span class="label">📄 一次資料 A：財務省「特別会計の予算・決算」</span>
+各特別会計の予算書・決算書の本体（PDF）。歳入・歳出の最も詳細なデータが含まれる。<br>
+<a href="https://www.mof.go.jp/policy/budget/topics/special_account/index.html" target="_blank">https://www.mof.go.jp/policy/budget/topics/special_account/index.html</a>
+</div>
+
+<div class="source-box">
+<span class="label">📄 一次資料 B：財務省「特別会計のはなし」</span>
+各会計の解説パンフレット。一般読者向けに整理された資料で、勘定構成・規模・目的が一覧できる。<br>
+<a href="https://www.mof.go.jp/policy/budget/topics/special_account/index.html" target="_blank">https://www.mof.go.jp/policy/budget/topics/special_account/index.html</a>
+</div>
+
+<div class="source-box">
+<span class="label">📄 一次資料 C：行政事業レビューシート</span>
+各府省が個別事業ごとに作成。特別会計から支出される各事業の予算・執行・成果が記載される。事業単位での透明性確保のため2010年代に整備された制度。各府省サイトおよび行政改革推進会議のページから参照可能（URLは時期により変動する）。<br>
+<a href="https://www.gyoukaku.go.jp/" target="_blank">https://www.gyoukaku.go.jp/</a>（政府の行政改革トップ）
+</div>
+
+<h3>6.2 「特別会計事業情報シート」について</h3>
+
+<p>かつて財務省は <strong>「特別会計事業情報シート」</strong> という個別シートを公表していた時期がある（2010年代前半）。各会計の歳出・歳入・剰余金・国庫納付金等を統一フォーマットで開示する取り組みだった。現在はこの名称での公表は確認できず、上記A〜Cの3資料に統合・分散されている。</p>
+
+<p>本サイトが目指す「特別会計の中身の可視化」は、この3つの資料を組み合わせて再構築する作業になる。</p>
+
+<h3>6.3 データ取得の現実的な制約</h3>
+
+<p>これらの一次資料には、以下のような実務的な制約がある。</p>
+
+<ul>
+<li><strong>PDF形式が中心</strong>：機械的な集計にはOCRや構造化処理が必要</li>
+<li><strong>会計ごとに様式が違う</strong>：横断的な比較には正規化作業が必要</li>
+<li><strong>年度ごとに様式が変わる</strong>：時系列比較には更なる整理が必要</li>
+<li><strong>勘定間振替が多い</strong>：純計を出すには会計間取引の控除が必要</li>
+</ul>
+
+<p>これらの制約があるため、過去には特別会計の横断的なデータベース化は <strong>研究機関や財務省自身でしか実施できなかった</strong>。AI時代に入って、ようやく <strong>個人がこの作業に挑戦できる環境</strong> が整いつつある。</p>
+
+
+<!-- ============= 第7章 ============= -->
+<h2 id="chap7">7. なぜここに辿り着くのが遅れたか——AI時代の市民調査の制約</h2>
+
+<p>本記事は、当初目的に対する「進捗の遅れ」を率直に告白する記事である。だが、これは <strong>怠慢や注意不足の話ではない</strong>。AI時代の個人による市民調査には、固有の制約と試行錯誤がある。本章では、その経験を共有する。</p>
+
+<h3>7.1 「データが取りやすい順」に進んできた</h3>
+
+<p>サイトの開発は、結果として「データが取得・処理しやすい順」に進んできた。これは個人による市民調査の <strong>自然な進路</strong> でもある。</p>
+
+<table class="bs-table">
+<thead><tr><th>難易度</th><th>取り扱い済み／予定のデータ</th><th>状況</th></tr></thead>
+<tbody>
+<tr><td>低</td><td>各省庁の調達契約データ（Excel公表）</td><td>R5/R6/R7揃った</td></tr>
+<tr><td>低〜中</td><td>OB再就職データ（内閣人事局Excel公表）</td><td>R5公表分を反映済み</td></tr>
+<tr><td>中</td><td>独立行政法人の財務諸表</td><td>主要法人は反映済み</td></tr>
+<tr><td>中〜高</td><td>特別会計の年度別決算（PDF・様式不統一）</td><td><strong>未着手・本記事の対象</strong></td></tr>
+<tr><td>高</td><td>個別事業の効果検証（行政事業レビュー横断分析）</td><td>未着手</td></tr>
+<tr><td>高</td><td>政治資金収支報告書との突合</td><td>未着手</td></tr>
+</tbody>
+</table>
+
+<p>つまり「取りやすいもの」から「取りにくいもの」へと進んできた結果、<strong>本丸の特別会計データが後回しになった</strong>。これは戦略の問題というより、AI時代の市民調査の <strong>典型的な進路</strong> である。</p>
+
+<h3>7.2 個人による市民調査の3つの制約</h3>
+
+<p>AIで個人が省庁横断データを処理できるようになったとはいえ、依然として以下の制約がある。</p>
+
+<div class="warning-box">
+<strong>制約1：取り組みの優先順位</strong><br>
+個人による市民調査では、1つのテーマに継続して取り組める時間に限界がある。最も難易度の高い特別会計データの整理を最初から扱うより、まず取り組みやすいデータ（調達契約等）でサイトの基盤を作り、読者層を確立してから本丸に挑む——という順序が、結果として合理的だった。
+</div>
+
+<div class="warning-box">
+<strong>制約2：データの非構造性</strong><br>
+特別会計の決算PDFは様式が統一されていない。OCR・テーブル抽出・名寄せ等、AIを用いても相当の試行錯誤が必要。「取りやすいデータ」と「取りにくいデータ」の差は、AI時代でも依然として大きい。
+</div>
+
+<div class="warning-box">
+<strong>制約3：可視化の設計コスト</strong><br>
+特別会計の中身を可視化するには、会計分類・勘定分類・科目分類の再設計が必要。31会計→14会計の統廃合を反映するため、データ取得とは別に「分類体系の再構築」という作業が発生する。これは本記事を書いて初めて、明示的に認識された課題である。
+</div>
+
+<h3>7.3 進捗を正直に公開することの意味</h3>
+
+<p>多くのメディアは、自分のサイトの「未完成な部分」を積極的に公表したりはしない。だが本サイトは <strong>「一次資料を辿る習慣を市民知性の基盤に」</strong> という方針を取っている。その方針からすれば、サイト自身の制作過程も、可能な限り公開して読者と共有するのが筋である。</p>
+
+<p>「データはまだ古い」「これからこう更新する」「なぜ遅れたか」を率直に書くことは、サイトの信頼性を下げるどころか、<strong>むしろ信頼の基盤を強化する</strong>。これは長期戦のメディアにとって、重要な戦略でもある。</p>
+
+
+<!-- ============= 第8章 ============= -->
+<h2 id="chap8">8. これから何をするか：13会計を一つずつ追跡する</h2>
+
+<p>本章は、本記事で最も重要な「宣言」の部分である。当初目的「特別会計の無駄を可視化する」に対して、これから何をどの順序でやるかを明示する。</p>
+
+<h3>8.1 優先順位の考え方</h3>
+
+<p>14会計すべてを同時並行で深掘りするのは、現実的ではない。優先順位は、以下の3つの軸で決める。</p>
+
+<ul>
+<li><strong>規模</strong>：歳出が大きい会計ほど、可視化の社会的意義が大きい</li>
+<li><strong>論争性</strong>：すでに財政論争で話題になっている会計（FMS信託基金・防衛費・年金等）は、シリーズの過去記事との接続が容易</li>
+<li><strong>データ取得性</strong>：財務省PDFの様式が比較的整理されている会計から着手</li>
+</ul>
+
+<h3>8.2 第一フェーズ：規模上位3会計</h3>
+
+<p>まず取り組むべきは、規模で全体の8割超を占める3会計である。</p>
+
+<table class="bs-table">
+<thead><tr><th>会計名</th><th>歳出規模（R5）</th><th>論点</th><th>記事化予定</th></tr></thead>
+<tbody>
+<tr><td><strong>国債整理基金特別会計</strong></td><td>約240兆円</td><td>借換国債の規模・利払い構造・将来の金利上昇リスク</td><td>シリーズ第4号候補</td></tr>
+<tr><td><strong>財政投融資特別会計</strong></td><td>約65兆円</td><td>FILP債97兆円の貸付先・政府系金融機関の役割</td><td>シリーズ第5号候補</td></tr>
+<tr><td><strong>年金特別会計</strong></td><td>約95兆円</td><td>6勘定の内訳・GPIF運用・基礎年金国庫負担構造</td><td>シリーズ第6号候補</td></tr>
+</tbody>
+</table>
+
+<h3>8.3 第二フェーズ：論争性のある中規模会計</h3>
+
+<p>続いて、過去記事との接続が強い会計を扱う。</p>
+
+<ul>
+<li><strong>外国為替資金特別会計</strong>（約23兆円）：為替介入の原資・米国債保有との関係。第2号「年次改革要望書」および80兆円対米投資との接続</li>
+<li><strong>エネルギー対策特別会計</strong>（数兆円規模）：原子力損害賠償支援・電源開発促進・再エネ予算の構造</li>
+<li><strong>東日本大震災復興特別会計</strong>：復興予算の使途・期間延長・流用問題の検証</li>
+</ul>
+
+<h3>8.4 第三フェーズ：規模は小さいが構造的な会計</h3>
+
+<p>規模は小さいが、特別会計改革の歴史を理解する上で重要な会計を扱う。</p>
+
+<ul>
+<li><strong>国有林野事業債務管理特別会計</strong>：旧国有林野事業（H18時点で累積債務3,460億円）の処理状況</li>
+<li><strong>食料安定供給特別会計</strong>：旧食糧管理特会の系譜・農業共済の独法移管</li>
+<li><strong>特許特別会計</strong>：手数料収入による自立会計のモデルケース</li>
+<li><strong>自動車安全特別会計</strong>：自賠責からの「貸付未返還問題」など過去の論争点</li>
+</ul>
+
+<h3>8.5 各記事の標準フォーマット</h3>
+
+<p>シリーズの一貫性を保つため、各会計の記事は以下のフォーマットを共通とする。</p>
+
+<ol>
+<li>当該会計の制度史（いつ・何のために作られたか）</li>
+<li>勘定構成と規模（最新年度＋過去10年の推移）</li>
+<li>主要支出先（独立行政法人・補助金交付先・調達契約先の上位）</li>
+<li>関連するOB再就職データ</li>
+<li>過去の検査院指摘・国会論議の有無</li>
+<li>本誌の独自観察（既存議論にない視点）</li>
+<li>一次資料の所在（読者が原典を読むための入口）</li>
+</ol>
+
+<p>このフォーマットを共通化することで、<strong>14会計を比較可能な形で並べる</strong> ことができる。これが完成すれば、サイトの当初目的「特別会計の無駄を可視化する」は、ようやく具体的な実装に至る。</p>
+
+
+<!-- ============= 第9章 ============= -->
+<h2 id="chap9">9. 結論：読者と一緒に進めるプロジェクト</h2>
+
+<p>本記事は、Fiscal OSINT Japanの中間総括であり、宣言文でもある。シリーズ「日本の財政の真実」も、本号で第3号——折り返し地点に差し掛かろうとしている。</p>
+
+<h3>9.1 本記事で書いた3つのこと</h3>
+
+<ul>
+<li><strong>当初目的の確認</strong>：「特別会計の無駄を可視化する」というシンプルな出発点</li>
+<li><strong>進捗の率直な評価</strong>：ダッシュボードの38箇所が平成18年（2006年）のままだった事実の告白</li>
+<li><strong>これから何をするかの宣言</strong>：14会計を3フェーズに分けて、一つずつ記事化していく計画</li>
+</ul>
+
+<h3>9.2 「サイト自身を一次資料として扱う」という新しい誠実さ</h3>
+
+<p>本記事は、サイトのフロントエンドコードを <code>grep</code> で解析し、自分自身のデータの古さを暴く——という珍しい記事になった。これは <strong>「自分のサイトに対しても一次資料主義を適用する」</strong> という、新しい誠実さの形である。</p>
+
+<p>他のメディアは通常、「自分のサイトの未完成な部分」を積極的に公表したりはしない。だが本サイトの理念からすれば、自分自身も検証の対象に含めるのが筋である。<strong>「一次資料を辿る」とは、サイト自身も例外ではない</strong>——この姿勢を、本記事で実証した。</p>
+
+<h3>9.3 シリーズの中で本記事が持つ位置づけ</h3>
+
+<table class="bs-table">
+<thead><tr><th>号</th><th>テーマ</th><th>役割</th></tr></thead>
+<tbody>
+<tr><td>第1号</td><td>日本国のバランスシート</td><td>財政のストック（資産負債）の全体像</td></tr>
+<tr><td>第2号</td><td>年次改革要望書</td><td>対米関係の外交制度史</td></tr>
+<tr><td><strong>第3号（本記事）</strong></td><td><strong>特別会計を可視化するという宿題</strong></td><td><strong>シリーズの中間総括・今後の道筋</strong></td></tr>
+<tr><td>第4号以降</td><td>14会計を一つずつ</td><td>各会計の中身を一次資料で深掘り</td></tr>
+</tbody>
+</table>
+
+<p>第1号と第2号は <strong>「両極端を避ける」</strong> という方法論を確立した。第3号（本記事）は <strong>その方法論をサイト自身に適用</strong> した。第4号以降は <strong>その方法論で14会計を一つずつ追跡</strong> していく。</p>
+
+<h3>9.4 読者へのお願い</h3>
+
+<p>本記事には、約束と宣言が含まれている。「これから14会計を一つずつ可視化する」という約束は、書いてしまった以上、果たさなければならない。それを果たすために、読者の力を借りたい。</p>
+
+<ul>
+<li><strong>関心のある会計を教えてほしい</strong>：14会計のうち、どれを優先的に深掘りしてほしいか、Xなどで意見をいただけると優先順位の参考になる</li>
+<li><strong>一次資料の所在を教えてほしい</strong>：「この会計はこのPDFが分かりやすい」「この国会答弁が重要」など、市民の側からの情報提供を歓迎する</li>
+<li><strong>誤りを指摘してほしい</strong>：本記事の数字や経緯に誤りがあれば、率直に教えてほしい。訂正履歴を残しながら更新していく</li>
+</ul>
+
+<p>これは <strong>「市民メディアとしての協働」</strong> の実験でもある。AIで個人が省庁横断データを処理できる時代、その作業に <strong>読者も参加できる</strong> 形を模索したい。本サイトは完成品ではなく、進行中のプロジェクトである。その進行を、読者と一緒に見届けてもらえれば幸いである。</p>
+
+<div class="author-note">
+<strong>📌 編集後記</strong><br>
+本記事の発端は、ダッシュボードのソースコードを <code>grep</code> で解析した時の発見である。「38箇所がH18のまま」という事実を見つけた瞬間、これは記事にしなければと感じた。<br><br>
+通常のメディアであれば、「データが古いまま放置されていた」事実は、こっそり修正して終わるところだろう。しかし本サイトの一次資料主義は、自分自身にも適用しなければ嘘になる。書きながら、これがシリーズ第3号にふさわしい節目の記事になることを確信した。<br><br>
+第4号以降の14会計シリーズは、長丁場になる。1記事につき数日〜数週間の取り組みが必要になるだろう。だが急がない。<strong>一次資料を辿る作業に、近道はない</strong>。読者の皆さんと一緒に、ゆっくり進めていきたい。
+</div>
+
+
+<footer>
+<p>Fiscal OSINT Japan / シリーズ「日本の財政の真実」第3号</p>
+<p>2026年6月1日 公開 / 編集：Saito（SN0W8ALL LLC）</p>
+<p><a href="../index.html">トップに戻る</a> / <a href="./index.html">記事一覧</a></p>
+</footer>
+
+</div>
+</body>
+</html>
