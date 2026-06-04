@@ -8,7 +8,7 @@
 <meta property="og:title" content="横浜花博¥953億 ── 他人の金を他人のために使う構造">
 <meta property="og:description" content="¥540億→¥953億(1.76倍)・確定¥417億vs皮算用¥536億。役員系列・ゼネコン100社超・特別措置法討論なし採決。一次資料から検証。">
 <meta property="og:type" content="article">
-<meta property="og:url" content="https://nana6fu.github.io/fiscal-osint-japan/hanahaku-article.html">
+<meta property="og:url" content="https://nana6fu.github.io/fiscal-osint-japan/articles/hanahaku-article.html">
 <meta name="twitter:card" content="summary_large_image">
 <style>
 @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;700;900&family=Share+Tech+Mono&display=swap');
@@ -58,8 +58,19 @@ hr{border:none;border-top:1px solid var(--border);margin:32px 0}
 .share-btn{display:inline-block;padding:8px 16px;border-radius:4px;font-size:12px;border:1px solid;font-family:var(--font-mono)}
 .share-btn-x{color:#fff;border-color:#2a3548;background:#0d1117}
 .share-btn-x:hover{background:#2a3548}
+
+.figure{background:var(--surface);border:1px solid var(--border);border-radius:6px;padding:20px;margin:24px 0}
+.figure svg{display:block;width:100%;height:auto}
+.figure .caption{font-size:11px;color:var(--text-dim);margin-top:12px;border-top:1px solid var(--border);padding-top:10px;font-family:var(--font-mono)}
+
 footer.site{border-top:1px solid var(--border);padding:32px 24px;text-align:center;color:var(--text-dim);font-size:11px;font-family:var(--font-mono);margin-top:48px}
 footer.site a{color:var(--text-dim)}
+
+.data-table{width:100%;border-collapse:collapse;font-size:13px;margin:20px 0;background:var(--surface);border:1px solid var(--border)}
+.data-table th{background:#0a1018;color:var(--text-dim);font-family:var(--font-mono);font-size:11px;padding:10px 12px;text-align:left;border-bottom:1px solid var(--border)}
+.data-table td{padding:10px 12px;border-bottom:1px solid var(--border);color:var(--text)}
+.data-table tr:hover td{background:#0a1220}
+
 </style>
 </head>
 <body>
@@ -70,7 +81,7 @@ footer.site a{color:var(--text-dim)}
     <p>SPECIAL REPORT / hanahaku_2027_article</p>
   </div>
   <div class="badges">
-    <a href="en/hanahaku-article-en.html" class="badge badge-en">🌐 EN</a>
+    <a href="en/hanahaku-article.html" class="badge badge-en">🌐 EN</a>
     <a href="../hanahaku.html" class="badge badge-dashboard">🌸 ダッシュボード</a>
     <a href="../index.html" class="badge badge-back">← TOP</a>
   </div>
@@ -329,11 +340,177 @@ footer.site a{color:var(--text-dim)}
 <li>会場設計仮勘定 ¥31.4億円</li>
 </ul>
 
+
+<div class="figure">
+<svg viewBox="0 0 1040 480" xmlns="http://www.w3.org/2000/svg">
+      <title>協会のバランスシート(2024年度末)</title>
+
+      <!-- タイトル -->
+      <text x="520" y="32" text-anchor="middle" fill="#f0f6fc" font-family="Noto Sans JP" font-size="18" font-weight="900">公益社団法人2027年国際園芸博覧会協会 バランスシート(2024年度末)</text>
+      <text x="520" y="52" text-anchor="middle" fill="#6e7681" font-family="Share Tech Mono" font-size="11">資産合計 ¥71.3億 = 負債合計 ¥70.2億 + 正味財産 ¥1.1億</text>
+
+      <!-- 左:資産ボックス -->
+      <rect x="100" y="80" width="360" height="370" rx="4" fill="#0d1a2a" stroke="#4895ef" stroke-width="0.5"/>
+      <text x="120" y="110" fill="#4895ef" font-family="Share Tech Mono" font-size="11">ASSETS</text>
+      <text x="120" y="138" fill="#f0f6fc" font-family="Noto Sans JP" font-size="20" font-weight="900">資産</text>
+      <text x="440" y="138" text-anchor="end" fill="#4895ef" font-family="Noto Sans JP" font-size="22" font-weight="900">¥71.3億</text>
+
+      <!-- 会場設計仮勘定 ¥31.4億 -->
+      <!-- 高さ計算: スケール = 280px / 71.3億 ≈ 3.93px per 億 -->
+      <!-- 31.4 * 3.93 ≈ 123.4 -->
+      <rect x="120" y="170" width="320" height="123" rx="3" fill="#1a3a5a" stroke="#4895ef" stroke-width="0.5"/>
+      <text x="130" y="195" fill="#f0f6fc" font-family="Noto Sans JP" font-size="13" font-weight="700">会場設計仮勘定</text>
+      <text x="130" y="215" fill="#4895ef" font-family="Share Tech Mono" font-size="11">CONSTRUCTION IN PROGRESS</text>
+      <text x="430" y="285" text-anchor="end" fill="#f0f6fc" font-family="Noto Sans JP" font-size="20" font-weight="900">¥31.4億</text>
+
+      <!-- 現預金等その他資産 ¥39.9億(残り) -->
+      <!-- 39.9 * 3.93 ≈ 156.8 -->
+      <rect x="120" y="293" width="320" height="155" rx="3" fill="#0d2030" stroke="#4895ef" stroke-width="0.3" stroke-dasharray="3,2"/>
+      <text x="130" y="318" fill="#f0f6fc" font-family="Noto Sans JP" font-size="13" font-weight="700">現預金・その他資産</text>
+      <text x="130" y="338" fill="#4895ef" font-family="Share Tech Mono" font-size="11">CASH & OTHER</text>
+      <text x="430" y="440" text-anchor="end" fill="#f0f6fc" font-family="Noto Sans JP" font-size="20" font-weight="900">¥39.9億</text>
+
+      <!-- 中央矢印 = -->
+      <text x="500" y="270" text-anchor="middle" fill="#6e7681" font-family="Share Tech Mono" font-size="32">=</text>
+
+      <!-- 右:負債+純資産 -->
+      <rect x="540" y="80" width="400" height="370" rx="4" fill="#1a0508" stroke="#e63946" stroke-width="0.5"/>
+      <text x="560" y="110" fill="#e63946" font-family="Share Tech Mono" font-size="11">LIABILITIES + NET ASSETS</text>
+      <text x="560" y="138" fill="#f0f6fc" font-family="Noto Sans JP" font-size="20" font-weight="900">負債 + 純資産</text>
+      <text x="920" y="138" text-anchor="end" fill="#e63946" font-family="Noto Sans JP" font-size="22" font-weight="900">¥71.3億</text>
+
+      <!-- 横浜銀行借入 ¥42.7億 -->
+      <!-- 42.7 * 3.93 ≈ 167.8 -->
+      <rect x="560" y="170" width="360" height="168" rx="3" fill="#3a0d10" stroke="#e63946" stroke-width="0.5"/>
+      <text x="570" y="195" fill="#f0f6fc" font-family="Noto Sans JP" font-size="13" font-weight="700">横浜銀行 短期借入</text>
+      <text x="570" y="215" fill="#e63946" font-family="Share Tech Mono" font-size="11">SHORT-TERM BANK LOAN</text>
+      <text x="910" y="310" text-anchor="end" fill="#f0f6fc" font-family="Noto Sans JP" font-size="22" font-weight="900">¥42.7億</text>
+
+      <!-- 未払金 ¥27.2億 -->
+      <!-- 27.2 * 3.93 ≈ 106.9 -->
+      <rect x="560" y="338" width="360" height="107" rx="3" fill="#2a0810" stroke="#e63946" stroke-width="0.5" stroke-dasharray="3,2"/>
+      <text x="570" y="363" fill="#f0f6fc" font-family="Noto Sans JP" font-size="13" font-weight="700">未払金</text>
+      <text x="570" y="383" fill="#e63946" font-family="Share Tech Mono" font-size="11">UNPAID LIABILITIES</text>
+      <text x="910" y="440" text-anchor="end" fill="#f0f6fc" font-family="Noto Sans JP" font-size="20" font-weight="900">¥27.2億</text>
+
+      <!-- 正味財産 ¥1.1億(極薄) -->
+      <!-- 1.1 * 3.93 ≈ 4.3px -->
+      <rect x="560" y="446" width="360" height="4" rx="1" fill="#43aa8b" stroke="#43aa8b" stroke-width="0.5"/>
+      <line x1="560" y1="460" x2="920" y2="460" stroke="#43aa8b" stroke-width="0.5" stroke-dasharray="2,2"/>
+      <text x="570" y="475" fill="#43aa8b" font-family="Noto Sans JP" font-size="11" font-weight="700">正味財産</text>
+      <text x="910" y="475" text-anchor="end" fill="#43aa8b" font-family="Noto Sans JP" font-size="13" font-weight="900">¥1.1億 ← 全体の1.5%</text>
+    </svg>
+<div class="caption">DATA: 公益社団法人2027年国際園芸博覧会協会 2024年度財務諸表(貸借対照表)</div>
+</div>
+
+<div class="figure">
+<svg viewBox="0 0 1040 480" xmlns="http://www.w3.org/2000/svg">
+      <title>正味財産の3年間推移</title>
+
+      <!-- タイトル -->
+      <text x="520" y="32" text-anchor="middle" fill="#f0f6fc" font-family="Noto Sans JP" font-size="18" font-weight="900">正味財産の内訳推移(2022-2024年度末)</text>
+      <text x="520" y="52" text-anchor="middle" fill="#6e7681" font-family="Share Tech Mono" font-size="11">指定正味財産(補助金・寄附) vs 一般正味財産(自力部分=マイナス拡大中)</text>
+
+      <!-- 0基準線(y=240) -->
+      <line x1="80" y1="240" x2="1000" y2="240" stroke="#43aa8b" stroke-width="1" stroke-dasharray="3,3" opacity="0.7"/>
+      <text x="1010" y="245" fill="#43aa8b" font-family="Share Tech Mono" font-size="10">¥0</text>
+
+      <!-- Y軸ガイド線 -->
+      <line x1="80" y1="80" x2="80" y2="430" stroke="#1e2736" stroke-width="0.5"/>
+
+      <!-- Y軸ラベル -->
+      <text x="70" y="84" text-anchor="end" fill="#6e7681" font-family="Share Tech Mono" font-size="10">+¥35億</text>
+      <text x="70" y="162" text-anchor="end" fill="#6e7681" font-family="Share Tech Mono" font-size="10">+¥17.5億</text>
+      <text x="70" y="245" text-anchor="end" fill="#6e7681" font-family="Share Tech Mono" font-size="10">¥0</text>
+      <text x="70" y="320" text-anchor="end" fill="#6e7681" font-family="Share Tech Mono" font-size="10">▲¥17.5億</text>
+      <text x="70" y="398" text-anchor="end" fill="#6e7681" font-family="Share Tech Mono" font-size="10">▲¥35億</text>
+
+      <!-- スケール: 1億 = (240-80)/35 = 4.57px -->
+      <!-- 2022年度末 x=220 -->
+      <!-- 2023年度末 x=520 -->
+      <!-- 2024年度末 x=820 -->
+      <!-- バー幅 80px -->
+
+      <!-- ====== 2022年度末 ====== -->
+      <!-- 指定 ¥1.16億: y=240からy=240-(1.16*4.57)≈y=234.7 -->
+      <rect x="180" y="234" width="80" height="6" fill="#43aa8b" opacity="0.9"/>
+      <text x="220" y="226" text-anchor="middle" fill="#43aa8b" font-family="Noto Sans JP" font-size="11" font-weight="700">+¥1.16億</text>
+
+      <!-- 一般 ▲¥10.38億: y=240から y=240+(10.38*4.57)≈y=287.5 -->
+      <rect x="180" y="240" width="80" height="47" fill="#e63946" opacity="0.9"/>
+      <text x="220" y="305" text-anchor="middle" fill="#e63946" font-family="Noto Sans JP" font-size="11" font-weight="700">▲¥10.38億</text>
+
+      <!-- 合計▲¥9.22億 -->
+      <text x="220" y="430" text-anchor="middle" fill="#c9d1d9" font-family="Noto Sans JP" font-size="11" font-weight="700">2022年度末</text>
+      <text x="220" y="448" text-anchor="middle" fill="#f4a261" font-family="Share Tech Mono" font-size="10">合計 ▲¥9.22億</text>
+
+      <!-- ====== 2023年度末 ====== -->
+      <!-- 指定 ¥9.65億: y=240から y=240-(9.65*4.57)≈y=195.9 -->
+      <rect x="480" y="196" width="80" height="44" fill="#43aa8b" opacity="0.9"/>
+      <text x="520" y="188" text-anchor="middle" fill="#43aa8b" font-family="Noto Sans JP" font-size="11" font-weight="700">+¥9.65億</text>
+
+      <!-- 一般 ▲¥21.01億: y=240から y=240+(21.01*4.57)≈y=336.0 -->
+      <rect x="480" y="240" width="80" height="96" fill="#e63946" opacity="0.9"/>
+      <text x="520" y="350" text-anchor="middle" fill="#e63946" font-family="Noto Sans JP" font-size="11" font-weight="700">▲¥21.01億</text>
+
+      <!-- 合計▲¥11.36億 -->
+      <text x="520" y="430" text-anchor="middle" fill="#c9d1d9" font-family="Noto Sans JP" font-size="11" font-weight="700">2023年度末</text>
+      <text x="520" y="448" text-anchor="middle" fill="#f4a261" font-family="Share Tech Mono" font-size="10">合計 ▲¥11.36億</text>
+
+      <!-- ====== 2024年度末 ====== -->
+      <!-- 指定 ¥30.85億: y=240から y=240-(30.85*4.57)≈y=99.0 -->
+      <rect x="780" y="99" width="80" height="141" fill="#43aa8b" opacity="0.95"/>
+      <text x="820" y="91" text-anchor="middle" fill="#43aa8b" font-family="Noto Sans JP" font-size="13" font-weight="900">+¥30.85億</text>
+
+      <!-- 一般 ▲¥29.71億: y=240から y=240+(29.71*4.57)≈y=375.8 -->
+      <rect x="780" y="240" width="80" height="136" fill="#e63946" opacity="0.95"/>
+      <text x="820" y="392" text-anchor="middle" fill="#e63946" font-family="Noto Sans JP" font-size="13" font-weight="900">▲¥29.71億</text>
+
+      <!-- 合計¥1.14億 -->
+      <text x="820" y="430" text-anchor="middle" fill="#c9d1d9" font-family="Noto Sans JP" font-size="11" font-weight="700">2024年度末</text>
+      <text x="820" y="448" text-anchor="middle" fill="#43aa8b" font-family="Share Tech Mono" font-size="10">合計 +¥1.14億</text>
+
+      <!-- 凡例 -->
+      <rect x="80" y="78" width="14" height="14" fill="#43aa8b" opacity="0.9"/>
+      <text x="100" y="89" fill="#c9d1d9" font-family="Noto Sans JP" font-size="11">指定正味財産(国・自治体補助金 + 用途指定寄附)</text>
+
+      <rect x="450" y="78" width="14" height="14" fill="#e63946" opacity="0.9"/>
+      <text x="470" y="89" fill="#c9d1d9" font-family="Noto Sans JP" font-size="11">一般正味財産(自力で稼いだ部分=マイナス継続)</text>
+    </svg>
+<div class="caption">DATA: 公益社団法人2027年国際園芸博覧会協会 財務諸表(2024年度) — 指定正味財産=国庫補助金・地方公共団体補助金・指定寄附金の合計 / 一般正味財産=協会の自由に使える残余</div>
+</div>
+
 <p>正味財産わずか¥1.1億円の協会が、横浜銀行から¥42.7億円を借入、未払金¥27.2億円を抱えながら、会場設計を進めている構造である。本格的な国費投入(¥139億)・自治体補助(¥139億)はこれから加速する局面にある。</p>
 
 <p>2024年度内の補助金入金実績は、国庫補助金¥10.5億円+地方公共団体補助金¥10.5億円=¥21億円のみ。事業費¥953億円のスケールに対して、まだ序章の段階にすぎない。</p>
 
-<p>入場料¥418億円が見込みを下回った場合、補填の仕組みは法案・理事会資料に明記されていない。法案11条の「予算の範囲内でその一部を補助することができる」という条文が、最終的な穴埋めの根拠として機能する可能性が高い。つまり、入場料収入が不足した場合、法案11条「予算の範囲内でその一部を補助することができる」という条文が、<strong>追加の公費補助を行う法的余地</strong>として機能する設計になっている。実際に税金で穴埋めされるかどうかは、その時点での政府・自治体の政策判断に委ねられる。</p>
+<h3>正味財産¥1.14億の内訳 — 補助金で延命している運営体</h3>
+
+<p>ただし、この「正味財産¥1.14億」という表面の数字は、実態を見えなくしている。財務諸表を分解すると、内訳が見えてくる。</p>
+
+<ul>
+<li><strong>指定正味財産: ¥30.85億</strong>(プラス) — 国・自治体・寄附企業から「会場建設に使え」と用途指定で受け取った財産。内訳は国庫補助金¥10.47億 + 地方公共団体補助金¥10.47億 + 指定寄附金¥9.91億</li>
+<li><strong>一般正味財産: ▲¥29.71億</strong>(マイナス) — 協会が自由に使える残余部分。3年連続で赤字が拡大</li>
+</ul>
+
+<p>3年間の推移を並べると、構造がはっきりする。</p>
+
+<table class="data-table">
+<thead><tr><th>時期</th><th>指定正味財産</th><th>一般正味財産</th><th>正味財産合計</th></tr></thead><tbody>
+<tr><td>2022年度末</td><td>+¥1.16億</td><td>▲¥10.38億</td><td>▲¥9.22億</td></tr>
+<tr><td>2023年度末</td><td>+¥9.65億</td><td>▲¥21.01億</td><td>▲¥11.36億</td></tr>
+<tr><td>2024年度末</td><td>+¥30.85億</td><td>▲¥29.71億</td><td>+¥1.14億</td></tr>
+</tbody></table>
+
+<p>指定正味財産が¥1.16億→¥30.85億と急増した一方で、一般正味財産は▲¥10.38億→▲¥29.71億と毎年¥8〜10億ペースで赤字が拡大している。<strong>協会は自力で1円も稼げず、補助金で延命している運営体</strong>である。</p>
+
+<p>本格的な事業収入(入場料・物販等)は2027年3月の博覧会開幕後にしか発生しない。それまでは、一般正味財産の赤字を補助金と借入で埋め続けることになる。</p>
+
+<blockquote>
+<p>視覚化された推移グラフは<a href="https://nana6fu.github.io/fiscal-osint-japan/hanahaku.html#sec-04" target="_blank">ダッシュボードのセクション04「協会のバランスシート」</a>で確認できる。</p>
+</blockquote>
+
+<p>入場料¥418億円が見込みを下回った場合、補填の仕組みは法案・理事会資料に明記されていない。法案11条の「予算の範囲内でその一部を補助することができる」という条文が、追加の公費補助を行う法的余地として機能する設計になっている。実際に税金で穴埋めされるかどうかは、その時点での政府・自治体の政策判断に委ねられる。</p>
 
 <hr>
 
@@ -439,7 +616,7 @@ footer.site a{color:var(--text-dim)}
 <div class="share-box">
   <div class="share-label">この記事をシェア</div>
   <div class="share-btns">
-    <a href="https://twitter.com/intent/tweet?text=%E6%A8%AA%E6%B5%9C%E8%8A%B1%E5%8D%9A%C2%A5953%E5%84%84%20%E2%94%80%E2%94%80%20%E4%BB%96%E4%BA%BA%E3%81%AE%E9%87%91%E3%82%92%E4%BB%96%E4%BA%BA%E3%81%AE%E3%81%9F%E3%82%81%E3%81%AB%E4%BD%BF%E3%81%86%E6%A7%8B%E9%80%A0&url=https%3A%2F%2Fnana6fu.github.io%2Ffiscal-osint-japan%2Fhanahaku-article.html" target="_blank" class="share-btn share-btn-x">𝕏 でシェア</a>
+    <a href="https://twitter.com/intent/tweet?text=%E6%A8%AA%E6%B5%9C%E8%8A%B1%E5%8D%9A%C2%A5953%E5%84%84%20%E2%94%80%E2%94%80%20%E4%BB%96%E4%BA%BA%E3%81%AE%E9%87%91%E3%82%92%E4%BB%96%E4%BA%BA%E3%81%AE%E3%81%9F%E3%82%81%E3%81%AB%E4%BD%BF%E3%81%86%E6%A7%8B%E9%80%A0&url=https%3A%2F%2Fnana6fu.github.io%2Ffiscal-osint-japan%2Farticles%2Fhanahaku-article.html" target="_blank" class="share-btn share-btn-x">𝕏 でシェア</a>
     <a href="../hanahaku.html" class="share-btn">🌸 ダッシュボードへ</a>
   </div>
 </div>

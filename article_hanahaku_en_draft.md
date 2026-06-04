@@ -222,6 +222,27 @@ An Association with only ¥110 million in net assets is operating with ¥4.27 bi
 
 FY2024 subsidies received: ¥1.05B national + ¥1.05B local = ¥2.1B total. Relative to the ¥95.3 billion project scale, this is still only the opening chapter.
 
+### Inside the ¥114 Million Net Assets — An Entity Sustained by Subsidies
+
+But this surface figure of "¥114 million net assets" hides the actual structure. Breaking down the financial statements reveals the composition:
+
+- **Designated net assets: ¥3.085 billion** (positive) — Funds received from national/local governments and corporate donors with designated use ("for venue construction"). Composition: National subsidies ¥1.047B + Local government subsidies ¥1.047B + Designated donations ¥991M
+- **General net assets: ▲¥2.971 billion** (negative) — The portion the Association can freely use. The deficit has been expanding for three consecutive years
+
+Laying out the three-year transition makes the structure clear:
+
+| Fiscal Year-End | Designated Net Assets | General Net Assets | Total Net Assets |
+|---|---|---|---|
+| 2022 | +¥116M | ▲¥1.038B | ▲¥922M |
+| 2023 | +¥965M | ▲¥2.101B | ▲¥1.136B |
+| 2024 | +¥3.085B | ▲¥2.971B | +¥114M |
+
+While designated net assets surged from ¥116M to ¥3.085B, general net assets expanded the deficit from ▲¥1.038B to ▲¥2.971B at an annual pace of ¥800M-1B. **The Association generates no income on its own — it is an entity sustained by subsidies.**
+
+Actual business revenue (admission, merchandise, etc.) only begins after the Expo opens in March 2027. Until then, the general net asset deficit will continue to be filled by subsidies and borrowing.
+
+> See the [visualized transition chart in Dashboard Section 04 "Association Balance Sheet"](https://nana6fu.github.io/fiscal-osint-japan/hanahaku.html#sec-04).
+
 If admission revenue of ¥41.8 billion falls short of projections, the compensation mechanism is not specified in the act or the board materials. Article 11 of the act stipulates "subsidies may be provided within the budget" — this provides a legal basis for additional public funding. Whether tax money actually fills the gap depends on the policy decisions of the national and local governments at that time.
 
 ---
