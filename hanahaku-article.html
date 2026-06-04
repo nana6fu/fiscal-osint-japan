@@ -1,0 +1,455 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>横浜花博¥953億 ── 他人の金を他人のために使う構造 | Fiscal OSINT Japan</title>
+<meta name="description" content="2027年国際園芸博覧会の事業費は¥540億→¥953億に1.76倍に増額。確定財源¥417億vs皮算用¥536億。役員系列40件¥53.6億、寄附企業100社超のゼネコン、特別措置法討論なし採決──公金支出の構造を一次資料から検証。">
+<meta property="og:title" content="横浜花博¥953億 ── 他人の金を他人のために使う構造">
+<meta property="og:description" content="¥540億→¥953億(1.76倍)・確定¥417億vs皮算用¥536億。役員系列・ゼネコン100社超・特別措置法討論なし採決。一次資料から検証。">
+<meta property="og:type" content="article">
+<meta property="og:url" content="https://nana6fu.github.io/fiscal-osint-japan/hanahaku-article.html">
+<meta name="twitter:card" content="summary_large_image">
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;700;900&family=Share+Tech+Mono&display=swap');
+*{box-sizing:border-box;margin:0;padding:0}
+:root{
+  --bg:#080c10;--surface:#0d1117;--surface-2:#131a24;--border:#1e2736;
+  --red:#e63946;--red-dim:#7a1a20;--red-bg:#1a0508;
+  --blue:#4895ef;--blue-dim:#1a3a5a;
+  --green:#43aa8b;--green-dim:#0d2a1a;
+  --yellow:#f4a261;
+  --pink:#ff6b9d;--pink-dim:#3a1a2a;
+  --text:#c9d1d9;--text-dim:#6e7681;--text-bright:#f0f6fc;
+  --font-mono:'Share Tech Mono',monospace;
+}
+html,body{background:var(--bg);color:var(--text);font-family:'Noto Sans JP',sans-serif;line-height:1.95;font-size:15px}
+a{color:var(--blue);text-decoration:none;word-break:break-all}
+a:hover{text-decoration:underline}
+header.site{padding:14px 24px;border-bottom:1px solid var(--border);display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:10px;background:#0d1117;position:sticky;top:0;z-index:100}
+.header-left h1{font-size:15px;font-weight:900;color:var(--text-bright)}
+.header-left h1 span{color:var(--red)}
+.header-left p{font-size:10px;color:var(--text-dim);margin-top:2px;font-family:var(--font-mono)}
+.badges{display:flex;gap:6px;align-items:center}
+.badge{font-size:12px;padding:5px 10px;border-radius:4px;border:1px solid;white-space:nowrap}
+.badge-back{color:var(--text-dim);border-color:var(--border);background:var(--surface)}
+.badge-dashboard{color:var(--pink);border-color:var(--pink);background:var(--pink-dim)}
+.badge-en{color:var(--blue);border-color:var(--blue);background:var(--blue-dim)}
+.article-wrap{max-width:780px;margin:0 auto;padding:48px 24px}
+.tag{display:inline-block;font-size:10px;letter-spacing:.08em;color:var(--pink);background:var(--pink-dim);border:1px solid var(--pink);padding:4px 10px;border-radius:3px;margin-bottom:20px;font-family:var(--font-mono)}
+h1.article-title{font-size:30px;font-weight:900;line-height:1.5;margin-bottom:18px;letter-spacing:-.01em;color:var(--text-bright)}
+h2.sub-title{font-size:18px;font-weight:400;color:var(--text-dim);line-height:1.7;margin-bottom:32px;border:none;padding:0}
+h2.sec-h2{font-size:22px;font-weight:900;margin:48px 0 24px;padding:14px 0;border-bottom:1px solid var(--border);color:var(--text-bright);letter-spacing:-.01em}
+h2.sec-h2 .sec-num{color:var(--red);margin-right:16px;font-family:var(--font-mono);font-weight:400;font-size:20px}
+h3{font-size:16px;font-weight:700;margin:32px 0 14px;color:var(--text-bright)}
+p{margin-bottom:18px;color:var(--text)}
+p strong{color:var(--text-bright);font-weight:700}
+blockquote{border-left:3px solid var(--blue);background:var(--surface);padding:16px 22px;margin:20px 0;border-radius:0 4px 4px 0}
+blockquote p{font-size:14px;line-height:1.85;color:var(--text);margin-bottom:8px}
+blockquote p:last-child{margin-bottom:0}
+blockquote p strong{color:var(--yellow)}
+ul,ol{margin:14px 0 22px;padding-left:24px}
+ul li,ol li{margin-bottom:8px;color:var(--text);line-height:1.85}
+ul li strong,ol li strong{color:var(--text-bright)}
+hr{border:none;border-top:1px solid var(--border);margin:32px 0}
+.share-box{background:var(--surface);border:1px solid var(--border);border-radius:6px;padding:20px;margin:32px 0}
+.share-label{font-size:10px;color:var(--text-dim);font-family:var(--font-mono);text-transform:uppercase;letter-spacing:.1em;margin-bottom:10px}
+.share-btns{display:flex;gap:10px;flex-wrap:wrap}
+.share-btn{display:inline-block;padding:8px 16px;border-radius:4px;font-size:12px;border:1px solid;font-family:var(--font-mono)}
+.share-btn-x{color:#fff;border-color:#2a3548;background:#0d1117}
+.share-btn-x:hover{background:#2a3548}
+footer.site{border-top:1px solid var(--border);padding:32px 24px;text-align:center;color:var(--text-dim);font-size:11px;font-family:var(--font-mono);margin-top:48px}
+footer.site a{color:var(--text-dim)}
+</style>
+</head>
+<body>
+
+<header class="site">
+  <div class="header-left">
+    <h1><span>Fiscal</span> OSINT Japan</h1>
+    <p>SPECIAL REPORT / hanahaku_2027_article</p>
+  </div>
+  <div class="badges">
+    <a href="hanahaku-article-en.html" class="badge badge-en">🌐 EN</a>
+    <a href="hanahaku.html" class="badge badge-dashboard">🌸 ダッシュボード</a>
+    <a href="index.html" class="badge badge-back">← TOP</a>
+  </div>
+</header>
+
+<div class="article-wrap">
+<div class="tag">SPECIAL REPORT</div>
+<h1 class="article-title">横浜花博¥953億 ── 他人の金を他人のために使う構造</h1>
+<h2 class="sub-title">公金は雑になる。「公益」と呼ばれた事業の解剖</h2>
+
+<p><strong>Fiscal OSINT Japan / 2026年6月4日</strong></p>
+
+<hr>
+
+<p>2027年3月19日、横浜市旭区・瀬谷区の旧上瀬谷通信施設で「2027年国際園芸博覧会(GREEN×EXPO 2027)」が開幕する。米軍から2015年に返還された約242ヘクタールの広大な跡地で開かれる、国際園芸家協会(AIPH)認定の最上位A1クラスの博覧会である。</p>
+
+<p>事業費は¥953億円(2025年12月時点)。1990年の大阪花の万博以来、37年ぶりに日本で開催されるA1博覧会。「持続可能な開発目標(SDGs)の達成」「グリーン社会の実現」「日本の花卉文化の世界発信」が掲げられている。</p>
+
+<p>だが、この¥953億円のうち、確実に確保されている財源は¥417億円(会場建設費)に留まる。残り¥536億円(運営費)は、入場料¥418億円とその他収入¥118億円という、まだ1円も入っていない見込み収入に依存している。</p>
+
+<p>そして、その¥418億円の根拠は「<strong>もう少しこの根拠が必要なんじゃないか</strong>」と、立憲民主党の議員が4年前に国会で指摘していたものだった。</p>
+
+<p>本稿は、公益社団法人2027年国際園芸博覧会協会の契約情報175件・財務諸表・国会会議録・横浜市会議事録から、この¥953億円の構造を検証する。</p>
+
+<blockquote>
+<p>検証データのすべては、本記事と並行して公開しているダッシュボード <a href="https://nana6fu.github.io/fiscal-osint-japan/hanahaku.html" target="_blank">https://nana6fu.github.io/fiscal-osint-japan/hanahaku.html</a> で確認できる。</p>
+</blockquote>
+
+<hr>
+
+<h2 class="sec-h2"><span class="sec-num">1</span>¥953億円はどう増えたか</h2>
+
+<p>事業費は、構想段階から3段階で増額されてきた。</p>
+
+<ul>
+<li><strong>2018年 構想段階</strong>:¥540億円(会場建設費¥240億+運営費¥300億想定)</li>
+<li><strong>2021年4月 基本計画策定</strong>:¥680億円(会場建設費¥320億+運営費¥360億)</li>
+<li><strong>2025年4月 第26回理事会</strong>:¥777億円(会場建設費¥417億+運営費¥360億)— 物価・人件費上昇を理由に会場建設費を+¥97億増額</li>
+<li><strong>2025年12月 第32回理事会</strong>:¥953億円(会場建設費¥417億+運営費¥536億)— 運営費を+¥176億増額(¥360億→¥536億・1.49倍)</li>
+</ul>
+
+<p>構想から計+¥413億円、1.76倍に膨らんだ計算になる。</p>
+
+<p>増額の根拠として協会は「物価上昇」「大阪・関西万博の経験を反映した計画具体化」を挙げる。だが、注目すべきは2025年12月の運営費増額のタイミングである。</p>
+
+<p>2025年3月18日、横浜市会予算特別委員会総合審査で、日本共産党の古谷やすひこ議員(鶴見区選出・市議団団長)は、会場建設費の¥320億→¥417億への増額について追及するとともに、運営費(¥360億想定)についても「値上げも必至になる」と警告していた。</p>
+
+<p>その9ヶ月後の2025年12月17日、第32回理事会で運営費は¥360億→¥536億に+¥176億増額された。<strong>古谷議員の懸念は、9ヶ月後の運営費増額によって現実化した</strong>。</p>
+
+<hr>
+
+<h2 class="sec-h2"><span class="sec-num">2</span>¥417億円の確定財源</h2>
+
+<p>¥417億円の会場建設費は、2021年6月22日の閣議了解により、国・地方公共団体・民間が1対1対1で負担することが決まっている。</p>
+
+<ul>
+<li>国 ¥139億円(農林水産省・国土交通省)</li>
+<li>地方公共団体 ¥139億円(横浜市・神奈川県)</li>
+<li>民間寄附 ¥139億円</li>
+</ul>
+
+<p>これは大阪・関西万博、愛知万博、1990年大阪花の万博と同じパターンで、博覧会開催の「定型ルール」になっている。</p>
+
+<p>民間¥139億円分は、寄附企業100社超から集められる予定だ。協会が公表する寄附者ご芳名一覧(2026年4月30日時点)を見ると、その顔ぶれが見える。</p>
+
+<p><strong>スーパーゼネコン</strong>として大成建設、竹中工務店。<strong>準大手・中堅ゼネコン</strong>として戸田建設、西武建設、フジタ、錢高組、鉄建建設、淺沼組、佐藤工業、本間組、福田組、アイサワ工業、大本組、若築建設、北野建設、飛島建設、大日本土木、馬淵建設、犬山建物、小俣組、白井組、カツマタ、柴橋商会、大相建設、大洋建設、あおみ建設、昭和建設、伊藤組土建、日本国土開発、松尾工務店、川本工業、青武組、りんかい日産建設、サカクラ、オリエンタル白石、不動テトラ。<strong>道路系</strong>としてNIPPO、前田道路、鹿島道路、日本道路。<strong>業界団体</strong>として、一般社団法人日本建設業連合会 社会貢献活動協議会。</p>
+
+<p>つまり、これから¥417億円の会場建設費のうち本体工事を発注し、それを取り合う候補群が、事前に協会へ寄附している。</p>
+
+<hr>
+
+<h2 class="sec-h2"><span class="sec-num">3</span>受注済み121件の集中構造</h2>
+
+<p>協会の契約情報ページから、2026年6月4日時点で公開されている175件の契約を抽出し、受注企業が確定している121件を分析した。</p>
+
+<p>最も大きい契約は¥40億円。「2027年国際園芸博覧会入場券販売関連サービス共同企業体」が受注した「入場券販売関連サービス提供業務委託」である。第2位は¥19.58億円、大和リース株式会社 横浜支社による「物流・防災備蓄等倉庫賃貸借」。</p>
+
+<p>受注企業を合算した上位ランキングは以下の通りである。</p>
+
+<ol>
+<li>入場券販売関連サービスJV ¥40.00億(1件)</li>
+<li><strong>大和リース株式会社 横浜支社 ¥21.01億(2件)</strong></li>
+<li>株式会社山下PMC ¥7.80億(6件)</li>
+<li>タイムズ共同企業体 ¥5.90億(1件)</li>
+<li><strong>株式会社電通 ¥5.73億(3件)</strong></li>
+<li>日本通運株式会社横浜支店 ¥5.43億(2件)</li>
+<li><strong>株式会社博報堂 ¥5.29億(2件)</strong></li>
+<li>株式会社JTBコミュニケーションデザイン ¥5.24億(6件)</li>
+<li>TOPPANエッジ・TOPPAN等JV ¥4.90億(1件)</li>
+<li>プレック研究所JV(2023年度) ¥4.46億(1件)</li>
+</ol>
+
+<p>入札方式の内訳を見ると(協会の契約情報ページの「カテゴリ」欄を2026年6月4日時点で集計)、プロポーザル方式が122件(全175件の70%)、一般競争入札が23件。<strong>随意契約は表面上0件</strong>だが、プロポーザル方式は「最優秀提案事業者」を実質的に指名選定する制度で、形式的な競争を伴うものの応札者数が極端に少ない案件が多い。</p>
+
+<p>例えば、警備関連の上流契約「警備実施計画策定」(2025年11月19日・ALSOK株式会社受注・¥663万円)は、応札2社のみで、もう1社の社名は「SPORTS Edge」── 警備専業ですらない企業だった。これは下記の「警備3年連動」の文脈で重要になる。</p>
+
+<hr>
+
+<h2 class="sec-h2"><span class="sec-num">4</span>役員系列と受注の関係</h2>
+
+<p>協会の役員27名のうち、所属企業またはグループ系列企業が受注に関わっている顔ぶれを精査した。</p>
+
+<p><strong>直接的な利益相反</strong>となる受注は2件確認できた。副会長の和田新也氏(日本造園建設業協会会長)の所属する造園業界系の「西武造園JV」が、2024年6月と2025年11月にそれぞれ¥0.7億円・¥0.5億円を受注している(合計¥1.2億円)。</p>
+
+<p>ただし、<strong>系列・常連企業を含めると構造はまったく違う絵になる</strong>。</p>
+
+<p>理事の田代桂子氏は経済同友会副代表幹事を務めるとともに、大和証券グループ本社の取締役兼執行役副社長である。同じ大和グループの大和リース株式会社 横浜支社は、複数件で計¥21億円超を受注している(物流・防災備蓄等倉庫賃貸借¥19.58億+仮設建築賃貸借等)。</p>
+
+<p>副会長の小林健氏(日本商工会議所会頭・元三菱商事会長)、理事の宮永俊一氏(協会財務委員会委員長・元三菱重工社長)、理事の吉高まり氏(東京大学教養学部客員教授・三菱UFJ系)── 三菱グループの理事3名がいる協会では、三菱系企業(三菱総合研究所等)が複数件¥1.20億円を受注している。</p>
+
+<p>これらの集中受注の主要内訳は、大和グループ¥21.92億・TOPPAN/凸版¥9.88億・電通¥7.74億・博報堂¥6.67億・JTB¥5.83億・三菱グループ¥1.20億・NHK系¥0.37億である。総合計すると40件¥53.6億円。<strong>受注確定121件の契約総額(約¥175億円)のうち約30%が、こうした特定の経団連系・大規模イベント常連企業に集中している</strong>ことになる。</p>
+
+<p>念のため強調しておくが、この集中は「役員の所属企業だから受注した」という因果関係を意味するものではない。プロポーザル方式は「最優秀提案事業者」を選定する制度であり、博覧会等の運営実績が評価される面もあるため、結果として大手の常連企業に集中する傾向はある。だが、寄附を行った企業群や役員の所属するグループ系列企業が、評価過程の透明性が外部から完全に検証しきれない調達(プロポーザル方式)で受注している事実は、構造として可視化されるべきものである。</p>
+
+<hr>
+
+<h2 class="sec-h2"><span class="sec-num">5</span>入場料¥418億円の皮算用</h2>
+
+<p>¥953億円のうち、¥536億円の運営費は入場料収入¥418億円とその他収入¥118億円で賄うことになっている。</p>
+
+<p>入場料¥418億円の前提は、来場者1,500万人(うち有料1,000万人想定)である。</p>
+
+<p>この想定根拠について、2022年3月9日の衆議院国土交通委員会で、立憲民主党の稲富修二議員が、国際園芸博覧会特別措置法の審議の中で追及している。</p>
+
+<p>稲富議員は、横浜市の基本構想案を引用しながらこう質した(原文ママ・改行は引用者による)。</p>
+
+<blockquote>
+<p>ちょっと私がいろいろ拝見したところ、この一千万人、どうやって集客するかという具体的な根拠があるものが余り見当たらず、一つあったのは、旧上瀬谷通信施設における国際園芸博覧会基本構想案というものがありまして、当時は恐らくコロナ前ということで、そこに一千五百万人以上を想定しているということが記載がございます。</p>
+</blockquote>
+<p>></p>
+<blockquote>
+<p>そこには、こう書いてあります。大阪の花博は二千三百万人来た、その他の国際園芸博覧会は二百万人から一千六百万人、二〇〇五年の愛知万博は二千二百万人、都市緑化よこはまフェアで約六百万人が来場した、したがって、一千五百万人以上の来場が見込めると書いてあるんですけれども、<strong>ちょっと、余りにも雑だなというか、もう少しこの根拠が必要なんじゃないか</strong>というふうに思います。</p>
+</blockquote>
+<p>></p>
+<blockquote>
+<p>この来場者一千万というのは相当な数でございますので、この根拠についてお伺いします。</p>
+</blockquote>
+
+<p>これに対する斉藤鉄夫国土交通大臣(当時・公明党)の答弁は、こうだった。</p>
+
+<blockquote>
+<p>この二〇二七年の国際園芸博覧会の参加者数は、過去の博覧会の実績を参考として、そして、本博覧会の圏域人口を基に、横浜市において算出された数値でございます。</p>
+</blockquote>
+<p>></p>
+<blockquote>
+<p>具体的には、過去の国際博覧会や国際園芸博覧会では、多くが開催地の周辺圏域からの来場者であり、来場者数は圏域人口の影響を受けることから、<strong>圏域人口に対する来場者数の割合が小規模な国際園芸博覧会でも約三割又は四割となっていること</strong>を踏まえ、横浜市の現在の圏域人口に基づき、来場者数を算出されたものと承知しております。</p>
+</blockquote>
+
+<p>横浜市の圏域人口=首都圏約4,120万人。その3〜4割で1,500万人。これが想定の根拠のすべてである。</p>
+
+<p>つまり、国は独立した検証を行っていない。横浜市が「首都圏人口の3〜4割が来る」と算出した数字を、そのまま踏襲しただけだった。</p>
+
+<p>実際の参加表明や予約データではない。アクセス可能性の精査でもない。「首都圏に4,120万人住んでいるから、その3〜4割の1,500万人は来るだろう」という机上計算である。</p>
+
+<hr>
+
+<h2 class="sec-h2"><span class="sec-num">6</span>当初の新交通システム計画は実現せず</h2>
+
+<p>来場者1,500万人を想定する以上、それを輸送できる交通インフラが前提となる。だが、当初想定された新交通システムは2022年の特別措置法審議の時点で既に断念されていた。</p>
+
+<p>稲富議員はこう続けた。</p>
+
+<blockquote>
+<p>一千万人という人、この会場に来ていただくに当たって、何も近くに、鉄道が大体二キロぐらい会場から離れているということで、二キロ以上離れているということで、そこに対して何らかの新たな交通機関を造らなければ、その一千万人も運べないということだったかと思います。</p>
+</blockquote>
+<p>></p>
+<blockquote>
+<p>横浜市が横浜シーサイドライン社に対して、事業参加、新たな交通機関を造るということ、瀬谷駅から会場までの約二・二キロの新たな交通機関を打診したのが去年の九月、そして、十一月にその横浜シーサイドライン、これは横浜市が六割出資している第三セクターです、そこがこれを断っているのが十一月です。普通は受けるのかなと思いつつ、しかし、十一月にその横浜シーサイドラインは断っているということで、横浜市自体も、この花博までに、瀬谷駅から会場までの二・二キロの鉄道建設というのは断念をしたというのが十二月と理解をしております。</p>
+</blockquote>
+<p>></p>
+<blockquote>
+<p>理由は、このシーサイドラインによれば、横浜市から提示された来園者の予想値、交通分担率などが大きく変動する可能性がある、あるいは需要予測が大きく認識が違うということ、まあ、<strong>採算が取れないということだろうかと思います</strong>。</p>
+</blockquote>
+
+<p>会場に最も近いインフラ事業者(横浜市が60%出資する第三セクター)が、「需要予測の認識が違う、採算が取れない」として新交通システム事業参加を拒否した。</p>
+
+<p>斉藤大臣の答弁は、こうだった。</p>
+
+<blockquote>
+<p>今お話のございました新交通システムについては、博覧会開催までの整備は困難になった、このように承知しており、国際園芸博覧会協会や横浜市において、旅行会社による団体バスや鉄道駅から会場まで直通するシャトルバスの充実を中心に、代替の輸送手段を検討しているもの、このように承知しております。</p>
+</blockquote>
+
+<p>代替はバス輸送である。だが、各駅の利用見込みを宇野善昌国土交通省都市局長(当時)が示した数字は以下の通りだった。</p>
+
+<ul>
+<li>瀬谷駅 1日31,261人</li>
+<li>三ツ境駅 1日2,342人</li>
+<li>南町田グランベリーパーク駅 1日1,721人</li>
+</ul>
+
+<p>合計約35,000人/日。来場想定1日約8万人(年間1,500万人÷会期192日)に対して、駅捌き想定が大きく不足している。残りはシャトルバスで運ぶ計算だが、専用レーンの設置や周辺道路の拡幅も「検討中」と答弁された。</p>
+
+<p>当初の新交通システムは断念され、現在はシャトルバス輸送中心の計画に切り替わっている。バス輸送による1,500万人規模の輸送が実現可能かは、開幕後に検証されることになる。</p>
+
+<hr>
+
+<h2 class="sec-h2"><span class="sec-num">7</span>特別措置法の討論なし採決</h2>
+
+<p>2022年3月9日の衆議院国土交通委員会の議論は、特別措置法案を通すための形式的な手続きとして進められた。45発言中、立憲民主党の稲富修二議員、山崎誠議員、有志の会の福島伸享議員らが、来場者根拠の薄さ、交通アクセス計画の課題、特別法乱発の問題を相次いで指摘した。</p>
+
+<p>特に福島議員の指摘は本質を突いていた。</p>
+
+<blockquote>
+<p>もし郵便のやつがそんなメリットがあるんだったら、同じように特別法を作って、NTTの電話料金だって寄附で上乗せすればいいし、JRの料金だって上乗せすればいいと思うんですよ。<strong>余りにも、前回と同じにやりましょうというのはよくないと思います</strong>。</p>
+</blockquote>
+
+<p>「前回(大阪万博)と同じパターンだから今回も」という前例踏襲が、特別法を作る理由になっている──福島議員は、博覧会というイベントごとに特別法を制定するこの構造そのものを批判した。</p>
+
+<p>しかし、議論の終盤で中根一幸委員長(自民党)はこう告げた。</p>
+
+<blockquote>
+<p>これより討論に入るのでありますが、討論の申出がありませんので、直ちに採決に入ります。本案に賛成の諸君の起立を求めます。</p>
+</blockquote>
+
+<p><strong>討論の申出なし</strong>で採決された。法案は可決された。野党側からの懸念は、議事録に残されただけで、修正に至ることはなかった。</p>
+
+<p>そして翌日2022年3月10日の<a href="https://kokkai.ndl.go.jp/#/detail?minId=120804024X01520220310" target="_blank">衆議院議院運営委員会</a>で、日本共産党とれいわ新選組のみが、議事日程の特別措置法関連の議題に反対の意を示したことが記録されている(同日の岡田憲治理事による議事報告より)。</p>
+
+<hr>
+
+<h2 class="sec-h2"><span class="sec-num">8</span>議会の歪んだ賛否構造</h2>
+
+<p>特別措置法は、地元の議会レベルでも、超党派ではない極端な賛否構造で進められてきた。</p>
+
+<p>横浜市会(定数86人)では、2019年2月21日に「国際園芸博覧会の横浜誘致を成功させる横浜市会議員の会」が設立された。参加議員は72人。自民党、公明党、民権フォーラム、ヨコハマ会、無所属を含む。会長は当時市議会議長だった松本研氏(自民党)。</p>
+
+<p>つまり<strong>定数86人中72人(83.7%)が誘致賛成会派の議員</strong>ということになる。</p>
+
+<p>反対しているのは、<strong>日本共産党の議員のみ</strong>である。</p>
+
+<ul>
+<li>2018年第1回市会定例会:議第15議案「国際園芸博覧会の横浜開催を求める決議」に対し、かわじ民夫議員(旭区)が反対討論</li>
+<li>2021年11月:「過大な横浜園芸博覧会計画の見直し」と「上瀬谷ライン計画の中止」を申し入れ</li>
+<li>2025年3月18日 予算特別委員会総合審査:古谷やすひこ議員が会場建設費¥320億→¥417億増額に反対、運営費の値上げ必至を警告(その懸念は9ヶ月後の運営費増額で現実化)</li>
+</ul>
+
+<p>国会レベルでも、共産党とれいわ新選組のみが反対の意を表明している。</p>
+
+<p>立憲民主党は委員会で根拠の薄さを追及はするものの、最終的には法案に賛成。野党第一党も主導的に反対の論陣を張ることはなかった。</p>
+
+<p>そして、誘致を主導したとされるのは林文子前横浜市長(2009-2021)と、当時官房長官だった菅義偉氏(衆議院神奈川2区選出・後の首相)である。</p>
+
+<p>ただし、現市長の山中竹春氏は立憲民主党・共産党系の少数与党で当選しながら、花博は推進する姿勢を取っており、与野党の境界を超えて「誘致賛成」が議会の主流になっている。</p>
+
+<hr>
+
+<h2 class="sec-h2"><span class="sec-num">9</span>協会の財務体力 ── 借入と未払いで回す運営体</h2>
+
+<p>公益社団法人2027年国際園芸博覧会協会の2024年度末の財務諸表を見ると、運営体としての足元の薄さが見える。</p>
+
+<ul>
+<li>資産合計 ¥71.3億円</li>
+<li>正味財産 <strong>¥1.1億円</strong></li>
+<li>横浜銀行短期借入 ¥42.7億円</li>
+<li>未払金 ¥27.2億円</li>
+<li>会場設計仮勘定 ¥31.4億円</li>
+</ul>
+
+<p>正味財産わずか¥1.1億円の協会が、横浜銀行から¥42.7億円を借入、未払金¥27.2億円を抱えながら、会場設計を進めている構造である。本格的な国費投入(¥139億)・自治体補助(¥139億)はこれから加速する局面にある。</p>
+
+<p>2024年度内の補助金入金実績は、国庫補助金¥10.5億円+地方公共団体補助金¥10.5億円=¥21億円のみ。事業費¥953億円のスケールに対して、まだ序章の段階にすぎない。</p>
+
+<p>入場料¥418億円が見込みを下回った場合、補填の仕組みは法案・理事会資料に明記されていない。法案11条の「予算の範囲内でその一部を補助することができる」という条文が、最終的な穴埋めの根拠として機能する可能性が高い。つまり、入場料収入が不足した場合、法案11条「予算の範囲内でその一部を補助することができる」という条文が、<strong>追加の公費補助を行う法的余地</strong>として機能する設計になっている。実際に税金で穴埋めされるかどうかは、その時点での政府・自治体の政策判断に委ねられる。</p>
+
+<hr>
+
+<h2 class="sec-h2"><span class="sec-num">10</span>「他人の金を他人のために使う」構造</h2>
+
+<p>ここまでの構造を整理すると、次のような風景が見えてくる。</p>
+
+<ul>
+<li>事業費は2018年構想¥540億円から¥953億円へ1.76倍に増額された</li>
+<li>確定財源¥417億円のうち、税金分は国¥139億円+自治体¥139億円=¥278億円</li>
+<li>残り¥139億円は寄附企業100社超(うちゼネコン中堅50社超)が拠出する</li>
+<li>そのゼネコンたちは、これから¥382億円規模の会場建設工事の発注を取り合う候補群でもある</li>
+<li>受注済み121件のうち、役員系列・経団連系・博覧会御用達ネットワーク企業に40件¥53.6億円(約30%)が集中している</li>
+<li>残り¥536億円は入場料¥418億円の皮算用に依存している</li>
+<li>その入場料の根拠は「首都圏人口の3〜4割が来る」という机上計算</li>
+<li>当初想定された新交通システムは実現せず、輸送計画はシャトルバス中心に切り替わっている</li>
+<li>特別措置法は討論なし採決で通過した</li>
+<li>地元議会では86人中72人が誘致賛成派</li>
+<li>国会で反対意思を示したのは共産党とれいわ新選組のみ</li>
+</ul>
+
+<p>経済学者ミルトン・フリードマンは、お金の使われ方を4類型に分けて論じた。</p>
+
+<ol>
+<li><strong>自分の金で、自分のために使う</strong> → 一番慎重(コストも品質も気にする)</li>
+<li><strong>自分の金で、他人のために使う</strong> → コストは気にする</li>
+<li><strong>他人の金で、自分のために使う</strong> → 品質は気にするがコストは気にしない</li>
+<li><strong>他人の金で、他人のために使う</strong> → どちらも気にされない</li>
+</ol>
+
+<p>公金支出は、4番目の類型に該当する。だから「1,500万人来る根拠は何か」と国会で問われて、「首都圏人口の3〜4割で計算しました」で議論が終わってしまう。</p>
+
+<p>斉藤鉄夫国土交通大臣自身が、自分の貯金から¥139億円を出すなら、絶対こんな雑な検証で承認することはないだろう。家を買うとき、車を買うとき、人は何度も何度も検証する。だが、税金になった瞬間、検証は手薄になる。</p>
+
+<p>これが「他人の金は雑に使われる」という構造である。</p>
+
+<hr>
+
+<h2 class="sec-h2"><span class="sec-num">11</span>国民もまた構造の一部である</h2>
+
+<p>ここで、もう一段、深く考えなければならないことがある。</p>
+
+<p>「他人の金を他人のために使う」構造を、なぜ防げないのか。それは、最終的に<strong>国民が政治家を選ぶときに、税金の使い道を真剣に検証する候補者を選んでいない</strong>からである。</p>
+
+<p>メディアもまた、「花博は楽しい」「経済波及効果は何兆円」と報じるばかりで、こうした構造の検証には踏み込まない。</p>
+
+<p>横浜花博は楽しいイベントになるかもしれない。花や緑をテーマにした博覧会には、それ自体としての価値はあるだろう。だが、その費用を出す側として、国民は次のことを問わなければならない。</p>
+
+<ul>
+<li>1,500万人来場想定の根拠は本当に妥当なのか?</li>
+<li>¥953億円という事業費規模は適正なのか?</li>
+<li>入場料¥418億円が見込みを下回った場合、誰が責任を取るのか?</li>
+<li>なぜ介護、医療、年金、老朽インフラ整備の分散投入ではなく、博覧会という一過性のイベントなのか?</li>
+<li>ゼネコン100社超が事前寄附する構造は、本当に「公益」のためなのか?</li>
+</ul>
+
+<p>これらの問いを問わないまま選挙に向かえば、また次の博覧会も、また同じ構造で進む。</p>
+
+<hr>
+
+<h2 class="sec-h2"><span class="sec-num">12</span>結論</h2>
+
+<p>2027年3月19日、ゲートが開く。</p>
+
+<p>入場料収入¥418億円が見込みに達するかどうかは、誰もまだ知らない。</p>
+
+<p>達しなかった場合、特別措置法第11条「予算の範囲内でその一部を補助することができる」という条文が、追加の公費補助を行う法的余地として機能しうる。実際に税金で穴埋めされるかどうかは、開催時点の政府・自治体の政策判断に委ねられる。</p>
+
+<p>私たちは、それが起きるまで待つのか、起きる前に問うのか。</p>
+
+<p><strong>Fiscal OSINT Japan は、公開情報のみから、この事業の構造を引き続き検証していく</strong>。本記事の根拠データは、すべて以下のダッシュボードで確認できる。</p>
+
+<p>🌸 横浜花博協会の受注構造ダッシュボード:</p>
+<p>https://nana6fu.github.io/fiscal-osint-japan/hanahaku.html</p>
+
+<p>検索ボックスから「電通」「大和」「警備」「博報堂」など気になる企業を検索すれば、それぞれの受注実績が表示される。あなたが見たい構造を、あなた自身の目で確認してほしい。</p>
+
+<hr>
+
+<p><strong>一次資料</strong></p>
+
+<ul>
+<li>公益社団法人2027年国際園芸博覧会協会 公式 <a href="https://expo2027yokohama.or.jp/" target="_blank">https://expo2027yokohama.or.jp/</a></li>
+<li>同 契約情報ページ(全175件のソース)<a href="https://expo2027yokohama.or.jp/contract/" target="_blank">https://expo2027yokohama.or.jp/contract/</a></li>
+<li>同 役員名簿(2026年1月23日時点)PDF</li>
+<li>同 寄附者ご芳名一覧(2026年4月30日時点)PDF</li>
+<li>同 第26回理事会(2025年4月8日)資料・第32回理事会(2025年12月17日)資料</li>
+<li>国会会議録検索システム 第208回国会 衆議院国土交通委員会第4号(2022年3月9日)</li>
+<li>国土交通省 国際園芸博覧会ページ <a href="https://www.mlit.go.jp/toshi/horticultural_expo/index.html" target="_blank">https://www.mlit.go.jp/toshi/horticultural_expo/index.html</a></li>
+<li>農林水産省 GREEN×EXPO 2027関連 <a href="https://www.maff.go.jp/j/seisan/kaki/flower/f_yokohama/yokohamahaku.html" target="_blank">https://www.maff.go.jp/j/seisan/kaki/flower/f_yokohama/yokohamahaku.html</a></li>
+<li>横浜市 GREEN×EXPO 2027関連 <a href="https://www.city.yokohama.lg.jp/city-info/seisaku/torikumi/engeihaku/expo.html" target="_blank">https://www.city.yokohama.lg.jp/city-info/seisaku/torikumi/engeihaku/expo.html</a></li>
+<li>神奈川県 GREEN×EXPO 2027関連 <a href="https://www.pref.kanagawa.jp/osirase/0520/2027_kokusaiengeihaku/index.html" target="_blank">https://www.pref.kanagawa.jp/osirase/0520/2027_kokusaiengeihaku/index.html</a></li>
+<li>横浜市基本構想PDF(2018年・2019年改定)<a href="https://www.city.yokohama.lg.jp/city-info/seisaku/torikumi/engeihaku/kihonkousou.files/0023_20190315.pdf" target="_blank">https://www.city.yokohama.lg.jp/city-info/seisaku/torikumi/engeihaku/kihonkousou.files/0023_20190315.pdf</a></li>
+<li>横浜市会議事録検索 <a href="https://giji.city.yokohama.lg.jp/tenant/yokohama/pg/index.html" target="_blank">https://giji.city.yokohama.lg.jp/tenant/yokohama/pg/index.html</a></li>
+<li>神奈川県議会会議録検索 <a href="https://ssp.kaigiroku.net/tenant/prefkanagawa/pg/index.html" target="_blank">https://ssp.kaigiroku.net/tenant/prefkanagawa/pg/index.html</a></li>
+</ul>
+
+<p><strong>著者</strong> SN0W8ALL LLC / Fiscal OSINT Japan</p>
+<p><strong>公開日</strong> 2026年6月4日</p>
+<p><strong>ライセンス</strong> 著作権はSN0W8ALL LLCに帰属、引用は出典明示で歓迎します</p>
+
+
+<div class="share-box">
+  <div class="share-label">この記事をシェア</div>
+  <div class="share-btns">
+    <a href="https://twitter.com/intent/tweet?text=%E6%A8%AA%E6%B5%9C%E8%8A%B1%E5%8D%9A%C2%A5953%E5%84%84%20%E2%94%80%E2%94%80%20%E4%BB%96%E4%BA%BA%E3%81%AE%E9%87%91%E3%82%92%E4%BB%96%E4%BA%BA%E3%81%AE%E3%81%9F%E3%82%81%E3%81%AB%E4%BD%BF%E3%81%86%E6%A7%8B%E9%80%A0&url=https%3A%2F%2Fnana6fu.github.io%2Ffiscal-osint-japan%2Fhanahaku-article.html" target="_blank" class="share-btn share-btn-x">𝕏 でシェア</a>
+    <a href="hanahaku.html" class="share-btn">🌸 ダッシュボードへ</a>
+  </div>
+</div>
+
+</div>
+
+<footer class="site">
+  Fiscal OSINT Japan / Powered by <a href="https://twitter.com/FiscalOSINT_JP">@FiscalOSINT_JP</a> · SN0W8ALL LLC<br>
+  本サイトのデータは公開情報のみから集計しています。
+</footer>
+
+</body>
+</html>
