@@ -2280,6 +2280,8 @@ Fiscal OSINT Japan に掲載される情報は、各省庁・自治体・法人�
 var API_KEY = "YOUR_API_KEY_HERE";
 
 var SOURCES = {
+  fukko_r7_proc: {label:"📄 復興庁 予算執行等に係る情報の公表（公共調達・補助金）", url:"https://www.reconstruction.go.jp/topics/post_39.html"},
+  fukko_r7_yosan: {label:"📄 令和7年度復興庁当初予算概要(2025/3/31)", url:"https://www.reconstruction.go.jp/files/user/topics/main-cat8/sub-cat8-3/250401_toushoyosangaiyo.pdf"},
   kaikei_h18: {label:"会計検査院 H18随意契約検査報告", url:"https://report.jbaudit.go.jp/org/h18/YOUSEI3/2006-h18-7008-0.htm"},
   shitsumon_169_141: {label:"衆議院質問主意書 第169回国会 第141号（鈴木宗男議員提出）", url:"https://www.shugiin.go.jp/internet/itdb_shitsumon.nsf/html/shitsumon/a169141.htm"},
   shitsumon_169_141_kotae: {label:"内閣答弁書 第169回国会 第141号（2008年3月14日閣議決定）", url:"https://www.shugiin.go.jp/internet/itdb_shitsumon.nsf/html/shitsumon/b169141.htm"},
@@ -3459,7 +3461,7 @@ function renderAccounts(m){
       html+='</tr>';
     });
     html+='</table>';
-    if(isMhlw){html+='<div class="primary-src">出典：厚生労働省 随意契約・競争入札情報公表PDF（令和5年度）　📋確認済み主要契約のみ・速報値</div>';}else if(m.id==="mlit" && (!m.houjin_note || m.houjin_note.indexOf('令和6年度')<0)){html+='<div class="primary-src">出典：'+srcLink("yomiuri_2006")+'　※金額は道路整備特別会計からの支出（'+srcLink("shitsumon_169_141")+'）</div>';}else if(m.id==="daj"){html+='<div class="primary-src">出典：デジタル庁 公共調達適正化情報公表（令和7年度・公表ファイル19本を集計）</div>';}else if(m.id==="soumu"){html+='<div class="primary-src">出典：総務省 公共調達に関する公表（令和7年度・本省 公表21本236契約 ≥￥1M案件のみ採録） 📋確認済・速報値</div>';}else{html+='<div class="primary-src">出典：各地方整備局 令和6年度入札結果データ（公開情報より集計）　🤖AI集計（参考値）</div>';}
+    if(isMhlw){html+='<div class="primary-src">出典：厚生労働省 随意契約・競争入札情報公表PDF（令和5年度）　📋確認済み主要契約のみ・速報値</div>';}else if(m.id==="mlit" && (!m.houjin_note || m.houjin_note.indexOf('令和6年度')<0)){html+='<div class="primary-src">出典：'+srcLink("yomiuri_2006")+'　※金額は道路整備特別会計からの支出（'+srcLink("shitsumon_169_141")+'）</div>';}else if(m.id==="daj"){html+='<div class="primary-src">出典：デジタル庁 公共調達適正化情報公表（令和7年度・公表ファイル19本を集計）</div>';}else if(m.id==="soumu"){html+='<div class="primary-src">出典：総務省 公共調達に関する公表（令和7年度・本省 公表21本236契約 ≥￥1M案件のみ採録） 📋確認済・速報値</div>';}else if(m.id==="fukkocho"){html+='<div class="primary-src">出典：'+srcLink("fukko_r7_proc")+'（R5/R6/R7公共調達495件+補助金728件を集計）</div>';}else{html+='<div class="primary-src">出典：各地方整備局 令和6年度入札結果データ（公開情報より集計）　🤖AI集計（参考値）</div>';}
     html+='</div>';
   }
 
@@ -4336,7 +4338,54 @@ var MINISTRIES_2025 = [
        contract:'随意契約1件+競争入札7件',
        src_key:'meti_r7', src_url:'https://www.meti.go.jp/information_2/publicoffer/R_00_bid_news_list.html'},
     ],
-  }
+  },
+  {
+    id:"fukkocho", name:"復興庁", alert:true, tag:"司令塔の名前を借りた予算分散・統括できる金は17.6%のみ・F-REI集中・大阪万博「復興PR」",
+    note:"令和7年度の復興庁所管予算は¥4,864億。だが、復興庁が自身で執行できるのは¥856億(17.6%)のみで、残り¥4,008億(82.4%)は各府省庁が執行する「復興庁名義の予算」。「司令塔」を謳う復興庁が、自らの所管予算の8割超を統制下に置いていない構造である。本ダッシュボードで検証できるのは復興庁の直接執行分(R7調達62件・¥124.6億)のみで、各府省執行分(中間貯蔵¥1,045億・特定帰還居住区域¥620億・福島再生加速化交付金¥599億等)は各省庁の調達情報を別途取得しなければ見えない。重要発見：①F-REI(福島国際研究教育機構)敷地造成1件¥103.5億をUR都市機構が随意契約(R5から3年連続で「公募したが特定法人以外応募なし」)。②「大阪・関西万博を契機とした復興PR」¥2.14億を大日本印刷が3年連続で随意契約。③仮設住宅(供与延長+解体撤去)はR7予算でわずか¥4億。「復興している姿」を世界に発信する事業に金が流れる一方、まだ仮設に住んでいる人がいる構造。④公共調達99.9%が随意契約(R7は62件中43件が随意・¥118.5億)。",
+    primary_facts:[
+      {text:"📄 <strong>復興庁所管¥4,864億のうち、復興庁が自身で執行できるのは¥856億(17.6%)のみ</strong>：残り¥4,008億(82.4%)は各府省庁(国交省・農水省・経産省・厚労省・環境省・文科省等)が執行する「復興庁名義の予算」として一括計上されている。出典：<a href='https://www.reconstruction.go.jp/files/user/topics/main-cat8/sub-cat8-3/250401_toushoyosangaiyo.pdf' target='_blank' style='color:#4a8aff'>令和7年度復興庁当初予算概要</a>", src:"fukko_r7_yosan"},
+      {text:"📄 <strong>F-REI(福島国際研究教育機構)集中：3年で¥138.15億が研究機関へ</strong>：UR都市機構経由の敷地造成3件¥113.6億(随意契約・公募特定法人のみ)+補助金¥21.25億(運営費)。「公募を実施したところ、特定法人以外参加意思のある者はいなかった」という会計法第29条の3第4項を理由とする随意契約が3年連続。出典：<a href='https://www.reconstruction.go.jp/topics/post_39.html' target='_blank' style='color:#4a8aff'>復興庁 予算執行等に係る情報の公表</a>", src:"fukko_r7_proc"},
+      {text:"📄 <strong>R7単年最大の契約：F-REI敷地整備その2 ¥103.54億(UR都市機構東北震災復興支援本部)</strong>：2025年4月1日契約。会計法第29条の3第4項「契約の性質又は目的が競争を許さない」を根拠とする随意契約。「公募を実施したところ、特定法人以外参加意思のある者はいなかった」と理由を明記。なお独立行政法人都市再生機構は国土交通省所管で歴代理事長・理事は国交省OBが占める典型的な天下り先である。", src:"fukko_r7_proc"},
+      {text:"📄 <strong>公共調達R7全62件のうち43件(69%)が随意契約、19件(30%)が競争入札</strong>：金額ベースでは競争入札¥6.05億 vs 随意契約¥118.5億で、99.9%が随意契約。R5・R6では随意契約比率82%だった。", src:"fukko_r7_proc"},
+      {text:"📄 <strong>「大阪・関西万博を契機とした復興に向けた情報発信強化事業」R7¥2.14億(大日本印刷)</strong>：3年連続で同社が随意契約(企画競争による選定)で受注。3年合計¥4.74億。まだ仮設に住んでいる人がいる中、大阪万博での「復興している姿」発信に¥4.74億が流れる構造。", src:"fukko_r7_proc"},
+      {text:"📄 <strong>「海外に向けた情報発信業務」R7¥4.04億(電通PRコンサルティング)</strong>：3年連続で同社が随意契約(企画競争)で受注。R5¥3.54億→R6¥3.87億→R7¥4.04億と毎年増額。3年合計¥11.45億。", src:"fukko_r7_proc"},
+      {text:"📄 <strong>「風評払拭のための多様なメディア・コンテンツによる情報発信事業」R7¥3.76億(電通東日本)</strong>：R5・R6は読売新聞東京本社が受注(各¥3.3億・¥3.7億)、R7は電通東日本に切り替わった。3年合計¥10.75億。", src:"fukko_r7_proc"},
+      {text:"📄 <strong>仮設住宅(供与延長+解体撤去)はR7予算¥4億のみ</strong>：被災者支援(全部)¥199億のうち、まだ仮設に住んでいる人向けの予算はわずか¥4億。一方、国営追悼・祈念施設整備に¥41億(仮設の10倍)、F-REI敷地造成1件に¥103.5億(仮設の26倍)が計上されている。出典：令和7年度復興庁当初予算概要 P.3", src:"fukko_r7_yosan"},
+      {text:"🏛 <strong>【構造的問題】R7予算の69%(¥3,355億)が「原子力災害からの復興・再生」</strong>：中間貯蔵関連事業¥1,045億・特定帰還居住区域整備事業¥620億・福島再生加速化交付金¥599億・放射性物質汚染廃棄物処理¥413億等。これらは事実上、東京電力福島第一原発事故の事後処理に流れる金で、本来東電が責任を負うべき廃炉・汚染水対策にも¥159億の国費が投入される(廃炉・汚染水・処理水対策事業)。「復興」の名目と「東電救済」の境界が曖昧。", src:"fukko_r7_yosan"},
+      {text:"🚩 <strong>能登半島地震は復興庁の管轄外</strong>：2024年1月1日の能登半島地震は内閣府防災担当所管で、復興庁(東日本大震災専管)の支援対象外。震災から15年経過しても福島県大熊町・双葉町の仮設住宅は2026年3月末まで供与延長中で、東日本震災と能登震災で支援の枠組み自体が異なる。", src:"fukko_r7_yosan"},
+    ],
+    houjin:[
+      {name:"独立行政法人都市再生機構東北震災復興支援本部", region:"福島県いわき市", gyomu:"福島国際研究教育機構施設整備の敷地整備(R7¥103.54億・随契)+R6¥10.05億+R5¥449万", amount_oku:113.6, tensyakuri:"🚩国交省所管の独法・歴代理事長は国交省OB"},
+      {name:"株式会社電通ＰＲコンサルティング", region:"R7¥4.04億・3年連続独占", gyomu:"令和7年度海外に向けた情報発信業務(企画競争による随意)・R5¥3.54億+R6¥3.87億の3年連続契約", amount_oku:11.45, tensyakuri:"🤖未確認(3年連続随意契約)"},
+      {name:"株式会社電通東日本", region:"R7¥3.76億", gyomu:"令和7年度風評払拭のための多様なメディア・コンテンツによる情報発信事業(R5・R6は読売新聞東京本社が同名事業を受注)", amount_oku:3.76, tensyakuri:"🤖未確認(企画競争による随意契約)"},
+      {name:"大日本印刷株式会社", region:"R7¥2.14億・3年連続独占", gyomu:"令和7年度「大阪・関西万博」を契機とした復興に向けた情報発信強化事業(R5¥0.32億+R6¥2.28億+R7¥2.14億、3年合計¥4.74億)", amount_oku:4.74, tensyakuri:"🤖未確認(3年連続随意契約)"},
+      {name:"福島県", region:"R5+R6+R7補助金合計¥81.5億", gyomu:"被災者支援総合交付金・福島再生加速化交付金等 24件", amount_oku:81.5, tensyakuri:"🏛 自治体への補助金交付"},
+      {name:"福島国際研究教育機構(F-REI)", region:"R7補助金¥21.25億・1件", gyomu:"新産業創出等研究開発推進事業費補助金", amount_oku:21.25, tensyakuri:"🏛 2023年4月設置の特殊法人"},
+      {name:"福島県浪江町・南相馬市・富岡町等の自治体", region:"被災12市町村中心", gyomu:"福島原子力災害避難区域等帰還・再生加速事業(269件¥103.7億の大半・3年合計)", amount_oku:103.7, tensyakuri:"🏛 自治体への帰還・再生事業(全件随意契約)"},
+      {name:"株式会社読売新聞東京本社", region:"R5+R6で¥7.30億", gyomu:"風評払拭のための多様なメディア・コンテンツによる情報発信事業(R7は電通東日本に切替)", amount_oku:7.30, tensyakuri:"🤖2年連続随意契約"},
+      {name:"個人(避難指示解除区域の地権者)", region:"被災12市町村", gyomu:"用地取得その1~70(R5+R6+R7合計64件)・1件平均¥2,200万円", amount_oku:13.5, tensyakuri:"📋 被災者個人への直接補償(用地買い上げ)"},
+      {name:"内閣共済組合", region:"国家公務員共済組合負担金", gyomu:"復興庁職員の共済組合負担金(R5+R6+R7合計8件¥10.5億)", amount_oku:10.5, tensyakuri:"🏛 復興庁職員の社会保険"},
+    ],
+    houjin_note:"令和7年度・公表ファイル6本(R5/R6/R7×競争入札/随意契約)と補助金5本(R5/R6/R7上下半期)を集計。公共調達合計495件¥289.6億+補助金728件¥218.9億=¥508.5億(R5+R6+R7合計の復興庁直接執行分のみ)。各府省庁執行分(中間貯蔵¥1,045億・特定帰還居住区域¥620億等)は別途各省庁の調達情報から取得が必要(未着手)。出典：復興庁 予算執行等に係る情報の公表",
+    accounts:[
+      {name:"F-REI(福島国際研究教育機構)集中",amount_oku:138.15,alert:true,
+       note:"3年合計¥138.15億。UR都市機構経由の敷地造成3件¥113.6億(随契・公募特定法人のみ)+補助金¥21.25億(運営費)。会計法第29条の3第4項「公募を実施したが特定法人以外応募なし」を理由とする随意契約。R7単年では¥103.54億が1件で発注された(R7予算の被災者支援¥199億の半額以上が1件)。",
+       contract:"随意契約(公募特定法人のみ)・3年連続",
+       src_key:"fukko_r7_proc",src_url:"https://www.reconstruction.go.jp/topics/post_39.html"},
+      {name:"広告・PR3社集中(電通PR・電通東日本・大日本印刷・読売新聞)",amount_oku:27.24,alert:true,
+       note:"3年合計¥27.24億。電通PR¥15.20億(海外情報発信)・読売新聞¥7.30億(風評払拭・R5R6のみ)・大日本印刷¥4.74億(大阪万博復興PR)・電通東日本¥3.76億(R7風評払拭)。全件「企画競争による選定」を理由とする随意契約。",
+       contract:"随意契約(企画競争)・3年連続",
+       src_key:"fukko_r7_proc",src_url:"https://www.reconstruction.go.jp/topics/post_39.html"},
+      {name:"優先順位の歪み(仮設¥4億 vs 追悼¥41億 vs F-REI¥104億)",amount_oku:103.5,alert:true,
+       note:"R7予算で仮設住宅(供与延長+解体撤去)¥4億 vs 国営追悼・祈念施設整備¥41億 vs F-REI敷地造成1件¥103.5億(UR都市機構)。震災から15年経過してもまだ仮設に住んでいる人がいる(福島大熊町・双葉町は2026年3月末まで供与継続)。",
+       contract:"R7予算の比較",
+       src_key:"fukko_r7_yosan",src_url:"https://www.reconstruction.go.jp/files/user/topics/main-cat8/sub-cat8-3/250401_toushoyosangaiyo.pdf"},
+      {name:"公共調達99.9%が随意契約",amount_oku:272.3,alert:true,
+       note:"R5+R6+R7合計495件¥289.6億のうち、競争入札96件¥17億(6%) vs 随意契約399件¥272.3億(94%)。会計法第29条の3第4項(競争を許さない)が269件¥103.7億で最多。「公募・特定法人のみ」3件¥113.6億・「企画競争」55件¥41.2億・「用地取得」64件¥13.5億。",
+       contract:"3年合計の入札区分",
+       src_key:"fukko_r7_proc",src_url:"https://www.reconstruction.go.jp/topics/post_39.html"},
+    ]
+  },
 
 ];
 
