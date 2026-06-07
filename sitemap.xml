@@ -1,130 +1,135 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
-        xmlns:xhtml="http://www.w3.org/1999/xhtml">
-
-  <!-- Dashboard (Japanese) -->
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
     <loc>https://nana6fu.github.io/fiscal-osint-japan/</loc>
-    <lastmod>2026-05-23</lastmod>
-    <changefreq>weekly</changefreq>
+    <lastmod>2026-06-07</lastmod>
+    <changefreq>daily</changefreq>
     <priority>1.0</priority>
   </url>
-
-  <!-- Articles Hub -->
   <url>
     <loc>https://nana6fu.github.io/fiscal-osint-japan/articles/</loc>
-    <lastmod>2026-05-23</lastmod>
+    <lastmod>2026-06-07</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
-    <xhtml:link rel="alternate" hreflang="ja" href="https://nana6fu.github.io/fiscal-osint-japan/articles/"/>
-    <xhtml:link rel="alternate" hreflang="en" href="https://nana6fu.github.io/fiscal-osint-japan/articles/en/"/>
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://nana6fu.github.io/fiscal-osint-japan/articles/"/>
   </url>
   <url>
     <loc>https://nana6fu.github.io/fiscal-osint-japan/articles/en/</loc>
-    <lastmod>2026-05-23</lastmod>
+    <lastmod>2026-06-04</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
-    <xhtml:link rel="alternate" hreflang="ja" href="https://nana6fu.github.io/fiscal-osint-japan/articles/"/>
-    <xhtml:link rel="alternate" hreflang="en" href="https://nana6fu.github.io/fiscal-osint-japan/articles/en/"/>
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://nana6fu.github.io/fiscal-osint-japan/articles/"/>
   </url>
-
-  <!-- About (English entry page) -->
+  <url>
+    <loc>https://nana6fu.github.io/fiscal-osint-japan/articles/en/fukko-article.html</loc>
+    <lastmod>2026-06-07</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://nana6fu.github.io/fiscal-osint-japan/articles/en/hanahaku-article.html</loc>
+    <lastmod>2026-06-04</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://nana6fu.github.io/fiscal-osint-japan/articles/fukko-article.html</loc>
+    <lastmod>2026-06-07</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://nana6fu.github.io/fiscal-osint-japan/articles/hanahaku-article.html</loc>
+    <lastmod>2026-06-04</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://nana6fu.github.io/fiscal-osint-japan/articles/80trillion.html</loc>
+    <lastmod>2026-05-23</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://nana6fu.github.io/fiscal-osint-japan/articles/annual-reform-recommendations.html</loc>
+    <lastmod>2026-05-29</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://nana6fu.github.io/fiscal-osint-japan/articles/en/80trillion.html</loc>
+    <lastmod>2026-05-23</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
   <url>
     <loc>https://nana6fu.github.io/fiscal-osint-japan/articles/en/about.html</loc>
     <lastmod>2026-05-23</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
-
-  <!-- Article #1: 80兆対米投資 -->
-  <url>
-    <loc>https://nana6fu.github.io/fiscal-osint-japan/articles/80trillion.html</loc>
-    <lastmod>2026-05-23</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.9</priority>
-    <xhtml:link rel="alternate" hreflang="ja" href="https://nana6fu.github.io/fiscal-osint-japan/articles/80trillion.html"/>
-    <xhtml:link rel="alternate" hreflang="en" href="https://nana6fu.github.io/fiscal-osint-japan/articles/en/80trillion.html"/>
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://nana6fu.github.io/fiscal-osint-japan/articles/80trillion.html"/>
-  </url>
-  <url>
-    <loc>https://nana6fu.github.io/fiscal-osint-japan/articles/en/80trillion.html</loc>
-    <lastmod>2026-05-23</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.9</priority>
-    <xhtml:link rel="alternate" hreflang="ja" href="https://nana6fu.github.io/fiscal-osint-japan/articles/80trillion.html"/>
-    <xhtml:link rel="alternate" hreflang="en" href="https://nana6fu.github.io/fiscal-osint-japan/articles/en/80trillion.html"/>
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://nana6fu.github.io/fiscal-osint-japan/articles/80trillion.html"/>
-  </url>
-
-  <!-- Article #2: 防衛費財源の単発スキーム -->
-  <url>
-    <loc>https://nana6fu.github.io/fiscal-osint-japan/articles/special-account-defense.html</loc>
-    <lastmod>2026-05-23</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.9</priority>
-    <xhtml:link rel="alternate" hreflang="ja" href="https://nana6fu.github.io/fiscal-osint-japan/articles/special-account-defense.html"/>
-    <xhtml:link rel="alternate" hreflang="en" href="https://nana6fu.github.io/fiscal-osint-japan/articles/en/special-account-defense.html"/>
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://nana6fu.github.io/fiscal-osint-japan/articles/special-account-defense.html"/>
-  </url>
-  <url>
-    <loc>https://nana6fu.github.io/fiscal-osint-japan/articles/fms-trust-fund-30years.html</loc>
-    <lastmod>2026-05-25</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.9</priority>
-    <xhtml:link rel="alternate" hreflang="ja" href="https://nana6fu.github.io/fiscal-osint-japan/articles/fms-trust-fund-30years.html"/>
-    <xhtml:link rel="alternate" hreflang="en" href="https://nana6fu.github.io/fiscal-osint-japan/articles/en/fms-trust-fund-30years.html"/>
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://nana6fu.github.io/fiscal-osint-japan/articles/fms-trust-fund-30years.html"/>
-  </url>
-
-  <url>
-    <loc>https://nana6fu.github.io/fiscal-osint-japan/articles/en/special-account-defense.html</loc>
-    <lastmod>2026-05-23</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.9</priority>
-    <xhtml:link rel="alternate" hreflang="ja" href="https://nana6fu.github.io/fiscal-osint-japan/articles/special-account-defense.html"/>
-    <xhtml:link rel="alternate" hreflang="en" href="https://nana6fu.github.io/fiscal-osint-japan/articles/en/special-account-defense.html"/>
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://nana6fu.github.io/fiscal-osint-japan/articles/special-account-defense.html"/>
-  </url>
   <url>
     <loc>https://nana6fu.github.io/fiscal-osint-japan/articles/en/fms-trust-fund-30years.html</loc>
-    <lastmod>2026-05-25</lastmod>
+    <lastmod>2026-05-24</lastmod>
     <changefreq>monthly</changefreq>
-    <priority>0.9</priority>
-    <xhtml:link rel="alternate" hreflang="ja" href="https://nana6fu.github.io/fiscal-osint-japan/articles/fms-trust-fund-30years.html"/>
-    <xhtml:link rel="alternate" hreflang="en" href="https://nana6fu.github.io/fiscal-osint-japan/articles/en/fms-trust-fund-30years.html"/>
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://nana6fu.github.io/fiscal-osint-japan/articles/fms-trust-fund-30years.html"/>
+    <priority>0.8</priority>
   </url>
-
-
-  <url>
-    <loc>https://nana6fu.github.io/fiscal-osint-japan/articles/japan-balance-sheet.html</loc>
-    <lastmod>2026-05-25</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.9</priority>
-    <xhtml:link rel="alternate" hreflang="ja" href="https://nana6fu.github.io/fiscal-osint-japan/articles/japan-balance-sheet.html"/>
-    <xhtml:link rel="alternate" hreflang="en" href="https://nana6fu.github.io/fiscal-osint-japan/articles/en/japan-balance-sheet.html"/>
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://nana6fu.github.io/fiscal-osint-japan/articles/japan-balance-sheet.html"/>
-  </url>
-
   <url>
     <loc>https://nana6fu.github.io/fiscal-osint-japan/articles/en/japan-balance-sheet.html</loc>
     <lastmod>2026-05-25</lastmod>
     <changefreq>monthly</changefreq>
-    <priority>0.9</priority>
-    <xhtml:link rel="alternate" hreflang="en" href="https://nana6fu.github.io/fiscal-osint-japan/articles/en/japan-balance-sheet.html"/>
-    <xhtml:link rel="alternate" hreflang="ja" href="https://nana6fu.github.io/fiscal-osint-japan/articles/japan-balance-sheet.html"/>
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://nana6fu.github.io/fiscal-osint-japan/articles/japan-balance-sheet.html"/>
+    <priority>0.8</priority>
   </url>
-
-
-  <!-- Datasets directory -->
   <url>
-    <loc>https://nana6fu.github.io/fiscal-osint-japan/datasets/</loc>
+    <loc>https://nana6fu.github.io/fiscal-osint-japan/articles/en/special-account-defense.html</loc>
     <lastmod>2026-05-23</lastmod>
     <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://nana6fu.github.io/fiscal-osint-japan/articles/fms-trust-fund-30years.html</loc>
+    <lastmod>2026-05-24</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://nana6fu.github.io/fiscal-osint-japan/articles/japan-balance-sheet.html</loc>
+    <lastmod>2026-05-25</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://nana6fu.github.io/fiscal-osint-japan/articles/special-account-defense.html</loc>
+    <lastmod>2026-05-23</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://nana6fu.github.io/fiscal-osint-japan/articles/special-accounts-2006-vs-now.html</loc>
+    <lastmod>2026-06-01</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://nana6fu.github.io/fiscal-osint-japan/fukko.html</loc>
+    <lastmod>2026-06-04</lastmod>
+    <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>
-
+  <url>
+    <loc>https://nana6fu.github.io/fiscal-osint-japan/hanahaku.html</loc>
+    <lastmod>2026-06-04</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://nana6fu.github.io/fiscal-osint-japan/mhlw_r6_snippet.html</loc>
+    <lastmod>2026-05-13</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://nana6fu.github.io/fiscal-osint-japan/us-investment.html</loc>
+    <lastmod>2026-05-23</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
+  </url>
 </urlset>

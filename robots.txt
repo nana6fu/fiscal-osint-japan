@@ -1,4 +1,18 @@
 User-agent: *
 Allow: /
 
+# Search engines should not index utility or backup directories
+Disallow: /backups/
+Disallow: /_draft/
+Disallow: /data/
+Disallow: /src/
+Disallow: /tools/
+Disallow: /scripts/
+Disallow: /output/
+Disallow: /test/
+Disallow: /tests/
+Disallow: /tmp/
+Disallow: /temp/
+Disallow: /入札エクセル/
+
 Sitemap: https://nana6fu.github.io/fiscal-osint-japan/sitemap.xml
