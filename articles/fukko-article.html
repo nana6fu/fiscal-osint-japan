@@ -1,0 +1,643 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>復興庁¥4,864億 ──「司令塔」が統括できる金は¥856億(17.6%) | Fiscal OSINT Japan</title>
+<meta name="description" content="復興庁の令和7年度予算¥4,864億のうち、復興庁自身が執行できるのは¥856億(17.6%)のみ。残り¥4,008億は各府省庁が執行。R5/R6/R7の公共調達495件+補助金728件を完全データで検証。F-REIに3年で¥138.15億、大阪万博復興PRに¥4.74億、仮設住宅¥4億と並ぶ予算構造を一次資料から検証。">
+<meta property="og:title" content="復興庁¥4,864億 ──「司令塔」が統括できる金は¥856億(17.6%)">
+<meta property="og:description" content="復興庁所管¥4,864億のうち復興庁自身が執行できるのは¥856億(17.6%)のみ。F-REI集中¥138億・大阪万博復興PR¥4.74億・仮設住宅¥4億の構造を一次資料で検証。">
+<meta property="og:type" content="article">
+<meta property="og:url" content="https://nana6fu.github.io/fiscal-osint-japan/articles/fukko-article.html">
+<meta name="twitter:card" content="summary_large_image">
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;700;900&family=Share+Tech+Mono&display=swap');
+*{box-sizing:border-box;margin:0;padding:0}
+:root{
+  --bg:#080c10;--surface:#0d1117;--surface-2:#131a24;--border:#1e2736;
+  --red:#e63946;--red-dim:#7a1a20;--red-bg:#1a0508;
+  --blue:#4895ef;--blue-dim:#1a3a5a;
+  --green:#43aa8b;--green-dim:#0d2a1a;
+  --yellow:#f4a261;
+  --pink:#ff6b9d;--pink-dim:#3a1a2a;
+  --text:#c9d1d9;--text-dim:#6e7681;--text-bright:#f0f6fc;
+  --font-mono:'Share Tech Mono',monospace;
+}
+html,body{background:var(--bg);color:var(--text);font-family:'Noto Sans JP',sans-serif;line-height:1.95;font-size:15px}
+a{color:var(--blue);text-decoration:none;word-break:break-all}
+a:hover{text-decoration:underline}
+header.site{padding:14px 24px;border-bottom:1px solid var(--border);display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:10px;background:#0d1117;position:sticky;top:0;z-index:100}
+.header-left h1{font-size:15px;font-weight:900;color:var(--text-bright)}
+.header-left h1 span{color:var(--red)}
+.header-left p{font-size:10px;color:var(--text-dim);margin-top:2px;font-family:var(--font-mono)}
+.badges{display:flex;gap:6px;align-items:center}
+.badge{font-size:12px;padding:5px 10px;border-radius:4px;border:1px solid;white-space:nowrap}
+.badge-back{color:var(--text-dim);border-color:var(--border);background:var(--surface)}
+.badge-dashboard{color:var(--pink);border-color:var(--pink);background:var(--pink-dim)}
+.badge-en{color:var(--blue);border-color:var(--blue);background:var(--blue-dim)}
+.article-wrap{max-width:780px;margin:0 auto;padding:48px 24px}
+.tag{display:inline-block;font-size:10px;letter-spacing:.08em;color:var(--pink);background:var(--pink-dim);border:1px solid var(--pink);padding:4px 10px;border-radius:3px;margin-bottom:20px;font-family:var(--font-mono)}
+h1.article-title{font-size:30px;font-weight:900;line-height:1.5;margin-bottom:18px;letter-spacing:-.01em;color:var(--text-bright)}
+h2.sub-title{font-size:18px;font-weight:400;color:var(--text-dim);line-height:1.7;margin-bottom:32px;border:none;padding:0}
+h2.sec-h2{font-size:22px;font-weight:900;margin:48px 0 24px;padding:14px 0;border-bottom:1px solid var(--border);color:var(--text-bright);letter-spacing:-.01em}
+h2.sec-h2 .sec-num{color:var(--red);margin-right:16px;font-family:var(--font-mono);font-weight:400;font-size:20px}
+h3{font-size:16px;font-weight:700;margin:32px 0 14px;color:var(--text-bright)}
+p{margin-bottom:18px;color:var(--text)}
+p strong{color:var(--text-bright);font-weight:700}
+blockquote{border-left:3px solid var(--blue);background:var(--surface);padding:16px 22px;margin:20px 0;border-radius:0 4px 4px 0}
+blockquote p{font-size:14px;line-height:1.85;color:var(--text);margin-bottom:8px}
+blockquote p:last-child{margin-bottom:0}
+blockquote p strong{color:var(--yellow)}
+ul,ol{margin:14px 0 22px;padding-left:24px}
+ul li,ol li{margin-bottom:8px;color:var(--text);line-height:1.85}
+ul li strong,ol li strong{color:var(--text-bright)}
+hr{border:none;border-top:1px solid var(--border);margin:32px 0}
+.share-box{background:var(--surface);border:1px solid var(--border);border-radius:6px;padding:20px;margin:32px 0}
+.share-label{font-size:10px;color:var(--text-dim);font-family:var(--font-mono);text-transform:uppercase;letter-spacing:.1em;margin-bottom:10px}
+.share-btns{display:flex;gap:10px;flex-wrap:wrap}
+.share-btn{display:inline-block;padding:8px 16px;border-radius:4px;font-size:12px;border:1px solid;font-family:var(--font-mono)}
+.share-btn-x{color:#fff;border-color:#2a3548;background:#0d1117}
+.share-btn-x:hover{background:#2a3548}
+
+.figure{background:var(--surface);border:1px solid var(--border);border-radius:6px;padding:20px;margin:24px 0}
+.figure svg{display:block;width:100%;height:auto}
+.figure .caption{font-size:11px;color:var(--text-dim);margin-top:12px;border-top:1px solid var(--border);padding-top:10px;font-family:var(--font-mono)}
+
+footer.site{border-top:1px solid var(--border);padding:32px 24px;text-align:center;color:var(--text-dim);font-size:11px;font-family:var(--font-mono);margin-top:48px}
+footer.site a{color:var(--text-dim)}
+
+.data-table{width:100%;border-collapse:collapse;font-size:13px;margin:20px 0;background:var(--surface);border:1px solid var(--border)}
+.data-table th{background:#0a1018;color:var(--text-dim);font-family:var(--font-mono);font-size:11px;padding:10px 12px;text-align:left;border-bottom:1px solid var(--border)}
+.data-table td{padding:10px 12px;border-bottom:1px solid var(--border);color:var(--text)}
+.data-table tr:hover td{background:#0a1220}
+.num{text-align:right;font-family:var(--font-mono);color:var(--text-bright)}
+.num-red{color:var(--red);font-weight:700}
+
+.callout{background:var(--red-bg);border-left:3px solid var(--red);padding:16px 22px;margin:24px 0;border-radius:0 4px 4px 0}
+.callout p{margin-bottom:8px}
+.callout p:last-child{margin-bottom:0}
+</style>
+</head>
+<body>
+
+<header class="site">
+  <div class="header-left">
+    <h1><span>Fiscal</span> OSINT Japan</h1>
+    <p>SPECIAL REPORT / fukkocho_R5R6R7_article</p>
+  </div>
+  <div class="badges">
+    <a href="../index.html" class="badge badge-dashboard">🏛 ダッシュボード(復興庁)</a>
+    <a href="../index.html" class="badge badge-back">← TOP</a>
+  </div>
+</header>
+
+<div class="article-wrap">
+<div class="tag">SPECIAL REPORT / DOMESTIC PUBLIC PROJECTS</div>
+<h1 class="article-title">復興庁¥4,864億 ──「司令塔」が統括できる金は¥856億(17.6%)</h1>
+<h2 class="sub-title">残り¥4,008億は各府省庁が執行する「復興庁名義の予算」。R5/R6/R7の公共調達495件+補助金728件で見える構造</h2>
+
+<p><strong>Fiscal OSINT Japan / 2026年6月7日</strong></p>
+
+<hr>
+
+<p>2026年3月末で、福島県大熊町と双葉町の応急仮設住宅の供与期間が延長された。東日本大震災から15年が経過した今も、仮設住宅に住む人がいる。同じ年の令和7年度復興庁予算で、これら仮設住宅の「供与延長+解体撤去」に充てられる予算は<strong>¥4億円</strong>である。</p>
+
+<p>同じ復興庁予算で、福島県浪江町に新設された研究機関「福島国際研究教育機構(F-REI)」の敷地造成業務1件には<strong>¥103.54億円</strong>が計上された。仮設住宅予算の<strong>26倍</strong>である。</p>
+
+<p>本稿は、復興庁の令和5年度(2023年度)〜令和7年度(2025年度)の公共調達495件と補助金728件を含む、復興庁公式が公開する一次資料に基づき、東日本大震災からの「復興」と呼ばれる金の流れの構造を検証する。</p>
+
+<p>結論を先に述べる。令和7年度復興庁所管予算¥4,864億のうち、復興庁が自身で執行できるのは<strong>¥856億(17.6%)のみ</strong>である。残り<strong>¥4,008億(82.4%)</strong>は、各府省庁が「復興庁名義の予算」として執行している。「司令塔」を謳う復興庁が、自らの所管予算の8割超を統制下に置いていない構造である。</p>
+
+<p>そして、この構造は2011年12月の復興庁設置法の議院修正の段階で、結果的に選ばれたものだった。</p>
+
+<hr>
+
+<h2 class="sec-h2"><span class="sec-num">01</span>復興庁¥4,864億の全体像</h2>
+
+<p>令和7年度の東日本大震災復興関連予算は、合計¥6,462億円である。このうち復興庁所管とされているのが¥4,864億円(全体の75.3%)で、残りは各府省所管(¥1,598億)、震災復興特別交付税(¥659億)、復興加速化・福島再生予備費(¥670億)、国債整理基金特会への繰入等(¥270億)に分かれる。</p>
+
+<p>復興庁所管¥4,864億円を事業分野別に見ると、以下のような構成になる。</p>
+
+<table class="data-table">
+<thead><tr><th>事業分野</th><th class="num">金額</th><th>主な内容</th></tr></thead>
+<tbody>
+<tr><td>(1) 被災者支援</td><td class="num">¥199億</td><td>被災者支援総合交付金¥77億、心のケア、スクールカウンセラー、<strong>仮設住宅¥4億</strong></td></tr>
+<tr><td>(2) 住宅再建・復興まちづくり</td><td class="num">¥675億</td><td>家賃低廉化¥230億、社会資本整備¥260億、<strong>国営追悼施設¥41億</strong></td></tr>
+<tr><td>(3) 産業・生業の再生</td><td class="num">¥361億</td><td>水産・農業・漁業復興¥150億超、企業立地補助金¥110億</td></tr>
+<tr><td>(4) 原子力災害からの復興・再生</td><td class="num num-red">¥3,355億</td><td><strong>中間貯蔵¥1,045億、特定帰還居住区域¥620億、福島再生加速化交付金¥599億、廃棄物処理¥413億、F-REI¥164億等</strong></td></tr>
+</tbody>
+</table>
+
+<p>注目すべきは、<strong>原子力災害関連が全体の69%(¥3,355億)を占める</strong>ことである。これは東京電力福島第一原発事故の事後処理・除染・廃棄物処理・帰還困難区域整備・F-REI関連に流れる金が、復興庁予算の中核となっていることを示している。</p>
+
+<p>「東日本大震災からの復興」と銘打たれた予算の3分の2以上が、地震・津波の被害ではなく、原発事故の事後処理に充てられている構造である。</p>
+
+<hr>
+
+<h2 class="sec-h2"><span class="sec-num">02</span>復興財源¥32.9兆円の構造</h2>
+
+<p>東日本大震災からの復興のため、政府は2011年から2025年までの15年間で総額<strong>¥32.9兆円</strong>の財源を確保することとした。この財源の内訳が、復興の構造を理解する上で重要である。</p>
+
+<p>復興庁公式の「復興政策10年間の振り返り」によれば、復興財源フレームは段階的に拡大されてきた。</p>
+
+<table class="data-table">
+<thead><tr><th>時期</th><th>フレーム名</th><th class="num">規模</th></tr></thead>
+<tbody>
+<tr><td>2011年7月</td><td>19兆円フレーム</td><td class="num">集中復興期間5年分</td></tr>
+<tr><td>2013年1月</td><td>25兆円フレーム</td><td class="num">上方修正</td></tr>
+<tr><td>2015年1月</td><td>26.3兆円フレーム</td><td class="num">上方修正</td></tr>
+<tr><td>2015年6月</td><td>32兆円フレーム</td><td class="num">10年フレームに延長</td></tr>
+<tr><td>2020年7月</td><td><strong>32.9兆円フレーム</strong></td><td class="num"><strong>15年フレームに再延長</strong></td></tr>
+</tbody>
+</table>
+
+<p>当初の「19兆円」は、阪神・淡路大震災の被害推計を基にした推計値だった。復興庁公式は、当初の事業規模推計について次のように記している。</p>
+
+<blockquote>
+<p>「救助・復旧費用については、積上げにより見込みを立てた一方、その他の復興費用については、阪神・淡路大震災の際の復旧・復興に要した費用を踏まえつつ、東日本大震災との被害総額の規模の違いを勘案するなどして<strong>推計により算出されたもの</strong>であった」</p>
+<p>出典:<a href="https://www.reconstruction.go.jp/311kyoukun/archive/chapter2-verse4.html" target="_blank">復興庁「復興政策10年間の振り返り 第2章第4節 予算・税制」</a></p>
+</blockquote>
+
+<p>つまり、初期予測の段階で実態に基づかない数字が立てられ、その後事業実績に追従してフレームが上方修正される構造ができた。</p>
+
+<h3>復興税¥11.2兆円の内訳</h3>
+
+<p>復興財源¥32.9兆円のうち、増税で確保された分は約¥11.2兆円(うち復興経費分¥10.5兆円)である。内訳は以下の通り。</p>
+
+<ul>
+<li><strong>復興特別所得税</strong>(2013-2037の25年間・所得税額の2.1%上乗せ):約¥9.7兆円(復興特別法人税と合算の上限値)</li>
+<li><strong>復興特別法人税</strong>(2012-2014の3年・法人税額の10%上乗せ):2014年に1年前倒し廃止</li>
+<li><strong>個人住民税の均等割上乗せ</strong>(2014-2023の10年・年¥1,000):約¥0.6兆円</li>
+<li>給与所得控除等の見直しによる増収分:約¥0.7兆円</li>
+</ul>
+
+<p>残り¥22.4兆円(¥32.9兆円 − ¥10.5兆円)は復興債発行(日本郵政株式¥4兆円程度等で返済)、一般会計繰入¥2.4兆円、税外収入・歳出削減・国有財産売却等で確保された。</p>
+
+<p>つまり、「税」で集めた分は復興財源総額の<strong>31.9%</strong>にすぎず、過半は復興債と一般会計繰入である。「次の世代に負担を先送りすることなく、今を生きる世代全体で連帯し負担を分かち合う」(2011年7月「東日本大震災からの復興の基本方針」)という当初の理念とは異なる構造が、実態として形成されている。</p>
+
+<hr>
+
+<h2 class="sec-h2"><span class="sec-num">03</span>「司令塔」の実態 ── 復興庁が統括できるのは17.6%のみ</h2>
+
+<p>令和7年度復興庁所管予算¥4,864億の最大の特徴は、復興庁が自身で執行できる予算がそのうち¥856億(17.6%)に限定されていることである。</p>
+
+<table class="data-table">
+<thead><tr><th>区分</th><th class="num">金額</th><th>誰が執行?</th></tr></thead>
+<tbody>
+<tr><td>復興庁独自執行分</td><td class="num">¥856億</td><td>復興庁自身が発注・契約</td></tr>
+<tr><td class="num-red">各府省庁執行分(復興庁名義で計上)</td><td class="num num-red">¥4,008億</td><td><strong>国交省・農水省・経産省・厚労省・環境省・文科省等</strong></td></tr>
+</tbody>
+</table>
+
+<p>「復興庁所管¥4,864億」という表記は、形式的なものである。実態としては、復興庁の名前で予算は計上されているが、執行は各府省庁が分担して行っている。</p>
+
+<p>復興庁公式の「復興政策10年間の振り返り」は、この構造を次のように説明している。</p>
+
+<blockquote>
+<p>「東日本大震災復興特別会計は全省庁共管となっているが、東日本大震災からの復興に関する事業に係る経費のうち、被災地の復興に係る経費については、復興庁設置法(平成23年法律第125号)第4条第2項の規定により、<strong>各府省予算を復興庁所管の予算として一括計上している</strong>」</p>
+<p>出典:<a href="https://www.reconstruction.go.jp/311kyoukun/archive/chapter2-verse4.html" target="_blank">復興庁「復興政策10年間の振り返り 第2章第4節 予算・税制」</a></p>
+</blockquote>
+
+<p>これにより、復興庁の調達情報には載らない予算が大量に存在する。例えば令和7年度の主要事業のうち、復興庁名義で計上されながら各府省庁が執行する金額の規模は以下の通り。</p>
+
+<ul>
+<li><strong>中間貯蔵関連事業 ¥1,045億</strong>(環境省執行)</li>
+<li><strong>特定帰還居住区域整備事業 ¥620億</strong>(環境省執行)</li>
+<li><strong>福島再生加速化交付金 ¥599億</strong>(復興庁が交付金として一括交付・自治体経由)</li>
+<li><strong>放射性物質汚染廃棄物処理事業等 ¥413億</strong>(環境省執行)</li>
+<li><strong>社会資本整備総合交付金 ¥260億</strong>(国交省執行)</li>
+<li><strong>家賃低廉化・特別家賃低減事業 ¥230億</strong>(自治体経由)</li>
+<li><strong>特定復興再生拠点整備事業 ¥199億</strong>(環境省執行)</li>
+<li><strong>福島国際研究教育機構関連事業 ¥164億</strong>(運営費交付金)</li>
+</ul>
+
+<p>これらの巨額予算は復興庁の調達情報には載らず、各省庁の調達情報を別途取得しなければ実態が見えない。本稿で検証しているのは、復興庁が直接執行する¥856億(17.6%)の範囲のみである。</p>
+
+<hr>
+
+<h2 class="sec-h2"><span class="sec-num">04</span>2011年12月、議院修正で何が決まったか</h2>
+
+<p>復興庁の権限が現在の形になったのは、2011年12月の国会審議である。政府が当初提出した法案では、復興庁の実施事務は限定的だった。</p>
+
+<p>2011年11月1日に閣議決定された政府案では、復興庁の実施事務は「<strong>復興特区制度、復興交付金に関する事務等に限定</strong>」されていた。これに対し、衆議院東日本大震災復興特別委員会で複数の議員から批判が出た。</p>
+
+<blockquote>
+<p>「政府案の復興庁では、現行の復興対策本部とほとんど変わりがありません。これでは、復興基本法の議論の際に政府が提出した法案の方向と何ら変わりがないではありませんか」</p>
+<p>── 自民党・<strong>加藤勝信</strong>議員(2011年11月24日・衆議院本会議)</p>
+</blockquote>
+
+<blockquote>
+<p>「本法律案では、復興庁の所掌事務というのは(中略)復興施策の実施の推進あるいは復興特区にかかわる事務とされておりまして、基本的にはこれまでどおり<strong>各省が復興事業実施の主体であり、復興庁による施策の実施は限定的なものになっている</strong>ように思います」</p>
+<p>── 民主党・<strong>森本和義</strong>議員(2011年12月2日・衆議院東日本大震災復興特別委員会)</p>
+</blockquote>
+
+<blockquote>
+<p>「ワンストップでの被災地での復興ということが必要だというふうに思いますので、ぜひ<strong>予算要求、各省配分</strong>というものの権限を私は復興庁に置くべきだというふうに考えております」</p>
+<p>── 民主党・<strong>斎藤やすのり</strong>議員(2011年12月2日・同委員会)</p>
+</blockquote>
+
+<p>これらの質疑を踏まえ、国会審議と並行して民主党・自民党・公明党の3党による修正協議が進められた。2011年12月6日、5党派(民主党・無所属クラブ、自由民主党・無所属の会、公明党、国民新党・新党日本、たちあがれ日本)による共同提案で修正案が提出された。</p>
+
+<p>修正案の提案理由は、自民党の谷公一議員が次のように説明している。</p>
+
+<blockquote>
+<p>「本修正案は、東日本大震災からの復興をより円滑かつ迅速に進めるため、<strong>復興庁が被災地のニーズにワンストップで対応できるよう権限強化を図る必要がある</strong>との共通認識に立って、本会議及び本委員会などでの与野党の質疑及び御指摘を踏まえるとともに、与野党の真摯な修正協議に基づき、復興庁設置法案について次のような修正を行おうとするものであります」</p>
+<p>── 自民党・<strong>谷公一</strong>議員(2011年12月6日・修正案提出)</p>
+</blockquote>
+
+<p>修正案で復興庁の所掌事務に追加されたのは以下の3点である。</p>
+
+<ol>
+<li>復興に関する行政各部の事業の統括及び監理</li>
+<li>復興事業に関する関係地方公共団体からの要望の一元的な受理、対応方針の策定、対応方針に基づく事業の改善又は推進等</li>
+<li><strong>復興事業に必要な予算の一括要求、事業の実施に関する計画の策定、予算の関係行政機関への配分等</strong></li>
+</ol>
+
+<p>この3点目が、現在の「復興庁所管¥4,864億のうち¥4,008億は各府省庁が執行」という構造の法的根拠となった。</p>
+
+<h3>否決されたみんなの党の対案</h3>
+
+<p>同じ委員会で、もう一つの修正案が議論されていた。みんなの党による対案である。みんなの党案の内容は以下の通り(復興庁公式記述より)。</p>
+
+<ul>
+<li>復興庁を仙台市に置く</li>
+<li>行政改革の推進</li>
+<li>3か月に1回の国会報告</li>
+<li>設置期限を平成27年3月31日に前倒し(=政府案より大幅短縮)</li>
+<li><strong>被災地域の地方公共団体への権限移譲</strong>に向けた検討</li>
+</ul>
+
+<p>これは「中央集権ではなく被災自治体に権限を渡す」という別方向の対案だった。<strong>否決された</strong>。</p>
+
+<p>つまり当時、選択肢は2方向にあった。</p>
+
+<table class="data-table">
+<thead><tr><th>項目</th><th>政府案</th><th class="num-red">3党修正案(成立)</th><th>みんなの党案(否決)</th></tr></thead>
+<tbody>
+<tr><td>復興庁の権限</td><td>復興特区・交付金等に限定</td><td><strong>予算一括要求権限を追加</strong></td><td>最小限+早期廃止</td></tr>
+<tr><td>予算の執行主体</td><td>各府省庁</td><td><strong>各府省庁(変わらず)</strong></td><td><strong>被災自治体</strong></td></tr>
+<tr><td>中央↔地方</td><td>中央集権</td><td><strong>中央集権(維持)</strong></td><td>地方分権</td></tr>
+<tr><td>所在地</td><td>東京</td><td>東京</td><td><strong>仙台</strong></td></tr>
+<tr><td>期間</td><td>10年</td><td>10年</td><td><strong>5年で前倒し終了</strong></td></tr>
+</tbody>
+</table>
+
+<div class="callout">
+<p><strong>3党が選んだのは、復興庁が予算を「一括要求」しつつ、実際の執行は各府省庁が担う構造である。</strong></p>
+<p>これにより、復興庁は予算を取りまとめる帳簿係の役割を担い、実態は各府省庁が分担して事業を行う仕組みになった。</p>
+<p>14年後の令和7年度予算で、復興庁所管¥4,864億のうち¥4,008億(82.4%)が各府省庁経由で執行されている事実は、当時の議院修正がもたらした構造の帰結である。</p>
+</div>
+
+<p>当時、自治体への権限移譲というオプションが国会に提示されていた事実は、現在の構造が複数の選択肢の中から意図的に選ばれたものであることを示している。3党(民主党・自民党・公明党)がなぜ各府省庁経由の予算配分構造を選んだかについては、当時の議事録および3党協議の記録から追加的に検証する必要がある。本稿は構造分析にとどめ、動機の解釈は読者に委ねる。</p>
+
+<hr>
+
+<h2 class="sec-h2"><span class="sec-num">05</span>復興庁の人事構造 ── 各省庁の交代出向</h2>
+
+<p>復興庁の事務次官人事を見ると、構造の特徴がさらに明らかになる。直近3代の事務次官の出身省庁は以下の通り。</p>
+
+<table class="data-table">
+<thead><tr><th>代</th><th>期間</th><th>氏名</th><th>出身省庁</th></tr></thead>
+<tbody>
+<tr><td>12代</td><td>2023-2024</td><td>角田 隆</td><td><strong>旧大蔵省</strong>(財務省)</td></tr>
+<tr><td>13代</td><td>2024-2025</td><td>宇野 善昌</td><td><strong>旧建設省</strong>(国交省)</td></tr>
+<tr><td>14代</td><td>2025-</td><td>山野 謙</td><td><strong>旧自治省</strong>(総務省)</td></tr>
+</tbody>
+</table>
+
+<p>復興庁設置からこれまでの歴代事務次官14名を見ると、財務省・国交省・総務省を中心に、各省庁が順繰りに出向する構造になっている。これは復興庁が「プロパー職員を育成する省庁」ではなく、「各省庁が交代で人材を出す出向先」として運営されていることを意味する。</p>
+
+<p>このような人事構造の下では、復興庁の意思決定は出身省庁との関係から完全に独立することが難しい。そして、復興庁所管予算の82.4%が各府省庁で執行される構造と、この人事構造が組み合わさることで、「司令塔」の名の下に実態としては各省庁が予算を分け合う仕組みが完成する。</p>
+
+<hr>
+
+<h2 class="sec-h2"><span class="sec-num">06</span>復興庁 公共調達の99.9%は随意契約</h2>
+
+<p>復興庁が直接執行する公共調達の構造を見ると、もう一つの特徴が浮かび上がる。令和5年度(R5)から令和7年度(R7)までの3年間に、復興庁が直接発注した公共調達は<strong>495件・¥289.6億円</strong>である。このうち競争入札で行われたのは件数で19.4%、金額で6.0%のみで、<strong>残り99.9%が随意契約</strong>である。</p>
+
+<table class="data-table">
+<thead><tr><th>区分</th><th class="num">件数</th><th class="num">金額</th><th class="num">金額比率</th></tr></thead>
+<tbody>
+<tr><td>競争入札</td><td class="num">96件</td><td class="num">¥17.4億</td><td class="num">6.0%</td></tr>
+<tr><td class="num-red">随意契約</td><td class="num num-red">399件</td><td class="num num-red">¥272.3億</td><td class="num num-red">94.0%</td></tr>
+<tr><td><strong>合計</strong></td><td class="num"><strong>495件</strong></td><td class="num"><strong>¥289.6億</strong></td><td class="num"><strong>100%</strong></td></tr>
+</tbody>
+</table>
+
+<p>会計法第29条の3は、公的調達の原則として「契約担当官等は、売買、貸借、請負その他の契約を締結する場合においては、(中略)<strong>公告して申込みをさせることにより競争に付さなければならない</strong>」と定めている。随意契約は同条第4項・第5項・第6項に定める例外規定であり、本来は限定的な使用が想定されている。</p>
+
+<p>復興庁の随意契約399件の理由を分類すると、以下のような構造になる。</p>
+
+<table class="data-table">
+<thead><tr><th>理由カテゴリ</th><th class="num">件数</th><th class="num">金額</th><th>主な受注先</th></tr></thead>
+<tbody>
+<tr><td>【公募・特定法人のみ応募】</td><td class="num">3件</td><td class="num num-red">¥113.6億</td><td>UR都市機構(F-REI敷地造成)</td></tr>
+<tr><td>【会計法第29条の3第4項】(競争を許さない)</td><td class="num">269件</td><td class="num">¥103.7億</td><td>福島県の被災12市町村(帰還・再生事業)</td></tr>
+<tr><td>【企画競争による選定】</td><td class="num">55件</td><td class="num">¥41.2億</td><td>電通PR・読売新聞・電通東日本・大日本印刷</td></tr>
+<tr><td>【用地取得】(個人地権者)</td><td class="num">64件</td><td class="num">¥13.5億</td><td>個人(避難指示解除区域の土地・家屋)</td></tr>
+<tr><td>【その他】</td><td class="num">8件</td><td class="num">¥0.3億</td><td>NTTドコモ・JCB等</td></tr>
+</tbody>
+</table>
+
+<p>このうち、被災者個人への直接補償(用地取得)¥13.5億は、避難指示解除区域での土地・家屋の国による買い上げで、実質的には正当な被災者支援の一形態である。残る¥272.3億のうち、構造的に注目すべきは以下の2点である。</p>
+
+<ol>
+<li><strong>UR都市機構経由のF-REI敷地造成3件¥113.6億</strong>:全件「会計法第29条の3第4項(競争を許さない)」を根拠とする随意契約。「公募を実施したが特定法人以外応募なし」を理由とする。</li>
+<li><strong>企画競争による広告・PR4社¥41.2億</strong>:電通PR・電通東日本・読売新聞・大日本印刷が3年連続で「海外情報発信」「風評払拭」「大阪万博復興PR」を受注。</li>
+</ol>
+
+<p>以下の章では、この2つの集中構造を詳しく検証する。</p>
+
+<hr>
+
+<h2 class="sec-h2"><span class="sec-num">07</span>F-REI集中 ── 3年で¥138億が新設研究機関へ</h2>
+
+<p>福島国際研究教育機構(F-REI、エフレイ)は、2023年4月1日に福島県浪江町に設置された特殊法人である。「創造的復興の中核拠点」として、ロボット、農林水産業、エネルギー、放射線科学・創薬医療、原子力災害データの5分野の研究を行うとされる。設置の法的根拠は、2022年5月成立の福島復興再生特別措置法の改正である。</p>
+
+<p>設置からわずか3年で、復興庁から F-REI 関連事業に流れた予算は<strong>¥138.15億円</strong>に達する。内訳は以下の通り。</p>
+
+<table class="data-table">
+<thead><tr><th>区分</th><th class="num">金額</th><th>件数</th><th>主な内容</th></tr></thead>
+<tbody>
+<tr><td>公共調達 F-REI関連</td><td class="num">¥116.9億</td><td>16件</td><td>UR都市機構経由の敷地造成3件¥113.6億、その他用地調査・地盤調査等</td></tr>
+<tr><td>補助金 F-REI事業費</td><td class="num">¥21.25億</td><td>1件</td><td>新産業創出等研究開発推進事業費補助金(運営費)</td></tr>
+<tr><td><strong>合計</strong></td><td class="num num-red"><strong>¥138.15億</strong></td><td><strong>17件</strong></td><td>R5+R6+R7の3年合計</td></tr>
+</tbody>
+</table>
+
+<p>特筆すべきは、F-REI関連の中核業務(敷地造成)が3年連続で<strong>独立行政法人都市再生機構(UR都市機構)</strong>東北震災復興支援本部に随意契約で発注されている点である。</p>
+
+<h3>UR都市機構のF-REI受注の指数関数的拡大</h3>
+
+<table class="data-table">
+<thead><tr><th>年度</th><th>契約日</th><th>業務名</th><th class="num">契約金額</th></tr></thead>
+<tbody>
+<tr><td>R5</td><td>2023年</td><td>福島国際研究教育機構施設整備に向けた造成計画検討等に係る技術支援業務</td><td class="num">¥449万</td></tr>
+<tr><td>R6</td><td>2024年</td><td>福島国際研究教育機構施設整備の敷地整備に関する業務</td><td class="num">¥10.05億</td></tr>
+<tr><td>R7</td><td>2025年4月1日</td><td>福島国際研究教育機構施設整備の敷地整備に関する業務(その2)</td><td class="num num-red">¥103.54億</td></tr>
+</tbody>
+</table>
+
+<p>R5の¥449万から、R6で¥10.05億(<strong>224倍</strong>)、R7で¥103.54億(R5の<strong>2,306倍</strong>)である。1年で200倍超の規模に拡大している。</p>
+
+<p>3件すべての随意契約理由は同一である。</p>
+
+<blockquote>
+<p>「公募を実施したところ、特定法人以外参加意思のある者はいなかった。したがって、特定法人が唯一の実施可能者であり、競争を許さないため。(会計法第29条の3第4項)」</p>
+<p>出典:<a href="https://www.reconstruction.go.jp/topics/post_39.html" target="_blank">復興庁 予算執行等に係る情報の公表(公共調達・補助金)</a></p>
+</blockquote>
+
+<p>「公募したが特定法人以外応募なし」という理由が3年連続で同一の説明として記載されている。これは形式上の公募が行われた上で、結果的にUR都市機構1社のみが受注する構造が定常化していることを示している。</p>
+
+<p>UR都市機構は<strong>国土交通省所管の独立行政法人</strong>であり、歴代理事長・理事は国交省の事務次官・局長級の出身者が占める典型的な天下り先である。F-REI敷地造成という巨額事業が、国交省所管の独法に3年連続で集中している事実は、復興庁→国交省OB団体への資金フローの一例である。</p>
+
+<hr>
+
+<h2 class="sec-h2"><span class="sec-num">08</span>F-REI役員の人事構造</h2>
+
+<p>復興庁から3年で¥138億が流入したF-REIの中枢人事を見ると、復興庁・文部科学省との人的繋がりが明確に確認できる。F-REIが原子力委員会(令和5年5月)に提出した組織体制資料によれば、初代の主要役員構成は以下の通り。</p>
+
+<table class="data-table">
+<thead><tr><th>役職</th><th>氏名</th><th>前職・経歴</th></tr></thead>
+<tbody>
+<tr><td><strong>理事長</strong></td><td>山崎 光悦</td><td>前金沢大学長 → <strong>復興庁参与(2022)</strong> → F-REI理事長(2023)</td></tr>
+<tr><td>理事</td><td>江村 克己</td><td>前NECシニアアドバイザー</td></tr>
+<tr><td><strong>理事</strong></td><td>木村 直人</td><td><strong>前文部科学省審議官</strong>(文科省OB)</td></tr>
+<tr><td>執行役</td><td>大和田 祐二</td><td>東北大学教授(前総長特別補佐)</td></tr>
+<tr><td><strong>執行役</strong></td><td>坂内 俊洋</td><td><strong>前復興庁参事官</strong>(復興庁OB)</td></tr>
+<tr><td>理事長特別顧問</td><td>中西 友子</td><td>前星薬科大学長</td></tr>
+</tbody>
+</table>
+
+<p>主要役員6名のうち、3名が復興庁・文部科学省と直接の人的関係を持つ。</p>
+
+<ul>
+<li><strong>理事長</strong>: 山崎光悦氏は2022年に「<strong>復興庁参与</strong>」に就任し、その後F-REI理事長に内閣総理大臣指名された(2022年7月22日)。復興庁内部から推薦された人事である。</li>
+<li><strong>理事</strong>: 木村直人氏は<strong>前文部科学省審議官</strong>。F-REIは文科省も所管する機関で、文科省OBが理事として運営に関与している。</li>
+<li><strong>執行役</strong>: 坂内俊洋氏は<strong>前復興庁参事官</strong>。復興庁から直接F-REIに移籍した人事である。</li>
+</ul>
+
+<p>つまりF-REIは「復興庁参与経由の理事長 + 文科省OB理事 + 復興庁OB執行役」という、復興庁・文科省の内部人材によって運営される研究機関である。そこに復興庁が3年で¥138億の予算を集中させている構造である。</p>
+
+<p>これは「公募したが特定法人以外応募がない」というUR都市機構への発注と並行して、F-REI自体の中枢が復興庁・文科省人事で固められている事実を示している。発注側(復興庁)と受注側(F-REI、UR都市機構)の双方に、復興庁・各省庁OBが配置される構造である。</p>
+
+<hr>
+
+<h2 class="sec-h2"><span class="sec-num">09</span>大阪・関西万博「復興PR」3年で¥4.74億</h2>
+
+<p>復興庁の公共調達には、もう一つ注目すべき項目がある。「<strong>『大阪・関西万博』を契機とした復興に向けた情報発信強化事業</strong>」である。</p>
+
+<p>この事業名で、3年連続して大日本印刷株式会社が随意契約で受注している。</p>
+
+<table class="data-table">
+<thead><tr><th>年度</th><th>契約日</th><th>受注先</th><th class="num">契約金額</th></tr></thead>
+<tbody>
+<tr><td>R5</td><td>2023年5月31日</td><td>大日本印刷株式会社</td><td class="num">¥31,959,240</td></tr>
+<tr><td>R6</td><td>2024年4月12日</td><td>大日本印刷株式会社</td><td class="num">¥227,737,386</td></tr>
+<tr><td>R7</td><td>2025年4月1日</td><td>大日本印刷株式会社</td><td class="num">¥213,955,153</td></tr>
+<tr><td><strong>合計</strong></td><td></td><td></td><td class="num num-red"><strong>¥473,651,779</strong></td></tr>
+</tbody>
+</table>
+
+<p>3年合計<strong>¥4.74億円</strong>。R5の¥0.32億からR6の¥2.28億(7倍)に急増し、R7も¥2.14億の規模を維持した。</p>
+
+<p>事業名の構造に注目したい。「<strong>『大阪・関西万博』を契機とした</strong>」という表現は、2025年4月開幕の大阪・関西万博を機会として、福島の「復興している姿」を発信する事業という位置付けである。つまり、復興予算が大阪万博の福島ブース運営費・展示制作費に流れる構造である。</p>
+
+<p>同じく企画競争による随意契約で、3年連続で大手広告代理店・メディアに「海外向け情報発信」「風評払拭」の名目で発注されている事業もある。</p>
+
+<table class="data-table">
+<thead><tr><th>事業名</th><th>R5</th><th>R6</th><th>R7</th><th>3年合計</th></tr></thead>
+<tbody>
+<tr><td>海外に向けた情報発信業務</td><td>電通PR ¥3.54億</td><td>電通PR ¥3.87億</td><td>電通PR ¥4.04億</td><td class="num">¥11.45億</td></tr>
+<tr><td>風評払拭のための多様なメディア・コンテンツによる情報発信事業</td><td>読売新聞東京 ¥3.30億</td><td>読売新聞東京 ¥3.70億</td><td>電通東日本 ¥3.76億</td><td class="num">¥10.75億</td></tr>
+<tr><td>「大阪・関西万博」を契機とした復興PR</td><td>大日本印刷 ¥0.32億</td><td>大日本印刷 ¥2.28億</td><td>大日本印刷 ¥2.14億</td><td class="num">¥4.74億</td></tr>
+<tr><td>被災地の食材を活用した風評払拭(R5のみ)</td><td>読売新聞大阪 ¥0.30億</td><td>-</td><td>-</td><td class="num">¥0.30億</td></tr>
+<tr><td><strong>合計</strong></td><td><strong>¥7.46億</strong></td><td><strong>¥9.85億</strong></td><td><strong>¥9.94億</strong></td><td class="num num-red"><strong>¥27.24億</strong></td></tr>
+</tbody>
+</table>
+
+<p>大手広告代理店・メディア4社(電通PR、電通東日本、読売新聞、大日本印刷)に、3年合計<strong>¥27.24億円</strong>が流れている。全件「企画競争による選定」を理由とする随意契約である。</p>
+
+<p>「復興」予算の中で、「復興している姿を世界に発信する」事業に毎年¥10億規模が支出されている構造である。同じ復興庁予算で、まだ仮設住宅に住んでいる被災者向けの「供与延長+解体撤去」予算は¥4億円である。</p>
+
+<hr>
+
+<h2 class="sec-h2"><span class="sec-num">10</span>R7予算の優先順位 ── 仮設¥4億 vs F-REI¥104億</h2>
+
+<p>これまで見てきた各項目の金額を、令和7年度復興庁予算の中で並べると、優先順位の構造が浮かび上がる。</p>
+
+<div class="figure">
+<svg viewBox="0 0 700 360" xmlns="http://www.w3.org/2000/svg">
+<style>
+.lbl{font:11px 'Noto Sans JP',sans-serif;fill:#c9d1d9}
+.amt{font:12px 'Share Tech Mono',monospace;fill:#f0f6fc;font-weight:700}
+.amt-red{font:12px 'Share Tech Mono',monospace;fill:#e63946;font-weight:700}
+</style>
+<rect x="0" y="0" width="700" height="360" fill="#0d1117"/>
+<text x="20" y="30" class="lbl" font-size="13" font-weight="700" fill="#f0f6fc">R7予算の主要項目(絶対金額比較)</text>
+
+<!-- 仮設住宅 -->
+<text x="20" y="65" class="lbl">仮設住宅(供与延長+解体撤去)</text>
+<rect x="280" y="55" width="8" height="14" fill="#43aa8b"/>
+<text x="296" y="66" class="amt">¥4億</text>
+
+<!-- 被災者生活再建支援金 -->
+<text x="20" y="95" class="lbl">被災者生活再建支援金補助</text>
+<rect x="280" y="85" width="14" height="14" fill="#43aa8b"/>
+<text x="302" y="96" class="amt">¥7億</text>
+
+<!-- 大阪万博復興PR -->
+<text x="20" y="125" class="lbl">大阪万博復興PR(R7単年)</text>
+<rect x="280" y="115" width="6" height="14" fill="#f4a261"/>
+<text x="294" y="126" class="amt">¥2.14億</text>
+
+<!-- 海外向け情報発信 -->
+<text x="20" y="155" class="lbl">海外向け情報発信(R7単年)</text>
+<rect x="280" y="145" width="11" height="14" fill="#f4a261"/>
+<text x="299" y="156" class="amt">¥4.04億</text>
+
+<!-- 国営追悼施設 -->
+<text x="20" y="185" class="lbl">国営追悼・祈念施設整備</text>
+<rect x="280" y="175" width="82" height="14" fill="#f4a261"/>
+<text x="370" y="186" class="amt">¥41億</text>
+
+<!-- F-REI関連事業 -->
+<text x="20" y="215" class="lbl">F-REI関連事業(R7予算)</text>
+<rect x="280" y="205" width="328" height="14" fill="#e63946"/>
+<text x="616" y="216" class="amt-red">¥164億</text>
+
+<!-- F-REI敷地造成(UR1件) -->
+<text x="20" y="245" class="lbl">F-REI敷地造成1件(UR)</text>
+<rect x="280" y="235" width="207" height="14" fill="#e63946"/>
+<text x="495" y="246" class="amt-red">¥103.5億</text>
+
+<!-- 被災者支援全部 -->
+<text x="20" y="275" class="lbl">被災者支援(全部・R7予算)</text>
+<rect x="280" y="265" width="180" height="14" fill="#4895ef"/>
+<text x="468" y="276" class="amt">¥199億</text>
+
+<!-- 原子力災害復興全部 -->
+<text x="20" y="305" class="lbl">原子力災害復興(R7予算)</text>
+<rect x="280" y="295" width="600" height="14" fill="#e63946" opacity="0.6"/>
+<text x="616" y="306" class="amt-red">¥3,355億</text>
+
+<text x="20" y="340" class="lbl" font-size="9" fill="#6e7681">出典: 令和7年度復興庁当初予算概要(2025/3/31)・公共調達情報。F-REI敷地造成¥103.5億はUR都市機構1社への1件随意契約。</text>
+</svg>
+<div class="caption">図: 令和7年度復興庁予算の主要項目(絶対金額)。仮設住宅¥4億と、国営追悼施設¥41億・F-REI敷地造成1件¥103.5億の対比。</div>
+</div>
+
+<p>この絶対金額の比較から、令和7年度復興庁予算の構造が見える。</p>
+
+<ul>
+<li>まだ仮設住宅に住んでいる被災者向けの「供与延長+解体撤去」 = <strong>¥4億</strong></li>
+<li>国営の追悼・祈念施設整備事業 = <strong>¥41億</strong>(仮設住宅の10倍)</li>
+<li>F-REI研究機関の敷地造成事業1件 = <strong>¥103.5億</strong>(仮設住宅の26倍)</li>
+<li>大阪万博「復興PR」(R7単年) = <strong>¥2.14億</strong>(仮設住宅の半分強)</li>
+<li>原子力災害復興(全部) = <strong>¥3,355億</strong>(復興庁所管予算の69%)</li>
+</ul>
+
+<p>事実関係を整理する。福島県大熊町・双葉町の応急仮設住宅は、2026年3月末まで供与期間が延長されている(2024年7月の復興庁・福島県の決定による)。震災から15年が経過した今も、被災者の中に仮設住宅で生活している人がいる現実がある。同じ令和7年度予算の中で、「復興している姿」を海外と大阪万博で発信する事業に¥6億円超が支出されている。</p>
+
+<p>これらの数字をどう評価するかは、本稿の判断する範囲ではない。本稿は事実を並べて、判断を読者に委ねる。</p>
+
+<hr>
+
+<h2 class="sec-h2"><span class="sec-num">11</span>補助金¥218.9億の構造 ── 福島県とF-REIへの集中</h2>
+
+<p>復興庁の補助金交付の構造も検証する。令和5年度から令和7年度上半期までの3年間で、復興庁が交付した補助金は<strong>728件・¥218.9億円</strong>である。</p>
+
+<table class="data-table">
+<thead><tr><th>順位</th><th>交付先</th><th class="num">件数</th><th class="num">合計金額</th></tr></thead>
+<tbody>
+<tr><td>1</td><td>福島県</td><td class="num">24件</td><td class="num">¥81.5億</td></tr>
+<tr><td>2</td><td><strong>福島国際研究教育機構(F-REI)</strong></td><td class="num">1件</td><td class="num num-red"><strong>¥21.25億</strong></td></tr>
+<tr><td>3</td><td>浪江町</td><td class="num">19件</td><td class="num">¥11.5億</td></tr>
+<tr><td>4</td><td>南相馬市</td><td class="num">19件</td><td class="num">¥11.3億</td></tr>
+<tr><td>5</td><td>内閣共済組合</td><td class="num">8件</td><td class="num">¥10.5億</td></tr>
+<tr><td>6</td><td>富岡町</td><td class="num">16件</td><td class="num">¥6.5億</td></tr>
+<tr><td>20</td><td>株式会社三菱UFJ銀行</td><td class="num">5件</td><td class="num">¥1.29億</td></tr>
+</tbody>
+</table>
+
+<p>注目すべきは2点ある。</p>
+
+<p>第一に、第2位の<strong>福島国際研究教育機構(F-REI)が1件で¥21.25億</strong>を受け取っている事実である。事業名は「新産業創出等研究開発推進事業費補助金」で、F-REIの運営費に充てられる補助金である。第7章で見た公共調達¥116.9億と合わせると、F-REIには3年で<strong>¥138.15億</strong>が流れている。</p>
+
+<p>第二に、第20位の<strong>三菱UFJ銀行 5件¥1.29億</strong>である。事業名は「復興特区利子補給金」で、被災企業向けの融資の利子分を国が補助する制度である。最終的な受益者は被災企業だが、補助金の交付先として銀行が経由する仕組みになっている。同様の利子補給金は、復興庁の補助金事業全体で207件¥7.68億円の規模である。</p>
+
+<p>事業名別では、最大は「被災者支援総合交付金」で139件¥78.6億円である。これは各自治体に一括交付され、自治体が「心のケア」「コミュニティ形成」「見守り」等に分配する形である。個別の使途は復興庁の調達情報からは見えず、自治体側の支出情報を取得しなければ実態は把握できない。</p>
+
+<p>次に大きいのは「福島再生加速化交付金」関連で、3つの回(第42回・第46回・第50回)を合計すると¥80.79億円の規模になる。これらも自治体経由で支出されるため、最終的な発注先は復興庁の調達情報からは追跡できない。</p>
+
+<p>令和7年度予算では「福島再生加速化交付金¥599億」と計上されているが、補助金記録ではその一部しか見えていない。これは「見えない¥4,008億」の一部であり、自治体側の調達情報を別途取得することで初めて全容が見える構造である。</p>
+
+<hr>
+
+<h2 class="sec-h2"><span class="sec-num">12</span>結論 ──「復興」の名目と、構造の3度目</h2>
+
+<p>本稿で検証した事実関係を整理する。</p>
+
+<ul>
+<li>令和7年度復興庁所管予算は¥4,864億である。</li>
+<li>このうち復興庁が自身で執行できるのは¥856億(17.6%)のみで、残り¥4,008億(82.4%)は各府省庁が「復興庁名義」で執行している。</li>
+<li>この構造は、2011年12月の復興庁設置法の議院修正で形成された。政府案では復興庁の権限が「復興特区・復興交付金等」に限定されていたが、民主党・自民党・公明党の3党を含む5党派共同修正案で「予算の一括要求、関係行政機関への配分等」が追加された。</li>
+<li>同じ委員会で、みんなの党は「被災自治体への権限移譲」を含む対案を提出したが、否決された。自治体への権限移譲というオプションは、当時の国会の選択肢の中に存在していた。</li>
+<li>復興庁の事務次官は財務省・国交省・総務省を中心に各省庁が交代で出向する人事構造になっている。</li>
+<li>復興庁の公共調達(R5+R6+R7合計495件¥289.6億)の99.9%が随意契約である。</li>
+<li>その中で、UR都市機構経由のF-REI敷地造成は3年で¥113.6億。UR都市機構の受注額はR5の¥449万からR7の¥103.54億まで、3年で2,300倍に拡大した。</li>
+<li>F-REIの主要役員には、復興庁参与経由の理事長、文科省OBの理事、復興庁OBの執行役が含まれる。</li>
+<li>広告代理店・メディア4社(電通PR、電通東日本、読売新聞、大日本印刷)に3年で¥27.24億円が「海外情報発信」「風評払拭」「大阪万博復興PR」名目で随意契約発注されている。</li>
+<li>同じR7予算で、まだ仮設住宅に住んでいる被災者向けの「供与延長+解体撤去」予算は¥4億である。国営追悼施設整備¥41億、F-REI敷地造成1件¥103.5億の規模と並んでいる。</li>
+</ul>
+
+<p>本シリーズでは、これまでに2つの「他人の金を他人のために使う」構造を検証してきた。</p>
+
+<ul>
+<li><strong>第1号(2026年6月4日):横浜国際園芸博覧会(花博)¥953億</strong> ── 公益社団法人の事業費が¥540億から¥953億に1.76倍に増額され、確定財源¥417億に対し皮算用¥536億で組み立てられた構造。</li>
+<li><strong>第2号(2026年6月7日):復興庁¥4,864億</strong> ── 「司令塔」を謳う復興庁が、自らの所管予算の82.4%を統制下に置かない構造。</li>
+</ul>
+
+<p>両者に共通するのは、「公益」「復興」「国家的事業」といった大義名分の下で、税金が「使われる側」(被災者本人、納税者)から離れた場所で配分される構造である。</p>
+
+<p>復興税(2013-2037の25年間)を負担し続ける現役世代と、復興債の償還を負担する次世代の双方にとって、「自分たちの納めた税金が誰のためにどう使われているか」を一次資料から検証することは、民主主義における主権者の基本的な責務である。</p>
+
+<p>本稿は、東日本大震災からの「復興」と呼ばれる金の流れの一部を、復興庁公式が公開する一次資料に基づいて構造化したものである。残り¥4,008億の各府省庁執行分、特に中間貯蔵¥1,045億・特定帰還居住区域¥620億・福島再生加速化交付金¥599億等の最終的な発注先は、各府省庁・自治体の調達情報を別途取得することで初めて見える。これらは継続して検証を行う対象である。</p>
+
+<p>「復興している姿」を海外と大阪万博で発信する事業に金が流れる一方、仮設住宅に住む被災者が存在する現実は、復興庁公式の予算項目に並列して記載されている。この構造を読者がどう評価するかは、本稿の判断する範囲ではない。本稿が示すのは、事実関係のみである。</p>
+
+<div class="callout">
+<p><strong>本稿のすべてのデータは、復興庁・財務省・F-REI・国会会議録の公開情報のみから検証可能である。ダッシュボード上の対応省庁カード(復興庁)から、R5/R6/R7の公共調達495件・補助金728件の個別データに直接アクセスできる。読者自身による検証を強く推奨する。</strong></p>
+</div>
+
+<hr>
+
+<h3>主要一次資料</h3>
+
+<ul>
+<li>復興庁 予算執行等に係る情報の公表(公共調達・補助金):<a href="https://www.reconstruction.go.jp/topics/post_39.html" target="_blank">https://www.reconstruction.go.jp/topics/post_39.html</a></li>
+<li>令和7年度復興庁当初予算概要(2025年3月31日公表):<a href="https://www.reconstruction.go.jp/files/user/topics/main-cat8/sub-cat8-3/250401_toushoyosangaiyo.pdf" target="_blank">PDF</a></li>
+<li>復興庁「復興政策10年間の振り返り」第2章第2節 組織体制:<a href="https://www.reconstruction.go.jp/311kyoukun/archive/chapter2-verse2.html" target="_blank">https://www.reconstruction.go.jp/311kyoukun/archive/chapter2-verse2.html</a></li>
+<li>復興庁「復興政策10年間の振り返り」第2章第4節 予算・税制:<a href="https://www.reconstruction.go.jp/311kyoukun/archive/chapter2-verse4.html" target="_blank">https://www.reconstruction.go.jp/311kyoukun/archive/chapter2-verse4.html</a></li>
+<li>福島国際研究教育機構(F-REI):<a href="https://www.f-rei.go.jp/" target="_blank">https://www.f-rei.go.jp/</a></li>
+<li>福島国際研究教育機構(F-REI)組織体制資料(第17回原子力委員会・令和5年5月):<a href="https://www.aec.go.jp/kaigi/teirei/2023/siryo17/1_haifu.pdf" target="_blank">PDF</a></li>
+<li>独立行政法人都市再生機構(UR都市機構):<a href="https://www.ur-net.go.jp/" target="_blank">https://www.ur-net.go.jp/</a></li>
+<li>復興庁設置法(平成23年法律第125号):e-Gov 法令検索</li>
+<li>第179回国会 衆議院東日本大震災復興特別委員会議事録(2011年12月2日・5日・6日):衆議院 国会会議録検索システム</li>
+<li>令和7年度東日本大震災復興特別会計各目明細書:e-Gov データセンター</li>
+</ul>
+
+<div class="share-box">
+<div class="share-label">SHARE</div>
+<div class="share-btns">
+<a href="https://twitter.com/intent/tweet?text=%E5%BE%A9%E8%88%88%E5%BA%81%C2%A54%2C864%E5%84%84%E2%80%95%E3%80%8C%E5%8F%B8%E4%BB%A4%E5%A1%94%E3%80%8D%E3%81%8C%E7%B5%B1%E6%8B%AC%E3%81%A7%E3%81%8D%E3%82%8B%E9%87%91%E3%81%AF%C2%A5856%E5%84%84%2817.6%25%29&url=https%3A//nana6fu.github.io/fiscal-osint-japan/articles/fukko-article.html" target="_blank" class="share-btn share-btn-x">𝕏 で共有</a>
+</div>
+</div>
+
+</div>
+
+<footer class="site">
+  Fiscal OSINT Japan / Powered by <a href="https://twitter.com/FiscalOSINT_JP">@FiscalOSINT_JP</a> · SN0W8ALL LLC
+</footer>
+
+</body>
+</html>
