@@ -1088,6 +1088,7 @@ function toggleCrossBot(){
     <div style="display:flex;flex-wrap:wrap;gap:6px;align-items:center;margin-top:6px;padding-top:8px;border-top:1px solid #1f2937;">
       <select id="yearSel" style="background:#0d1117;color:#c9d1d9;border:1px solid #30363d;border-radius:4px;padding:4px 10px;font-size:12px;font-weight:600;cursor:pointer;">
         <option value="2006">2006年度（平成18年度）</option>
+        <option value="2026">2026年度（令和8年度）</option>
         <option value="2025">2025年度（令和7年度）</option>
         <option value="2024">2024年度（令和6年度）</option>
         <option value="2023">2023年度（令和5年度）</option>
@@ -2281,6 +2282,7 @@ var API_KEY = "YOUR_API_KEY_HERE";
 
 var SOURCES = {
   fukko_r7_proc: {label:"📄 復興庁 予算執行等に係る情報の公表（公共調達・補助金）", url:"https://www.reconstruction.go.jp/topics/post_39.html"},
+  fukko_r8_haibun: {label:"📄 復興庁R8予算配分(箇所付け・福島県集中)", url:"https://www.reconstruction.go.jp/topics/cat-55/cat-57/cat-215/202604071057379531/"},
   fukko_r7_yosan: {label:"📄 令和7年度復興庁当初予算概要(2025/3/31)", url:"https://www.reconstruction.go.jp/files/user/topics/main-cat8/sub-cat8-3/250401_toushoyosangaiyo.pdf"},
   kaikei_h18: {label:"会計検査院 H18随意契約検査報告", url:"https://report.jbaudit.go.jp/org/h18/YOUSEI3/2006-h18-7008-0.htm"},
   shitsumon_169_141: {label:"衆議院質問主意書 第169回国会 第141号（鈴木宗男議員提出）", url:"https://www.shugiin.go.jp/internet/itdb_shitsumon.nsf/html/shitsumon/a169141.htm"},
@@ -4485,6 +4487,25 @@ var MINISTRIES_2025 = [
 
 ];
 
+var MINISTRIES_2026 = [
+  {
+    id:"fukkocho",
+    name:"復興庁",
+    alert:true,
+    tag:"R8予算配分 第1弾(箇所付け)・全て福島県集中",
+    note:"令和8年度復興庁所管予算¥4,864億のうち、最初の予算配分(箇所付け)が2026年4月7日に公表された。総額¥87.23億で、全て福島県内の事業に集中。R7予算の復興庁直接執行分¥856億の約10.2%に相当する。残り¥4,777億は今後順次箇所付けが公表される見込み。データ取得は復興庁スクレイパー v0.3(scripts/scrape_fukko.py)で個別ニュースページから自動取得。",
+    primary_facts:[
+      {text:"📄 <strong>R8予算配分第1弾:¥87.23億(全て福島県集中)</strong>:2026年4月7日公表。農林水産関係¥74.83億+国土交通関係¥12.40億。", src:"fukko_r8_haibun"}
+    ],
+    accounts:[
+      {name:"森林整備事業(補助)", amount_oku:56.61, alert:false, note:"福島県10町村の森林整備事業に対する補助金。森林環境保全造林¥47.30億+水源林造成¥0.90億等。", contract:"補助金", src_key:"fukko_r8_haibun", src_url:"https://www.reconstruction.go.jp/topics/cat-55/cat-57/cat-215/202604071057379531/"},
+      {name:"森林整備事業(直轄)", amount_oku:17.22, alert:false, note:"関東森林管理局直轄の森林整備。阿武隈川¥1.93億+奥久慈¥8.80億+磐城¥6.49億。", contract:"直轄", src_key:"fukko_r8_haibun", src_url:"https://www.reconstruction.go.jp/topics/cat-55/cat-57/cat-215/202604071057379531/"},
+      {name:"社会資本整備総合交付金(復興)", amount_oku:13.30, alert:false, note:"道路整備¥8.94億+水災害対策¥4.36億。福島県の復興事業向け。", contract:"交付金", src_key:"fukko_r8_haibun", src_url:"https://www.reconstruction.go.jp/topics/cat-55/cat-57/cat-215/202604071057379531/"},
+      {name:"治山事業(補助)", amount_oku:1.00, alert:false, note:"大熊町湯の神での治山事業。", contract:"補助金", src_key:"fukko_r8_haibun", src_url:"https://www.reconstruction.go.jp/topics/cat-55/cat-57/cat-215/202604071057379531/"}
+    ]
+  }
+];
+
 document.getElementById("yearSel").addEventListener("change", function(){
   if(this.value === "2023"){
     MINISTRIES_ACTIVE = MINISTRIES_2023;
@@ -4524,6 +4545,19 @@ document.getElementById("yearSel").addEventListener("change", function(){
     document.querySelector(".sum-item:nth-child(4) .sum-val").innerHTML = '1,297<span style="font-size:13px">兆円</span>';
     document.querySelector(".sum-item:nth-child(4) .sum-sub").textContent = "国民1人あたり約1,040万円";
     document.querySelector(".sum-item:nth-child(1) .sum-label").textContent = "特別会計 歳出総額";
+  } else if(this.value === "2026"){
+    MINISTRIES_ACTIVE = MINISTRIES_2026;
+    document.getElementById("headerSrc").textContent = "公的資金の流れを、公開情報から検証する ｜ R8(令和8年度) データ収集中・スクレイパー稼働";
+    document.querySelector(".sum-item:nth-child(1) .sum-val").innerHTML = '87<span style="font-size:13px">億円</span>';
+    document.querySelector(".sum-item:nth-child(1) .sum-sub").textContent = "復興庁R8予算配分 第1弾(2026/4/7公表)・全て福島県集中";
+    document.querySelector(".sum-item:nth-child(1) .sum-label").textContent = "R8予算配分 第1弾(箇所付け)";
+    document.querySelector(".sum-item:nth-child(2) .sum-val").innerHTML = '集計中';
+    document.querySelector(".sum-item:nth-child(2) .sum-sub").textContent = "R8データ収集中(scripts/scrape_fukko.py 自動取得)";
+    document.querySelector(".sum-item:nth-child(3) .sum-val").innerHTML = '14<span style="font-size:13px">会計</span>';
+    document.querySelector(".sum-item:nth-child(3) .sum-sub").textContent = "R5/R6/R7と同じ(統廃合なし)";
+    document.querySelector(".sum-item:nth-child(3) .sum-label").textContent = "特別会計数(令和8年度)";
+    document.querySelector(".sum-item:nth-child(4) .sum-val").innerHTML = '集計中';
+    document.querySelector(".sum-item:nth-child(4) .sum-sub").textContent = "R8年度末値は2027年度集計";
   } else if(this.value === "2025"){
     MINISTRIES_ACTIVE = MINISTRIES_2025;
     document.getElementById("headerSrc").textContent = "公的資金の流れを、公開情報から検証する ｜ 特別会計・公共調達・政治資金・情報公開請求";
@@ -4564,7 +4598,20 @@ var MINISTRIES_ACTIVE = MINISTRIES;
 // 初期年度に合わせてヘッダー更新
 (function(){
   var yr = document.getElementById("yearSel").value;
-  if(yr === "2025"){
+  if(yr === "2026"){
+    MINISTRIES_ACTIVE = MINISTRIES_2026;
+    document.getElementById("headerSrc").textContent = "公的資金の流れを、公開情報から検証する ｜ R8(令和8年度) データ収集中・スクレイパー稼働";
+    document.querySelector(".sum-item:nth-child(1) .sum-val").innerHTML = '87<span style="font-size:13px">億円</span>';
+    document.querySelector(".sum-item:nth-child(1) .sum-sub").textContent = "復興庁R8予算配分 第1弾(2026/4/7公表)・全て福島県集中";
+    document.querySelector(".sum-item:nth-child(1) .sum-label").textContent = "R8予算配分 第1弾(箇所付け)";
+    document.querySelector(".sum-item:nth-child(2) .sum-val").innerHTML = '集計中';
+    document.querySelector(".sum-item:nth-child(2) .sum-sub").textContent = "R8データ収集中(scripts/scrape_fukko.py 自動取得)";
+    document.querySelector(".sum-item:nth-child(3) .sum-val").innerHTML = '14<span style="font-size:13px">会計</span>';
+    document.querySelector(".sum-item:nth-child(3) .sum-sub").textContent = "R5/R6/R7と同じ(統廃合なし)";
+    document.querySelector(".sum-item:nth-child(3) .sum-label").textContent = "特別会計数(令和8年度)";
+    document.querySelector(".sum-item:nth-child(4) .sum-val").innerHTML = '集計中';
+    document.querySelector(".sum-item:nth-child(4) .sum-sub").textContent = "R8年度末値は2027年度集計";
+  } else if(yr === "2025"){
     MINISTRIES_ACTIVE = MINISTRIES_2025;
   } else if(yr === "2024"){
     MINISTRIES_ACTIVE = MINISTRIES_2024;
