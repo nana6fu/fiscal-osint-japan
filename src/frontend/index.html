@@ -2283,6 +2283,7 @@ var API_KEY = "YOUR_API_KEY_HERE";
 var SOURCES = {
   fukko_r7_proc: {label:"📄 復興庁 予算執行等に係る情報の公表（公共調達・補助金）", url:"https://www.reconstruction.go.jp/topics/post_39.html"},
   fukko_r8_haibun: {label:"📄 復興庁R8予算配分(箇所付け・福島県集中)", url:"https://www.reconstruction.go.jp/topics/cat-55/cat-57/cat-215/202604071057379531/"},
+  mlit_r8: {label:"📄 国土交通省R8道路関係予算", url:"https://www.mlit.go.jp/page/kanbo05_hy_003397.html"},
   fukko_r7_yosan: {label:"📄 令和7年度復興庁当初予算概要(2025/3/31)", url:"https://www.reconstruction.go.jp/files/user/topics/main-cat8/sub-cat8-3/250401_toushoyosangaiyo.pdf"},
   kaikei_h18: {label:"会計検査院 H18随意契約検査報告", url:"https://report.jbaudit.go.jp/org/h18/YOUSEI3/2006-h18-7008-0.htm"},
   shitsumon_169_141: {label:"衆議院質問主意書 第169回国会 第141号（鈴木宗男議員提出）", url:"https://www.shugiin.go.jp/internet/itdb_shitsumon.nsf/html/shitsumon/a169141.htm"},
@@ -4502,6 +4503,17 @@ var MINISTRIES_2026 = [
       {name:"森林整備事業(直轄)", amount_oku:17.22, alert:false, note:"関東森林管理局直轄の森林整備。阿武隈川¥1.93億+奥久慈¥8.80億+磐城¥6.49億。", contract:"直轄", src_key:"fukko_r8_haibun", src_url:"https://www.reconstruction.go.jp/topics/cat-55/cat-57/cat-215/202604071057379531/"},
       {name:"社会資本整備総合交付金(復興)", amount_oku:13.30, alert:false, note:"道路整備¥8.94億+水災害対策¥4.36億。福島県の復興事業向け。", contract:"交付金", src_key:"fukko_r8_haibun", src_url:"https://www.reconstruction.go.jp/topics/cat-55/cat-57/cat-215/202604071057379531/"},
       {name:"治山事業(補助)", amount_oku:1.00, alert:false, note:"大熊町湯の神での治山事業。", contract:"補助金", src_key:"fukko_r8_haibun", src_url:"https://www.reconstruction.go.jp/topics/cat-55/cat-57/cat-215/202604071057379531/"}
+    ]
+},
+  {
+    id:"mlit",
+    name:"国土交通省",
+    alert:false,
+    tag:"R8道路関係予算配分・東京37件¥9.05億",
+    note:"令和8年度国土交通省関係の道路・水管理予算配分。",
+    accounts:[
+      {name:"東京地方整備局", amount_oku:9.05, alert:false, note:"37件。国道15号、東京246号環境対策等。", contract:"予算配分", src_key:"mlit_r8", src_url:"https://www.mlit.go.jp/page/kanbo05_hy_003397.html"},
+      {name:"沖縄地方整備局", amount_oku:6.70, alert:false, note:"24件。沖縄県内の道路関係予算配分。", contract:"予算配分", src_key:"mlit_r8", src_url:"https://www.mlit.go.jp/page/kanbo05_hy_003397.html"}
     ]
   }
 ];
