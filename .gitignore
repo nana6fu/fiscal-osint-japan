@@ -36,3 +36,4 @@ articles/_draft/
 
 # 有償API候補データ（git管理外）
 data/api_premium/
+mlit_kanto_dl/r7_full/
