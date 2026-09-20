@@ -2711,7 +2711,7 @@ var MINISTRIES_2023 = [
 <div style="color:#ffbb44">✓ 2026-05-29　補正書提出</div>
 <div style="color:#ffbb44">✓ 2026-06-15　開示期限延長通知受領</div>
 <div style="color:#ffbb44">✅ MHLW-2025-01　開示資料受領（開第269号）</div>
-<div style="margin:8px 0 10px;padding:8px;border:1px solid #555;border-radius:5px;background:#161616">
+<div id="mhlw-2025-01" style="margin:8px 0 10px;padding:8px;border:1px solid #555;border-radius:5px;background:#161616">
 <div style="font-weight:bold;color:#fff;margin-bottom:7px">📂 開示資料（開第269号・全3枚）</div>
 <div style="display:flex;gap:8px;flex-wrap:wrap">
 <a href="assets/evidence/mhlw_kaiji269_cover.jpeg" target="_blank"><img src="assets/evidence/mhlw_kaiji269_cover.jpeg" style="width:110px;height:150px;object-fit:cover;object-position:top;border:1px solid #555;border-radius:3px" alt="開示送付状"><div style="font-size:10px;color:#66b3ff;text-align:center">開示送付状</div></a>
@@ -8262,6 +8262,27 @@ document.addEventListener('DOMContentLoaded', function(){
   renderStage2Phase2();
   var ys = document.querySelector('select');
   if (ys) ys.addEventListener('change', renderStage2Phase2);
+});
+
+
+document.addEventListener("DOMContentLoaded", function(){
+  if(window.location.hash !== "#mhlw-2025-01") return;
+
+  var ys = document.getElementById("yearSel");
+  if(!ys) return;
+
+  ys.value = "2023";
+  ys.dispatchEvent(new Event("change"));
+
+  setTimeout(function(){
+    var m = MINISTRIES_ACTIVE.find(function(x){ return x.id === "mhlw"; });
+    if(m) selectMinistry(m);
+
+    setTimeout(function(){
+      var target = document.getElementById("mhlw-2025-01");
+      if(target) target.scrollIntoView({behavior:"smooth", block:"center"});
+    }, 150);
+  }, 150);
 });
 
 </script>
