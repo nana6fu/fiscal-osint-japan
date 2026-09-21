@@ -28,11 +28,27 @@
 - 公開PDF：assets/evidence/mhlw_kaiji262_3_reconsignment.pdf
 - 直リンク：#mhlw-2025-02
 
+### 追加開示資料：開第262号の4
+
+- 資料名：履行体制図（様式3）
+
+- 全142ページ
+
+- 年金業務システム（フェーズ2）に係る履行体制図
+
+- 事業者名、住所、業務の範囲等の主要記載部分が広範囲に不開示
+
+- 開示PDFのみからは、個々の不開示部分の理由は確認できない
+
+- 公開PDF：assets/evidence/mhlw_kaiji262_4_structure.pdf
+
 ## Git記録
 
 - 4332aba docs: publish MHLW-2025-01 disclosure documents
 - 4229e6b feat: add direct link to MHLW-2025-01 disclosure
 - 93306e2 docs: publish MHLW-2025-02 reconsignment disclosure
+
+- 56f3566 docs: publish MHLW-2025-02 execution structure disclosure
 
 ## 公開・原本管理
 
