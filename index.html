@@ -2721,6 +2721,17 @@ var MINISTRIES_2023 = [
 </div>
 <div style="color:#ccc">📄 日立製作所：公金受取口座登録法改正（既裁定者）に係るシステム開発【年金給付システム】／契約予定金額 102,940,992円<br>随意契約理由：対象ソフトウェアの著作権が日立製作所に帰属し、第三者への利用許諾等が認められていないため、契約相手方が同社に特定されると説明。　<a href="assets/evidence/mhlw_kaiji269_hitachi.jpeg" target="_blank" style="color:#66b3ff">原文を見る</a></div>
 <div style="color:#ccc">📄 NTTデータ：広域災害・救急医療情報システム<br>随意契約理由：NTTデータが開発した同システムについて、同社が保有する機能を利用する必要があるため、契約相手方が同社に特定されると説明。　<a href="assets/evidence/mhlw_kaiji269_nttdata.jpeg" target="_blank" style="color:#66b3ff">原文を見る</a></div>
+
+<div style="margin-top:10px;color:#ffbb44">✅ MHLW-2025-02　開示資料受領（開第262号の3）</div>
+<div id="mhlw-2025-02" style="margin:8px 0 10px;padding:8px;border:1px solid #555;border-radius:5px;background:#161616">
+<div style="font-weight:bold;color:#fff;margin-bottom:7px">📂 再委託に係る承認申請書（様式1・全39ページ）</div>
+<div style="color:#ccc;line-height:1.7">
+📄 年金業務システム（フェーズ2）に係る設計・開発等の再委託承認申請書。<br>
+🚩 再委託先、業務範囲、合理的理由、契約予定金額等の主要記載部分が広範囲に不開示。<br>
+⚠️ DVD収録ファイルは本PDF1件。収録PDFのみからは、個々の黒塗り部分の不開示理由は確認できない。<br>
+<a href="assets/evidence/mhlw_kaiji262_3_reconsignment.pdf" target="_blank" style="color:#66b3ff">PDF原文を見る（39ページ）</a>
+</div>
+</div>
 </div>
 </div>`, src:"mhlw_nenkin_r5"},
       {text:"🏛 <strong>【制度的問題】なぜアクセンチュアは堂々と受注できるのか</strong>　①指名停止は省庁ごとに独立：デジタル庁の停止処分は厚労省・総務省等の契約に一切効力が及ばない。省庁横断の指名停止制度が存在しない。②利益相反規制に罰則がない：政府調達ガイドラインは「工程管理支援者はその管理対象の入札に参加不可」と定めるが、違反の認定・罰則規定がなく、確認する第三者機関も存在しない。③自己裁量の構造：利益相反の判断権限が発注省庁自身にあるため機能しない。問題はアクセンチュアではなく、これを許容する制度設計にある。📋情報公開請求で工程管理契約の「利益相反確認記録」の有無を確認予定。", src:"mhlw_nenkin_r5"},
@@ -8266,7 +8277,8 @@ document.addEventListener('DOMContentLoaded', function(){
 
 
 document.addEventListener("DOMContentLoaded", function(){
-  if(window.location.hash !== "#mhlw-2025-01") return;
+  var targetId = window.location.hash.replace("#", "");
+  if(targetId !== "mhlw-2025-01" && targetId !== "mhlw-2025-02") return;
 
   var ys = document.getElementById("yearSel");
   if(!ys) return;
@@ -8279,7 +8291,7 @@ document.addEventListener("DOMContentLoaded", function(){
     if(m) selectMinistry(m);
 
     setTimeout(function(){
-      var target = document.getElementById("mhlw-2025-01");
+      var target = document.getElementById(targetId);
       if(target) target.scrollIntoView({behavior:"smooth", block:"center"});
     }, 150);
   }, 150);
