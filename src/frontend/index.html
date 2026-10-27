@@ -6694,8 +6694,8 @@ function appendModMinistryItem(){
   div.innerHTML =
     '<div class="min-name">⚠ 防衛省</div>' +
     '<div class="min-count">全国地方防衛局</div>' +
-    '<div class="min-total">'+(function(){var _y=(document.getElementById('yearSel')||{}).value||'2024';if(_y==='2023')return'5,955.24';if(_y==='2025'||_y==='2026')return'5,362.87';return'6,831.62';})()+'億円</div>' +
-    (((document.getElementById('yearSel')||{}).value==='2026')?'<div class="min-tag">R8未公表・R7データ暫定</div>':'<div class="min-tag">要確認</div>');
+    '<div class="min-total">'+(function(){var _y=(document.getElementById('yearSel')||{}).value||'2024';if(_y==='2023')return'5,955.24';if(_y==='2025')return'5,362.87';return'6,831.62';})()+'億円</div>' +
+    (((document.getElementById('yearSel')||{}).value==='2026')?'<div class="min-tag">R8未公表・暫定表示</div>':'<div class="min-tag">要確認</div>');
 
   div.onclick = function(){ selectModMinistry(); };
   el.appendChild(div);
