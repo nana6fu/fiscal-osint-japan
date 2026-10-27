@@ -24,6 +24,9 @@ Recommended (but not required) citation:
 - 出典: 財務省 財政投融資特別会計 決算・予算
 - 関連記事: [80兆円対米投資の財源を、財政投融資特別会計から追跡する](../articles/80trillion.html)
 
+> **注記（2026-10-27 照合）**: jbic_5year.csv の R5・R8 は財務省の財政投融資ページで照合済み（R5 は実績、R8 は計画値）。政府保証（R5 は 4,303 億円）は含みません。R6・R7 は未照合です。
+> tokkai_zaitou_5year.csv の歳出総額は、財務省のページでは確認できていません（verification_status=未検証）。公開記事には使わないでください。
+
 #### 2. tokkai_zaitou_5year.csv — 財政投融資特別会計 歳出総額 5年推移
 財政投融資特別会計の全勘定合計の歳出総額。
 

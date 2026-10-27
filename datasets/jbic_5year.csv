@@ -1,6 +1,6 @@
-fiscal_year,year_label,fiscal_loan_to_jbic_oku,investment_account_to_jbic_oku,jbic_total_oku,budget_type,source_url
-R5,FY2023,9527,1030,10557,kessan,https://www.mof.go.jp/about_mof/mof_budget/special_account/zaitou/2023account.html
-R6,FY2024,1540,1210,2750,kessan,https://www.mof.go.jp/about_mof/mof_budget/special_account/zaitou/2024account.html
-R7_initial,FY2025_Initial,7200,1000,8200,initial_budget,https://www.mof.go.jp/about_mof/mof_budget/special_account/zaitou/2025budget.html
-R7_revised,FY2025_Supplementary,26600,3700,30300,supplementary_no1,https://www.mof.go.jp/about_mof/mof_budget/special_account/zaitou/2025budget.html
-R8_initial,FY2026_Initial,42527,1650,44177,initial_budget,https://www.mof.go.jp/about_mof/mof_budget/special_account/zaitou/2026budget.html
+fiscal_year,year_label,fiscal_loan_to_jbic_oku,investment_account_to_jbic_oku,jbic_total_oku,budget_type,source_type,source_url,source_pdf,note
+R5,FY2023,9527,1030,10557,kessan,財政投融資の実績（令和5年度）,https://www.mof.go.jp/policy/filp/reference/zaitojisseki/r05_zaitoujisseki.html,https://www.mof.go.jp/policy/budget/budger_workflow/budget/fy2023/tousyoyosetsu8.pdf,政府保証4303億円は除外。財政融資・産業投資のみ
+R6,FY2024,1540,1210,2750,kessan,未検証,https://www.mof.go.jp/about_mof/mof_budget/special_account/zaitou/2024account.html,,R6は今回未照合
+R7_initial,FY2025_Initial,7200,1000,8200,initial_budget,未検証,https://www.mof.go.jp/about_mof/mof_budget/special_account/zaitou/2025budget.html,,R7は今回未照合
+R7_revised,FY2025_Supplementary,26600,3700,30300,supplementary_no1,未検証,https://www.mof.go.jp/about_mof/mof_budget/special_account/zaitou/2025budget.html,,R7補正は今回未照合
+R8_initial,FY2026_Initial,42527,1650,44177,initial_budget,財政投融資計画（令和8年度）,https://www.mof.go.jp/policy/filp/reference/zaitojisseki/r08_zaitoujisseki.html,https://www.mof.go.jp/policy/budget/budger_workflow/budget/fy2026/tousyoyosetsu8.pdf,計画値。同ページの実績合計は財政融資7967億（別数字）
